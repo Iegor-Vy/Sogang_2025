@@ -1,0 +1,914 @@
+---
+title: "Mathematical Methods for International Commerce "
+subtitle: "<br/>Week 1/2: Basic Algebra"
+author: "Iegor Vyshnevskyi, Ph.D."
+institute: "Sogang University"
+date: "March 7, 2025"
+output:
+  xaringan::moon_reader:
+    #css: [default, metropolis, metropolis-fonts]
+    css: xaringan-themer.css
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: '16:9'
+---
+
+<style>
+@media print{
+  body, html, .remark-slides-area, .remark-notes-area {
+    height: 100% !important;
+    width: 100% !important;
+    overflow: visible;
+    display: inline-block;
+    }
+</style>
+
+<style type="text/css">
+.remark-slide-content {
+    font-size: 34px;
+    padding: 1em 4em 1em 4em;
+}
+</style>
+
+<style type="text/css">
+.my-one-page-font {
+  font-size: 28px;
+}
+</style>
+
+</style>
+
+<style type="text/css">
+.my-one-page-font-table {
+  font-size: 24px;
+}
+</style>
+
+
+```{r setup, include = FALSE}
+library(tidyverse)
+library(knitr)
+
+opts_chunk$set(fig.width = 10, 
+               message = FALSE, 
+               warning = FALSE,
+               echo = FALSE)
+```
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+#install.packages("xaringanthemer")
+library(xaringanthemer)
+style_mono_accent(
+  base_color = "#1c5253",
+  header_font_google = google_font("Josefin Sans"),
+  text_font_google   = google_font("Montserrat", "500", "550i"),
+  code_font_google   = google_font("Fira Mono"),
+  colors = c(
+  red = "#f34213",
+  purple = "#3e2f5b",
+  orange = "#ff8811",
+  green = "#136f63",
+  white = "#FFFFFF"
+)
+)
+```
+
+# Why Does Math Matter in Economics?
+
+- **Mathematics is everywhere** in economics and finance.
+
+- Helps us **analyze markets, optimize decisions, and manage risk**.
+
+- Today, we’ll explore **how banks use algebra** in international finance.  
+
+*Let’s dive in!*
+
+---
+
+# What we need to know for today's class?
+
+1. **Basic algebraic operations** (addition, subtraction, multiplication, division).
+
+2. **Negative numbers** and their use in financial calculations.
+
+3. **Algebraic expressions** and their evaluation.
+
+4. **Solving equations** and **inequalities** for financial decision-making.
+
+5. **Fractions** and their application in loan payments.
+
+---
+
+class: inverse, center, middle
+
+# 1. Real-World Example of Algebra in International Finance
+
+---
+
+# Example: International Loan Risk
+
+**Scenario:** A company in Europe borrows **$1 million** from a U.S. bank.  
+
+**Problem:** The company earns revenue in euros (€), but the loan is in dollars ($). 
+
+**Key Question:** How does exchange rate fluctuation impact the company’s debt?  
+
+**Solution:** Use algebra to analyze the exchange rate risk, loan repayment and other questions.
+
+???
+
+Scenario: Currency Exchange & Loan Risk Management
+Imagine you are working for an international bank that provides loans to businesses operating across multiple countries. Your task is to assess the financial risk of a European company that wants to borrow $1 million for expansion. Since they earn revenue in euros (€) but the loan is in U.S. dollars ($), you need to evaluate the exchange rate risk and ensure the company can repay the loan.
+
+To analyze the situation, you'll use several key mathematical concepts:
+
+
+---
+
+# Step 1: Working with Negative Numbers
+
+## **Currency Depreciation & Loan Impact**  
+
+- The exchange rate was **€1 = $1.10** but dropped to **€1 = $1.05** 
+
+- This means the **euro lost value**, making it **more expensive** for the company to repay the loan.  
+
+## Using Negative Numbers in Calculations
+### Change in Exchange Rate  
+   $$ 
+   \Delta ER = 1.05 - 1.10 = -0.05 
+   $$  
+   **The negative value indicates a depreciation of the euro.**  
+
+---
+
+# Step 1: Working with Negative Numbers (cont)
+## Using Negative Numbers in Calculations (cont)
+
+### Change in Debt Due to Depreciation 
+   - Before depreciation:  
+     $$ D_{\text{old}} = \frac{1,000,000}{1.10} = 909,091 \text{ EUR} $$
+   - After depreciation:  
+     $$ D_{\text{new}} = \frac{1,000,000}{1.05} = 952,381 \text{ EUR} $$
+   - **Increase in debt** (using subtraction):  
+     $$ \Delta D = 909,091 - 952,381 = - 43,290 \text{ EUR} $$  
+   - Since the result is **negative** *(old-new)*, this means the company **owes more** after depreciation.  
+
+---
+
+# Step 1: Working with Negative Numbers (cont)
+## Using Negative Numbers in Calculations (cont)
+
+
+### Multiplying Negative Numbers: Predicting Future Losses
+
+- Suppose the **exchange rate continues to drop** at a rate of **-0.05 per year**.  
+- If the debt increase last time was **43,290 EUR**, what happens **after 3 years**?  
+  $$
+  \text{Total Debt Increase} = \Delta D \times (-3)
+  $$  
+  $$
+  = 43,290 \times (-3) = -129,870 \text{ EUR}
+  $$  
+
+ **The negative result means the company’s debt grows significantly due to continuous depreciation.**  
+
+ ### Practice: Please calculate the debt increase after 5 years.
+
+---
+
+# Step 1: Working with Negative Numbers (cont)
+## Using Negative Numbers in Calculations (cont)
+
+### Dividing Negative Numbers: Recalculating Exchange Rate Risk
+
+- If the euro depreciation of **-0.05 per year** continues, how many years until the exchange rate drops to **€1 = $0.85**?  
+- Given the total depreciation needed:  
+  $$
+  \text{Total Change} = 1.05 - 0.85 = 0.20
+  $$  
+- Solve for time:  
+  $$
+  \text{Years} = \frac{\text{Total Change}}{\text{Annual Change}} = \frac{0.20}{-0.05} = -4
+  $$  
+ 
+  **Since time cannot be negative, this means in 4 years, the exchange rate could reach €1 = $0.85 if depreciation continues.**  
+
+ ### Practice: Please calculate the time needed for the exchange rate to drop to €1 = $0.75.
+
+
+---
+
+# Step 2: Understanding algebraic expressions & evaluating numerically 
+
+## The Company’s Debt Formula
+
+The company's debt can be represented by the following **algebraic expression**:  
+$$
+D = \frac{L}{ER}
+$$  
+
+Where:  
+- \( D \) = Debt in euros (€)  
+- \( L \) = Loan amount in dollars ($)  
+- \( ER \) = Exchange rate (€ per $)  
+
+---
+
+# Step 2: Understanding algebraic expressions & evaluating numerically (cont)
+
+## Evaluating the Expression Numerically  
+
+### Case 1: Initial Exchange Rate
+
+If:  
+- L = 1,000,000 USD  
+- ER = 1.20 
+
+Then:  
+$$
+D = \frac{1,000,000}{1.20}
+$$  
+$$
+= 833,333 \text{ EUR}
+$$  
+
+ ### Practice: Please calculate the debt amount when the exchange rate is \( ER = 0.95 \).
+
+---
+
+# Step 3: Simplifying Expressions by Collecting Like Terms 
+
+## Interest Payments on a Loan  
+
+The bank considers **interest payments** when determining the total amount to be repaid.  
+
+The formula for total repayment is:  
+$$
+T = P + rP
+$$  
+
+Where:  
+- \( T \) = Total repayment  
+- \( P \) = Principal loan amount  
+- \( r \) = Interest rate  
+
+---
+
+# Step 3: Simplifying Expressions by Collecting Like Terms (cont)
+
+## Simplifying the Expression  
+
+If the interest rate is **5%** (**r = 0.05 **), substitute the value into the equation:  
+
+$$
+T = P + 0.05P
+$$
+
+
+Now, **factor out \( P \) (collecting like terms)**:  
+
+$$
+T = (1 + 0.05)P
+$$
+
+
+$$
+T = 1.05P
+$$
+
+
+**This simplified formula helps calculate interest payments efficiently in banking.**  
+
+## Practice: Please calculate the total repayment when the principal loan amount is \( P = 250,000 \).
+
+---
+
+# Step 4: Multiplying Out Brackets
+
+- The company signs a **hedging contract** to manage exchange rate risk:  
+
+$$
+C = (D + F)(1 + r)
+$$  
+
+Where:  
+- \( C \) = Cost of the contract  
+- \( D \) = Debt in euros  
+- \( F \) = Fixed fee for hedging. Assumed to be financed by the bank (incl. in loan).  
+- \( r \) = Interest rate 
+
+
+---
+
+# Step 4: Multiplying Out Brackets (cont)
+
+## Expanding the Brackets
+
+Using the **distributive property** to expand:  
+
+$$
+C = D(1 + r) + F(1 + r)
+$$
+
+
+Expanding each term:  
+
+$$
+C = D \times 1 + D \times r + F \times 1 + F \times r
+$$
+
+
+$$
+C = D + Dr + F + Fr
+$$
+
+
+---
+# Step 4: Multiplying Out Brackets (cont)
+
+## Final Expression: Total Cost Breakdown  
+
+$$
+C = (D + F) + (D + F)r
+$$
+
+
+🔹 **First part (D + F)** represents the original debt and fee.  
+🔹 **Second part (D + F)r** represents the additional cost due to interest.  
+
+**This expanded formula helps in accurately calculating the total cost, including fees and interest.**  
+
+<style type="text/css">
+.smaller-font {
+  font-size: 18px;
+}
+</style>
+
+<div class="smaller-font">
+Note: hedging contract includes forward contract (F) to lock in exchange rate.
+</div>
+
+## Practice: Please calculate the total cost when the debt is \( D = 1,000,000 \), fee is \( F = 50,000 \), and interest rate is \( r = 0.05 \).
+
+---
+
+# Step 5: Factorizing Expressions
+
+- The bank wants to **simplify the total cost formula** for easier calculations:  
+
+$$
+C = D(1 + r) + F(1 + r)
+$$ 
+
+**We notice that** \( 1 + r \) **is a common factor in both terms.**  
+
+- Since \( 1 + r \) appears in both terms, we can **factor it out**:  
+
+$$
+C = (D + F)(1 + r)
+$$
+
+**This simplifies the formula and makes calculations easier when adjusting values.**  
+
+## Practice: Please factorize the expression \( T = P + 0.05P \).
+
+---
+
+# Step 6: Fractions in Loan Payments & Risk Calculation 
+
+## Quarterly Loan Payments 
+
+If a **$1,000,000 loan** is split into **quarterly payments**, each payment is calculated as:  
+
+$$
+P = \frac{1,000,000}{4}
+$$ 
+
+
+## Converting Payments to Euros (€)  
+
+If the company **pays in euros**, and the exchange rate is **€1 = $1.10**, the payment in euros is:  
+$$
+P_{\text{EUR}} = \frac{250,000}{1.10}
+$$
+
+Simplifying the fraction:  
+$$
+P_{\text{EUR}} = \frac{250,000 \div 10}{1.10 \div 10} = \frac{25,000}{0.11} = 227,273  \text{ EUR}
+$$
+
+**Each quarterly payment costs €227,273 at an exchange rate of 1.10.**  
+
+---
+# Step 6: Fractions in Loan Payments & Risk Calculation (cont)
+
+## Impact of Exchange Rate Drop 
+
+If the exchange rate **drops to 1.05**:  
+
+$$
+P_{\text{EUR}} = \frac{250,000}{1.05}
+$$
+
+Simplifying:  
+
+$$
+P_{\text{EUR}} = \frac{250,000 \times 100}{1.05 \times 100} = \frac{25,000,000}{105} = 238,095  \text{ EUR}
+$$
+
+**Now, each quarterly payment costs €238,095.**  
+
+---
+# Step 6: Fractions in Loan Payments & Risk Calculation (cont)
+
+## Increase in Payment Due to Exchange Rate Change
+
+$$
+\Delta P_{\text{EUR}} = 238,095 - 227,273
+$$
+
+$$
+= 10,822 \text{ EUR}
+$$
+
+**The company must now pay an additional €10,822 per quarter due to currency depreciation.**  
+
+---
+
+# Step 6: Fractions in Loan Payments & Risk Calculation (cont)
+
+## Multiplying Fractions – Adjusting Loan Payments  
+
+If the bank charges a **processing fee of 1/200 (0.5%)** on each quarterly payment, the extra fee per quarter is:  
+
+$$
+F = P_{\text{EUR}} \times \frac{1}{200}
+$$
+
+$$
+F = \frac{238,095}{200}
+$$
+
+- Divide numerator and denominator by 5:  
+$$
+\frac{47,619}{40} = 1,190
+$$  
+
+**The additional fee per quarter is €1,190.**  
+
+## Practice: Please calculate the processing fee if the quarterly payment is €200,000.
+
+---
+
+# Step 7: Solving Equations for Loan Repayment 
+
+## Loan Repayment Over 5 Years
+
+The company wants to **repay the loan over 5 years** with equal annual payments.  
+
+The total loan amount is **$1,000,000**, and the **annual payment is \( P \)**.  
+
+### The equation for equal payments 
+
+$$
+1,000,000 = 5P
+$$
+
+### Solving for \( P \) (Annual Payment)
+
+To isolate \( P \), **divide both sides by 5**:  
+
+$$
+P = \frac{1,000,000}{5} = 200,000 \text{ USD}
+$$
+
+**Each annual payment is $200,000.**  
+
+## Practice: Please calculate the annual payment if the total loan amount is $500,000 and the repayment period is 3 years.
+
+---
+
+# Step 8: Linear Inequalities in Risk Management
+
+
+## Recognizing Inequality Symbols
+
+The following symbols are used in **risk management** and **financial decision-making**:  
+
+| Symbol | Meaning | Example |
+|--------|---------|---------|
+| $$<$$ | Less than | Profit \( < 100,000 \) (profit is below €100K) |
+| $$>$$ | Greater than | Revenue \( > 500,000 \) (revenue exceeds €500K) |
+| $$\leq$$ | Less than or equal to | Risk score $$\leq 70$$ (acceptable risk level) |
+| $$\geq$$ | Greater than or equal to | Capital reserves $$\geq 1,000,000$$ (must maintain reserves of €1M or more) |
+
+---
+
+# Step 8: Linear Inequalities in Risk Management (cont)
+
+## Bank's Risk Threshold Example
+
+The bank considers a loan **risky** if the company's **annual revenue falls below €900,000**.  
+
+Thus, the company's revenue must satisfy the inequality:  
+
+$$
+R - C \geq 900,000
+$$  
+
+Where:  
+- \( R \) = Annual revenue  
+- \( C \) = Annual costs  
+- \( 900,000 \) = Minimum revenue required to avoid risk  
+
+---
+# Step 8: Linear Inequalities in Risk Management (cont)
+
+## Solving the Inequality for Minimum Required Revenue 
+
+If the company has **annual costs of €150,000**, we substitute \( C = 150,000 \):  
+
+$$
+R - 150,000 \geq 900,000
+$$
+
+To isolate \( R \), **add 150,000 to both sides**:  
+
+$$
+R \geq 1,050,000
+$$
+
+**The company must earn at least €1.05M per year to remain financially stable.**  
+
+## Practice: Please solve the inequality for a minimum revenue of €1,200,000 if costs are €250,000.
+
+---
+# Step 8: Linear Inequalities in Risk Management (cont)
+
+## Graphical Representation of the Inequality 
+
+The inequality $$ R \geq 1,050,000 $$ can be visualized on a number line:  
+
+- **Red region**: Revenue below €1.05M (Risky )  
+- **Green region**: Revenue €1.05M or more (Safe)  
+
+$$
+\begin{array}{ccccccccccc}
+{\color{red} \bullet} & {\color{red} \bullet} & {\color{red} \bullet} & {\color{red} \bullet} & {\color{black} |} & {\color{green} \bullet} & {\color{green} \bullet} & {\color{green} \bullet} & {\color{green} \bullet} & {\color{green} \bullet} & \cdots \\
+\cdots & \mathit{900K} & \mathit{950K} & \mathit{1M} &  \mathbf{1.05M} & \mathit{1.1M} & \mathit{1.2M} & \mathit{1.3M} & \cdots \\
+\end{array}
+$$
+
+**The company must be in the green region to meet the bank's stability requirements.**  
+
+
+---
+
+# Conclusion: Why This Math Matters
+
+1. Algebra helps predict financial outcomes.  
+
+2. Fractions, equations, and inequalities are tools for banking decisions.  
+
+3. Math makes economic decision-making precise and reliable.
+
+---
+
+# Next Steps
+
+🔹 Practice **algebra problems from the textbook** (Jacques, Sections 1.1, 1.2). 
+
+🔹 Bring any questions to our **next class discussion!**  
+
+**Math is powerful—and fun!** 
+
+
+---
+
+class: inverse, center, middle
+
+# Any QUESTIONS?
+
+---
+
+# Next Class
+
+- (Mar 12) Graphs of Equations (1.3), Solving Equations (1.4) 
+
+
+
+
+???
+1. To print pdf slides
+https://stackoverflow.com/questions/54968311/xaringan-export-slides-to-pdf-while-preserving-formatting
+
+pagedown::chrome_print("W1_ME.html") # but not all pictures are visible
+
+2. Option: https://stackoverflow.com/questions/54968311/xaringan-export-slides-to-pdf-while-preserving-formatting
+
+install.packages("remotes")
+remotes::install_github("jhelvy/xaringanBuilder")
+remotes::install_github("jhelvy/renderthis@v0.0.9")
+
+library(xaringanBuilder)
+build_pdf("DVC.html")
+
+3. Option
+writeBin(as.raw(c()), "favicon.ico") # create an empty favicon.ico file
+install.packages("renderthis")
+remotes::install_github('rstudio/chromote')
+library(renderthis)
+
+renderthis::to_pdf("W2_ME.html")
+
+getwd()
+setwd("C:/Users/Iegor/OneDrive - kdis.ac.kr/Documents/GitHub/Sogang/2025/Spring/Mathematical Economics/Week 1_2")
+
+
+
+
+---
+
+## Economic Scenario
+
+A European company takes a **loan in US dollars**.
+
+* Loan amount:
+  ( L = $1{,}000{,}000 )
+
+* The company earns revenue in **euros**.
+
+* Exchange rate at the time of borrowing:
+  ( 1 \text{ EUR} = 1.10 \text{ USD} )
+
+---
+
+## Exchange Rate Convention (Important)
+
+We define the exchange rate as:
+
+[
+ER = \text{USD per EUR}
+]
+
+Example:
+
+* ( ER = 1.10 ) means **1 euro buys 1.10 dollars**
+
+To convert dollars into euros:
+
+[
+\text{EUR} = \frac{\text{USD}}{ER}
+]
+
+---
+
+## Step 1: Initial Debt in Euros
+
+The loan is in dollars, but the firm measures debt in euros.
+
+[
+D = \frac{L}{ER}
+]
+
+[
+D = \frac{1{,}000{,}000}{1.10} = 909{,}091 \text{ EUR}
+]
+
+---
+
+## Exchange Rate Change
+
+One year later, the euro depreciates:
+
+[
+1 \text{ EUR} = 1.05 \text{ USD}
+]
+
+The exchange rate falls from 1.10 to 1.05.
+
+---
+
+## New Debt Value
+
+[
+D_{\text{new}} = \frac{1{,}000{,}000}{1.05} = 952{,}381 \text{ EUR}
+]
+
+---
+
+## Increase in Debt Due to Exchange Rate Change
+
+[
+\Delta D = D_{\text{new}} - D_{\text{old}}
+]
+
+[
+\Delta D = 952{,}381 - 909{,}091 = 43{,}290 \text{ EUR}
+]
+
+**Economic interpretation:**
+Even though the dollar loan did not change, the firm now owes **€43,290 more** because of exchange rate movements.
+
+---
+
+## Step 2: Modeling Exchange Rate Changes
+
+Assume the exchange rate continues to fall at a constant rate:
+
+[
+\Delta ER = -0.05 \text{ USD/EUR per year}
+]
+
+We model the exchange rate over time as:
+
+[
+ER(t) = 1.05 - 0.05t
+]
+
+---
+
+## Predicting a Future Exchange Rate
+
+When will the exchange rate reach 0.85 USD/EUR?
+
+[
+1.05 - 0.05t = 0.85
+]
+
+[
+0.05t = 0.20
+]
+
+[
+t = 4
+]
+
+**Answer:** after **4 years**.
+
+---
+
+## Step 3: Future Debt Level
+
+After 3 years:
+
+[
+ER(3) = 1.05 - 0.05 \cdot 3 = 0.90
+]
+
+Debt in euros:
+
+[
+D = \frac{1{,}000{,}000}{0.90} = 1{,}111{,}111 \text{ EUR}
+]
+
+---
+
+## Interpreting the Result
+
+Current debt (at ER = 1.05):
+
+[
+952{,}381 \text{ EUR}
+]
+
+Debt after 3 years:
+
+[
+1{,}111{,}111 \text{ EUR}
+]
+
+Increase:
+
+[
+158{,}730 \text{ EUR}
+]
+
+**Conclusion:**
+A falling exchange rate significantly increases the euro value of foreign-currency debt.
+
+---
+
+## Step 4: Annual Repayment Equation
+
+The firm repays the loan over **5 years** with equal annual payments.
+
+Let:
+
+* ( A ) = annual payment (USD)
+
+[
+5A = 1{,}000{,}000
+]
+
+[
+A = 200{,}000
+]
+
+---
+
+## Quarterly Payments
+
+There are 4 quarters per year.
+
+[
+Q = \frac{A}{4} = \frac{200{,}000}{4} = 50{,}000
+]
+
+Each quarterly payment is **$50,000**.
+
+---
+
+## Step 5: Processing Fee
+
+The bank charges a fee equal to:
+
+[
+\frac{1}{200} \text{ of the euro debt}
+]
+
+Using current debt:
+
+[
+F = 952{,}381 \times \frac{1}{200}
+]
+
+[
+F = 4{,}761.905 \text{ EUR}
+]
+
+Approximately:
+
+[
+F \approx 4{,}762 \text{ EUR}
+]
+
+---
+
+## Step 6: Revenue Requirement
+
+Let:
+
+* ( R ) = annual revenue (EUR)
+* ( C = 300{,}000 ) = annual costs (EUR)
+
+Profit:
+
+[
+\Pi = R - C
+]
+
+The firm is safe if profit is at least €900,000:
+
+[
+R - 300{,}000 \ge 900{,}000
+]
+
+---
+
+## Solving the Inequality
+
+[
+R \ge 1{,}200{,}000
+]
+
+**Interpretation:**
+Annual revenue must be **at least €1.2 million** to safely service the loan.
+
+---
+
+## Solution Set
+
+[
+R \in [1{,}200{,}000, \infty)
+]
+
+Any revenue below this level makes the loan risky.
+
+---
+
+## Key Takeaways
+
+* Exchange rates affect real debt burdens.
+* Algebra helps convert economic stories into equations.
+* Signs and units matter.
+* Small exchange rate changes can have large financial effects.
+
+---
+
+## Next Steps
+
+Next week we continue with:
+
+* linear functions,
+* slopes and economic interpretation,
+* graphical analysis.
+
+(Aligned with *Jacques*, Chapters 1.2–1.4)
+
+---
+
