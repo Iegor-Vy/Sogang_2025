@@ -1,0 +1,642 @@
+---
+title: "Mathematical Methods for International Commerce "
+subtitle: "<br/>Week 1, Meeting 1: Course Introduction"
+author: "Iegor Vyshnevskyi, Ph.D."
+institute: "Sogang University, Geppert School of International Studies"
+date: "March 3, 2026"
+output:
+  xaringan::moon_reader:
+    #css: $$default, metropolis, metropolis-fonts$$
+    css: xaringan-themer.css
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: '16:9'
+---
+
+<style>
+@media print{
+  body, html, .remark-slides-area, .remark-notes-area {
+    height: 100% !important;
+    width: 100% !important;
+    overflow: visible;
+    display: inline-block;
+    }
+</style>
+
+<style type="text/css">
+.remark-slide-content {
+    font-size: 34px;
+    padding: 1em 4em 1em 4em;
+}
+</style>
+
+<style type="text/css">
+.my-one-page-font {
+  font-size: 28px;
+}
+</style>
+
+</style>
+
+<style type="text/css">
+.my-one-page-font-table {
+  font-size: 24px;
+}
+</style>
+
+<style>
+.tiny { font-size: 60%; }      /* class you can reuse anywhere */
+</style>
+
+<style>
+.remark-slide-content {
+  position: relative;
+  z-index: 1;
+}
+
+.remark-slide-content::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 600px;          /* adjust size */
+  height: 600px;
+  background-image: url("1. 교장(Seal_Positive).png");  /* place logo file in same folder */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: 0.05;         /* watermark transparency */
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 0;
+}
+</style>
+
+
+```{r setup, include = FALSE}
+library(tidyverse)
+library(knitr)
+
+opts_chunk$set(fig.width = 10, 
+               message = FALSE, 
+               warning = FALSE,
+               echo = FALSE)
+```
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+#install.packages("xaringanthemer")
+library(xaringanthemer)
+style_mono_accent(
+  base_color = "#851a10",
+  header_font_google = google_font("Josefin Sans"),
+  text_font_google   = google_font("Montserrat", "500", "550i"),
+  code_font_google   = google_font("Fira Mono"),
+  colors = c(
+  red = "#f34213",
+  purple = "#3e2f5b",
+  orange = "#ff8811",
+  green = "#136f63",
+  white = "#FFFFFF"
+)
+)
+```
+
+
+Hello everyone!
+
+I am *Iegor Vyshnevskyi*, your instructor for **Mathematical Methods for International Commerce**.
+
+In Week 1 we will focus on what this course is, how it works, and where the math shows up in international commerce.
+
+---
+
+# Quick Icebreaker
+
+On a scale from 1️⃣ (😱) to 5️⃣ (😍), how do you feel about math?
+
+Please vote [here](https://www.menti.com/alsc9heenkri).
+
+
+---
+
+# Math in Our Life?
+
+<div style="display: flex; justify-content: center; align-items: center;">
+
+  <div style="flex: 1; text-align: center;">
+    <img src="math1.jpg" style="max-width: 80%; height: auto;">
+  </div>
+
+  <div style="flex: 1; text-align: center;">
+    <img src="math0.jpg" style="max-width: 60%; height: auto;">
+  </div>
+
+</div>
+
+.center[**Source:** Internet Memes]
+
+---
+
+# Agenda
+
+1. Introduction
+
+2. Course Overview
+
+3. What is Mathematical Methods for International Commerce ?
+
+---
+
+
+class: inverse, center, middle
+
+# 1. Introduction
+
+---
+
+## Course Information
+
+- **Course Title**: Mathematical Methods for International Commerce (TIS1005)
+
+- **Course Credit**: 3
+
+- **Designed for**: 1st-year students
+
+- **Course Prerequisites**: .red[None]
+
+- **Semester**: Spring 2026 
+
+- **Meeting Venue and Time**: TU, TH 12:00 to 13:15
+
+- **Office Hours**: J721, TU, WE 10:00 to 12:00; TH 14:45 to 16:45 or by appointment
+
+
+
+---
+
+## Introductions
+
+
+- Let's start with a little introduction:
+
+  - What's your preferred name?
+
+  - Where are you from?
+
+  - Any fun fact to share (e.g. hobbies or interests, favorite quote, e.t.c.)?
+
+---
+
+## About me
+
+.pull-left[
+My name is Iegor Vyshnevskyi.
+
+- Assistant Professor [(link)](https://elic.sogang.ac.kr/lic.en/lic_en_01_04_05.html), Sogang University
+
+- Background: International banking & central banking
+
+- Research interests: central banking, computational data science
+
+]
+
+
+.pull-right[
+Some Info:
+
+- email: ievysh@sogang.ac.kr
+
+- office: J721
+
+- Communication preference:
+
+  * LMS for most Q and A
+  * Email mainly for meeting requests and urgent issues
+
+- [My page](https://iegor-vy.github.io/)
+
+- *Hobbies*: research, martial arts, cycling, etc.
+]
+
+---
+
+
+# Disclaimer
+
+- This course may be adjusted during the semester depending on class progress and learning needs.
+
+---
+
+class: inverse, center, middle
+
+# 2. Course Overview
+
+---
+
+# Course Description:
+
+- **Designed for Incoming Students**: Builds essential mathematical foundations needed for success in international economics, business, and financial studies.
+
+- **Core Topics Covered**: Introductory algebra, differentiation, matrix analysis, and optimization—building a strong foundation for analytical decision-making in the global economy.  
+
+- **Applied Focus**: Emphasizes practical problem-solving and economic applications over abstract mathematical theory.
+
+- **Engaging Approach**: Demonstrates that mathematics is both a powerful analytical tool and genuinely enjoyable to learn.
+
+---
+
+# Course Objectives:
+
+By the end of this course, students will be able to:
+
+- **Visualize Economic Relationships** – Use graphs and functions to understand market behavior and economic trends.
+
+- **Solve Real-World Problems** – Apply linear and nonlinear equations to supply & demand, pricing, and investment scenarios.
+
+- **Analyze Marginal Changes** – Use differentiation to understand rates of change in revenue, cost, and economic indicators.
+
+- **Optimize Economic Decisions** – Maximize profits and minimize costs using comparative statics and partial differentiation.
+
+- **Model Economic Growth** – Apply integration to analyze accumulation and economic modeling.
+
+- **Solve Complex Systems** – Use matrix algebra to analyze interdependent economic relationships and policy effects.
+
+- **Think Mathematically** – Develop logical reasoning and problem-solving skills applicable across economics, finance, and business.
+
+---
+
+# The Course in a Nutshell
+
+- **Mathematical Foundations** – Learn the essential math skills needed for economics.  
+
+- **Hands-On Learning** – Apply concepts through class activities and home assignments. 
+
+- **Supportive Environment** – A safe space to ask questions, discuss, and learn from mistakes. 
+ 
+- **Beyond the Classroom** – Adjust to school life, understand Korean culture, and connect with classmates, seniors, and professors.  
+
+---
+
+# Broad coverage
+
+.pull-left[
+- **Formal/core curriculum**:
+   + Concepts
+   
+   + Understanding
+   
+   + Real-life cases
+   
+   + Problem-solving
+   
+   + Application
+]
+
+.pull-right[
+- **Hidden curriculum**:
+   + Values
+
+   + Standards
+
+   + Communication
+   
+   + Cooperation
+   
+   + Discussions
+   
+]
+
+---
+
+# Teaching method
+
+The course consists of lectures, in-class activities, and demonstrations that emphasize hands-on, practical tasks that give students the chance to put what they have learned to the test and improve their skills. 
+
+Typical cycle:
+- Pre-class preview video under 15 to 20 minutes plus a short individual task (Cyber Campus)
+
+- In-class lecture plus in-class activities
+
+- Post-class problem set (5 to 10 short questions)
+
+- Support sessions before quizzes and exams
+
+---
+
+# Course materials:
+
+- **Lecture notes**
+
+- Jacques, Ian (2023) **Mathematics for Economics and Business**, 10th ed., Pearson. Any previous edition would be also fine.
+
+---
+
+# GRADING
+
+- *Class Participation*: 10%
+
+- *Home Assignments*: 10%
+
+- *Quizzes*: 30%
+
+- *Midterm Examination (Week 8)*: 25%
+
+- *Final Examination (Week 16)*: 25%
+
+- **Total**: 100%
+
+More details on each item you will get down the road.
+
+*Remember*, I'm not giving you grades; you're earning them.
+
+---
+
+# Course Policies
+
+- **Academic Integrity**: The University’s Honor Code and Academic integrity will be strictly reflected. Plagiarism results in zero credit and an F-grade for the course.  
+
+- **Class Policy**: No photos or videos allowed; lecture slides are provided before class.  
+
+- **Communication**: Use LMS for discussions and Q&A. Engage early to benefit from collective knowledge. Private questions are allowed. Details will be provided in the first class.
+
+
+---
+
+class: my-one-page-font-table
+
+# Course roadmap
+
+| Week       | Topic                                                                                                                         |
+|------------|-------------------------------------------------------------------------------------------------------------------------------|
+| Week 1     | Course Introduction: Why study mathematics? Basic Algebra.                                                              |
+| Week 2     | Graphs of Equations, Solving Equations, Supply & Demand, Transposition of Formulae, National Income Determination.                                                                                             |
+| Week 3     | Quadratic Functions, Revenue, Cost & Profit, Indices & Logarithms, Exponential & Natural Log Functions.                                                                              |
+| Week 4     | Percentages, Compound Interest, Easter Holiday, Geometric Series, Investment Appraisal                                              |
+| Week 5     | Derivative of Functions, Rules of Differentiation, Quiz #1                                                                                |
+| Week 6     | Marginal Functions, Further Rules of Differentiation, Elasticity                                                                   |  
+| Week 7     | Optimization of Economic Functions, Derivatives of Exponential & Natural Log Functions                                                                                                        |
+| Week 8     | Mid-term                                                                                                                      |
+| Week 9     | Functions of Several Variables, Partial Elasticity & Marginal Functions                                                         |
+| Week 10    | Comparative Statics, Unconstrained Optimization                                                                                           |
+| Week 11    | Constrained Optimization, Lagrange Multipliers                                                                         |
+| Week 12    | Indefinite Integration, Definite Integration   |
+| Week 13    | Quiz #2, Basic Matrix Operations, Matrix Inversion                                                                             |
+| Week 14    | Cramer’s Rule, National Holiday (Memorial Day), Linear Programming                                                               |
+| Week 15    | Applications of Linear Programming, Difference Equations, Differential Equations                                                                                                                   |
+| Week 16    | Final Exam                                                                                                                    |
+
+Tentative schedule. It may be adjusted based on the class background and progress.
+
+---
+
+# General things
+
+- **Our Goals**:
+   - to learn the basics of Mathematical Methods for International Commerce 
+   - to apply the knowledge in real-life scenarios
+   - see that *Math* is .red[fun] :-)
+
+- **Our Principle**: 
+   - learning by doing
+   - mutual respect
+   - put one's efforts
+
+- **My role**: to guide you through the course, i.e. **mentoring and facilitating ** 
+
+- Your suggestions are welcomed.
+
+---
+
+# Our communication
+
+- Check the website regularly for materials and messages
+
+- Feel free to approach me before or after our class
+
+- **Office hours**: J721, W10-12, Thu10-12, F3-5  or by appointment. You are welcome to discuss course-related issues and questions, career plans, etc.
+
+- Check / use **LMS** (incl. messages in-there)
+
+- **Emailing policy**: email me to set up a one-to-one meeting or in the case of some urgent issues.
+   - Please indicate the course name in the subject line and the issue (e.g., *[Mathematical Methods for International Commerce ]* Meeting request)
+   
+   - Please write at least two times when you would like to meet and a brief description (1-2 sentence) why you want to meet up with me
+   
+   - I may not reply on time (so email me in advance)
+
+
+---
+
+# Course Overview
+
+## Questions?
+
+- Any questions about the course?
+
+- Any questions about the syllabus?
+
+---
+
+# Study Suggestions 
+
+1. Reading materials before class 
+
+2. Participate (10% of your grade) and ask questions.
+
+3. Be active in class (don't miss and do in-class activities)
+
+4. "The best way to learn ... is to stay on top of it as you go along. The worst way is to cram the night before exams." (c)
+
+---
+
+# Study Suggestions
+
+## How to succeed in this course?
+
+<div style="flex: 1; text-align: center;">
+    <img src="math3.jpg" style="max-width: 30%; height: auto;">
+  </div>
+
+---
+
+# Common Challenges Students Face
+
+1. Lack of Interest .footnote[Based on Gaston Sanchez' [.orange[lectures]](https://github.com/gastonstat/relic-math13/blob/master/lectures/01-course-introduction.md)]
+
+2. Language Barrier
+
+3. Personal Challenges
+
+4. Math Anxiety / PTSD
+
+---
+
+# 1. Lack of Interest
+
+- Great indifference 
+
+- Missing lectures
+
+- Coming/leaving late/early
+
+- No in-class activities
+
+- Doing something else in class
+
+- Cheating / free riding
+
+
+**.red[DROP IT]**
+
+---
+
+# 2. Language Barrier
+
+- Trouble with listening/reading comprehension 
+
+- Poor vocabulary
+
+- Hard time with new terminology
+
+
+**.blue[It's okay, just push harder]**
+
+No worries; it's not a language class.
+
+Please use some online speech/voice translation tools to help you like [Online Voice Translator](https://screenapp.io/features/audio-translator) or any others.
+
+---
+
+# 3. Personal Challenges
+
+- Health 
+
+- Family
+
+- Job
+
+- Universe against you
+
+
+**.red[Come talk to me ASAP]**
+
+---
+
+# 4. Math Anxiety / PTSD
+
+- Traumatic math experiences
+
+- Can't operate numbers
+
+- Don't see econ linkages
+
+
+**.orange[Just patience & work harder, give it a try]**
+
+---
+
+class: inverse, center, middle
+
+# 3. What Is Mathematical Methods for International Commerce?
+
+---
+
+# Why Mathematical Methods for International Commerce?
+
+<div>
+.center[<img src="math2.jpg" height="55%" width="55%">]
+
+
+Source: Internet meme
+
+
+---
+
+# What does international commerce measure every day?
+
+- Exchange rates and returns
+
+- Price differences across countries
+
+- Shipping and logistics costs
+
+- Tariffs, taxes, and final consumer price
+
+- Demand responses (elasticity)
+
+- Risk (hedging and diversification)
+
+
+---
+
+# Why study Mathematical Methods for International Commerce?
+
+- *Clarity & Precision* – Translates complex economic concepts into rigorous, logical models that eliminate ambiguity.
+
+- *Better Decision-Making* – Helps analyze and solve real-world economic problems.
+
+- *Stronger Analytical Skills* – Enhances problem-solving and critical thinking.
+
+- *Career Advantage* – Essential for finance, business, policy analysis, and research.
+
+- *Foundation for Advanced Studies* – Prepares for econometrics, optimization, and economic theory.
+
+---
+
+# Example 1: Exchange rate pass-through in one picture?
+
+**Simple Example:**
+
+If a product costs $100 USD and the exchange rate changes from 1,200 to 1,350 KRW/USD:
+
+- Old price: $100 × 1,200 = 120,000 KRW
+- New price: $100 × 1,350 = 135,000 KRW  
+- Price increase: 15,000 KRW or 12.5% increase in KRW price.
+
+**The Math:** $P_{KRW} = P_{USD} \times E_{rate}$
+
+**.red[You already used algebra!]**
+
+---
+
+class: inverse, center, middle
+
+# Any QUESTIONS?
+
+---
+
+# Next Class
+
+- (Mar 5) Basic Algebra (1.1, 1.2)
+
+
+
+
+???
+1. To print pdf slides
+https://stackoverflow.com/questions/54968311/xaringan-export-slides-to-pdf-while-preserving-formatting
+
+pagedown::chrome_print("W1_ME.html") # but not all pictures are visible
+
+2. Option: https://stackoverflow.com/questions/54968311/xaringan-export-slides-to-pdf-while-preserving-formatting
+
+install.packages("remotes")
+remotes::install_github("jhelvy/xaringanBuilder")
+remotes::install_github("jhelvy/renderthis@v0.0.9")
+
+library(xaringanBuilder)
+build_pdf("DVC.html")
+
+3. Option
+writeBin(as.raw(c()), "favicon.ico") # create an empty favicon.ico file
+install.packages("renderthis")
+remotes::install_github('rstudio/chromote')
+library(renderthis)
+
+renderthis::to_pdf("W1_ME.html")
+
+getwd()
+setwd("C:/Users/Iegor/OneDrive - kdis.ac.kr/Documents/GitHub/Sogang/2026/Spring/Mathematical Methods for International Commerce/Week 1_1")
