@@ -247,6 +247,7 @@ class: inverse, center, middle
 - **Engaging Approach**: Demonstrates that mathematics is both a powerful analytical tool and genuinely enjoyable to learn.
 
 ---
+class: my-one-page-font
 
 # Course Objectives:
 
@@ -313,7 +314,7 @@ By the end of this course, students will be able to:
 
 # Teaching method
 
-The course consists of lectures, in-class activities, and demonstrations that emphasize hands-on, practical tasks that give students the chance to put what they have learned to the test and improve their skills. 
+The course uses a flipped classroom approach with lectures, in-class activities, and hands-on demonstrations to reinforce learning.
 
 Typical cycle:
 - Pre-class preview video under 15 to 20 minutes plus a short individual task (Cyber Campus)
@@ -360,8 +361,7 @@ More details on each item you will get down the road.
 
 - **Class Policy**: No photos or videos allowed; lecture slides are provided before class.  
 
-- **Communication**: Use LMS for discussions and Q&A. Engage early to benefit from collective knowledge. Private questions are allowed. Details will be provided in the first class.
-
+- **Communication**: Use LMS for discussions and Q&A. Engage early to benefit from collective knowledge. Private questions are allowed. 
 
 ---
 
@@ -416,7 +416,7 @@ Tentative schedule. It may be adjusted based on the class background and progres
 
 - Feel free to approach me before or after our class
 
-- **Office hours**: J721, W10-12, Thu10-12, F3-5  or by appointment. You are welcome to discuss course-related issues and questions, career plans, etc.
+- **Office hours**: J721, Tu10-12, W10-12, Thu3-5  or by appointment. You are welcome to discuss course-related issues and questions, career plans, etc.
 
 - Check / use **LMS** (incl. messages in-there)
 
@@ -473,7 +473,7 @@ Tentative schedule. It may be adjusted based on the class background and progres
 4. Math Anxiety / PTSD
 
 ---
-
+.pull-left[
 # 1. Lack of Interest
 
 - Great indifference 
@@ -490,8 +490,8 @@ Tentative schedule. It may be adjusted based on the class background and progres
 
 
 **.red[DROP IT]**
-
----
+]
+.pull-right[
 
 # 2. Language Barrier
 
@@ -507,9 +507,9 @@ Tentative schedule. It may be adjusted based on the class background and progres
 No worries; it's not a language class.
 
 Please use some online speech/voice translation tools to help you like [Online Voice Translator](https://screenapp.io/features/audio-translator) or any others.
-
+]
 ---
-
+.pull-left[
 # 3. Personal Challenges
 
 - Health 
@@ -520,11 +520,10 @@ Please use some online speech/voice translation tools to help you like [Online V
 
 - Universe against you
 
-
 **.red[Come talk to me ASAP]**
+]
 
----
-
+.pull-right[
 # 4. Math Anxiety / PTSD
 
 - Traumatic math experiences
@@ -533,9 +532,8 @@ Please use some online speech/voice translation tools to help you like [Online V
 
 - Don't see econ linkages
 
-
 **.orange[Just patience & work harder, give it a try]**
-
+]
 ---
 
 class: inverse, center, middle
@@ -606,11 +604,17 @@ class: inverse, center, middle
 
 # Any QUESTIONS?
 
+# Thank you for your attention!
+
 ---
 
 # Next Class
 
 - (Mar 5) Basic Algebra (1.1, 1.2)
+
+- **Pre-class Preparation**: Watch the preview video (15-20 min) and complete the short task on the understanding check slide in Cyber Campus.
+
+- **In-class**: Lecture, discussion, and group activities.
 
 
 
@@ -639,4 +643,4 @@ library(renderthis)
 renderthis::to_pdf("W1_ME.html")
 
 getwd()
-setwd("C:/Users/Iegor/OneDrive - kdis.ac.kr/Documents/GitHub/Sogang/2026/Spring/Mathematical Methods for International Commerce/Week 1_1")
+setwd("C:\\Users\\vyshn\\OneDrive - kdis.ac.kr\\Documents\\GitHub\\Sogang\\2026\\Spring\\Mathematical Methods for International Commerce\\Week 1_1")
