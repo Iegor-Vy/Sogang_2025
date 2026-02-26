@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Statistics for International Commerce</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Iegor Vyshnevskyi, Ph.D." />
+    <meta name="date" content="2026-03-05" />
+    <script src="libs/header-attrs-2.29/header-attrs.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Statistics for International Commerce
+]
+.subtitle[
+## <br/>Week 1, Meeting 2: Course Introduction
+]
+.author[
+### Iegor Vyshnevskyi, Ph.D.
+]
+.institute[
+### Sogang University, Geppert School of International Studies
+]
+.date[
+### March 5, 2026
+]
+
+---
+
+
+&lt;style&gt;
+@media print{
+  body, html, .remark-slides-area, .remark-notes-area {
+    height: 100% !important;
+    width: 100% !important;
+    overflow: visible;
+    display: inline-block;
+    }
+&lt;/style&gt;
+
+&lt;style type="text/css"&gt;
+.remark-slide-content {
+    font-size: 34px;
+    padding: 1em 4em 1em 4em;
+}
+&lt;/style&gt;
+
+&lt;style type="text/css"&gt;
+.my-one-page-font {
+  font-size: 28px;
+}
+&lt;/style&gt;
+
+&lt;/style&gt;
+
+&lt;style type="text/css"&gt;
+.my-one-page-font-table {
+  font-size: 24px;
+}
+&lt;/style&gt;
+
+&lt;style&gt;
+.tiny { font-size: 60%; }      /* class you can reuse anywhere */
+&lt;/style&gt;
+
+&lt;style&gt;
+.remark-slide-content {
+  position: relative;
+  z-index: 1;
+}
+
+.remark-slide-content::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 600px;          /* adjust size */
+  height: 600px;
+  background-image: url("1. 교장(Seal_Positive).png");  /* place logo file in same folder */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: 0.05;         /* watermark transparency */
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 0;
+}
+&lt;/style&gt;
+
+
+
+
+
+
+
+Hello everyone!
+
+What a nice day to **start learning** statistics for international commerce. :-)
+
+---
+
+# Agenda
+
+1. What is statistics (properly defined)?
+
+2. Types of data in international commerce
+
+3. Population vs sample
+
+4. Introduction to Python in Google Colab
+
+5. Real-World Example
+
+6. First hands-on example
+
+---
+
+class: inverse, center, middle
+
+# 1. What Is Statistics — More Precisely?
+
+---
+
+# A More Technical Definition
+
+.pull-left[
+Statistics is the science of:
+
+- Designing data collection
+
+- Summarizing data
+
+- Quantifying uncertainty
+
+- Making inferences about populations
+
+- Supporting decision-making under uncertainty
+
+It is not just “calculating averages.”
+]
+
+.pull-right[
+.center[
+&lt;img src="p1.jpg" width="80%"&gt;
+]]
+
+---
+
+# Two Branches of Statistics
+
+.pull-left[
+## 1. Descriptive Statistics
+- Summarize data
+- Means, medians, standard deviations
+- Tables and graphs
+
+## 2. Inferential Statistics
+- Draw conclusions about a population
+- Hypothesis testing
+- Confidence intervals
+- Regression models
+
+This course covers both.
+]
+
+.pull-right[
+.center[
+&lt;img src="p2.jpg" width="90%"&gt;
+]]
+
+*The key takeaway*: Descriptive statistics help you describe your current data, while inferential statistics allow you to make predictions and informed decisions based on your data.
+
+---
+
+class: inverse, center, middle
+
+# 2. Data in International Commerce
+
+---
+
+# What Is Data?
+
+Data = recorded information about variables.
+
+.pull-left[
+Example variables in international commerce:
+
+- Export volume
+- GDP
+- Exchange rate
+- Inflation
+- Tariff rate
+- FDI inflows
+]
+
+.pull-right[
+.center[&lt;img src="p3.jpg" width="80%"&gt;]
+]
+
+A variable is a measurable characteristic.
+
+---
+
+# Types of Variables
+
+.pull-left[
+## 1. Quantitative (Numerical)
+
+- GDP
+- Exchange rate
+- Revenue
+- Inflation rate
+
+Can be:
+- Discrete (number of trade agreements)
+- Continuous (exchange rate)
+]
+
+.pull-right[
+## 2. Qualitative (Categorical)
+
+- Country
+- Region
+- Trade agreement type
+- Industry sector
+]
+
+---
+
+# Cross-Section vs Time Series vs Panel
+
+## Cross-section
+Different countries at one point in time.
+
+Example:
+GDP of 50 countries in 2024.
+
+## Time series
+One country over time.
+
+Example:
+Korea’s exports 2000–2025.
+
+## Panel data
+Multiple countries over time.
+
+Example:
+Exports of 30 countries over 20 years.
+
+We will work with all three.
+
+---
+
+.center[&lt;img src="p4.jpg" width="90%"&gt;]
+
+---
+
+class: inverse, center, middle
+
+# 3. Population vs Sample
+
+---
+
+# Population vs Sample
+
+.pull-left[
+## Population
+The entire group we care about.
+
+Examples:
+- All exporting firms in Korea
+- All international trade flows globally
+- All consumers in a country
+
+Usually impossible to observe fully.
+]
+
+.pull-right[
+## Sample
+
+A subset of the population.
+
+We use samples because:
+- Data collection is costly
+- Full data may not exist
+- Time constraints
+]
+
+Inferential statistics helps us generalize from sample to population.
+
+---
+
+# Why Sampling Matters
+
+Bad sample → biased conclusions.
+
+Example:
+If you only survey large exporters,
+you cannot infer about small firms.
+
+Statistical thinking begins with:
+“How was this data collected?”
+
+---
+
+class: inverse, center, middle
+
+# 4. Introduction to Python (Google Colab)
+
+---
+
+# Today’s Goal
+
+By the end of today, you should:
+
+- Open Google Colab
+
+- Run Python code
+
+- Load a dataset
+
+- Compute simple statistics
+
+- Create a basic visualization
+
+No prior coding required.
+
+---
+
+# Structure of a Notebook
+
+In Colab:
+
+- Text cells (explanations)
+
+- Code cells (Python commands)
+
+- Output (tables, plots)
+
+You execute code cell by cell.
+
+Statistics becomes interactive.
+
+---
+
+# First Python Example
+
+
+``` python
+# Import pandas library to handle data
+import pandas as pd
+
+# Create simple data
+exports = [100, 120, 130, 150, 170]
+
+# Convert to DataFrame for better handling
+df = pd.DataFrame({"Exports": exports})
+
+# Display the data
+df
+```
+
+```
+##    Exports
+## 0      100
+## 1      120
+## 2      130
+## 3      150
+## 4      170
+```
+
+
+---
+
+# Descriptive Statistics in Python
+
+
+``` python
+# Show summary statistics
+df.describe()
+```
+
+```
+##           Exports
+## count    5.000000
+## mean   134.000000
+## std     27.018512
+## min    100.000000
+## 25%    120.000000
+## 50%    130.000000
+## 75%    150.000000
+## max    170.000000
+```
+
+This returns:
+
+* Mean
+
+* Standard deviation
+
+* Minimum
+
+* Maximum
+
+This is descriptive statistics.
+
+---
+
+# Simple Visualization
+
+
+``` python
+# Import matplotlib for plotting
+import matplotlib.pyplot as plt
+
+plt.plot(exports) # simple line plot
+plt.title("Export Growth Example") # add title
+plt.xlabel("Year") # add x-axis label
+plt.ylabel("Exports") # add y-axis label
+plt.show() # display the plot
+```
+
+&lt;img src="W-1_2_SIC_files/figure-html/unnamed-chunk-3-1.png" width="50%" /&gt;
+
+Visualization helps us see patterns immediately.
+
+
+---
+
+class: inverse, center, middle
+
+# 5. Real-World Example  
+## International Trade Data
+
+---
+
+# Example Dataset: Bilateral Trade (Simplified)
+
+Suppose we observe export values (in billion USD) for 2023:
+
+| Country        | Exports (bn USD) |
+|---------------|------------------|
+| Korea         | 632              |
+| Germany       | 1650             |
+| Japan         | 747              |
+| United States | 2064             |
+| Vietnam       | 355              |
+
+This resembles WTO-style aggregated trade data.
+
+Question:
+Who is “big” depends on what?
+
+---
+
+# Step 1: Load Data in Python
+
+
+``` python
+import pandas as pd
+
+data = {
+    "Country": ["Korea", "Germany", "Japan", "United States", "Vietnam"],
+    "Exports_bn_USD": [632, 1650, 747, 2064, 355]
+}
+
+df = pd.DataFrame(data)
+
+df
+```
+
+```
+##          Country  Exports_bn_USD
+## 0          Korea             632
+## 1        Germany            1650
+## 2          Japan             747
+## 3  United States            2064
+## 4        Vietnam             355
+```
+
+Now we have a small cross-sectional trade dataset.
+
+---
+
+# Step 2: Descriptive Statistics
+
+
+``` python
+df["Exports_bn_USD"].describe()
+```
+
+```
+## count       5.000000
+## mean     1089.600000
+## std       729.711107
+## min       355.000000
+## 25%       632.000000
+## 50%       747.000000
+## 75%      1650.000000
+## max      2064.000000
+## Name: Exports_bn_USD, dtype: float64
+```
+
+Interpret:
+
+* Mean export level
+* Minimum exporter
+* Maximum exporter
+* Spread of values
+
+Question:
+Is the mean representative here?
+
+---
+
+# Step 3: Visualization -&gt; Large dispersion | One dominant exporter | Skewness in trade distribution
+
+
+``` python
+import matplotlib.pyplot as plt
+plt.bar(df["Country"], df["Exports_bn_USD"])
+plt.title("Exports in 2023 (bn USD)", fontsize=6)
+plt.ylabel("Billion USD", fontsize=6)
+plt.xticks(rotation=45, fontsize=6)
+```
+
+```
+## ([0, 1, 2, 3, 4], [Text(0, 0, 'Korea'), Text(1, 0, 'Germany'), Text(2, 0, 'Japan'), Text(3, 0, 'United States'), Text(4, 0, 'Vietnam')])
+```
+
+``` python
+plt.tight_layout()
+plt.show()
+```
+
+&lt;img src="W-1_2_SIC_files/figure-html/unnamed-chunk-6-3.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+---
+
+class: inverse, center, middle
+
+# Statistical Thinking Begins Here
+
+---
+
+# Discussion Questions
+
+1. Does a higher export value mean a stronger economy?
+2. Should we compare absolute exports or exports per capita?
+3. What if we adjust for GDP?
+4. Are these differences statistically meaningful?
+
+Statistics helps refine naive comparisons.
+
+---
+
+# Extending the Dataset (Time Series)
+
+Suppose Korea’s exports over 5 years:
+
+| Year | Exports (bn USD) |
+| ---- | ---------------- |
+| 2019 | 542              |
+| 2020 | 512              |
+| 2021 | 644              |
+| 2022 | 683              |
+| 2023 | 632              |
+
+Now we have time series data.
+
+---
+
+# Time Series in Python
+
+
+``` python
+korea_exports = [542, 512, 644, 683, 632]
+
+plt.plot(korea_exports)
+plt.title("Korea Exports (2019–2023)")
+plt.xlabel("Year index")
+plt.ylabel("Billion USD")
+plt.tight_layout()
+plt.show()
+```
+
+&lt;img src="W-1_2_SIC_files/figure-html/unnamed-chunk-7-5.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+Questions: Was 2020 an outlier? | Is there an upward trend? | How volatile are exports?
+
+---
+
+class: inverse, center, middle
+
+# From Description to Inference
+
+---
+
+# Next Logical Questions
+
+* Is export growth statistically significant?
+
+* What determines export performance?
+
+* Does exchange rate depreciation increase exports?
+
+* Does inflation reduce competitiveness?
+
+These require inferential statistics and regression.
+
+We will build toward this.
+
+---
+
+# Big Picture
+
+Even a simple 5-row dataset:
+
+* Allows comparison
+
+* Reveals distribution patterns
+
+* Raises policy questions
+
+* Shows why structure matters
+
+Statistics transforms numbers into economic insight.
+
+---
+
+class: inverse, center, middle
+
+# 6. Hands-On Mini Exercise
+
+---
+
+# Exercise (5 minutes)
+
+1. Create a list of 5 numbers representing:
+
+   * Exchange rate values
+     OR
+   * Trade volumes
+
+2. Compute:
+
+   * Mean
+   * Maximum
+   * Minimum
+
+3. Plot the values.
+
+Goal:
+Become comfortable running code.
+
+---
+
+# Why This Matters
+
+In international commerce:
+
+* You will analyze real data.
+* You will interpret coefficients.
+* You will evaluate uncertainty.
+
+Python is not the goal.
+It is the tool.
+
+Statistics is the framework.
+
+---
+
+# Key Takeaways Today
+
+* Statistics helps us reason under uncertainty.
+
+* Data comes in different structures.
+
+* Samples allow inference about populations.
+
+* Python allows us to implement statistical ideas.
+
+---
+
+# Week 1 overview (where we are today)
+
+Meeting 2 (today):
+
+* Introduction to statistics
+
+* Introduction to Python or R, datasets, and ethics
+
+* Reading: LMW Chapter 1
+
+# Week 2 overview (next week)
+
+* Descriptive statistics (LMW Chapter 3)
+
+---
+
+class: inverse, center, middle
+
+# Any questions?
+
+# Thank you!
+
+
+
+???
+1. To print pdf slides
+https://stackoverflow.com/questions/54968311/xaringan-export-slides-to-pdf-while-preserving-formatting
+
+pagedown::chrome_print("W1_ME.html") # but not all pictures are visible
+
+2. Option: https://stackoverflow.com/questions/54968311/xaringan-export-slides-to-pdf-while-preserving-formatting
+
+install.packages("remotes")
+remotes::install_github("jhelvy/xaringanBuilder")
+remotes::install_github("jhelvy/renderthis@v0.0.9")
+
+library(xaringanBuilder)
+build_pdf("DVC.html")
+
+3. Option
+writeBin(as.raw(c()), "favicon.ico") # create an empty favicon.ico file
+install.packages("renderthis")
+remotes::install_github('rstudio/chromote')
+library(renderthis)
+
+renderthis::to_pdf("W-1_2_SIC.html")
+
+getwd()
+setwd("C:\\Users\\vyshn\\OneDrive - kdis.ac.kr\\Documents\\GitHub\\Sogang\\2026\\Spring\\Statistics for International Commerce\\Week_1_2")
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+  "highlightStyle": "github",
+  "highlightLines": true,
+  "countIncrementalSlides": false,
+  "ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
