@@ -188,6 +188,8 @@ class: inverse, center, middle
 
   - Any fun fact to share (e.g. hobbies or interests, favorite quote, e.t.c.)?
 
+  - What do you expect from this course?
+
 ---
 
 ## About me
@@ -276,7 +278,7 @@ By the end of this course, students will be able to:
 - **Hands-On Learning** – Apply concepts through class activities and home assignments. 
 
 - **Supportive Environment** – A safe space to ask questions, discuss, and learn from mistakes. 
- 
+
 - **Beyond the Classroom** – Adjust to school life, understand Korean culture, and connect with classmates, seniors, and professors.  
 
 ---
@@ -406,7 +408,7 @@ Tentative schedule. It may be adjusted based on the class background and progres
 
 - **My role**: to guide you through the course, i.e. **mentoring and facilitating ** 
 
-- Your suggestions are welcomed.
+- Your suggestions are welcomed and appreciated to make the course better for you and future students.
 
 ---
 
