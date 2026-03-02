@@ -332,6 +332,16 @@ By the end of the course, you will be able to:
 
 ---
 
+# Skills you will learn
+
+Return on skills is higher than return on knowledge. 
+
+<div style="flex: 1; text-align: center;">
+    <img src="p1.png" style="max-width: 60%; height: auto;">
+  </div>
+
+---
+
 # Disclaimer
 
 - This course may be adjusted during the semester depending on class progress and learning needs.

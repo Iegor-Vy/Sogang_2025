@@ -314,6 +314,16 @@ By the end of this course, students will be able to:
 
 ---
 
+# Skills you will learn
+
+Return on skills is higher than return on knowledge. 
+
+<div style="flex: 1; text-align: center;">
+    <img src="p1.png" style="max-width: 60%; height: auto;">
+  </div>
+
+---
+
 # Teaching method
 
 The course uses a flipped classroom approach with lectures, in-class activities, and hands-on demonstrations to reinforce learning.
