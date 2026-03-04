@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Mathematical Methods for International Commerce</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Iegor Vyshnevskyi, Ph.D." />
+    <meta name="date" content="2026-03-10" />
+    <script src="libs/header-attrs-2.29/header-attrs.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Mathematical Methods for International Commerce
+]
+.subtitle[
+## <br/>Week 2/1: Graphs of Equations, Solving Equations
+]
+.author[
+### Iegor Vyshnevskyi, Ph.D.
+]
+.institute[
+### Sogang University, Geppert School of International Studies
+]
+.date[
+### March 10, 2026
+]
+
+---
+
+
+&lt;style&gt;
+@media print{
+  body, html, .remark-slides-area, .remark-notes-area {
+    height: 100% !important;
+    width: 100% !important;
+    overflow: visible;
+    display: inline-block;
+    }
+&lt;/style&gt;
+
+&lt;style type="text/css"&gt;
+.remark-slide-content {
+    font-size: 34px;
+    padding: 1em 4em 1em 4em;
+}
+&lt;/style&gt;
+
+&lt;style type="text/css"&gt;
+.my-one-page-font {
+  font-size: 28px;
+}
+&lt;/style&gt;
+
+&lt;/style&gt;
+
+&lt;style type="text/css"&gt;
+.my-one-page-font-table {
+  font-size: 24px;
+}
+&lt;/style&gt;
+
+&lt;style&gt;
+.tiny { font-size: 60%; }      /* class you can reuse anywhere */
+&lt;/style&gt;
+
+&lt;style&gt;
+.remark-slide-content {
+  position: relative;
+  z-index: 1;
+}
+
+.remark-slide-content::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 600px;          /* adjust size */
+  height: 600px;
+  background-image: url("1. 교장(Seal_Positive).png");  /* place logo file in same folder */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: 0.05;         /* watermark transparency */
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 0;
+}
+&lt;/style&gt;
+
+
+
+
+
+
+# Why Are These Concepts Essential in Economics?
+
+## Supply and Demand Graph
+
+&lt;div&gt;
+.center[&lt;img src="p1.jpg" height="50%" width="50%"&gt;]
+
+&lt;div style="font-size: 12px; text-align: center; margin-top: 20px;"&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+---
+
+# Why Are These Concepts Essential in Economics? (cont)
+
+## Visualizing Economic Relationships
+
+- **Supply and Demand Curves**: Graphs illustrate how prices and quantities interact in markets.
+- **Cost and Revenue Functions**: Visual tools to analyze profitability and break-even points.
+
+## Solving Equations for Economic Analysis
+
+- **Equilibrium Analysis**: Determining market-clearing prices and quantities.
+- **Optimization**: Maximizing profit or minimizing cost functions.
+
+## Real-World Applications
+
+- **Policy Modeling**: Predicting outcomes of fiscal and monetary policies.
+- **Business Strategy**: Informing pricing, production, and investment decisions.
+
+*Let’s dive in!*
+
+---
+
+
+# **Learning Objectives**
+
+At the end of this class, you should be able to:
+
+- **Graph** linear equations in one/two variables.
+- **Solve** a linear equation and a system of two simultaneous linear equations using **elimination**.  
+- **Detect** when a system of equations **has no solution**.  
+- **Identify** when a system of equations has **infinitely many solutions**.  
+- **Solve** a system of **three equations with three unknowns** using **elimination**. 
+
+---
+
+# Section 1.3: Graphs of Equations
+
+## Understanding the Cartesian Coordinate System
+
+
+
+&lt;div style="display: flex; justify-content: center; align-items: center;"&gt;
+
+  &lt;div style="flex: 1; text-align: left;"&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;X-axis&lt;/strong&gt;: Horizontal line&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Y-axis&lt;/strong&gt;: Vertical line&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Origin&lt;/strong&gt;: Intersection of X and Y axes (0,0)&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Quadrants&lt;/strong&gt;: Four sections divided by the axes&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+
+  &lt;div style="flex: 1; text-align: center;"&gt;
+    &lt;img src="p2.png" style="max-width: 70%; height: auto;"&gt;
+  &lt;/div&gt;
+
+&lt;/div&gt;
+
+
+---
+
+# **Plotting Linear Equations**
+
+## **Understanding Linear Equations**
+
+&lt;div style="display: flex; justify-content: space-between; align-items: flex-start;"&gt;
+
+  &lt;!-- Left Column --&gt;
+  &lt;div style="flex: 1; padding-right: 20px;"&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;Linear Equation&lt;/strong&gt;: \( y = mx + c \)&lt;/li&gt;
+      &lt;li&gt;\( m \): &lt;strong&gt;Slope of the line&lt;/strong&gt;&lt;/li&gt;
+      &lt;li&gt;\( c \): &lt;strong&gt;Y-intercept&lt;/strong&gt; (point where the line crosses the Y-axis)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Right Column --&gt;
+  &lt;div style="flex: 1;"&gt;
+    &lt;ul&gt;
+      &lt;strong&gt;Example:&lt;/strong&gt;
+      &lt;li&gt;Plot the equation \( y = 2x + 1 \).&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;div&gt;
+.center[&lt;img src="p3.png" height="55%" width="55%"&gt;]
+&lt;/div&gt;
+
+Source: [Desmos Graphing Calculator](https://www.desmos.com/calculator)
+  &lt;/div&gt;
+&lt;/div&gt;
+
+???
+    
+    ```
+    ## png 
+    ##   2
+    ```
+
+
+---
+
+## **Your turn**
+
+### Please plot the following linear equations:
+
+1. \(y = 3x - 2\)
+2. \(y = -2x + 3\)
+3. \(y = 0.5x + 1\)
+
+---
+
+# **Impact of Exchange Rate on Loan Payments**
+
+## **How Exchange Rate Affects Loan Repayments**
+
+- A company operates in Eurozone, so it cashes out in **EUR**.
+
+- A company must pay **$200,000 annually** for a loan (cash outflow).
+
+- The payment in **EUR depends on the exchange rate**.
+
+- If the **exchange rate changes**, the **amount in EUR** fluctuates.
+  - Say, exchange rate fluctuates from **€1 = $0.90** to **€1 = $1.20**.
+
+- There is a fixed commission fee of **€50,000** for the transaction.
+
+---
+
+# **Debt and Exchange Rate Relationship**
+
+## **Equation for Debt Calculation**
+
+A company borrows in **USD**, but its total debt in **EUR** depends on the exchange rate and a **fixed commission**.
+
+$$
+D = \frac{L}{ER} + C
+$$
+
+Where:
+- D = Total debt in **EUR**
+- L = Loan amount in **USD**
+- ER = Exchange rate **(USD per EUR, USD/EUR)**
+- C = Fixed commission **(€50,000 EUR)**
+
+---
+
+## **Example Calculation**
+
+A company borrows **$1,000,000 USD** (principal/obligation), and the exchange rate is **1 EUR = 1.10 USD**, with a **€50,000 commission**.
+
+$$
+D = \frac{1,000,000}{1.10} + 50,000
+$$
+
+$$
+D = 909,091 + 50,000 = 959,091 \text{ EUR}
+$$
+
+If the **exchange rate drops** to **1.05 EUR/USD**, the debt increases:
+
+$$
+D = \frac{1,000,000}{1.05} + 50,000 = 952,381 + 50,000 = 1,002,381 \text{ EUR}
+$$
+
+**As the EUR weakens, the debt in EUR increases even more!**
+
+???
+
+
+![](W2_1_ME_files/figure-html/plot_debt_fx_commission-1.png)&lt;!-- --&gt;
+
+---
+# **Visualizing Impact of Exchange Rate on Loan Payments** (cont)
+
+&lt;div&gt;
+.center[&lt;img src="output.png" height="75%" width="75%"&gt;]
+&lt;/div&gt;
+
+
+???
+## **Define Exchange Rates and Compute Loan Repayments**
+
+
+
+knitr::include_graphics("loan_payments_plot.png")
+
+---
+
+# **What is a Simultaneous Equation?**
+
+- A **system of equations** consists of two or more equations with multiple variables.  
+
+- The goal is to **find the values of the unknowns** that satisfy all equations simultaneously.  
+
+Example of a system with two unknowns:
+
+$$
+`\begin{aligned}
+2x + 3y &amp;= 12 \\
+4x - y &amp;= 5
+\end{aligned}`
+$$
+
+---
+
+# **Method: Solving by Elimination (Two Equations)**
+
+**Steps to solve**:
+
+1. **Multiply or adjust** the equations to align one variable.  
+2. **Add or subtract** the equations to eliminate one variable.  
+3. **Solve** for the remaining variable.  
+4. **Substitute** back to find the second variable.  
+
+**Example: Solve the system**
+
+$$
+`\begin{aligned}
+3x + 2y &amp;= 14 \\
+5x - 2y &amp;= 10
+\end{aligned}`
+$$
+
+**Step 1: Add the two equations**  
+$$
+(3x + 2y) + (5x - 2y) = 14 + 10
+$$
+
+$$
+8x = 24 \Rightarrow x = 3
+$$
+
+---
+
+**Example: Solve the system** (cont)
+
+
+**Step 2: Substitute \( x = 3 \) into one equation**  
+
+$$
+3(3) + 2y = 14
+$$
+
+$$
+9 + 2y = 14 \Rightarrow 2y = 5 \Rightarrow y = 2.5
+$$
+
+ **Solution**: \( x = 3, y = 2.5 \)
+
+---
+
+# **Graphical Interpretation of a System of Equations**
+
+## **Graphical Solution**
+- **Graph each equation** on the same axes.
+- **Intersection point** is the solution to the system.
+
+**Example:**
+
+&lt;div&gt;
+.center[&lt;img src="output1.png" height="55%" width="55%"&gt;]
+&lt;/div&gt;
+
+---
+
+# **No Solution Case (Inconsistent System)**
+
+A system has **no solution** if the equations are contradictory.
+
+**Example:**
+$$
+`\begin{aligned}
+2x + 4y &amp;= 10 \\
+x + 2y &amp;= 6
+\end{aligned}`
+$$
+
+Dividing the first equation by 2:
+$$
+x + 2y = 5
+$$
+
+This contradicts the second equation **\( x + 2y = 6 \)**!  
+
+**No solution exists** → The lines are **parallel**.
+
+---
+
+# **Infinitely Many Solutions (Dependent System)**
+
+A system has **infinitely many solutions** if the equations are identical.
+
+**Example:**
+$$
+`\begin{aligned}
+2x + 3y &amp;= 6 \\
+4x + 6y &amp;= 12
+\end{aligned}`
+$$
+
+Divide the second equation by **2**:
+$$
+2x + 3y = 6
+$$
+
+**The equations are identical**, meaning **infinitely many solutions** exist.  
+
+**Graphically, the lines overlap completely**.
+
+---
+
+# **Your Turn: Practice Problems**
+
+## Please solve the following systems of equations:
+
+1. \( x + 2y = 5 \) and \( 2x - y = 3 \)
+2. \( 3x + 2y = 14 \) and \( 5x - 2y = 10 \)
+3. \( 2x + 4y = 10 \) and \( x + 2y = 6 \)
+
+
+---
+# Solving a 3×3 System Using Elimination
+
+## **Problem: Solve the System**
+
+$$
+`\begin{aligned}
+x + y + z &amp;= 6 \quad (1) \\
+2x - y + 3z &amp;= 14 \quad (2) \\
+x + 2y - z &amp;= 4 \quad (3)
+\end{aligned}`
+$$
+
+---
+
+# **Step 1: Eliminate \( z \)**
+
+Adding **(1) and (3)**:
+
+$$
+2x + 3y = 10 \quad (4)
+$$
+
+Multiplying **(1) by -2** and adding to (2):
+
+$$
+-3y + z = 2 \quad (5)
+$$
+
+---
+
+# **Step 2: Express \( z \) in Terms of \( y \)**
+
+From (5):
+
+$$
+z = 3y + 2
+$$
+
+Substituting into (1):
+
+$$
+x + y + (3y + 2) = 6
+$$
+
+$$
+x + 4y = 4 \quad (6)
+$$
+
+Now solve:
+
+$$
+`\begin{aligned}
+2x + 3y &amp;= 10 \quad (4) \\
+x + 4y &amp;= 4 \quad (6)
+\end{aligned}`
+$$
+
+---
+
+# **Step 3: Solve for \( y \) and \( x \)**
+
+Multiply (6) by -2 and add:
+
+$$
+-2x - 8y + 2x + 3y = -8 + 10
+$$
+
+$$
+-5y = 2 \Rightarrow y = -\frac{2}{5}
+$$
+
+Substituting \( y \) into (6):
+
+$$
+x = 4 + \frac{8}{5} = \frac{28}{5}
+$$
+
+---
+
+# **Step 4: Solve for \( z \)**
+
+$$
+z = 3(-\frac{2}{5}) + 2 = \frac{4}{5}
+$$
+
+# **Final Answer**
+
+$$
+x = \frac{28}{5}, \quad y = -\frac{2}{5}, \quad z = \frac{4}{5}
+$$
+
+---
+
+
+# Graphical Solution of a 3x3 System of Equations
+
+**Example:**
+
+&lt;div&gt;
+.center[&lt;img src="output2.png" height="45%" width="45%"&gt;]
+&lt;/div&gt;
+
+???
+# **📊 R Code: Visualizing Systems of Equations**
+
+![](W2_1_ME_files/figure-html/solve_system_plot-1.png)&lt;!-- --&gt;
+
+# **📊 R Code: Verify the Solution**
+
+
+``` r
+# Define the coefficient matrix (A) and the result vector (B)
+A &lt;- matrix(c(1, 1, 1,
+              2, -1, 3,
+              1, 2, -1), nrow=3, byrow=TRUE)
+
+B &lt;- c(6, 14, 4)
+
+# Solve for (x, y, z)
+solution &lt;- solve(A, B)
+solution
+```
+
+```
+## [1]  5.6 -0.4  0.8
+```
+
+---
+
+# Your Turn: Practice Problems
+
+## Please solve the following 3x3 systems of equations:
+
+1. \( x + y + z = 6 \), \( 2x - y + 3z = 14 \), \( x + 2y - z = 4 \)
+2. \( x + 2y + z = 6 \), \( 2x - y + 3z = 14 \), \( x + 2y - z = 4 \)
+
+
+---
+
+# Conclusion: Why This Math Matters
+
+1. **Graphs of Equations**: Visual tools to understand relationships in economics.
+
+2. **Solving Equations**: Essential for equilibrium analysis and optimization in economics.
+
+3. **Systems of Equations**: Used to model complex economic relationships.
+
+4. **Real-World Applications**: Informing policy decisions and business strategies.
+
+---
+
+# Next Steps
+
+1. Practice **algebra problems from the textbook** (Jacques, Sections 1.3, 1.4). 
+
+2. Bring any questions to our **next class discussion!**  
+
+**Math is powerful—and fun!** 
+
+---
+
+# Next Class
+
+- (Mar 12) Supply and Demand Analysis (1.5), Transposition of Formulae (1.6), National Income Determination (1.7) 
+
+---
+
+class: inverse, center, middle
+
+# Any QUESTIONS?
+
+# Thank you for your attention!
+
+
+
+
+???
+1. To print pdf slides
+https://stackoverflow.com/questions/54968311/xaringan-export-slides-to-pdf-while-preserving-formatting
+
+pagedown::chrome_print("W1_ME.html") # but not all pictures are visible
+
+2. Option: https://stackoverflow.com/questions/54968311/xaringan-export-slides-to-pdf-while-preserving-formatting
+
+install.packages("remotes")
+remotes::install_github("jhelvy/xaringanBuilder")
+remotes::install_github("jhelvy/renderthis@v0.0.9")
+
+library(xaringanBuilder)
+build_pdf("DVC.html")
+
+3. Option
+writeBin(as.raw(c()), "favicon.ico") # create an empty favicon.ico file
+install.packages("renderthis")
+remotes::install_github('rstudio/chromote')
+library(renderthis)
+
+renderthis::to_pdf("W2_1_ME.html")
+
+getwd()
+setwd("C:\\Users\\vyshn\\OneDrive - kdis.ac.kr\\Documents\\GitHub\\Sogang\\2026\\Spring\\Mathematical Methods for International Commerce\\Week 2_1")
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+  "highlightStyle": "github",
+  "highlightLines": true,
+  "countIncrementalSlides": false,
+  "ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
