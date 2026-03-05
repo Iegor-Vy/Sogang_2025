@@ -2,7 +2,7 @@
 title: "Financial Institutions and System"
 subtitle: "<br/>Week 2: An Overview of the Financial System"
 author: "Iegor Vyshnevskyi, Ph.D."
-institute: "Sogang University"
+institute: "Sogang University, Graduate School of International Studies"
 date: "March 12, 2026"
 output:
   xaringan::moon_reader:
@@ -104,9 +104,6 @@ style_mono_accent(
 )
 ```
 
-
-Hello everyone!
----
 
 # Agenda  
 
@@ -310,13 +307,18 @@ class: my-one-page-font
 
 ### **1. Market Integrity & Investor Protection**  
 - **Insider Trading Prevention** – Restricts unfair trading based on non-public information (*SEC rules*).  
+
 - **Financial Market Transparency** – Mandates corporate disclosures and accounting standards (*Sarbanes-Oxley Act*).  
+
 - **Credit Rating Agency Oversight** – Increases accountability for rating agencies (*Dodd-Frank Act*).  
 
 ### **2. Risk Management & Financial Stability**  
 - **Capital Requirements** – Ensures banks hold sufficient capital (*Basel Accords*).  
+
 - **Liquidity Requirements** – Mandates adequate short-term funding to prevent crises (*Basel Accords*).  
+
 - **Stress Testing** – Regularly assesses banks' resilience to economic shocks (*Dodd-Frank Act*).  
+
 - **Derivatives Regulation** – Enhances transparency in complex financial products (*Dodd-Frank Act*).  
 
 ---
@@ -326,15 +328,19 @@ class: my-one-page-font
 
 ### **3. Consumer Protection & Fair Lending**  
 - **Truth in Lending Act (TILA)** – Ensures transparency in loan agreements and interest rates.  
-- **Anti-Money Laundering (AML) Rules** – Prevents financial crimes and terrorist financing (*Bank Secrecy Act*).  
+
+- **Anti-Money Laundering (AML) Rules** – Prevents financial crimes and terrorist financing (*Bank Secrecy Act*). 
+
 - **Deposit Insurance** – Protects consumers' bank deposits from failures (*FDIC rules*).  
 
 ### **4. Systemic Risk & Crisis Management**  
 - **Systemic Risk Oversight** – Introduces regulation for "too-big-to-fail" institutions (*Dodd-Frank Act*).  
+
 - **Financial Institution Resolution & Living Wills** – Requires large banks to outline failure contingency plans (*Dodd-Frank Act*).  
 
 ### **5. Monetary Policy & Global Coordination**  
 - **Monetary Policy Regulation** – Governs money supply and interest rates (*Federal Reserve Act*).  
+
 - **International Banking Standards** – Ensures global financial stability (*Basel Accords*).  
 
 ---
@@ -400,14 +406,14 @@ class: inverse, center, middle
 class: inverse, center, middle
 
 # 3. Class Activity: The 2008 Financial Crisis and the Role of Financial Institutions
-
+Please check the Week 2 CyberCampus folder for the case study materials. 
 ---
 
 class: inverse, center, middle
 
 # Any QUESTIONS?
 
-## Thank You!  
+## Thank You for Your Attention!  
 
 ---
 

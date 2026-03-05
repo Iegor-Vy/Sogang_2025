@@ -2,7 +2,7 @@
 title: "Financial Institutions and System"
 subtitle: "<br/>Lecture 1: Introduction"
 author: "Iegor Vyshnevskyi, Ph.D."
-institute: "Sogang University"
+institute: "Sogang University, Graduate School of International Studies"
 date: "March 5, 2026"
 output:
   xaringan::moon_reader:
