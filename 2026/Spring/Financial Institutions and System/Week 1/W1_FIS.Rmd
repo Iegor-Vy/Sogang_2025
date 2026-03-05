@@ -399,20 +399,20 @@ class: my-one-page-font-table
 | **Week**        | **Topic**                                                                                                                             |
 |----------------|----------------------------------------------------------------------------------------------------------------------------------------|
 | **Week&nbsp;1**  | Course Introduction: Why Study Money, Banking, and Financial Markets?                                                                 |
-| **Week&nbsp;2**  | The Meaning of Interest Rates. The Behavior of Interest Rates.                                                                        |
-| **Week&nbsp;3**  | The Risk and Term Structure of Interest Rates. The Stock Market, the Theory of Rational Expectations, and the Efficient Market Hypothesis. |
-| **Week&nbsp;4**  | An Economic Analysis of Financial Structure. Banking and the Management of Financial Institutions.                                    |
-| **Week&nbsp;5**  | Economic Analysis of Financial Regulation. Banking Industry: Structure and Competition.                                               |
-| **Week&nbsp;6**  | Financial Crises in Advanced Economies. Financial Crises in Emerging Market Economies.                                                |
-| **Week&nbsp;7**  | Central Banks. The Money Supply Process.                                                                                              |
+| **Week&nbsp;2**  | An Overview of the Financial System.                                                                                                  |
+| **Week&nbsp;3**  | What is money?  |
+| **Week&nbsp;4**  | The Meaning and Behavior of Interest Rates.                                    |
+| **Week&nbsp;5**  | The Risk and Term Structure of Interest Rates. The Stock Market, the Theory of Rational Expectations, and the Efficient Market Hypothesis.                                               |
+| **Week&nbsp;6**  | An Economic Analysis of Financial Structure. Banking and the Management of Financial Institutions.                                                 |
+| **Week&nbsp;7**  | Economic Analysis of Financial Regulation. Banking Industry: Structure and Competition.                                                                                              |
 | **Week&nbsp;8**  | **Mid-term**                                                                                                                           |
-| **Week&nbsp;9**  | Tools of Monetary Policy. The Conduct of Monetary Policy: Strategy and Tactics.                                                       |
-| **Week&nbsp;10** | The Foreign Exchange Market. The International Financial System.                                                                      |
+| **Week&nbsp;9**  | Financial Crises in Advanced Economies. Financial Crises in Emerging Market Economies.                                                        |
+| **Week&nbsp;10** | Central Banks. The Money Supply Process. Tools of Monetary Policy. The Conduct of Monetary Policy: Strategy and Tactics.                                                                      |
 | **Week&nbsp;11** | Quantity Theory, Inflation, and the Demand for Money. The IS Curve. The Monetary Policy and Aggregate Demand Curves.                  |
-| **Week&nbsp;12** | Aggregate Demand and Supply Analysis. Monetary Policy Theory.                                                                         |
-| **Week&nbsp;13** | The Role of Expectations in Monetary Policy. Transmission Mechanisms of Monetary Policy.                                              |
-| **Week&nbsp;14** | ESG and Sustainable Finance: The Role of Financial Institutions in Promoting Sustainability.                                       |
-| **Week&nbsp;15** | Current Issues on Challenges and Risks in the Modern Financial System. *Student presentations*                                        |
+| **Week&nbsp;12** | Aggregate Demand and Supply Analysis. Monetary Policy Theory. The Role of Expectations in Monetary Policy. Transmission Mechanisms of Monetary Policy.                                                                         |
+| **Week&nbsp;13** | The Foreign Exchange Market. The International Financial System.                                              |
+| **Week&nbsp;14** | ESG and Sustainable Finance: The Role of Financial Institutions in Promoting Sustainability. ML/AI and Big Data in Finance.                                       |
+| **Week&nbsp;15** | Current Issues & Challenges & Risks in the Modern Financial System. *Student presentations*                                        |
 | **Week&nbsp;16** | **Final Exam**                                                                                                                         |
 
 Tentative schedule. It may be adjusted based on class background and progress.  
@@ -420,7 +420,6 @@ Tentative schedule. It may be adjusted based on class background and progress.
 **Guest speakers** may be invited to share insights on specific topics.
 
 ---
-
 
 # General things
 
@@ -810,7 +809,7 @@ class: inverse, center, middle
 
 # Next Class
 
-- (Mar 12) Chap 4. The Meaning of Interest Rates; Chap 5. The Behavior of Interest Rates
+- (Mar 12) An Overview of the Financial System. 
 
 
 
