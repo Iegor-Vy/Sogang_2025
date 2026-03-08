@@ -315,14 +315,64 @@ is_jedi = True  # is_jedi is a boolean
 You can display the value of a variable using the `\(print()\)` function. You can also check its data type with the `\(type()\)` function.
 
 ---
+class: my-one-page-font
 
 # Data Types in Python
 
+Python uses different **data types** to represent different kinds of data.
 
+.pull-left[
+## Numeric Types
+Used for numbers.
 
+x = 10        # int (integer)
+y = 20.5      # float (decimal number)
+z = 3 + 2j    # complex number
+
+## Text Type
+Used for text.
+
+message = "Hello World"   # str (string)
+
+## Sequence Types
+Ordered collections of items.
+
+fruits = ["apple", "banana"]   # list (mutable)
+coordinates = (10, 20)         # tuple (immutable)
+numbers = range(5)             # range: 0,1,2,3,4
+]
+.pull-right[
+## Mapping Type
+Stores data as key–value pairs.
+
+student = {"name": "John", "age": 20}   # dict
+
+## Set Type
+Unordered collection of unique items.
+
+unique_items = {"apple", "banana"}   # set
+
+## Boolean Type
+Represents logical values.
+
+is_student = True   # bool
+
+## Special Type
+Represents absence of a value.
+
+x = None   # NoneType
+]
+
+## Checking Data Types
+
+You can check the type of any object using:
+
+print(type(x))
+
+Example output:
+&lt;class 'int'&gt;
 
 ---
-
 class: inverse, center, middle
 
 # Levels of Measurement
