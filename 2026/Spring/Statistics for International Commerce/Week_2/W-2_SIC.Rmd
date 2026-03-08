@@ -333,57 +333,68 @@ class: my-one-page-font
 
 Python uses different **data types** to represent different kinds of data.
 
-.pull-left[
+```{python, echo=TRUE}
+
 ## Numeric Types
-Used for numbers.
+## Used for numbers.
 
 x = 10        # int (integer)
 y = 20.5      # float (decimal number)
-z = 3 + 2j    # complex number
+z = 1 + 2j    # complex (complex number)
 
 ## Text Type
-Used for text.
+## Used for text.
 
 message = "Hello World"   # str (string)
 
 ## Sequence Types
-Ordered collections of items.
+## Ordered collections of items.
 
 fruits = ["apple", "banana"]   # list (mutable)
 coordinates = (10, 20)         # tuple (immutable)
 numbers = range(5)             # range: 0,1,2,3,4
-]
-.pull-right[
+```
+
+---
+
+# Data Types in Python
+
+
+```{python, echo=TRUE}
+
 ## Mapping Type
-Stores data as key–value pairs.
+## Stores data as key–value pairs.
 
 student = {"name": "John", "age": 20}   # dict
 
 ## Set Type
-Unordered collection of unique items.
+## Unordered collection of unique items.
 
 unique_items = {"apple", "banana"}   # set
 
 ## Boolean Type
-Represents logical values.
+## Represents logical values.
 
 is_student = True   # bool
 
 ## Special Type
-Represents absence of a value.
+## Represents absence of a value.
 
 x = None   # NoneType
-]
+
+```
 
 ## Checking Data Types
 
 You can check the type of any object using:
+```{python, echo=TRUE}
 
 print(type(x))
 
-Example output:
-<class 'int'>
+## Example output:
+# <class 'int'>
 
+```
 ---
 class: inverse, center, middle
 
@@ -940,6 +951,23 @@ class: inverse, center, middle
 
 ---
 
+# DataCamp Intro
+
+
+<div>
+.center[
+<img src="p12.png" width="90%">
+]
+
+.tiny[[Our classroom on DataCamp](https://app.datacamp.com/groups/statistics-for-international-commerce-7c670aae-048d-456e-8a54-892baebf8ad2/dashboard)]
+</div>
+
+
+
+
+
+---
+
 # Example Dataset
 
 Exports (bn USD):
@@ -959,6 +987,8 @@ Questions:
 
 Statistics structures these questions.
 
+> Let's use Google Colab to practice with this dataset.
+
 ---
 
 class: inverse, center, middle
@@ -968,6 +998,8 @@ class: inverse, center, middle
 ---
 
 # In-Class Task (Colab)
+
+Create your own dataset of export values for 5 countries (real or hypothetical).
 
 1. Compute:
 
@@ -1006,13 +1038,17 @@ class: inverse, center, middle
 
 (Mar 17 | Mar 19) Survey of probability concepts (LMW Chapter 5) 
 
+Please submit by next week (Tuesday) your:
+- Class activity (Colab link).
+- DataCamp assignment 'Introduction to Python' (screenshot required).
+
 ---
 
 class: inverse, center, middle
 
 # Any questions?
 
-# Thank you!
+# Thank you for your attention and active participation!
 
 
 
