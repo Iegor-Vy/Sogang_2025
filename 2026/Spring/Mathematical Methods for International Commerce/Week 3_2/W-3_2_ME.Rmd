@@ -111,6 +111,8 @@ class: inverse, center, middle
 
 Example: $10^{-2}=0.01$
 
+Unless stated otherwise, assume the base is positive ($a>0$).
+
 ---
 
 # Laws of indices (only the ones we use constantly)
@@ -130,6 +132,8 @@ Mini example: $2^3\cdot2^2=2^5$
 $$
 \log_a(x)=y \iff a^y=x
 $$
+
+Here, $a > 0$, $a \neq 1$, and $x > 0$.
 
 Examples: $\log_2 8=3$, $\log_{10}1000=3$
 
@@ -188,6 +192,7 @@ Elasticity equals $b$.
 Example: $Q=200P^{-0.5}\Rightarrow E=-0.5$ (inelastic since $|E|<1$)
 
 Constant elasticity means that the percentage change in quantity demanded resulting from a percentage change in price remains constant along the demand curve.
+
 ---
 
 # What you must be able to do in class
@@ -371,7 +376,7 @@ $$
 
 4. **Find:** The value of $\log_2 16$
 
-5. **Use Logs:** Solve $e^{2x} = 10$, hint: take natural logs. $\ln(10) \approx 2.3026; \approx 1.1513$ 
+5. **Use Logs:** Solve $e^{2x} = 10$, hint: take natural logs. $\ln(10) \approx 2.3026; so $x = \frac{\ln(10)}{2} \approx 1.1513$ 
 
 ---
 
@@ -387,7 +392,7 @@ class: inverse, center, middle
 
 - **Exponential Functions** describe **growth and decay** in economics, finance, and science.
   - Example: **Compound interest, inflation, population growth**.
-  - General form:
+  - A common exponential form used in economics is:
     $$ y = a e^{bx} $$
     where:
     - $e$ is Euler’s number (~2.718) - constant number, the base of the natural logarithm.
@@ -411,6 +416,8 @@ class: inverse, center, middle
 **Why Important?**
 - Used in financial modeling (continuous interest rates, risk analysis).
 - Logarithmic scales simplify large economic datasets.
+
+.tiny[In these slides, *ln* denotes the natural logarithm, while *log* means logarithm with a specified base.]
 
 ---
 
@@ -452,7 +459,7 @@ If function form is $Q = aP^b$, taking logarithms:
 $$ \log Q = \log a + b \log P 
 $$
 
-where $b$ represents the price elasticity.
+where $b$ represents the price elasticity, for the constant-elasticity demand function $Q = aP^b$.
 
 **Example:** If demand follows $Q = 200P^{-0.5}$, then:
 
@@ -531,6 +538,11 @@ $$
 
 3. Answer: The natural logarithm is used to analyze continuous growth models and interest rates.
 
+---
+
+# Next Class
+
+- (Mar 24) Percentages (3.1), Compound Interest (3.2)    
 
 ---
 
@@ -538,13 +550,9 @@ class: inverse, center, middle
 
 # Any QUESTIONS?
 
-## Thank you for your attention!
+## Thank you for your attention and participation!
 
----
 
-# Next Class
-
-- (Mar 24) Percentages (3.1), Compound Interest (3.2)    
 
 
 
