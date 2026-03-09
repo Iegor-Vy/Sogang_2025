@@ -111,7 +111,7 @@ style_mono_accent(
 
 2. Class Discussion: Financial Markets and Institutions  
 
-3. Class Activity: The 2008 Financial Crisis and the Role of Financial Institutions 
+3. Class Activity: Han River Bikes Co. Choosing how to raise funds 
 
 ---
 
@@ -405,22 +405,22 @@ class: inverse, center, middle
 
 class: inverse, center, middle
 
-# 3. Class Activity: The 2008 Financial Crisis and the Role of Financial Institutions
+# 3. Class Activity: Han River Bikes Co. Choosing how to raise funds
 Please check the Week 2 CyberCampus folder for the case study materials. 
+
+---
+
+# Next Class
+
+- (Mar 19) Chap 3. What is money?
+
 ---
 
 class: inverse, center, middle
 
 # Any QUESTIONS?
 
-## Thank You for Your Attention!  
-
----
-
-# Next Class
-
-- (Mar 21) Chap 3. What is money?
-
+## Thank You for Your Attention and Participation!  
 
 
 
