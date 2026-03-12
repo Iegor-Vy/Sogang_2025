@@ -981,7 +981,7 @@ Vietnam – 355
 Questions:
 
 * What is the mean?
-* Is the distribution skewed?
+* Is the distribution skewed? 
 * Who is an outlier?
 * Is comparison per capita better?
 
@@ -1015,6 +1015,11 @@ Create your own dataset of export values for 5 countries (real or hypothetical).
 3. Interpret:
 
    * What does dispersion imply for trade risk?
+
+---
+# In-Class Activity (Colab)
+
+Open Week 2 Cyber Campus folder and follow the instructions.
 
 ---
 
