@@ -2,8 +2,8 @@
 title: "Financial Institutions and System"
 subtitle: "<br/>Week 3: What is money?"
 author: "Iegor Vyshnevskyi, Ph.D."
-institute: "Sogang University"
-date: "March 21, 2025"
+institute: "Sogang University, Graduate School of International Studies"
+date: "March 19, 2026"
 output:
   xaringan::moon_reader:
     #css: [default, metropolis, metropolis-fonts]
@@ -28,14 +28,14 @@ output:
 
 <style type="text/css">
 .remark-slide-content {
-    font-size: 38px;
+    font-size: 34px;
     padding: 1em 4em 1em 4em;
 }
 </style>
 
 <style type="text/css">
 .my-one-page-font {
-  font-size: 32px;
+  font-size: 28px;
 }
 </style>
 
@@ -43,7 +43,35 @@ output:
 
 <style type="text/css">
 .my-one-page-font-table {
-  font-size: 28px;
+  font-size: 24px;
+}
+</style>
+
+<style>
+.tiny { font-size: 60%; }      /* class you can reuse anywhere */
+</style>
+
+<style>
+.remark-slide-content {
+  position: relative;
+  z-index: 1;
+}
+
+.remark-slide-content::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 600px;          /* adjust size */
+  height: 600px;
+  background-image: url("1. 교장(Seal_Positive).png");  /* place logo file in same folder */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: 0.05;         /* watermark transparency */
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 0;
 }
 </style>
 
@@ -62,7 +90,7 @@ opts_chunk$set(fig.width = 10,
 #install.packages("xaringanthemer")
 library(xaringanthemer)
 style_mono_accent(
-  base_color = "#135978", # #1c5253
+  base_color = "#851a10",
   header_font_google = google_font("Josefin Sans"),
   text_font_google   = google_font("Montserrat", "500", "550i"),
   code_font_google   = google_font("Fira Mono"),
@@ -137,12 +165,13 @@ Typically, one would lick a salt block to make sure it was real and break off pi
 
 ## **Meaning of Money**  
 
-**Definition**: Money (or the “money supply”) is **anything generally accepted** as a payment for goods, services, or debt repayment.  
+**Definition**: Money (or the “money supply”) is **anything that is generally accepted** as a payment for goods, services, or debt repayment.  
 
 **Forms of Money**:  
-- **Currency** (paper bills & coins)  
-- **Checks & Checking Deposits**  
-- **Digital Money & Cryptocurrencies**  
+- **Currency** (paper money and coins)
+- **Checking Deposits** (bank money)
+- **Electronic Payment Systems** (debit cards, mobile payments)
+- **Cryptocurrencies** (a separate digital asset class) 
 
 **Money vs. Other Concepts:**  
 - **Wealth**: Total collection of valuable assets (property, investments).  
@@ -161,8 +190,10 @@ Typically, one would lick a salt block to make sure it was real and break off pi
 - Widely accepted  
 - Divisible  
 - Portable  
-- Durable  
+- Durable
+- Limited supply  
 
+> Spanish explorers flooded Europe with silver in the 16th century, contributing to inflation known as the Price Revolution.
 ---
 ## **Functions of Money** (Cont'd)   
 
@@ -175,6 +206,8 @@ Typically, one would lick a salt block to make sure it was real and break off pi
 - Other assets (real estate, stocks) also store value.  
 - **Money loses value with inflation**.  
 
+> Money is usually a poor store of value compared to assets like stocks or real estate because inflation reduces purchasing power.
+
 ---
 
 ## **Evolution of the Payments System**  
@@ -183,14 +216,11 @@ Typically, one would lick a salt block to make sure it was real and break off pi
 
 2. **Fiat Money**: Government-issued currency with no intrinsic value.  
 
-3. **Checks**: Written bank instructions for fund transfers.  
+3. **Bank Money**: Checking deposits, demand deposits.
 
-4. **Electronic Payments**: Online banking, bill payments.  
+4. **Electronic Payment Systems**: Online banking, bill payments.  
 
-5. **E-Money (Digital Money)**:  
-   - Debit cards 
-   - Stored-value cards (smart cards) 
-   - E-cash (cryptocurrencies, PayPal, mobile wallets) 
+5. **Digital Currencies**: Cryptocurrencies (Bitcoin, Ethereum) and Central Bank Digital Currencies (CBDCs).
 
 ---
 
@@ -210,7 +240,17 @@ Predictions of a cashless society have been around for **decades**, but why hasn
 - **High setup costs** for digital payment infrastructure.  
 - **Security & privacy risks** with electronic transactions.  
 
+- **Cash is still widely used in many advanced economies for small payments.**
+
+**Cash is resilient during crises and power outages.**
+
+**Cash protects privacy in transactions.**
+
+**Many central banks deliberately preserve access to cash for financial inclusion.**
+
 However, **e-money usage is increasing** and is likely to grow further.  
+
+> In the U.S., more than 90 percent of money exists as bank deposits rather than physical currency.
 
 ---
 
@@ -229,6 +269,10 @@ However, **e-money usage is increasing** and is likely to grow further.
 ❌ **Disadvantages**  
 - High **price volatility**  
 - Limited use as a **unit of account** and **store of value**  
+- **Volatility remains the main obstacle to functioning as money.**
+- **Transaction fees are not always low; they vary depending on network congestion.**
+
+> Bitcoin is rarely used as a unit of account/exchange but rather as a speculative asset. Prices are almost always quoted in national currency.
 
 *Does Bitcoin meet all the criteria to function as money?*  
 
@@ -238,7 +282,7 @@ class: my-one-page-font
 ## **Why Do Central Banks Care About Money?**  
 
 **1. Monetary Policy & Economic Control**  
-- Central banks regulate the **money supply** to stabilize the economy.  
+- Central banks influence money and credit conditions primarily through interest rate policy to stabilize the economy.  
 - Adjusting interest rates influences **inflation, employment, and GDP growth**.  
 **2. Inflation & Price Stability**  
 - Too much money? **Inflation rises** 
@@ -262,7 +306,7 @@ class: my-one-page-font
 **Central Bank Digital Currencies (CBDCs) are reshaping the future of money. But why?**  
 
 **1. Greater Control & Policy Efficiency**  
-- Enables **real-time monitoring** of money flows.  
+- Enables **real-time monitoring** of money flows, though with potential privacy concerns.  
 - Enhances **monetary policy transmission** (interest rate changes work faster).  
 **2. Financial Inclusion & Access**  
 - Helps **unbanked populations** access financial services.  
@@ -279,17 +323,21 @@ class: my-one-page-font
 
 *Will digital currencies replace cash completely?*  
 
+> As of 2024–2025, more than 130 countries are exploring CBDCs. However, only a few have fully launched them (for example the Bahamas Sand Dollar and Nigeria eNaira).
+
 ---
 
 ## **Measuring Money: Monetary Aggregates**  
 
 **How do we measure money?**  
 
-🔹 **M1 (Most Liquid Assets)**  
-- **Currency + Traveler’s Checks + Demand Deposits + Other Checkable Deposits**  
+1. **M1 (Most Liquid Assets)**  
+  - **Currency + Traveler’s Checks + Demand Deposits + Other Checkable Deposits**  
 
-🔹 **M2 (Less Liquid Assets)**  
-- **M1 + Savings Deposits + Small-Time Deposits + Money Market Accounts + Mutual Funds**  
+2. **M2 (Less Liquid Assets)**  
+  - **M1 + Savings Deposits + Small-Time Deposits + Money Market Accounts + Mutual Funds**  
+
+> In the United States, M1 increased from about 4 trillion dollars in early 2020 to more than 18 trillion dollars after the statistical redefinition (in 2020 the Federal Reserve reclassified savings deposits into M1).
 
 ---
 
@@ -350,18 +398,17 @@ class: inverse, center, middle
 
 ---
 
+# Next Class
+
+- (Mar 26) Chapt. 4: The Meaning of Interest Rates
+
+---
+
 class: inverse, center, middle
 
 # Any QUESTIONS?
 
-## Thank You!  
-
----
-
-# Next Class
-
-- (Mar 28) Chapt. 4: The Meaning of Interest Rates
-
+## Thank you for your attention and participation!  
 
 
 
@@ -389,4 +436,4 @@ library(renderthis)
 renderthis::to_pdf("W3_FIS.html")
 
 getwd()
-setwd("C:/Users/Iegor/OneDrive - kdis.ac.kr/Documents/GitHub/Sogang/2025/Spring/Financial Institutions and System/Week 3")
+setwd("C:\\Users\\vyshn\\OneDrive - kdis.ac.kr\\Documents\\GitHub\\Sogang\\2026\\Spring\\Financial Institutions and System\\Week 3")
