@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Mathematical Methods for International Commerce</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Iegor Vyshnevskyi, Ph.D." />
+    <meta name="date" content="2026-03-24" />
+    <script src="libs/header-attrs-2.29/header-attrs.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Mathematical Methods for International Commerce
+]
+.subtitle[
+## <br/>Week 4/1: Percentages and Compound Interest
+]
+.author[
+### Iegor Vyshnevskyi, Ph.D.
+]
+.institute[
+### Sogang University, Geppert School of International Studies
+]
+.date[
+### March 24, 2026
+]
+
+---
+
+
+&lt;style&gt;
+@media print{
+  body, html, .remark-slides-area, .remark-notes-area {
+    height: 100% !important;
+    width: 100% !important;
+    overflow: visible;
+    display: inline-block;
+    }
+&lt;/style&gt;
+
+&lt;style type="text/css"&gt;
+.remark-slide-content {
+    font-size: 34px;
+    padding: 1em 4em 1em 4em;
+}
+&lt;/style&gt;
+
+&lt;style type="text/css"&gt;
+.my-one-page-font {
+  font-size: 28px;
+}
+&lt;/style&gt;
+
+&lt;/style&gt;
+
+&lt;style type="text/css"&gt;
+.my-one-page-font-table {
+  font-size: 24px;
+}
+&lt;/style&gt;
+
+&lt;style&gt;
+.tiny { font-size: 60%; }      /* class you can reuse anywhere */
+&lt;/style&gt;
+
+&lt;style&gt;
+.remark-slide-content {
+  position: relative;
+  z-index: 1;
+}
+
+.remark-slide-content::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 600px;          /* adjust size */
+  height: 600px;
+  background-image: url("1. 교장(Seal_Positive).png");  /* place logo file in same folder */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: 0.05;         /* watermark transparency */
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 0;
+}
+&lt;/style&gt;
+
+
+
+
+
+
+
+# Introduction
+
+**Mathematics of Finance** is crucial for **investment decisions** and **economic analysis**.
+
+- **Why do we study these?**
+  - **Percentages** are used in **finance, economics, and business**.
+
+  - **Compound interest** is crucial for **investment decisions**.
+
+  - **Inflation rates** and **population growth** are expressed in percentages.
+
+---
+
+class: inverse, center, middle
+
+# Percentages
+
+---
+
+# **Section 3.1: Percentages**
+
+### **What is a Percentage?**
+- A **percentage** is a fraction out of 100.
+
+- Expressed as:
+  $$ \text{Percentage} = \frac{\text{Part}}{\text{Whole}} \times 100 $$
+
+### **Example:**
+If a product costs $200 and increases to $240:
+
+$$
+\text{Percentage Increase} = \frac{240 - 200}{200} \times 100 = 20\%
+$$
+
+---
+
+## **Percentage Increase and Decrease**
+
+- **Increase**: Multiply by `\(1 + \frac{r}{100}\)`
+
+- **Decrease**: Multiply by `\(1 - \frac{r}{100}\)`
+
+### **Example:**
+Price increases by 15%:
+$$
+\text{New Price} = 100 \times (1 + 0.15) = 115
+$$
+
+---
+
+## **Bps and Percentage Points**
+
+- **Basis points (bps)** are used to express **small percentage changes**.
+
+- **Percentage points** are used to express **absolute changes**.
+
+### **Example:**
+
+- If the interest rate increases from 5% to 6%:
+
+  - This is a 1 percentage point (p.p.) increase
+
+  - Also referred to as a 100 basis points (bps) increase
+
+- If the interest rate increases from 5% to 7%:
+
+  - This is a 2 percentage points (p.p.) increase
+
+  - Also equivalent to a 200 basis points (bps) increase
+
+---
+## **Bps and Percentage Points** (Cont'd)
+
+## Important Clarification
+
+A 1 percentage point (p.p.) increase is not the same as a 1% increase.
+
+Why does this matter?
+
+1 percentage point refers to a change in absolute percentage (e.g., from 5% to 6%).
+
+A 1% increase refers to a relative change (e.g., 5% increases by 1% → 5.05%).
+
+- Example:
+
+A 1% increase on a 5% rate means:
+$$
+5\% \times 1\% = 0.05\% \text{ increase}
+$$
+
+so the rate rises from 5.00% to 5.05%.
+
+This distinction is crucial in interpreting inflation, interest rate, or growth rate changes.
+
+---
+
+## **Scale Factors**
+
+- A **scale factor** expresses the effect of a percentage change.
+
+- For example, a 20% increase corresponds to a scale factor of 1.20.
+
+### **Example:**
+
+- If a price decrease by 10%:
+  - The scale factor is 0.90.
+
+- If a price increases by 25%:
+  - The scale factor is 1.25.
+
+---
+
+## **Overall Percentage Changes**
+
+To find total percentage change over multiple steps:
+$$
+\text{Overall Scale Factor} = (1 + r_1)(1 + r_2) \cdots (1 + r_n)
+$$
+
+### **Example:**
+Increase by 10%, then decrease by 5%:
+$$
+1.10 \times 0.95 = 1.045 \Rightarrow 4.5\% \text{ total increase}
+$$
+
+---
+
+## **Index Numbers**
+
+- Index numbers show how a value changes relative to a base period.
+
+$$
+\text{Index} = \frac{\text{Current Value}}{\text{Base Value}} \times 100
+$$
+
+### **Example:**
+CPI increases from 100 to 108:
+- This indicates an **8% increase in prices**.
+
+- Calculated as:
+  $$
+  \text{CPI} = \frac{108}{100} \times 100 = 108
+  $$
+
+---
+
+## **Adjusting for Inflation**
+
+To find real value:
+$$
+\text{Real Value} = \frac{\text{Nominal Value}}{\text{Price Index}} \times 100
+$$
+if the price index is based at 100
+
+PS: **CPI** is used as a **price index**. Real value is a value adjusted for inflation. Nominal value is the original value.
+
+### **Example:**
+Nominal wage = $500, CPI = 125:
+$$
+\text{Real Wage} = \frac{500}{125} \times 100 = 400
+$$
+
+---
+
+
+# Calculating Index Numbers: Table 3.1 Example
+
+## **Household Spending (in billions of dollars)**
+
+| Year       | Y1    | Y2    | Y3    | Y4    | Y5    |
+|------------|-------|-------|-------|-------|-------|
+| Spending   | 686.9 | 697.2 | 723.7 | 716.6 | 734.5 |
+
+- Table 3.1 shows the values of household spending (in billions of dollars) during a five year period. 
+
+- Calculate the index numbers when Year 2 is taken as the base year and give a brief interpretation.
+
+---
+
+## Step-by-Step: Base Year = Y2 (697.2)
+
+- **Formula**:  
+  $$
+  \text{Index Number} = \left( \frac{\text{Value in Year X}}{\text{Value in Base Year}} \right) \times 100
+  $$
+
+- **Y2** (Base Year):  
+  $$
+  \text{Index} = \left( \frac{697.2}{697.2} \right) \times 100 = 100
+  $$
+
+- **Y3**:  
+  $$
+  \text{Index} = \left( \frac{723.7}{697.2} \right) \times 100 \approx 103.8
+  $$
+
+- **Interpretation**:  
+  Spending in **Y3** is 3.8% **above** the Y2 level.
+
+---
+
+## Continuing with Y4 and Y5
+
+- **Y4**:  
+  $$
+  \text{Index} = \left( \frac{716.6}{697.2} \right) \times 100 \approx 102.8
+  $$
+
+  → Spending rose only **2.8%** from Y2, lower than Y3.
+
+- **Y5**:  
+  $$
+  \text{Index} = \left( \frac{734.5}{697.2} \right) \times 100 \approx 105.4
+  $$
+
+- **Y1**:
+  $$
+  \text{Index} = \left( \frac{686.9}{697.2} \right) \times 100 \approx 98.5
+  $$
+
+- **Interpretation**:  
+  Spending in **Y5** was **5.4%** higher than in Y2.
+
+---
+
+## Final Index Table (Base Year = Y2)
+
+| Year | Y1    | Y2  | Y3   | Y4   | Y5   |
+|------|-------|-----|------|------|------|
+| Index| 98.5  | 100 | 103.8| 102.8| 105.4 |
+
+---
+
+## Why Use Index Numbers?
+
+- Simplifies comparison across time periods
+
+- Common in **price indices**, **GDP**, **inflation tracking**
+
+- Allows interpretation like:  
+  “Spending in Y5 is **5.4% higher** than in Y2”
+
+---
+
+class: inverse, center, middle
+
+# Compound Interest
+
+---
+
+# **Section 3.2: Compound Interest**
+
+### **Simple vs Compound Interest**
+
+- **Simple Interest**: Earned only on the principal.
+
+- **Compound Interest**: Earned on **principal and accumulated interest**.
+
+### **Example:**
+
+- $1000 invested at 5% for 3 years:
+  - **Simple Interest**: $1000 + $150 = $1150
+  - **Compound Interest**: $1157.63
+
+- Because:
+  - $1000 + `\(1000(0.05)*3 = 1150\)`
+  - `\(1000(1 + 0.05)^3 = 1157.63\)` 
+
+
+---
+
+## **Annual Compounding Formula**
+
+- **Annual Compounding** stands for interest *calculated once a year*.
+
+$$
+A = P(1 + r)^t
+$$
+where:
+- `\(A\)`: final amount
+- `\(P\)`: principal
+- `\(r\)`: interest rate per year
+- `\(t\)`: time in years
+
+### **Example:**
+`\(P = 1000\)`, `\(r = 5\%\)`, `\(t = 3\)`:
+$$
+A = 1000(1 + 0.05)^3 = 1157.63
+$$
+
+---
+
+## **Continuous Compounding Formula**
+
+- **Continuous Compounding** means that there is *no limit* to how often interest can compound.
+
+$$
+A = Pe^{rt}
+$$
+
+### **Example:**
+`\(P = 1000\)`, `\(r = 0.05\)`, `\(t = 3\)`:
+$$
+A = 1000e^{0.15} \approx 1161.83
+$$
+
+---
+
+# Constant Growth Rate Over Time
+
+## **Example: Output Growth Over 5 Years**
+
+A firm wants to increase output from **50,000** to **60,000** over **5 years** at a **constant annual rate**.
+
+We are solving for the **growth rate** denoted as **r**.
+
+This assumes the same percentage growth rate each year.
+
+---
+
+## Step-by-Step Solution
+
+Let the scale factor be:
+
+$$
+(1 + \frac{r}{100})^5
+$$
+
+To reach 60,000 in 5 years:
+
+$$
+50,000 \cdot \left(1 + \frac{r}{100}\right)^5 = 60,000
+$$
+
+Divide both sides by 50,000:
+
+$$
+\left(1 + \frac{r}{100}\right)^5 = 1.2
+$$
+
+---
+
+## Taking the Fifth Root
+
+Solve:
+
+$$
+1 + \frac{r}{100} = (1.2)^{1/5}
+$$
+
+Compute:
+
+$$
+1 + \frac{r}{100} \approx 1.0371
+$$
+
+Subtract 1:
+
+$$
+\frac{r}{100} \approx 0.0371 \Rightarrow r \approx 3.71\%
+$$
+
+**Conclusion**: The firm needs a constant **annual growth rate of approximately 3.7%** to reach 60,000 in 5 years.
+
+---
+
+## Why This Matters in Economics?
+
+- Helps forecast growth of **output**, **investment**, **GDP**, or **population**.
+
+- Realistic use of **compound growth**, especially in planning or project evaluation.
+
+---
+
+
+## **Effective Annual Rate (EAR)**
+
+- **EAR**  is the effective annual rate that accounts for compounding.
+
+If interest is compounded more than once a year:
+$$
+\text{EAR} = \left(1 + \frac{r}{n}\right)^n - 1
+$$
+where `\(n\)` = number of compounding periods per year
+
+### **Example:**
+Nominal rate 6% compounded quarterly:
+$$
+\text{EAR} = \left(1 + \frac{0.06}{4}\right)^4 - 1 \approx 0.0614 = 6.14\%
+$$
+
+It means that the effective annual rate is 6.14%.
+
+---
+
+# **Practice Problems**
+
+### **Percentages**
+1. A good's price rose from $80 to $92. What’s the percentage increase?
+2. CPI rose from 120 to 132. What is the inflation rate?
+3. If a product's price falls from $100 to $80, what is the percentage decrease?
+4. If a country's GDP rises from $500 to $550, what is the percentage increase?
+
+### **Compound Interest**
+5. Calculate the compound amount on $2000 at 6% for 5 years.
+6. Using the same principal, interest rate, and time period, compare the amount under annual and continuous compounding.
+7. If the nominal rate is 8% compounded monthly, what is the EAR?
+8. If the nominal rate is 5% compounded daily, what is the EAR?
+9. If the nominal rate is 4% compounded quarterly, what is the EAR?
+
+???
+
+
+# 📊 Percentages: Real-World Calculations
+
+### 1. A product's price increases from \$80 to \$92:
+\[
+\frac{92 - 80}{80} \times 100 = \frac{12}{80} \times 100 = 15\%
+\]
+
+### 2. Consumer Price Index (CPI) rises from 120 to 132:
+\[
+\frac{132 - 120}{120} \times 100 = \frac{12}{120} \times 100 = 10\%
+\]
+
+### 3. A product's price falls from \$100 to \$80:
+\[
+\frac{100 - 80}{100} \times 100 = 20\%
+\]
+
+### 4. GDP increases from \$500 billion to \$550 billion:
+\[
+\frac{550 - 500}{500} \times 100 = 10\%
+\]
+
+
+
+# 💰 Compound Interest: Growth Over Time
+
+### 5. Calculate compound amount on \$2000 at 6% for 5 years (annual compounding):
+\[
+A = 2000(1 + 0.06)^5 = 2000(1.3382256) = \boxed{2676.45}
+\]
+
+### 6. Compare annual vs. continuous compounding:
+
+- **Annual**: \$2676.45  
+- **Continuous**:
+\[
+A = 2000 \cdot e^{0.3} \approx 2000 \cdot 1.34986 = \boxed{2699.72}
+\]
+
+**Difference**: \$2699.72 − \$2676.45 = \$23.27 (continuous earns more)
+
+
+
+# 📈 EAR: Effective Annual Rate Comparisons
+
+### 7. 8% Nominal Rate, Compounded Monthly:
+\[
+\text{EAR} = \left(1 + \frac{0.08}{12}\right)^{12} - 1 \approx \boxed{8.30\%}
+\]
+
+### 8. 5% Nominal Rate, Compounded Daily:
+\[
+\text{EAR} = \left(1 + \frac{0.05}{365}\right)^{365} - 1 \approx \boxed{5.13\%}
+\]
+
+### 9. 4% Nominal Rate, Compounded Quarterly:
+\[
+\text{EAR} = \left(1 + \frac{0.04}{4}\right)^4 - 1 = (1.01)^4 - 1 = \boxed{4.06\%}
+\]
+
+
+
+---
+
+# **Summary**
+
+- Percentage changes and index numbers help interpret price and value shifts.
+
+- Compound interest is central to banking and investment decisions.
+
+- EAR reveals the true return on investment.
+
+---
+
+# Next Class
+
+- (Mar 26) Geometric Series (3.3), Investment Appraisal (3.4)  
+
+---
+
+class: inverse, center, middle
+
+# Any QUESTIONS?
+
+## Thank you for your attention and participation!
+
+
+
+
+
+
+???
+1. To print pdf slides
+https://stackoverflow.com/questions/54968311/xaringan-export-slides-to-pdf-while-preserving-formatting
+
+pagedown::chrome_print("W1_ME.html") # but not all pictures are visible
+
+2. Option: https://stackoverflow.com/questions/54968311/xaringan-export-slides-to-pdf-while-preserving-formatting
+
+install.packages("remotes")
+remotes::install_github("jhelvy/xaringanBuilder")
+remotes::install_github("jhelvy/renderthis@v0.0.9")
+
+library(xaringanBuilder)
+build_pdf("DVC.html")
+
+3. Option
+writeBin(as.raw(c()), "favicon.ico") # create an empty favicon.ico file
+install.packages("renderthis")
+remotes::install_github('rstudio/chromote')
+library(renderthis)
+
+renderthis::to_pdf("W4_1_ME.html")
+
+getwd()
+setwd("C:\\Users\\vyshn\\OneDrive - kdis.ac.kr\\Documents\\GitHub\\Sogang\\2026\\Spring\\Mathematical Methods for International Commerce\\Week 4_1")
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+  "highlightStyle": "github",
+  "highlightLines": true,
+  "countIncrementalSlides": false,
+  "ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
