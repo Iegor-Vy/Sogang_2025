@@ -135,7 +135,7 @@ class: inverse, center, middle
 ---
 # Present value of an annuity (loan instalments)
 
-* If you repay `\(x\)` each year for `\(n\)` years:
+* If you repay `\(x\)` each year for `\(n\)` years (Here x denotes the annual payment, i.e. PMT.):
 `\(PV = x\cdot\frac{1-(1+r)^{-n}}{r}\)`
 
 * Negative exponent means discounting:
@@ -146,7 +146,7 @@ class: inverse, center, middle
 
 # Loan example
 
-* Loan `\(PV = 2000, r = 10%, n = 4\)`
+* Loan `\(PV = 2000, r = 10\%, n = 4\)`
 
 * Factor: `\((\frac{1-(1.10)^{-4}}{0.10} \approx 3.1699)\)`
 
@@ -182,7 +182,7 @@ NPV `\(\approx -10.52\)` (slightly negative)
 
 * Bond value = PV(coupons) + PV(face value)
 
-* If coupon rate = yield, price = face value
+* If coupon rate = yield, price = face value .tiny[This is correct for plain fixed-coupon bonds with the same compounding/payment convention.]
 
 * Example: 50 for 10 years + 1000 at end, r=5%
 
@@ -288,7 +288,7 @@ $$
 S_5 = 100 \cdot \frac{1.05^5 - 1}{0.05} \approx 100 \cdot 5.5256 = \boxed{\$552.56}
 $$
 
-In 5 years, you will have saved $552.56.
+In 5 years, the accumulated balance will be $552.56.
 
 tiny[Assume deposits are made at the end of each year. It's ordinary annuity.]
 
@@ -406,7 +406,7 @@ class: inverse, center, middle
 
 ## Investment Appraisal
 
-Stands for evaluating the financial viability of investments.
+Investment appraisal means evaluating the financial viability of investments.
 
 ## Present Value (Discrete)
 
@@ -525,13 +525,15 @@ $$
 
 This makes sense: at a 5% rate, the bond is worth **its face value**.
 
+If the bond has face value 1000, annual coupon 50, maturity 10 years, and market yield 5% with annual coupon payments, then its price is 1000.
+
 ---
 
 # Practice Problems
 
 1. Sum of: `\(3 + 6 + 12 + 24\)`
 
-2. $200/quarter, 4% quarterly compounding for 3 years
+2. Find the future value of saving $200 per quarter for 3 years at 4% nominal annual interest compounded quarterly.
 
 3. PV of $1500 in 2 years at 8% (continuous)
 
@@ -545,11 +547,11 @@ This makes sense: at a 5% rate, the bond is worth **its face value**.
 
 # Summary
 
-- Geometric series = finance modeling
+- Geometric series are useful for modeling financial cash flows
 
 - Investment tools = PV, NPV, IRR
 
-- Practical for decision-making in public/private sectors
+- Useful for decision-making in both the public and private sectors
 
 ---
 
@@ -594,7 +596,7 @@ library(renderthis)
 renderthis::to_pdf("W-4_2_ME.html")
 
 getwd()
-setwd("C:\\Users\\vyshn\\OneDrive - kdis.ac.kr\\Documents\\GitHub\\Sogang\\2026\\Spring\\Mathematical Economics\\Week 4_2")
+setwd("C:\\Users\\vyshn\\OneDrive - kdis.ac.kr\\Documents\\GitHub\\Sogang\\2026\\Spring\\Mathematical Methods for International Commerce\\Week 4_2")
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

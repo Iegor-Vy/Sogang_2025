@@ -543,10 +543,9 @@ $P(A \text{ or } B) = P(A) + P(B) − P(A \text{ and } B)$, where $P(A \text{ an
 # Example
 
 Tourist visits:
-
-Lotte World = 120
-Imperial Palace = 100
-Both = 60
+  - Lotte World = 120
+  - Imperial Palace = 100
+  - Both = 60
 
 Out of 200 tourists.
 
@@ -774,7 +773,7 @@ Outfits = 80
 
 # Counting rules: Permutations
 
-A permutation is any arrangement of r objects selected from n possible objects. The order of arrangement is important in permutations.
+A permutation is any arrangement of $r$ objects selected from $n$ possible objects. The order of arrangement is important in permutations.
 
 .pull-left[
 <div>
@@ -797,7 +796,7 @@ Ranking 5 players from 12.
 
 # Counting rules: Combinations
 
-A combination is the number of ways to choose r objects from a group of n objects without regard to order.
+A combination is the number of ways to choose $r$ objects from a group of $n$ objects without regard to order.
 .pull-left[
 <div>
 .center[
