@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Financial Institutions and System</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Iegor Vyshnevskyi, Ph.D." />
+    <meta name="date" content="2026-03-26" />
+    <script src="libs/header-attrs-2.29/header-attrs.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Financial Institutions and System
+]
+.subtitle[
+## <br/>Week 4: The Meaning and Behavior of Interest Rates
+]
+.author[
+### Iegor Vyshnevskyi, Ph.D.
+]
+.institute[
+### Sogang University, Graduate School of International Studies
+]
+.date[
+### March 26, 2026
+]
+
+---
+
+
+&lt;style&gt;
+@media print{
+  body, html, .remark-slides-area, .remark-notes-area {
+    height: 100% !important;
+    width: 100% !important;
+    overflow: visible;
+    display: inline-block;
+    }
+&lt;/style&gt;
+
+&lt;style type="text/css"&gt;
+.remark-slide-content {
+    font-size: 34px;
+    padding: 1em 4em 1em 4em;
+}
+&lt;/style&gt;
+
+&lt;style type="text/css"&gt;
+.my-one-page-font {
+  font-size: 28px;
+}
+&lt;/style&gt;
+
+&lt;/style&gt;
+
+&lt;style type="text/css"&gt;
+.my-one-page-font-table {
+  font-size: 24px;
+}
+&lt;/style&gt;
+
+&lt;style&gt;
+.tiny { font-size: 60%; }      /* class you can reuse anywhere */
+&lt;/style&gt;
+
+&lt;style&gt;
+.remark-slide-content {
+  position: relative;
+  z-index: 1;
+}
+
+.remark-slide-content::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 600px;          /* adjust size */
+  height: 600px;
+  background-image: url("1. 교장(Seal_Positive).png");  /* place logo file in same folder */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: 0.05;         /* watermark transparency */
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 0;
+}
+&lt;/style&gt;
+
+
+
+
+
+
+# Agenda  
+
+1. What is an Interest Rate?  
+
+2. The Behavior of Interest Rates
+
+3. Class Activity: Understanding Interest Rates in Action
+
+---
+
+class: inverse, center, middle
+
+# 1. What is an Interest Rate?  
+
+---
+
+## **Interest Rates: The Cost of Money**
+
+**Definition**: The **interest rate** is the **price of borrowing money** or the **return earned from lending or saving money**.
+
+**Why it matters**: It affects everything—from mortgages and student loans to investment decisions and inflation.
+
+**Interest rate** = **Risk-free rate** + **Risk premium** where, **Risk-free rate** = **Real rate** + **Expected inflation**
+
+Equivalent form: `\(i_n \approx r + \pi^e + \rho\)`
+
+If risk premium is negligible: `\(i_n \approx r + \pi^e\)`
+
+Note: 
+- **Real rate** `\((r)\)` is the rate of return on an investment after adjusting for inflation. 
+- **Expected inflation** `\((\pi^e)\)` is the rate at which prices are expected to rise. 
+- **Risk-free rate** `\((i_f)\)` is the return on an investment that carries no risk of financial loss.
+- **Risk premium** `\((\rho)\)` is the return in excess of the risk-free rate.
+- **Nominal rate** `\((i_n)\)` is the stated interest rate on a loan or investment, not adjusted for inflation.
+
+---
+
+## Measuring Interest Rates
+
+**Present Value (PV)**: Reflects the idea that **money today is worth more than money in the future**.
+
+- A dollar today earns interest and grows to `\(1 \times (1+i)\)` tomorrow.
+- Ex: Would you prefer $20M **today**, or $1M every year for 20 years?
+
+The answer depends on the **discount rate** or interest rate used.
+
+---
+
+## Compound Interest Example
+
+Let `\(i = 0.10\)` (10%)
+
+- Year 1: $$ $100 × (1 + 0.10) = $110 $$
+- Year 2: $$ $110 × (1 + 0.10) = $121 → or $100 × (1 + 0.10)^2 $$
+- Year 3: $$ $121 × (1 + 0.10) = $133 → or $100 × (1 + 0.10)^3 $$
+
+**General formula**: `\(FV = PV \times (1 + i)^n\)`
+
+---
+
+## Simple Present Value
+
+`\(PV = \frac{CF}{(1 + i)^n}\)`
+
+Where:
+- **PV** = Present Value
+- **CF** = Future Cash Flow
+- **i** = Interest Rate
+- **n** = Time in years
+
+.center[&lt;img src="pv.jpg" height="50%" width="50%"&gt;]
+
+This formula helps us **compare money received at different times**.
+
+---
+
+## How Much Is That Jackpot Worth?
+
+You win $20M, paid as $1M per year for 20 years.
+
+- Is it really worth $20M today?
+
+- Let’s assume an interest rate of 10%.
+
+Calculate Present Value:
+
+`\(PV = \frac{1M}{(1 + 0.10)} + \frac{1M}{(1 + 0.10)^2} + \ldots + \frac{1M}{(1 + 0.10)^{20}}\)`
+
+This will result in a value significantly **less** than $20M. That’s the power of **discounting**.
+
+.tiny[This is an annuity — it has a closed-form solution:]
+
+`$$PV = C \times \frac{1 - (1 + i)^{-n}}{i}$$`
+
+.tiny[where `\(C\)` is the annual payment.]
+---
+
+## Four Types of Credit Market Instruments
+
+1. **Simple Loan**: Lump sum borrowed and repaid with interest (e.g., short-term bank loan).
+
+2. **Fixed Payment Loan**: Equal regular payments (e.g., car loans, mortgages).
+
+3. **Coupon Bond**: Pays fixed interest (coupon) annually + face value at maturity.
+   - **Coupon rate** = Annual coupon ÷ Face value
+
+4. **Discount Bond**: Sold below face value, pays no coupon (e.g., Treasury bills).
+   - **Zero-coupon bonds**: No interim payments, only repayment at maturity.
+
+---
+
+## Yield to Maturity (YTM)
+
+YTM is the interest rate that **equates the bond’s current price with the present value of its future payments**.
+
+### Why is YTM important?
+- It reflects the **true return** on a bond if held to maturity.
+
+**Example – Simple Loan**:
+- PV = $100
+- CF = $110 in 1 year
+
+`\(100 = \frac{110}{1 + i} \Rightarrow i = 10%\)`
+
+YTM assumes:
+  - bond is held to maturity
+  - all coupon payments are reinvested at the same rate
+
+---
+
+## Fixed Payment Loan Formula
+
+`\(LV = \sum_{t=1}^{n} \frac{FP}{(1 + i)^t}\)`
+
+Where:
+- **LV** = Loan Value
+- **FP** = Fixed annual payment
+- **n** = Number of years
+
+Used in amortized loans like mortgages.
+
+.tiny[FP includes both principal and interest (students often confuse this).]
+
+---
+
+## Coupon Bond Formula
+
+$$ P = \sum_{t=1}^{n} \frac{C}{(1 + i)^t} + \frac{F}{(1 + i)^n} $$
+
+Where:
+- **P** = Current bond price
+- **C** = Annual coupon payment
+- **F** = Face value
+- **i** = Interest rate
+- **n** = Years to maturity
+
+---
+
+## Bond Pricing Insights
+
+- **YTM = Coupon Rate** → Bond trades at **par** (face value).
+- **YTM &gt; Coupon Rate** → Bond trades **below par** (discount).
+- **YTM &lt; Coupon Rate** → Bond trades **above par** (premium).
+
+.center[&lt;img src="tab1.jpg" height="50%" width="50%"&gt;]
+
+Remember: Bond price and Yield to Maturity (YTM) are inversely related — when price increases, yield decreases.
+
+Why? Because paying a higher price for the same fixed future payments results in a lower return.
+
+---
+
+## Consol (Perpetuity)
+
+A **consol bond** or **perpetuity** pays **coupon payments forever** and never matures.
+
+$$ P = \frac{C}{i} $$
+
+Where:
+- **P** = Price
+- **C** = Annual coupon
+- **i** = Yield (required return, discount rate)
+
+Used as a **simple approximation** of YTM when maturity is distant.
+
+---
+
+## Discount Bond Formula
+
+For a 1-year discount bond:
+
+$$ i = \frac{F - P}{P} $$
+
+Where:
+- **F** = Face value
+- **P** = Current price
+
+Like other bonds, **price ↑ → yield ↓**.
+
+---
+
+## Interest Rates vs Returns
+
+`\(RET = \frac{C}{P_t} + \frac{P_{t+1} - P_t}{P_t}\)`
+
+Where:
+- **RET** = Return from holding bond for 1 period
+- **C** = Coupon payment
+- `\(P_t\)` = Price at time t
+- `\(P_{t+1}\)` = Price at time t+1
+
+**Two components**:
+1. **Current yield**
+2. **Capital gain/loss**
+
+---
+
+## Return vs Yield
+
+- Return equals YTM **only** if held to maturity.
+- Longer maturity → **greater interest-rate risk**.
+- If interest rates **rise**, prices fall → **capital loss**.
+
+.center[&lt;img src="tab2.jpg" height="60%" width="60%"&gt;]
+
+---
+
+## Interest-Rate Risk
+
+- **Long-term bonds** are more sensitive to interest rate changes.
+
+- If you sell before maturity → you face price risk.
+
+- But if you hold to maturity, your return = YTM.
+
+Rule: The longer the maturity, the **higher the volatility** of bond price.
+
+This is formally captured by duration (advanced concept, which means the weighted average time to receive the bond's cash flows).
+
+---
+
+## Real vs Nominal Interest Rates
+
+- **Nominal rate (i)**: Not adjusted for inflation
+
+- **Real rate (iᵣ)**: Adjusted for inflation
+
+Types of real rates:
+- **Ex ante**: Based on **expected inflation**
+
+- **Ex post**: Based on **actual inflation**
+
+---
+
+## Fisher Equation
+
+$$ i = i_r + \pi^e $$
+
+Where:
+- **i** = Nominal rate
+- **iᵣ** = Real rate
+- `\(\pi^e\)` = Expected inflation
+
+Low real rates → borrowing is cheap → **more demand for credit**
+
+---
+
+.center[&lt;img src="fig1.jpg" height="90%" width="90%"&gt;]
+
+---
+
+## Real-World Example: Fed Rate Hikes &amp; Bank Failures
+
+.center[&lt;img src="fed_news.jpg" height="60%" width="60%"&gt;]
+
+---
+
+## Fed Commentary: Financial Stability Risks
+
+- Fed has increased exams after Silicon Valley Bank (SVB) collapse.
+
+- Issue: **Unrealized losses** on long-term assets due to rising rates.
+
+- Banks now face **tighter supervision and capital requirements**.
+
+Shows how **interest rate changes affect the financial system**.
+
+&gt; Unrealized losses became realized due to liquidity pressure (withdrawals), not just supervision.
+
+---
+
+class: inverse, center, middle
+
+# 2. The Behavior of Interest Rates
+
+---
+
+## Determinants of Asset Demand
+
+An asset is anything that can be owned and has value.
+
+Examples: money, laptops, cellphones, bonds, stocks, art, land, houses, and machinery.
+
+**Asset demand** is the amount of an asset that people are willing to hold at a given price.
+
+**Financial assets** are claims on real assets or income.
+
+---
+
+## Factors Affecting Asset Demand
+
+- **Wealth**: Total resources, including all assets
+
+- **Expected Return**: Return relative to other assets
+
+- **Risk**: Uncertainty of returns
+
+- **Liquidity**: Ease of converting to cash
+
+---
+
+## Theory of Portfolio Choice
+
+1. Demand ↑ with **wealth**  
+
+2. Demand ↑ with **expected return**  
+
+3. Demand ↓ with **risk**  
+
+4. Demand ↑ with **liquidity**
+
+---
+
+## Bond Market: Supply &amp; Demand
+
+- Lower price → Higher interest rate → Higher demand for bonds  
+
+- Lower price → Higher interest rate → Lower supply of bonds
+
+---
+
+.center[&lt;img src="fig1 (2).jpg" height="90%" width="90%"&gt;]
+
+---
+
+## Market Equilibrium in Bonds
+
+- Market clears when: `\(B^d = B^s\)`
+
+- `\(B^d &gt; B^s\)`: Excess demand → Price ↑ → Interest rate ↓
+
+- `\(B^d &lt; B^s\)`: Excess supply → Price ↓ → Interest rate ↑
+
+---
+
+## Changes in Equilibrium Interest Rates
+
+**Demand for Bonds Shifts:**
+- ↑ Wealth → Demand ↑
+- ↑ Expected interest rate → Demand ↓
+- ↑ Expected inflation → Demand ↓
+- ↑ Risk → Demand ↓
+- ↑ Liquidity → Demand ↑
+
+---
+
+## Supply of Bonds Shifts
+
+- ↑ Profitability → Supply ↑
+
+- ↑ Expected inflation → Supply ↑
+
+- ↑ Budget deficit → Supply ↑
+
+---
+
+## Fisher Effect: Response to Expected Inflation
+
+.center[&lt;img src="fig4.jpg" height="90%" width="90%"&gt;]
+
+
+---
+
+## Expected Inflation vs Interest Rates (1953–2020)
+
+.center[&lt;img src="fig5.jpg" height="90%" width="90%"&gt;]
+
+
+---
+
+## Liquidity Preference Framework
+
+- Keynesian model: equilibrium interest rate via money supply &amp; demand
+
+- Wealth held in either **money** or **bonds**
+
+`\(B^s + M^s = B^d + M^d\)`
+→ Rearranged: `\(B^s - B^d = M^s - M^d\)`
+
+If `\(M^s = M^d\)` → then `\(B^s = B^d\)`
+
+---
+
+## Demand for Money
+
+As interest rate ↑:
+- Opportunity cost of holding money ↑
+- Expected return of money ↓
+→ Demand for money ↓
+
+Assume money supply is **fixed** by central bank.
+
+Meaning:
+
+- When interest rates go up:
+
+You're missing out on more potential earnings by just holding onto cash — that’s the opportunity cost.
+
+Since cash doesn’t earn interest, its return becomes less attractive compared to alternatives like bonds or savings accounts.
+
+- Result: People prefer to hold less money and instead invest it — so the demand for money falls.
+
+---
+
+## Equilibrium in Money Market
+
+.center[&lt;img src="fig8.jpg" height="70%" width="70%"&gt;]
+
+---
+
+## Changes in Equilibrium (Liquidity Preference)
+
+**Demand for Money Shifts:**
+- **Income Effect**: ↑ income → ↑ money demand
+
+- **Price-Level Effect**: ↑ prices → ↑ money demand
+
+---
+
+## Shifts in Supply of Money
+
+- Central bank controls money supply (more precisely, central banks primarily control short-term interest rates, and money supply adjusts endogenously.).
+
+- Fed increases `\(M^s\)` → Supply curve shifts **right**
+
+---
+
+## Money &amp; Interest Rates
+
+- Liquidity preference says ↑ `\(M^s\)` → ↓ interest rate
+- But...
+    - **Price-level effect**: ↑ `\(M^s\)` → ↑ prices → ↑ interest rate
+
+---
+
+## More Effects of Money Growth
+
+- **Expected-inflation effect**: if people expect rising inflation, they demand higher interest
+
+- **Income effect**: ↑ `\(M^s\)` → ↑ income → ↑ interest
+
+---
+
+## Net Effect? Does ↑ Money Supply ↓ Rates?
+
+- **Liquidity effect**: ↓ rates
+
+- **Income effect**: ↑ rates
+
+- **Price-level effect**: ↑ rates
+
+- **Expected-inflation effect**: ↑ rates
+
+---
+
+## Response Over Time to Money Growth
+
+.center[&lt;img src="fig11.jpg" height="40%" width="40%"&gt;]
+
+---
+
+## Money Growth &amp; Interest Rates (1950–2020)
+
+.center[&lt;img src="fig12.jpg" height="90%" width="90%"&gt;]
+
+---
+
+
+class: inverse, center, middle
+
+# 3. Class Activity: Understanding Interest Rates in Action
+---
+
+# Next Class
+
+- (Apr 2) 
+  - **Chap 6.** The Risk and Term Structure of Interest Rates; 
+  - **Chap 7.** The Stock Market, the Theory of Rational Expectations, and the Efficient Market Hypothesis 
+
+---
+
+class: inverse, center, middle
+
+# Any QUESTIONS?
+
+## Thank You for your attention and participation!  
+
+
+
+???
+1. To print pdf slides
+https://stackoverflow.com/questions/54968311/xaringan-export-slides-to-pdf-while-preserving-formatting
+
+pagedown::chrome_print("W1_ME.html") # but not all pictures are visible
+
+2. Option: https://stackoverflow.com/questions/54968311/xaringan-export-slides-to-pdf-while-preserving-formatting
+
+install.packages("remotes")
+remotes::install_github("jhelvy/xaringanBuilder")
+remotes::install_github("jhelvy/renderthis@v0.0.9")
+
+library(xaringanBuilder)
+build_pdf("DVC.html")
+
+3. Option
+writeBin(as.raw(c()), "favicon.ico") # create an empty favicon.ico file
+install.packages("renderthis")
+remotes::install_github('rstudio/chromote')
+library(renderthis)
+
+renderthis::to_pdf("W4_FIS.html")
+
+getwd()
+setwd("C:\\Users\\vyshn\\OneDrive - kdis.ac.kr\\Documents\\GitHub\\Sogang\\2026\\Spring\\Financial Institutions and System\\Week 4")
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+  "highlightStyle": "github",
+  "highlightLines": true,
+  "countIncrementalSlides": false,
+  "ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
