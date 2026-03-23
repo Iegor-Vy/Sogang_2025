@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Mathematical Methods for International Commerce</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Iegor Vyshnevskyi, Ph.D." />
+    <meta name="date" content="2026-04-02" />
+    <script src="libs/header-attrs-2.29/header-attrs.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Mathematical Methods for International Commerce
+]
+.subtitle[
+## <br/>Week 5/2: Marginal Functions
+]
+.author[
+### Iegor Vyshnevskyi, Ph.D.
+]
+.institute[
+### Sogang University, Geppert School of International Studies
+]
+.date[
+### April 2, 2026
+]
+
+---
+
+
+&lt;style&gt;
+@media print{
+  body, html, .remark-slides-area, .remark-notes-area {
+    height: 100% !important;
+    width: 100% !important;
+    overflow: visible;
+    display: inline-block;
+    }
+&lt;/style&gt;
+
+&lt;style type="text/css"&gt;
+.remark-slide-content {
+    font-size: 34px;
+    padding: 1em 4em 1em 4em;
+}
+&lt;/style&gt;
+
+&lt;style type="text/css"&gt;
+.my-one-page-font {
+  font-size: 28px;
+}
+&lt;/style&gt;
+
+&lt;/style&gt;
+
+&lt;style type="text/css"&gt;
+.my-one-page-font-table {
+  font-size: 24px;
+}
+&lt;/style&gt;
+
+&lt;style&gt;
+.tiny { font-size: 60%; }      /* class you can reuse anywhere */
+&lt;/style&gt;
+
+&lt;style&gt;
+.remark-slide-content {
+  position: relative;
+  z-index: 1;
+}
+
+.remark-slide-content::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 600px;          /* adjust size */
+  height: 600px;
+  background-image: url("1. 교장(Seal_Positive).png");  /* place logo file in same folder */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: 0.05;         /* watermark transparency */
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 0;
+}
+&lt;/style&gt;
+
+
+
+
+
+
+# Agenda  
+
+1. Marginal Functions 
+
+2. Individual Activity: Marginal Strategy Showdown
+
+---
+
+class: inverse, center, middle
+
+# 1. Marginal Functions 
+
+---
+
+# Why Marginal Functions Matter
+
+Marginal functions help us understand how **economic quantities change** when we adjust inputs or make small decisions.
+
+- In **microeconomics**, marginal revenue and marginal cost are essential to determine **optimal production** and **pricing decisions**.
+
+- In **macroeconomics**, marginal propensity to consume and save help model **aggregate demand**.
+
+- In **production theory**, marginal product helps evaluate **efficiency** of labour and capital.
+
+---
+
+# Learning Objectives
+
+By the end of this lecture, you should be able to:
+- Calculate **marginal revenue** and **marginal cost**
+- Calculate **marginal product of labour**
+- Derive the link between **marginal and average revenue** under different market structures
+- State the **law of diminishing marginal productivity** using calculus
+- Calculate **marginal propensity to consume** and **save**
+
+---
+
+# Marginal Revenue &amp; Marginal Cost
+
+- **Marginal Revenue (MR)** is the **additional revenue** earned from selling one more unit:
+
+$$ MR = \frac{dR}{dx} $$
+
+- **Marginal Cost (MC)** is the **additional cost** from producing one more unit:
+
+$$ MC = \frac{dC}{dx} $$
+
+---
+
+### Example:
+Let revenue: `\(R(x) = 40x - 0.5x^2\)` and cost: `\(C(x) = 10x + 50\)`
+
+- `\(MR = \frac{dR}{dx} = 40 - x\)`
+- `\(MC = \frac{dC}{dx} = 10\)`
+
+At `\(x = 20\)`:
+- `\(MR = 20\)`, `\(MC = 10\)`
+
+If MR &gt; MC, profit increases with output → the firm should increase production until MR = MC.
+
+---
+
+## Visualizing MR and MC
+.center[&lt;img src="mr_mc_plot.png" height="60%" width="60%"&gt;]
+
+- Profit is maximized where MR = MC and MC is increasing .tiny[At this point, the cost of producing one additional unit equals the revenue gained from selling it, meaning any change in production would lower total profit.]
+- If MR &gt; MC, the firm should increase output.
+- If MR &lt; MC, the firm should reduce output.
+
+---
+
+# Marginal Product of Labour
+
+- The **Marginal Product of Labour (MP\_L)** is the additional output from hiring one more worker:
+
+$$ MP_L = \frac{dQ}{dL} $$
+
+### Example:
+Let `\(Q = 10L - 0.5L^2\)`
+
+- `\(MP_L = \frac{dQ}{dL} = 10 - L\)`
+- When `\(L = 4\)`: `\(MP_L = 6\)`
+
+Output increases but at a diminishing rate — see law of diminishing returns.
+
+---
+
+## Visualizing Diminishing Marginal Returns
+
+.center[&lt;img src="mpl_plot.png" height="60%" width="60%"&gt;]
+
+- MP\_L decreases as L increases
+- After a point, adding more labour increases output at a decreasing rate.tiny[This is the law of diminishing marginal productivity.]
+
+---
+
+# Law of Diminishing Marginal Productivity
+
+The **law states** that, after a point, adding more of a variable input leads to smaller increases in output:
+
+$$ MP_L = \frac{dQ}{dL} \text{ decreases as } L \text{ increases} $$
+
+- Seen in the production function `\(Q = 10L - 0.5L^2\)`
+
+- Marginal product falls as L increases
+
+---
+
+# Monopoly vs Perfect Competition
+
+## Perfect Competition:
+- `\(MR = AR = P\)` (Price is constant)
+- Average Revenue and Marginal Revenue are equal
+
+## Monopoly:
+- Price falls as more units are sold
+- `\(MR &lt; AR\)`
+- Total revenue function `\(R(x) = P(x) \cdot x\)`, where `\(P(x)\)` is decreasing
+
+### Example:
+`\(P(x) = 100 - 2x \Rightarrow R(x) = (100 - 2x)x = 100x - 2x^2\)`
+
+- `\(MR = \frac{dR}{dx} = 100 - 4x\)`
+- `\(AR = R(x)/x = 100 - 2x\)`
+
+Always: For a downward-sloping demand curve, `\(MR &lt; AR\)`
+
+---
+
+# Marginal Propensity to Consume (MPC) and Save (MPS)
+
+- **MPC** is the fraction of additional income that is consumed:
+
+$$ MPC = \frac{dC}{dY} $$
+
+- **MPS** is the fraction of additional income that is saved:
+
+$$ MPS = \frac{dS}{dY} $$
+
+Always: `\(MPC + MPS = 1\)`
+
+---
+
+# Example: MPC and MPS
+
+Let consumption function be:
+
+$$ C = 30 + 0.8Y \Rightarrow MPC = 0.8 $$
+
+Since `\(S = Y - C = Y - (30 + 0.8Y) = -30 + 0.2Y\)`
+
+Then `\(MPS = \frac{dS}{dY} = 0.2\)`
+
+`\(MPC + MPS = 0.8 + 0.2 = 1\)`
+
+---
+
+# Your Turn!
+
+### Practice Problems:
+1. Let `\(R(x) = 50x - x^2\)`, `\(C(x) = 10x + 60\)`
+   - Find MR and MC
+   - At what x is MR = MC?
+
+2. If `\(Q = 20L - L^2\)`, find the marginal product and show diminishing returns
+
+3. For `\(C = 40 + 0.75Y\)`, calculate MPC and MPS
+
+4. A monopolist faces `\(P(x) = 120 - 3x\)`
+   - Derive total revenue, AR, MR
+   - Compare MR and AR
+
+???
+
+### Practice Problems:
+1. Let \( R(x) = 50x - x^2 \), \( C(x) = 10x + 60 \)
+   - \( MR = \frac{dR}{dx} = 50 - 2x \)
+   - \( MC = \frac{dC}{dx} = 10 \)
+   - Set MR = MC: \( 50 - 2x = 10 \Rightarrow x = 20 \)
+   - ✅ At 20 units, MR = MC → profit-maximizing output.
+
+2. Let \( Q = 20L - L^2 \):
+   - \( MP_L = \frac{dQ}{dL} = 20 - 2L \)
+   - ✅ As L increases, MP_L decreases → demonstrates **diminishing returns**.
+
+3. Given \( C = 40 + 0.75Y \):
+   - \( MPC = 0.75 \)
+   - \( MPS = 1 - 0.75 = 0.25 \)
+   - ✅ Shows how each extra dollar of income is used.
+
+4. \( P(x) = 120 - 3x \)
+   - \( R(x) = P(x) \cdot x = (120 - 3x)x = 120x - 3x^2 \)
+   - \( AR = \frac{R(x)}{x} = 120 - 3x \)
+   - \( MR = \frac{dR}{dx} = 120 - 6x \)
+   - ✅ MR &lt; AR → characteristic of monopoly.
+
+
+---
+
+# Summary
+
+- Marginal functions describe how **economic values change at the margin**.
+
+- **MR and MC** determine **optimal output**.
+
+- **Marginal product** explains productivity in firms.
+
+- **MPC and MPS** are foundational for understanding **macroeconomic behaviour**.
+
+&gt; In economics, it's not just the level that matters — it's how fast it changes.
+
+---
+
+class: inverse, center, middle
+
+# 2. Individual Activity: Marginal Strategy Showdown
+
+---
+
+# Marginal Strategy Showdown
+
+**Objective**: Apply marginal concepts (MR, MC, MPₗ, MPC) to make business or policy decisions.
+
+*Setup*:
+- You have 4 scenarios based on real-world economic decisions.
+
+  - Work individually to analyze/solve each scenario using marginal principles.
+
+  - Which strategy have you seen in real life? How did it play out?
+
+- Submit your answers in a short report (1 page) via Cyber Campus.
+
+---
+
+# Scenario Cards
+
+1. *S 1*: Production Strategy (MR vs. MC)
+Your firm produces gadgets. The MR from the last unit sold was $20, and the MC was $25.
+  - Should you increase, reduce, or maintain current production? Explain using marginal principles.
+
+2. *S 2*: Hiring Decision (Marginal Product)
+You added one more worker, and output rose by 3 units. The previous worker added 6 units.
+  - Are you experiencing diminishing returns? Should you hire another?
+
+3. *S 3*: Consumer Behaviour (MPC &amp; MPS)
+A consumer's income increases by $100. She spends $70 and saves $30.
+  - Calculate MPC and MPS. What would a policy-maker learn from this?
+
+4. *S 4*: Monopoly Pricing
+A monopolist sees that when they sell 2 more units, total revenue increases by $10.
+  - Given MR = 5, what additional information do you need to decide whether to increase output?
+
+
+???
+Scenario 1: Production Strategy (MR vs. MC)
+MR = $20, MC = $25
+
+✅ Answer:
+The firm should reduce production.
+
+Why? Because marginal cost exceeds marginal revenue → producing more would lead to loss on the next unit.
+
+🧠 Concepts Applied:
+Profit-maximizing condition: produce where MR = MC
+
+If MR &lt; MC → reduce output
+
+🌍 Real-World Tie-In:
+Companies routinely cut production when marginal profit turns negative (e.g. during overcapacity or demand drops).
+
+Scenario 2: Hiring Decision (Marginal Product)
+Last worker added 6 units → new worker adds 3 units
+
+✅ Answer:
+Yes, this is diminishing marginal returns.
+
+As more units of labour are added, marginal product decreases.
+
+🧠 Concepts Applied:
+MPₗ = ΔQ / ΔL
+
+Diminishing returns occur after a point even if total output is still rising.
+
+🌍 Real-World Tie-In:
+Common in agriculture, retail and factory production: too many workers → crowding → productivity falls.
+
+Scenario 3: Consumer Behaviour (MPC &amp; MPS)
+Income ↑ by $100 → spent $70, saved $30
+
+✅ Answer:
+MPC = 0.70, MPS = 0.30
+
+This shows the consumer spends 70% of additional income and saves 30%.
+
+🧠 Concepts Applied:
+MPC = ΔC / ΔY = 70 / 100
+
+MPS = 1 - MPC = 0.30
+
+🌍 Real-World Tie-In:
+Governments use MPC to predict stimulus effectiveness (e.g. tax cuts: who will spend more?).
+
+Scenario 4: Monopoly Pricing
+Selling more units raises total revenue by $10 → MR is positive but less than price
+
+✅ Answer:
+Yes, MR &lt; AR in monopoly since price must drop to sell more.
+
+The firm should assess if MR &gt; MC; only then increase output.
+
+If MR &lt; MC, reduce output.
+
+🧠 Concepts Applied:
+Monopoly TR = P(x) × x, so MR &lt; AR because of downward-sloping demand.
+
+Unlike perfect competition, marginal revenue declines faster than price.
+
+🌍 Real-World Tie-In:
+Monopolies like airlines, utilities use MR analysis to optimize pricing and output.
+
+---
+
+# Next Class
+
+
+- (Apr 7) Quiz 1
+
+- (Apr 9) Further Rules of Differentiations (4.4), Elasticity (4.5) 
+
+---
+
+class: inverse, center, middle
+
+# Any QUESTIONS?
+
+## Thank you for your attention and participation!
+
+
+
+???
+1. To print pdf slides
+https://stackoverflow.com/questions/54968311/xaringan-export-slides-to-pdf-while-preserving-formatting
+
+pagedown::chrome_print("W1_ME.html") # but not all pictures are visible
+
+2. Option: https://stackoverflow.com/questions/54968311/xaringan-export-slides-to-pdf-while-preserving-formatting
+
+install.packages("remotes")
+remotes::install_github("jhelvy/xaringanBuilder")
+remotes::install_github("jhelvy/renderthis@v0.0.9")
+
+library(xaringanBuilder)
+build_pdf("DVC.html")
+
+3. Option
+writeBin(as.raw(c()), "favicon.ico") # create an empty favicon.ico file
+install.packages("renderthis")
+remotes::install_github('rstudio/chromote')
+library(renderthis)
+
+renderthis::to_pdf("W5_2_ME.html")
+
+getwd()
+setwd("C:\\Users\\vyshn\\OneDrive - kdis.ac.kr\\Documents\\GitHub\\Sogang\\2026\\Spring\\Mathematical Methods for International Commerce\\Week 5_2")
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+  "highlightStyle": "github",
+  "highlightLines": true,
+  "countIncrementalSlides": false,
+  "ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
