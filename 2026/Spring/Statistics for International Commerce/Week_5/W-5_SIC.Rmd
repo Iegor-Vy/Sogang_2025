@@ -368,6 +368,23 @@ Properties:
 ]  
 
 ---
+
+# Why normal matters
+
+> Many natural phenomena follow a normal distribution.
+
+Examples:
+
+* wages
+
+* test scores
+
+* measurement errors
+
+* financial returns (approx.)
+
+---
+
 # Characteristics of a Normal Probability Distribution
 
 1. The location of a normal distribution is determined by the mean, . The dispersion or spread of the distribution is determined by the standard deviation, σ.
@@ -402,20 +419,186 @@ Properties:
 
 ---
 
+# The Standard Normal Probability Distribution
 
+The standard normal distribution is a normal distribution with mean 0 and standard deviation 1.
+It is also called the z distribution.
+A z-score measures how many standard deviations a value $X$ is above or below the mean:
 
+$$
+Z = \frac{X-\mu}{\sigma}
+$$
 
+For the standard normal variable, $Z \sim N(0,1)$ with density
 
+$$
+\phi(z)=\frac{1}{\sqrt{2\pi}}e^{-z^2/2}
+$$
 
+and interval probabilities are computed as
 
+$$
+P(a<Z<b)=\Phi(b)-\Phi(a).
+$$
 
+---
 
+# Areas Under the Normal Curve: Using a Standard Normal Table
 
+<div>
+.center[
+<img src="p11.png" width="70%">
+]
 
+.tiny[Source: Douglas Lind, William Marchal, Samuel Wathen, Statistical Techniques in Business and Economics, 16th ed. (LMW)]
+</div>
 
+---
 
+# The Empirical Rule
 
+.pull-left[
+For z=1.00, the table’s value is 0.3413; 
+times 2 is 0.6826.
+For z=2.00, the table’s value is 0.4772; 
+times 2 is 0.9544.
+For z=3.00, the table’s value is 0.4987; 
+times 2 is 0.9974.
+]
+.pull-right[
+.center[
+<img src="p12.png" width="70%">
+]
+.tiny[Source: Douglas Lind, William Marchal, Samuel Wathen, Statistical Techniques in Business and Economics, 16th ed. (LMW)]
+]
 
+---
+
+# The Normal Distribution – Example
+
+The weekly incomes of shift foremen in the glass industry follow the normal probability distribution with a mean of $1,000 and a standard deviation of $100. 
+
+What is the z value for the income, let’s call it x, of a foreman who earns $1,100 per week? For a foreman who earns $900 per week?
+
+Solution:
+For $1,100:
+$$Z = \frac{1100 - 1000}{100} = 1.00$$
+For $900:
+$$Z = \frac{900 - 1000}{100} = -1.00$$
+---
+
+# Normal Distribution – Finding Probabilities (Example 1)
+
+.pull-left[
+In an earlier example we reported that the mean weekly income of a shift foreman in the glass industry is normally distributed with a mean of $1,000 and a standard deviation of $100.
+
+What is the likelihood of selecting a foreman whose weekly income is between $1,000 and $1,100?
+]
+.pull-right[
+<div>
+.center[
+<img src="p13.png" width="70%">
+]
+.tiny[Source: Douglas Lind, William Marchal, Samuel Wathen, Statistical Techniques in Business and Economics, 16th ed. (LMW)]
+</div>
+]
+
+---
+
+# Normal Distribution – Finding Probabilities (Example 1)
+
+<div>
+.center[
+<img src="p14.png" width="70%">
+]
+.tiny[Source: Douglas Lind, William Marchal, Samuel Wathen, Statistical Techniques in Business and Economics, 16th ed. (LMW)]
+</div>
+
+---
+
+# Normal Distribution – Finding Probabilities (Example 2)
+
+.pull-left[
+Refer to the information regarding the weekly income of shift foremen in the glass industry. The distribution of weekly incomes follows the normal probability distribution with a mean of $1,000 and a standard deviation of $100.
+ 
+What is the probability of selecting a shift foreman in the glass industry whose income is between $790 and $1,000?
+
+]
+.pull-right[
+.center[
+<img src="p15.png" width="70%">
+]
+.tiny[Source: Douglas Lind, William Marchal, Samuel Wathen, Statistical Techniques in Business and Economics, 16th ed. (LMW)]
+]
+
+---
+
+# Normal Distribution – Finding Probabilities (Example 3)
+.pull-left[
+Refer to the information regarding the weekly income of shift foremen in the glass industry. The distribution of weekly incomes follows the normal probability distribution with a mean of $1,000 and a standard deviation of $100.
+ 
+What is the probability of selecting a shift foreman in the glass industry whose income is less than $790?
+
+]
+.pull-right[
+.center[
+<img src="p16.png" width="70%">
+]
+.tiny[Source: Douglas Lind, William Marchal, Samuel Wathen, Statistical Techniques in Business and Economics, 16th ed. (LMW)]
+
+The probability of selecting a shift foreman with income less than
+$790 is 0.5 - .4821 = .0179.
+
+]
+
+---
+
+# Normal Distribution – Finding Probabilities (Example 4)
+.pull-left[
+Refer to the information regarding the weekly income of shift foremen in the glass industry. The distribution of weekly incomes follows the normal probability distribution with a mean of $1,000 and a standard deviation of $100.
+ 
+What is the probability of selecting a shift foreman in the glass industry whose income is between $840 and $1,200?
+]
+.pull-right[
+.center[
+<img src="p17.png" width="70%">
+]
+.tiny[Source: Douglas Lind, William Marchal, Samuel Wathen, Statistical Techniques in Business and Economics, 16th ed. (LMW)]
+]
+
+---
+# Normal Distribution – Finding Probabilities (Example 5)
+
+.pull-left[
+Refer to the information regarding the weekly income of shift foremen in the glass industry. The distribution of weekly incomes follows the normal probability distribution with a mean of $1,000 and a standard deviation of $100.
+ 
+What is the probability of selecting a shift foreman in the glass industry whose income is between $1,150 and $1,250?
+]
+.pull-right[
+.center[
+<img src="p18.png" width="70%">
+]
+.tiny[Source: Douglas Lind, William Marchal, Samuel Wathen, Statistical Techniques in Business and Economics, 16th ed. (LMW)]
+]
+
+---
+
+# Using Z to Find X for a Given Probability - Example
+
+.pull-left[
+Layton Tire and Rubber Company wishes to set a minimum mileage guarantee on its new MX100 tire. Tests reveal the mean mileage is 67,900 with a standard deviation of 2,050 miles and that the distribution of miles follows the normal probability distribution. Layton wants to set the minimum guaranteed mileage so that no more than 4 percent of the tires will have to be replaced. 
+
+What minimum guaranteed mileage should Layton announce?
+]
+
+.pull-right[
+.center[
+<img src="p19.png" width="70%">
+]
+.tiny[Source: Douglas Lind, William Marchal, Samuel Wathen, Statistical Techniques in Business and Economics, 16th ed. (LMW)]
+]
+
+---
 
 
 
@@ -435,18 +618,6 @@ X \sim N(\mu, \sigma)
 * μ = center
 * σ = spread
 
----
-
-## **Slide 14 — Economic meaning**
-
-# Why normal matters
-
-Examples:
-
-* wages
-* test scores
-* measurement errors
-* financial returns (approx.)
 
 ---
 
