@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Statistics for International Commerce</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Iegor Vyshnevskyi, Ph.D." />
+    <script src="libs/header-attrs-2.29/header-attrs.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Statistics for International Commerce
+]
+.subtitle[
+## <br/>Week 5: Continuous probability distributions
+]
+.author[
+### Iegor Vyshnevskyi, Ph.D.
+]
+.institute[
+### Sogang University, Geppert School of International Studies
+]
+.date[
+### March 31/ April 2, 2026
+]
+
+---
+
+
+&lt;style&gt;
+@media print{
+  body, html, .remark-slides-area, .remark-notes-area {
+    height: 100% !important;
+    width: 100% !important;
+    overflow: visible;
+    display: inline-block;
+    }
+&lt;/style&gt;
+
+&lt;style type="text/css"&gt;
+.remark-slide-content {
+    font-size: 34px;
+    padding: 1em 4em 1em 4em;
+}
+&lt;/style&gt;
+
+&lt;style type="text/css"&gt;
+.my-one-page-font {
+  font-size: 28px;
+}
+&lt;/style&gt;
+
+&lt;/style&gt;
+
+&lt;style type="text/css"&gt;
+.my-one-page-font-table {
+  font-size: 24px;
+}
+&lt;/style&gt;
+
+&lt;style&gt;
+.tiny { font-size: 60%; }      /* class you can reuse anywhere */
+&lt;/style&gt;
+
+&lt;style&gt;
+.remark-slide-content {
+  position: relative;
+  z-index: 1;
+}
+
+.remark-slide-content::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 600px;          /* adjust size */
+  height: 600px;
+  background-image: url("1. 교장(Seal_Positive).png");  /* place logo file in same folder */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: 0.05;         /* watermark transparency */
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 0;
+}
+&lt;/style&gt;
+
+
+
+
+
+
+Hello everyone!
+
+Yet another **great day** to *keep learning* statistics for international commerce. :-)
+
+---
+
+# Agenda
+
+- Uniform Distribution
+
+- Normal Distribution
+
+- Z-scores &amp; Probabilities
+
+- Approximation ideas
+
+- In-class exercises and activities
+
+---
+
+# Where we are in the course
+
+* Before:
+
+  * Data description
+  * Discrete distributions (Bernoulli, Binomial, Hypergeometric, Poisson)
+
+* Today:
+
+  * Continuous distributions
+
+* Why this matters:
+
+  * Income
+  * Returns
+  * Inflation
+  * Interest rates
+
+---
+
+# Continuous vs Discrete
+.pull-left[
+Discrete:
+
+* Count outcomes (0,1,2,…)
+* Example: number of defaults
+
+
+]
+.pull-right[
+Continuous:
+
+* Any value in interval
+* Example:
+
+  * income
+  * height
+  * return
+
+Important idea:
+- Probability at a single point = 0
+- We work with **intervals**
+]
+---
+
+# Probability = Area
+
+For continuous variables:
+
+$$
+P(a &lt; X &lt; b) = \text{area under curve}
+$$
+
+* Not probability of exact value
+* Always **range-based thinking**
+
+&gt; why area - because we are integrating the probability density function (PDF) over an interval to find the probability of the random variable falling within that interval.
+
+
+.tiny[ PDF = probability density function, which describes the likelihood of a random variable taking on a specific value. The area under the PDF curve between two points gives the probability that the random variable falls within that range. ]
+---
+
+# Uniform Distribution
+.pull-left[
+Definition:
+
+* All values between **a and b equally likely**
+
+Shape:
+
+* Rectangle
+
+* Defined by **min (a)** and **max (b)** 
+]
+.pull-right[
+&lt;div&gt;
+.center[
+&lt;img src="p1.png" width="90%"&gt;
+]
+
+.tiny[Source: Douglas Lind, William Marchal, Samuel Wathen, Statistical Techniques in Business and Economics, 16th ed. (LMW)]
+&lt;/div&gt;
+]  
+---
+
+# Uniform Distribution Formulas
+
+Knowing the minimum and maximum values of a uniform distribution, we can define the probability function, and calculate the **mean, variance, and standard deviation** of the distribution. 
+
+&lt;div&gt;
+.center[
+&lt;img src="p2.png" width="70%"&gt;
+]
+
+.tiny[Source: Douglas Lind, William Marchal, Samuel Wathen, Statistical Techniques in Business and Economics, 16th ed. (LMW)]
+&lt;/div&gt;
+
+---
+
+# Example: Bus Waiting Time
+
+Sogang University provides bus service to students.  On weekdays, a bus arrives at the Back Gate stop every 30 minutes between 6 a.m. and 11 p.m. Students arrive at the bus stop at random times. The time that a student waits is uniformly distributed from 0 to 30 minutes.
+
+Task: 
+1. Draw a graph of this distribution.
+2. Show that the area of this uniform distribution is 1.00.
+3. How long will a student “typically” have to wait for a bus? In other words what is the mean waiting time? What is the standard deviation of the waiting times?
+4. What is the probability a student will wait more than 25 minutes?
+5. What is the probability a student will wait between 10 and 20 minutes?
+
+
+---
+
+# Example: Bus Waiting Time (continued)
+
+**1.** Graph of uniformly distributed waiting times between 0 and 30:
+
+&lt;div&gt;
+.center[
+&lt;img src="p3.png" width="70%"&gt;
+]
+
+.tiny[Source: Douglas Lind, William Marchal, Samuel Wathen, Statistical Techniques in Business and Economics, 16th ed. (LMW)]
+&lt;/div&gt;
+
+---
+
+# Example: Bus Waiting Time (continued)
+
+**2.** Show that the area of this distribution is 1.00.
+
+
+&lt;div&gt;
+.center[
+&lt;img src="p4.png" width="70%"&gt;
+]
+
+.tiny[Source: Douglas Lind, William Marchal, Samuel Wathen, Statistical Techniques in Business and Economics, 16th ed. (LMW)]
+&lt;/div&gt;
+
+---
+# Example: Bus Waiting Time (continued)
+
+**3.** How long will a student “typically” have to wait for a bus? In other words what is the mean waiting time?  What is the standard deviation of the waiting times?
+
+&lt;div&gt;
+.center[
+&lt;img src="p5.png" width="60%"&gt;
+]
+
+.tiny[Source: Douglas Lind, William Marchal, Samuel Wathen, Statistical Techniques in Business and Economics, 16th ed. (LMW)]
+&lt;/div&gt;
+
+---
+# Example: Bus Waiting Time (continued)
+
+**4.** What is the probability a student will wait more than 25 minutes?
+
+&lt;div&gt;
+.center[
+&lt;img src="p6.png" width="70%"&gt;
+]
+
+.tiny[Source: Douglas Lind, William Marchal, Samuel Wathen, Statistical Techniques in Business and Economics, 16th ed. (LMW)]
+&lt;/div&gt;
+
+---
+# Example: Bus Waiting Time (continued)
+
+**5.** What is the probability a student will wait between 10 and 20 minutes?
+
+&lt;div&gt;
+.center[
+&lt;img src="p7.png" width="70%"&gt;
+]
+
+.tiny[Source: Douglas Lind, William Marchal, Samuel Wathen, Statistical Techniques in Business and Economics, 16th ed. (LMW)]
+&lt;/div&gt;
+
+---
+
+
+# Python example (Uniform)
+
+
+``` python
+import numpy as np
+
+# simulate waiting times
+data = np.random.uniform(0, 30, 10000) # where 0 is min, 30 is max, and 10000 is number of samples
+
+# probability of waiting more than 25
+prob = np.mean(data &gt; 25)
+
+prob
+```
+
+```
+## np.float64(0.1668)
+```
+
+Simulation approximates probability, but we can also calculate it directly using the uniform distribution properties.
+
+
+``` python
+# calculate probability directly
+prob = (30 - 25) / 30
+prob
+```
+
+```
+## 0.16666666666666666
+```
+
+---
+
+# From Uniform to Normal
+
+Uniform:
+
+* equal probability
+
+But in real life:
+
+* most values cluster around average
+
+-&gt; leads to **Normal Distribution**
+
+---
+
+# Normal Distribution
+.pull-left[
+Properties:
+
+* Bell-shaped
+
+* Symmetric
+
+* Mean = median = mode
+
+* Total area = 1 
+]
+.pull-right[
+&lt;div&gt;
+.center[
+&lt;img src="p8.png" width="90%"&gt;
+]
+&lt;/div&gt;
+]  
+
+---
+
+# Why normal matters
+
+&gt; Many natural phenomena follow a normal distribution.
+
+Examples:
+
+* wages
+
+* test scores
+
+* measurement errors
+
+* financial returns (approx.)
+
+---
+
+# Characteristics of a Normal Probability Distribution
+
+1. The location of a normal distribution is determined by the mean, `\(\mu\)`. The dispersion or spread of the distribution is determined by the standard deviation, `\(\sigma\)`.
+
+2. The arithmetic mean, median, and mode are equal.
+
+3. As a probability distribution, the total area under the curve is defined to be 1.00.
+
+4. Because the distribution is symmetrical about the mean, half the area under the normal curve is to the right of the mean, and the other half to the left of it.
+
+---
+# The Normal Distribution – Graphically
+
+&lt;div&gt;
+.center[
+&lt;img src="p9.png" width="70%"&gt;
+]
+
+.tiny[Source: Douglas Lind, William Marchal, Samuel Wathen, Statistical Techniques in Business and Economics, 16th ed. (LMW)]
+&lt;/div&gt;
+
+---
+
+# Python Code for Normal Distribution
+
+
+``` python
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Parameters
+mu = 0
+sigma = 1
+x = np.linspace(-4, 4, 1000)
+
+# Normal distribution formula
+y = (1 / (sigma * np.sqrt(2 * np.pi))) * np.exp(-0.5 * ((x - mu) / sigma) ** 2)
+
+# Plotting
+plt.figure(figsize=(8, 4))
+plt.plot(x, y, label=f'Normal Distribution (μ={mu}, σ={sigma})')
+plt.title('Normal Distribution')
+plt.xlabel('x')
+plt.ylabel('Probability Density')
+plt.legend()
+plt.grid(True)
+plt.show()
+```
+
+&lt;img src="W-5_SIC_files/figure-html/unnamed-chunk-3-1.png" width="768" /&gt;
+
+
+
+---
+# The  Family of Normal Distributions
+
+&lt;div&gt;
+.center[
+&lt;img src="p10.png" width="60%"&gt;
+]
+
+.tiny[Source: Douglas Lind, William Marchal, Samuel Wathen, Statistical Techniques in Business and Economics, 16th ed. (LMW)]
+&lt;/div&gt;
+
+---
+
+# Python Code for Comparing Normal Distributions
+
+
+``` python
+import numpy as np
+import matplotlib.pyplot as plt
+# Parameters for different normal distributions
+params = [
+    (0, 1),   # mean=0, std=1
+    (0, 2),   # mean=0, std=2
+    (2, 1),   # mean=2, std=1
+    (-2, 1)   # mean=-2, std=1
+]
+# Generate x values
+x = np.linspace(-10, 10, 1000)
+# Plot each normal distribution
+plt.figure(figsize=(8, 4))
+for mu, sigma in params:
+    y = (1 / (sigma * np.sqrt(2 * np.pi))) * np.exp(-0.5 * ((x - mu) / sigma) ** 2)
+    plt.plot(x, y, label=f'μ={mu}, σ={sigma}')
+plt.title('Different Normal Distributions')
+plt.xlabel('x')
+plt.ylabel('Probability Density')
+plt.legend()
+plt.grid(True)
+plt.show()
+```
+
+&lt;img src="W-5_SIC_files/figure-html/unnamed-chunk-4-3.png" width="768" /&gt;
+
+---
+
+# The Standard Normal Probability Distribution
+
+The standard normal distribution is a normal distribution with *mean 0* and *standard deviation 1*.
+It is also called the **z distribution**.
+A z-score measures how many standard deviations a value `\(X\)` is above or below the mean:
+
+$$
+Z = \frac{X-\mu}{\sigma}
+$$
+
+For the standard normal variable, `\(Z \sim N(0,1)\)` with density
+
+$$
+\phi(z)=\frac{1}{\sqrt{2\pi}}e^{-z^2/2}
+$$
+
+and interval probabilities are computed as
+
+$$
+P(a&lt;Z&lt;b)=\Phi(b)-\Phi(a).
+$$
+Where `\(\Phi(z)\)` is the cumulative distribution function (CDF) of the standard normal distribution, which gives the probability that a standard normal random variable is less than or equal to `\(z\)`.
+
+
+.tiny[Note: The standard normal distribution is a special case of the normal distribution, and it is often used in statistics to standardize data and compute probabilities. The z-score allows us to compare values from different normal distributions by converting them to a common scale. Density function `\(\phi(z)\)` describes the shape of the standard normal distribution, while the cumulative distribution function `\(\Phi(z)\)` is used to calculate probabilities for intervals under the curve.]
+---
+
+# Areas Under the Normal Curve: Using a Standard Normal Table
+
+&lt;div&gt;
+.center[
+&lt;img src="p11.png" width="70%"&gt;
+]
+
+.tiny[Source: Douglas Lind, William Marchal, Samuel Wathen, Statistical Techniques in Business and Economics, 16th ed. (LMW)]
+&lt;/div&gt;
+
+---
+
+# The Empirical Rule
+
+.pull-left[
+The standard normal table gives the area between the mean and a positive z-value.
+
+- For `\(z=1.00\)`, the table value is `\(0.3413\)`, so
+  `$$P(-1&lt;Z&lt;1)=2(0.3413)=0.6826$$`
+
+- For `\(z=2.00\)`, the table value is `\(0.4772\)`, so
+  `$$P(-2&lt;Z&lt;2)=2(0.4772)=0.9544$$`
+
+- For `\(z=3.00\)`, the table value is `\(0.4987\)`, so
+  `$$P(-3&lt;Z&lt;3)=2(0.4987)=0.9974$$`
+
+]
+.pull-right[
+.center[
+&lt;img src="p12.png" width="70%"&gt;
+]
+.tiny[Source: Douglas Lind, William Marchal, Samuel Wathen, Statistical Techniques in Business and Economics, 16th ed. (LMW)]
+
+So approximately 68%, 95%, and 99.7% of observations lie within 1, 2, and 3 standard deviations of the mean.
+
+]
+
+---
+
+# The Normal Distribution – Example
+
+The weekly incomes of shift foremen in the glass industry follow the normal probability distribution with a mean of $1,000 and a standard deviation of $100. 
+
+What is the z value for the income, let’s call it x, of a foreman who earns $1,100 per week? For a foreman who earns $900 per week?
+
+Solution:
+For $1,100:
+`$$Z = \frac{1100 - 1000}{100} = 1.00$$`
+For $900:
+`$$Z = \frac{900 - 1000}{100} = -1.00$$`
+---
+
+# Normal Distribution – Finding Probabilities (Example 1)
+
+.pull-left[
+In an earlier example we reported that the mean weekly income of a shift foreman in the glass industry is normally distributed with a mean of $1,000 and a standard deviation of $100.
+
+What is the likelihood of selecting a foreman whose weekly income is between $1,000 and $1,100?
+]
+.pull-right[
+&lt;div&gt;
+.center[
+&lt;img src="p13.png" width="70%"&gt;
+]
+.tiny[Source: Douglas Lind, William Marchal, Samuel Wathen, Statistical Techniques in Business and Economics, 16th ed. (LMW)]
+&lt;/div&gt;
+]
+
+---
+
+# Normal Distribution – Finding Probabilities (Example 1)
+
+&lt;div&gt;
+.center[
+&lt;img src="p14.png" width="90%"&gt;
+]
+.tiny[Source: Douglas Lind, William Marchal, Samuel Wathen, Statistical Techniques in Business and Economics, 16th ed. (LMW)]
+&lt;/div&gt;
+
+---
+
+# Normal Distribution – Finding Probabilities (Example 2)
+
+.pull-left[
+Refer to the information regarding the weekly income of shift foremen in the glass industry. The distribution of weekly incomes follows the normal probability distribution with a mean of $1,000 and a standard deviation of $100.
+ 
+What is the probability of selecting a shift foreman in the glass industry whose income is between $790 and $1,000?
+
+]
+.pull-right[
+.center[
+&lt;img src="p15.png" width="70%"&gt;
+]
+.tiny[Source: Douglas Lind, William Marchal, Samuel Wathen, Statistical Techniques in Business and Economics, 16th ed. (LMW)]
+]
+
+---
+
+# Normal Distribution – Finding Probabilities (Example 3)
+.pull-left[
+Refer to the information regarding the weekly income of shift foremen in the glass industry. The distribution of weekly incomes follows the normal probability distribution with a mean of $1,000 and a standard deviation of $100.
+ 
+What is the probability of selecting a shift foreman in the glass industry whose income is less than $790?
+
+]
+.pull-right[
+.center[
+&lt;img src="p16.png" width="70%"&gt;
+]
+.tiny[Source: Douglas Lind, William Marchal, Samuel Wathen, Statistical Techniques in Business and Economics, 16th ed. (LMW)]
+
+The probability of selecting a shift foreman with income less than
+$790 is 0.5 - .4821 = .0179.
+
+]
+
+---
+
+# Normal Distribution – Finding Probabilities (Example 4)
+.pull-left[
+Refer to the information regarding the weekly income of shift foremen in the glass industry. The distribution of weekly incomes follows the normal probability distribution with a mean of $1,000 and a standard deviation of $100.
+ 
+What is the probability of selecting a shift foreman in the glass industry whose income is between $840 and $1,200?
+]
+.pull-right[
+.center[
+&lt;img src="p17.png" width="70%"&gt;
+]
+.tiny[Source: Douglas Lind, William Marchal, Samuel Wathen, Statistical Techniques in Business and Economics, 16th ed. (LMW)]
+]
+
+---
+# Normal Distribution – Finding Probabilities (Example 5)
+
+.pull-left[
+Refer to the information regarding the weekly income of shift foremen in the glass industry. The distribution of weekly incomes follows the normal probability distribution with a mean of $1,000 and a standard deviation of $100.
+ 
+What is the probability of selecting a shift foreman in the glass industry whose income is between $1,150 and $1,250?
+]
+.pull-right[
+.center[
+&lt;img src="p18.png" width="70%"&gt;
+]
+.tiny[Source: Douglas Lind, William Marchal, Samuel Wathen, Statistical Techniques in Business and Economics, 16th ed. (LMW)]
+]
+
+---
+
+# Using Z to Find X for a Given Probability - Example
+
+.pull-left[
+Layton Tire and Rubber Company wishes to set a minimum mileage guarantee on its new MX100 tire. Tests reveal the mean mileage is 67,900 with a standard deviation of 2,050 miles and that the distribution of miles follows the normal probability distribution. Layton wants to set the minimum guaranteed mileage so that no more than 4 percent of the tires will have to be replaced. 
+
+What minimum guaranteed mileage should Layton announce?
+]
+
+.pull-right[
+.center[
+&lt;img src="p19.png" width="90%"&gt;
+]
+.tiny[Source: Douglas Lind, William Marchal, Samuel Wathen, Statistical Techniques in Business and Economics, 16th ed. (LMW)]
+]
+
+---
+# Using Z to Find X for a Given Probability – Example
+
+.center[
+&lt;img src="p20.png" width="70%"&gt;
+]
+.tiny[Source: Douglas Lind, William Marchal, Samuel Wathen, Statistical Techniques in Business and Economics, 16th ed. (LMW)]
+
+---
+
+# Normal Approximation to the Binomial
+
+The normal distribution (a continuous distribution) yields a good approximation of the binomial distribution (a discrete distribution) for large values of n. 
+
+The normal probability distribution is generally a good approximation to the binomial probability distribution when n  and n(1- ) are both greater than 5.
+
+Why it's useful:
+- simplifies calculations
+- allows use of normal tables
+---
+
+# Normal Approximation to the Binomial
+
+Using the normal distribution (a continuous distribution) as a substitute for a binomial distribution (a discrete distribution) for large values of n seems reasonable because, as n increases, a binomial distribution gets closer and closer to a normal distribution.
+
+.center[
+&lt;img src="p21.png" width="90%"&gt;
+]
+.tiny[Source: Douglas Lind, William Marchal, Samuel Wathen, Statistical Techniques in Business and Economics, 16th ed. (LMW)]
+
+---
+# Continuity Correction Factor
+
+The value .5 subtracted or added, depending on the problem, to a selected value when a binomial probability distribution (a discrete probability distribution) is being approximated by a continuous probability distribution (the normal distribution).
+
+.center[
+&lt;img src="p22.png" width="70%"&gt;
+]
+.tiny[Source: Douglas Lind, William Marchal, Samuel Wathen, Statistical Techniques in Business and Economics, 16th ed. (LMW)]
+
+---
+
+# How to Apply the Correction Factor
+1. Identify the value of x for which you want to find the probability.
+2. Determine whether you are looking for P(X ≤ x), P(X &lt; x), P(X ≥ x), or P(X &gt; x).
+3. Apply the continuity correction factor:
+- For `\(P(X \le x)\)`, use `\(x + 0.5\)`
+- For `\(P(X &lt; x)\)`, use `\(x - 0.5\)`
+- For `\(P(X \ge x)\)`, use `\(x - 0.5\)`
+- For `\(P(X &gt; x)\)`, use `\(x + 0.5\)`
+
+Examples:
+
+$$
+P(X \le 10) \approx P(Y &lt; 10.5), \qquad P(X &lt; 10) \approx P(Y &lt; 9.5)
+$$
+
+$$
+P(X \ge 10) \approx P(Y &gt; 9.5), \qquad P(X &gt; 10) \approx P(Y &gt; 10.5)
+$$
+---
+
+# Normal Approximation to the Binomial - Example
+
+.pull-left[
+	Suppose the management of the Santoni Pizza Restaurant found that 70 percent of its new customers return for another meal. For a week in which 80 new (first-time) customers dined at Santoni’s, what is the probability that 60 or more will return for another meal?
+]
+.pull-right[
+.center[
+&lt;img src="p23.png" width="100%"&gt;
+]
+.tiny[Source: Douglas Lind, William Marchal, Samuel Wathen, Statistical Techniques in Business and Economics, 16th ed. (LMW)]
+]
+
+---
+
+# Normal Approximation to the Binomial - Example
+
+.pull-left[
+	Step 1. Find the mean and the variance of a binomial distribution and find the z corresponding to an X of 59.5  (x-.5, the correction factor)
+	Step 2: Determine the area from 59.5 and beyond
+]
+.pull-right[
+.center[
+&lt;img src="p24.png" width="80%"&gt;
+]
+.tiny[Source: Douglas Lind, William Marchal, Samuel Wathen, Statistical Techniques in Business and Economics, 16th ed. (LMW)]
+]
+
+---
+
+# Summary
+
+* Continuous distributions → area
+
+* Uniform → equal probability
+
+* Normal → most important model
+
+* Z-score → standardization
+
+* Approximation → simplifies problems
+
+
+---
+
+# Practice Session
+
+Open the **Week 5 practice notebook** in LMS.
+
+Complete probability exercises using Python.
+
+---
+
+# Next Week
+
+ **April 2 is a public holiday**. Video lecture will be uploaded. Please watch it and complete the practice exercises before next week to get attendance.
+
+(April 7 | April 9) Sampling distributions; central limit theorem; estimation; confidence intervals (LMW Chapters 8 and 9) 
+
+**April 9** - Quiz #1
+
+---
+
+class: inverse, center, middle
+
+# Any questions?
+
+# Thank you for your attention and active participation!
+
+
+
+???
+1. To print pdf slides
+https://stackoverflow.com/questions/54968311/xaringan-export-slides-to-pdf-while-preserving-formatting
+
+pagedown::chrome_print("W1_ME.html") # but not all pictures are visible
+
+2. Option: https://stackoverflow.com/questions/54968311/xaringan-export-slides-to-pdf-while-preserving-formatting
+
+install.packages("remotes")
+remotes::install_github("jhelvy/xaringanBuilder")
+remotes::install_github("jhelvy/renderthis@v0.0.9")
+
+library(xaringanBuilder)
+build_pdf("DVC.html")
+
+3. Option
+writeBin(as.raw(c()), "favicon.ico") # create an empty favicon.ico file
+install.packages("renderthis")
+remotes::install_github('rstudio/chromote')
+library(renderthis)
+
+renderthis::to_pdf("W-5_SIC.html")
+
+getwd()
+setwd("C:\\Users\\vyshn\\OneDrive - kdis.ac.kr\\Documents\\GitHub\\Sogang\\2026\\Spring\\Statistics for International Commerce\\Week_5")
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+  "highlightStyle": "github",
+  "highlightLines": true,
+  "countIncrementalSlides": false,
+  "ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
