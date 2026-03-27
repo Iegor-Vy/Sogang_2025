@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Financial Institutions and System</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Iegor Vyshnevskyi, Ph.D." />
+    <meta name="date" content="2026-04-02" />
+    <script src="libs/header-attrs-2.29/header-attrs.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Financial Institutions and System
+]
+.subtitle[
+## <br/>Week 5: The Risk and Term Structure of Interest Rates<br/>The Stock Market, the Theory of Rational Expectations, and the Efficient Market Hypothesis
+]
+.author[
+### Iegor Vyshnevskyi, Ph.D.
+]
+.institute[
+### Sogang University, Graduate School of International Studies
+]
+.date[
+### April 2, 2026
+]
+
+---
+
+
+&lt;style&gt;
+@media print{
+  body, html, .remark-slides-area, .remark-notes-area {
+    height: 100% !important;
+    width: 100% !important;
+    overflow: visible;
+    display: inline-block;
+    }
+&lt;/style&gt;
+
+&lt;style type="text/css"&gt;
+.remark-slide-content {
+    font-size: 34px;
+    padding: 1em 4em 1em 4em;
+}
+&lt;/style&gt;
+
+&lt;style type="text/css"&gt;
+.my-one-page-font {
+  font-size: 28px;
+}
+&lt;/style&gt;
+
+&lt;/style&gt;
+
+&lt;style type="text/css"&gt;
+.my-one-page-font-table {
+  font-size: 24px;
+}
+&lt;/style&gt;
+
+&lt;style&gt;
+.tiny { font-size: 60%; }      /* class you can reuse anywhere */
+&lt;/style&gt;
+
+&lt;style&gt;
+.remark-slide-content {
+  position: relative;
+  z-index: 1;
+}
+
+.remark-slide-content::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 600px;          /* adjust size */
+  height: 600px;
+  background-image: url("1. 교장(Seal_Positive).png");  /* place logo file in same folder */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: 0.05;         /* watermark transparency */
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 0;
+}
+&lt;/style&gt;
+
+
+
+
+
+
+# Agenda  
+
+1. Risk and Term Structure of Interest Rates 
+
+2. Stock Market, Theory of Rational Expectations, and Efficient Market Hypothesis"
+
+3. **Presentation Assignment Intro**
+
+4. Class Activity: Mini-Debate – How Efficient Is the Stock Market?
+
+---
+
+class: inverse, center, middle
+
+# 1. Risk and Term Structure of Interest Rates 
+
+---
+
+# Risk Structure of Interest Rates
+
+Risk structure of interest rates: Why do bonds with the same maturity have different interest rates?
+- **Risk structure**: Relationship between interest rates and risk of default.
+- **Term structure**: Relationship between interest rates and time to maturity.
+
+Bonds with the same maturity have different interest rates due to:
+
+- **Default risk** - the risk that the issuer will not make payments.
+- **Liquidity** - the ease of converting an asset to cash.
+- **Tax considerations** - tax treatment of interest payments.
+
+---
+
+.center[&lt;img src="fig1.jpg" height="80%" width="80%"&gt;]
+.caption[Figure 1 Long-Term Bond Yields, 1919–2020]
+
+---
+
+### Default Risk
+
+- Probability that the issuer of the bond is unable or unwilling to make interest or principal payments.
+
+- **UU.S. Treasury** securities are generally treated as default-risk-free in textbook analysis.
+
+- **Risk premium** = Spread between interest rates on risky bonds and Treasuries of the same maturity.
+  - A bond with default risk will always have a **positive risk premium**.
+  - If default risk increases, risk premium **widens**.
+
+---
+
+.center[&lt;img src="fig2.jpg" height="80%" width="80%"&gt;]
+
+.caption[Figure 2 Response to an Increase in Default Risk on Corporate Bonds]
+
+---
+
+### Liquidity
+
+- Ease of converting an asset to cash.
+
+- Treasury bonds are more liquid (more buyers/sellers, lower transaction costs).
+
+- Hence, **more liquid bonds have lower yields**.
+
+### Income Tax Considerations
+
+- **Municipal bonds**: Interest is exempt from federal income tax.
+
+- As a result, their **yields are lower**, despite sometimes having more risk.
+
+&gt; Lower yields on municipal bonds partly reflect tax advantages, so yield comparisons with Treasuries should be interpreted carefully.
+---
+
+### Case Studies of Spreads
+
+#### Global Financial Crisis (2007–2009)
+
+- Collapse of subprime market → Baa bonds perceived as riskier.
+
+- Investors demanded higher premiums.
+
+#### Coronavirus Pandemic (2020)
+
+- Lockdowns → Economic freeze → Investors avoided low-rated bonds.
+
+- Risk premium on Baa bonds surged again.
+
+---
+
+.center[&lt;img src="fig3.jpg" height="80%" width="80%"&gt;]
+
+.caption[Figure 3 Interest Rates on Municipal and Treasury Bonds]
+
+---
+
+### Trump Tax Cuts and Bond Markets
+
+- 2017: Top marginal tax rate reduced from 39.6% → 37%.
+
+- After-tax return on **municipal bonds** fell vs. Treasuries.
+
+- Demand for municipals dropped → their yields rose.
+
+- Demand for Treasuries rose → their yields dropped.
+
+---
+
+# Term Structure of Interest Rates
+
+Even with same risk/liquidity/tax, bond yields differ with **maturity**.
+
+- **Yield curve**: Plot of yields across different maturities.
+  - **Upward-sloping**: LT rates &gt; ST rates (normal)
+  - **Flat**: LT = ST
+  - **Inverted**: LT &lt; ST (often predicts recession)
+
+---
+
+.center[&lt;img src="treasury-yield-curve.png" height="80%" width="80%"&gt;]
+
+.caption[RIA - Yield Curve Shifts Offer Signals For Stockholders]
+
+
+---
+
+# Term Structure Facts
+
+## 1. Interest Rates on Different Maturities Move Together
+
+- When **short-term (ST) interest rates** rise, **long-term (LT) rates** usually rise too — and vice versa.
+- This is because LT rates reflect the **average of expected future ST rates**.
+- **Example**:  
+  - 1-year rate today = 6%  
+  - Expected 1-year rate next year = 8%  
+  - Then, the 2-year bond rate ≈ **7%**
+
+---
+# Term Structure Facts (continued)
+
+## 2. ST Rates Influence the Yield Curve Slope
+
+- When **ST rates are low**, yield curves usually **slope upward**.  
+  → Investors expect future ST rates to rise.  
+- When **ST rates are high**, yield curves often **invert (slope downward)**.  
+  → Investors expect ST rates to fall.
+- **Examples**:  
+  - ST rate today = 2%, expected next year = 4% → 2-year rate = **3%** → upward slope  
+  - ST rate today = 6%, expected next year = 4% → 2-year rate = **5%** → downward slope
+
+---
+
+# Term Structure Facts (continued)
+
+## 3. Yield Curves Are Usually Upward-Sloping
+
+- Investors prefer **short-term bonds** (less risk, more liquidity).
+- To compensate for the **additional risk** of holding long-term bonds, investors require a **term/liquidity premium**.
+- Even with no change in expected future ST rates, this preference causes LT rates to be higher.
+- Result: Yield curves typically slope **upward**.
+
+---
+
+### Three Theories
+
+1. **Expectations Theory**: Explains facts 1 &amp; 2
+
+2. **Segmented Markets Theory**: Explains fact 3
+
+3. **Liquidity Premium Theory**: Explains all three
+
+---
+
+.center[&lt;img src="fig4.jpg" height="80%" width="80%"&gt;]
+
+.caption[Figure 4 Movements Over Time of Interest Rates (U.S. Bonds)]
+
+---
+
+## Expectations Theory
+
+- Under the pure expectations theory, the long-term yield is approximately the average of expected future short-term rates.
+
+- Investors view bonds of all maturities as **perfect substitutes**.
+
+- If 1-year rate is 6% today, and expected to be 8% next year:
+
+$$
+\text{2-year bond rate} = (6\% + 8\%) / 2 = 7\%
+$$
+
+### **Mathematical Expression**
+
+`\(i_{nt} = \frac{i_{t} + i_{t+1}^{e} + \cdots + i_{t+n-1}^{e}}{n}\)`
+
+
+---
+
+### Limits of Expectations Theory
+
+- Explains why yields **move together** and react to ST levels.
+
+- **Does NOT** explain why curves usually **slope upward**.
+
+---
+
+## Segmented Markets Theory
+
+- Bonds of different maturities are **not substitutes**.
+
+- Rates determined independently by supply and demand.
+
+- Investors prefer **shorter maturities** (less risk).
+
+- Explains persistent **upward slope** of yield curve.
+
+---
+
+## Liquidity Premium Theory
+
+- Bonds are **substitutes**, but not perfect ones.
+
+- LT yields = average of expected ST rates + **liquidity premium**.
+
+- Premium increases with maturity (compensates for risk).
+
+`\(i_{nt} = \frac{i_t + i_{t+1}^e + \cdots + i_{t+n-1}^e}{n} + l_{nt}\)`
+
+---
+
+## Preferred Habitat Theory
+
+- Extension of liquidity premium.
+
+- Investors prefer certain maturities ("habitats") but will shift if **compensated**.
+
+- Explains why LT rates may be higher (need incentive).
+
+---
+
+.center[&lt;img src="fig5.jpg" height="80%" width="80%"&gt;]
+
+.caption[Figure 5 Liquidity Premium and Expectations Theory Combined]
+
+---
+
+.center[&lt;img src="fig6.jpg" height="70%" width="70%"&gt;]
+
+.caption[Figure 6 Yield Curves &amp; Expectations Under Liquidity Premium Theory]
+
+---
+
+## Yield Curve as Forecasting Tool
+
+- The yield curve contains information about expected future short-term rates and often about future economic conditions. 
+
+- A flat or inverted curve has historically been a recession warning signal, not a guarantee.
+
+- Rising curve → Boom
+
+---
+
+.center[&lt;img src="fig7.jpg" height="80%" width="80%"&gt;]
+
+.caption[Figure 7 Yield Curves and Expectations of Short-Term Rates]
+
+---
+
+.center[&lt;img src="news.jpg" height="70%" width="70%"&gt;]
+
+---
+
+## Yield Curve Inversion: What It Means
+
+- The New York Fed’s recession model based on the Treasury spread showed a 12-month-ahead recession probability of about 44.6% for February 2026. That is useful and more precise than the current sentence.
+
+- Yield-curve inversion has often preceded U.S. recessions, but it is not a mechanical rule. The New York Fed’s Treasury-spread model estimated the 12-month-ahead recession probability at about 44.6% in February 2026.
+
+---
+
+class: inverse, center, middle
+
+# 2. Stock Market, Theory of Rational Expectations, and Efficient Market Hypothesis
+
+---
+
+# The Stock Market, Rational Expectations, and the Efficient Market Hypothesis
+
+## Computing the Price of Common Stock
+
+- Stock value = Present value of all expected future cash flows (dividends and selling price)
+
+### One-Period Valuation Model
+$$
+P_0 = \frac{Div_1}{(1 + k_e)} + \frac{P_1}{(1 + k_e)}
+$$
+- `\(P_0\)`: Current stock price  
+- `\(Div_1\)`: Dividend next year  
+- `\(P_1\)`: Price next year  
+- `\(k_e\)`: Required return on equity
+
+---
+
+## Example
+- Intel stock = $50  
+- Dividend = $0.16  
+- Analyst forecast: price next year = $60  
+- Your required return = 12%
+
+$$
+P_0 = \frac{0.16}{1.12} + \frac{60}{1.12} = \$53.71
+$$
+
+Since $$53.71 &gt; `\(50\)` → Buy the stock.
+
+---
+
+## The Generalized Dividend Valuation Model
+
+`\(P_0 = \sum_{t=1}^{\infty} \frac{D_t}{(1 + k_e)^t}\)`
+
+- Future dividends determine stock value
+
+- In the long run, stock value depends on expected cash flows to shareholders. These may come through dividends and, in practice, also through share repurchases.
+
+---
+
+## Gordon Growth Model
+$$
+P_0 = \frac{D_1}{k_e - g} = \frac{D_0(1 + g)}{k_e - g}
+$$
+Where:  
+- `\(D_0\)`: Most recent dividend  
+- `\(g\)`: Constant dividend growth rate  
+- `\(k_e\)`: Required return
+
+**Assumptions**:
+- Dividends grow forever at constant `\(g\)`
+- `\(g &lt; k_e\)`
+
+---
+
+## How the Market Sets Stock Prices
+
+1. Market price is determined by *trading among buyers and sellers* and is often interpreted as reflecting the valuation of the marginal investor.
+
+2. Those with **better info** value assets more accurately.
+
+3. Better info → **less perceived risk** → **higher value**.
+
+**Prices reflect changing information.**
+
+---
+
+## Application: Monetary Policy &amp; Stock Prices
+
+- Fed lowers interest rates → Bond returns ↓ → Stock becomes more attractive → `\(k_e\)` ↓
+
+- Also boosts economy → Expected `\(g\)` ↑
+
+- Both effects → Stock prices ↑ (via Gordon model)
+
+&gt; When policy rates fall, stocks may rise not only because discount rates fall, but also because investors expect stronger future earnings.
+
+---
+
+## Coronavirus Crash of 2020
+
+- Dow dropped 37% (Feb–Mar 2020)
+
+- Economic uncertainty → lower dividend growth `\(g\)`
+
+- Risk ↑ → Required return `\(k_e\)` ↑
+
+`\(P_0 = \frac{D_1}{k_e - g} \downarrow\)`
+
+---
+
+## Rational Expectations Theory
+
+- **Adaptive expectations**: Based only on past values
+
+- **Rational expectations**:
+  - Use all available information
+  - May be inaccurate but unbiased
+
+`\(X^e = X^{of}\)`
+- `\(X^e\)`: Expected value  
+- `\(X^{of}\)`: Optimal forecast
+
+&gt; Under rational expectations, forecasts use all available information and are unbiased on average.
+
+---
+
+## Efficient Market Hypothesis (EMH)
+
+- In the semi-strong form of EMH, *asset prices rapidly incorporate all publicly available information*.
+
+- Expected return:
+$$
+R^e = \frac{P_{t+1}^e - P_t + C}{P_t}
+$$
+- In equilibrium:
+$$
+R^e = R^{of} = R^*
+$$
+
+---
+
+## EMH Logic
+
+If `\(R^{of} &gt; R^*\)` → `\(P_t\)` ↑ → `\(R^{of}\)` ↓ until `\(R^{of} = R^*\)`  
+If `\(R^{of} &lt; R^*\)` → `\(P_t\)` ↓ → `\(R^{of}\)` ↑ until `\(R^{of} = R^*\)`
+
+→ Prices adjust quickly via **arbitrage**
+
+Simply put, if you can make money by buying or selling a stock, the price will adjust until you can’t.
+
+&gt; EMH does not say prices are always ‘right’; it says abnormal profits based on public information should be hard to earn consistently.
+
+---
+
+## Do Analysts Help?
+
+- Most public information is **already priced in**.
+
+- Consistently beating the market using public information is difficult.
+
+- **Buy and hold** is often optimal for average investors.
+
+---
+
+## Are Markets Always Efficient?
+
+- **Market crashes** challenge “strong” efficiency view.
+
+- EMH doesn’t claim prices are always correct — only **unpredictable**.
+
+- Large price swings may reflect changing expectations, risk premia, liquidity conditions, and behavioral forces.
+
+---
+
+## Behavioral Finance
+
+- Explains inefficiencies with psychology &amp; sociology:
+  - **Loss aversion** → Avoiding short selling
+  - **Overconfidence** → Excessive trading
+  - **Herding / social contagion** → Bubbles
+
+---
+
+
+class: inverse, center, middle
+
+# 3. Presentation Assignment Intro
+
+---
+
+
+# Presentation Assignment
+
+- According to the course syllabus, this **individual presentation assignment** accounts for **20% of your final grade**.
+
+- Each student will give a **15-minute presentation** followed by a **5-minute Q&amp;A session**.
+
+- **Presentation Date:** Week 15 (June 11)
+
+- **Topic:** *Current Issues on Challenges and Risks in the Modern Financial System*
+
+**Tip:** Choose a topic that you find genuinely interesting — this will make your research, preparation, and presentation more engaging and insightful!
+
+
+---
+class: my-one-page-font
+
+
+## Instructions &amp; Requirements
+
+### Topic Selection
+- Choose a topic from the **List of Suggested Topics** below.
+- **No duplicate topics** will be allowed — topics are assigned on a **first come, first served** basis.
+- You may also propose a custom topic (subject to instructor approval).
+
+### Suggested Topics
+- The Rise of Shadow Banking: Risks Beyond the Regulators
+- Sovereign Debt Stress in a High-Rate World
+- Bank Runs in the Digital Age: Lessons from SVB and Credit Suisse
+- Climate Risk as a Financial Risk: The New Role of Central Banks
+- FinTech, Big Tech, and Competition in Payments and Lending
+- Cybersecurity in Finance: Are We Ready for the Next Digital Shock?
+- CBDCs and the Future of Money: Stability Tool or Risk Amplifier?
+- Higher-for-Longer Interest Rates: Who Wins and Who Loses?
+- Geopolitical Risk and the Financial System: War, Sanctions, and Uncertainty
+- Artificial Intelligence in Finance: Opportunity or Black Box Risk?
+- Others at your proposal (requires prior approval by the instructor)
+- Nonbank Financial Intermediation and Systemic Risk
+- Treasury Market Liquidity and Why It Matters
+- Private Credit: Opportunity or Hidden Fragility?
+- Commercial Real Estate and Financial Stability
+- Stablecoins and the Future of Digital Payments
+
+---
+
+class: my-one-page-font
+
+## Instructions &amp; Requirements (cont'd)
+
+### Presentation Delivery
+- You must **submit the final version of your presentation slides** via Cyber Campus by **June 11 at 12:00 PM (noon)**.
+- Prepare a presentation of **12–15 slides** (PowerPoint, PDF, or equivalent).
+- You will have **15 minutes to present**, followed by a **5-minute Q&amp;A**.
+- **Active participation during other students’ Q&amp;A sessions** is encouraged and will contribute to your grade.
+- **Full credit** will be awarded only if you both **present** and **engage in Q&amp;A discussions**.
+
+### Summary Submission
+- Submit a **1-page written summary** of your presentation.
+- **Due date:** by class time on **June 4** via Cyber Campus.
+- Format:
+  - **Font:** 12 pt, **Spacing:** 1.5 lines
+  - **Length:** maximum 1 page
+  - **Content should include:**
+    - Brief overview of your topic
+    - Your key arguments and main findings
+    - At least **3 academic references** (journal articles, policy papers, working papers)
+    - **Citations and references** must follow **APA style**
+
+---
+
+## Grading Criteria (20%)
+- Topic clarity and structure (4%)
+
+- Quality of analysis and arguments (6%)
+
+- Slide design and presentation delivery (4%)
+
+- Summary paper (3%)
+
+- Engagement in Q&amp;A sessions (3%)
+
+
+---
+
+
+class: inverse, center, middle
+
+# 4. Class Activity: Mini-Debate – How Efficient Is the Stock Market?
+
+---
+
+# Next Class
+
+- (Apr 9) 
+  - **Chap 8.** An Economic Analysis of Financial Structure  
+  - **Chap 13.** Banking and the Management of Financial Institutions 
+
+---
+
+class: inverse, center, middle
+
+# Any QUESTIONS?
+
+## Thank You for your attention and participation!  
+
+
+
+???
+1. To print pdf slides
+https://stackoverflow.com/questions/54968311/xaringan-export-slides-to-pdf-while-preserving-formatting
+
+pagedown::chrome_print("W1_ME.html") # but not all pictures are visible
+
+2. Option: https://stackoverflow.com/questions/54968311/xaringan-export-slides-to-pdf-while-preserving-formatting
+
+install.packages("remotes")
+remotes::install_github("jhelvy/xaringanBuilder")
+remotes::install_github("jhelvy/renderthis@v0.0.9")
+
+library(xaringanBuilder)
+build_pdf("DVC.html")
+
+3. Option
+writeBin(as.raw(c()), "favicon.ico") # create an empty favicon.ico file
+install.packages("renderthis")
+remotes::install_github('rstudio/chromote')
+library(renderthis)
+
+renderthis::to_pdf("W5_FIS.html")
+
+getwd()
+setwd("C:\\Users\\vyshn\\OneDrive - kdis.ac.kr\\Documents\\GitHub\\Sogang\\2026\\Spring\\Financial Institutions and System\\Week 5")
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+  "highlightStyle": "github",
+  "highlightLines": true,
+  "countIncrementalSlides": false,
+  "ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
