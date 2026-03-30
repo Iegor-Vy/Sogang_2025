@@ -1,22 +1,37 @@
----
-title: "Mathematical Methods for International Commerce "
-subtitle: "<br/>Week 6/1: Further Rules of Differentiations, and Elasticity "
-author: "Iegor Vyshnevskyi, Ph.D."
-institute: "Sogang University, Geppert School of International Studies"
-date: "April 9, 2026"
-output:
-  xaringan::moon_reader:
-    #css: $$default, metropolis, metropolis-fonts$$
-    css: xaringan-themer.css
-    lib_dir: libs
-    nature:
-      highlightStyle: github
-      highlightLines: true
-      countIncrementalSlides: false
-      ratio: '16:9'
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Mathematical Methods for International Commerce</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Iegor Vyshnevskyi, Ph.D." />
+    <meta name="date" content="2026-04-09" />
+    <script src="libs/header-attrs-2.29/header-attrs.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Mathematical Methods for International Commerce
+]
+.subtitle[
+## <br/>Week 6/1: Further Rules of Differentiations, and Elasticity
+]
+.author[
+### Iegor Vyshnevskyi, Ph.D.
+]
+.institute[
+### Sogang University, Geppert School of International Studies
+]
+.date[
+### April 9, 2026
+]
+
 ---
 
-<style>
+
+&lt;style&gt;
 @media print{
   body, html, .remark-slides-area, .remark-notes-area {
     height: 100% !important;
@@ -24,34 +39,34 @@ output:
     overflow: visible;
     display: inline-block;
     }
-</style>
+&lt;/style&gt;
 
-<style type="text/css">
+&lt;style type="text/css"&gt;
 .remark-slide-content {
     font-size: 34px;
     padding: 1em 4em 1em 4em;
 }
-</style>
+&lt;/style&gt;
 
-<style type="text/css">
+&lt;style type="text/css"&gt;
 .my-one-page-font {
   font-size: 28px;
 }
-</style>
+&lt;/style&gt;
 
-</style>
+&lt;/style&gt;
 
-<style type="text/css">
+&lt;style type="text/css"&gt;
 .my-one-page-font-table {
   font-size: 24px;
 }
-</style>
+&lt;/style&gt;
 
-<style>
+&lt;style&gt;
 .tiny { font-size: 60%; }      /* class you can reuse anywhere */
-</style>
+&lt;/style&gt;
 
-<style>
+&lt;style&gt;
 .remark-slide-content {
   position: relative;
   z-index: 1;
@@ -73,36 +88,12 @@ output:
   pointer-events: none;
   z-index: 0;
 }
-</style>
+&lt;/style&gt;
 
 
-```{r setup, include = FALSE}
-library(tidyverse)
-library(knitr)
 
-opts_chunk$set(fig.width = 10, 
-               message = FALSE, 
-               warning = FALSE,
-               echo = FALSE)
-```
 
-```{r xaringan-themer, include=FALSE, warning=FALSE}
-#install.packages("xaringanthemer")
-library(xaringanthemer)
-style_mono_accent(
-  base_color = "#851a10",
-  header_font_google = google_font("Josefin Sans"),
-  text_font_google   = google_font("Montserrat", "500", "550i"),
-  code_font_google   = google_font("Fira Mono"),
-  colors = c(
-  red = "#f34213",
-  purple = "#3e2f5b",
-  orange = "#ff8811",
-  green = "#136f63",
-  white = "#FFFFFF"
-)
-)
-```
+
 
 # Agenda  
 
@@ -110,7 +101,7 @@ style_mono_accent(
 
 2. Elasticity (4.5) 
 
-3. Group Activity: Differentiation & Elasticity Challenge
+3. Group Activity: Differentiation &amp; Elasticity Challenge
 
 ---
 
@@ -144,10 +135,10 @@ Used when you have a function **inside** another function:
 $$ \frac{dy}{dx} = \frac{dy}{du} \cdot \frac{du}{dx} $$
 
 ### Example:
-Let $y = (3x^2 + 2)^4$
+Let `\(y = (3x^2 + 2)^4\)`
 
-- Set $u = 3x^2 + 2$
-- $\frac{dy}{dx} = 4u^3 \cdot \frac{du}{dx} = 4(3x^2 + 2)^3 \cdot 6x = 24x(3x^2 + 2)^3$
+- Set `\(u = 3x^2 + 2\)`
+- `\(\frac{dy}{dx} = 4u^3 \cdot \frac{du}{dx} = 4(3x^2 + 2)^3 \cdot 6x = 24x(3x^2 + 2)^3\)`
 
 Apply chain rule when exponents wrap a full expression
 
@@ -155,7 +146,7 @@ Apply chain rule when exponents wrap a full expression
 
 # Illustration of Chain Rule
 
-.center[<img src="chain_rule_plot.png" height="80%" width="80%">]
+.center[&lt;img src="chain_rule_plot.png" height="80%" width="80%"&gt;]
 
 ---
 
@@ -166,9 +157,9 @@ Used when differentiating a **product of two functions**:
 $$ \frac{d}{dx}[u(x) \cdot v(x)] = u'(x)v(x) + u(x)v'(x) $$
 
 ### Example:
-$y = x^2 \cdot \ln(x)$
-- $u = x^2, \quad v = \ln(x)$
-- $y' = 2x \cdot \ln(x) + x^2 \cdot \frac{1}{x} = 2x \ln(x) + x$
+`\(y = x^2 \cdot \ln(x)\)`
+- `\(u = x^2, \quad v = \ln(x)\)`
+- `\(y' = 2x \cdot \ln(x) + x^2 \cdot \frac{1}{x} = 2x \ln(x) + x\)`
 
 Both terms matter!
 
@@ -181,9 +172,9 @@ Used when differentiating a **quotient of two functions**:
 $$ \frac{d}{dx}\left[\frac{u(x)}{v(x)}\right] = \frac{u'(x)v(x) - u(x)v'(x)}{[v(x)]^2} $$
 
 ### Example:
-$y = \frac{\ln(x)}{x}$
-- $u = \ln(x), \quad v = x$
-- $y' = \frac{\frac{1}{x} \cdot x - \ln(x) \cdot 1}{x^2} = \frac{1 - \ln(x)}{x^2}$
+`\(y = \frac{\ln(x)}{x}\)`
+- `\(u = \ln(x), \quad v = x\)`
+- `\(y' = \frac{\frac{1}{x} \cdot x - \ln(x) \cdot 1}{x^2} = \frac{1 - \ln(x)}{x^2}\)`
 
 Useful for cost/revenue ratios!
 
@@ -192,8 +183,8 @@ Useful for cost/revenue ratios!
 # Combination of Rules
 
 ### Example:
-$y = \frac{(x^2 + 1)^3 \cdot \ln(x)}{x^2}$
-- Use **product rule** on numerator, **chain rule** on $(x^2 + 1)^3$
+`\(y = \frac{(x^2 + 1)^3 \cdot \ln(x)}{x^2}\)`
+- Use **product rule** on numerator, **chain rule** on `\((x^2 + 1)^3\)`
 - Use **quotient rule** for the entire function
 
 Many economic models require **layered differentiation**
@@ -206,7 +197,7 @@ class: inverse, center, middle
 
 ---
 
-# Elasticity of Demand & Supply
+# Elasticity of Demand &amp; Supply
 
 ## Arc Elasticity:
 Average elasticity over an interval:
@@ -215,15 +206,15 @@ $$ E_d = \frac{\Delta Q / \text{avg } Q}{\Delta P / \text{avg } P} = \frac{\frac
 
 ### Example:
 - Price increases from $10 to $12, quantity falls from 50 to 40
-- $E_d = \frac{(40 - 50)/45}{(12 - 10)/11} = \frac{-10/45}{2/11} = -1.22$
+- `\(E_d = \frac{(40 - 50)/45}{(12 - 10)/11} = \frac{-10/45}{2/11} = -1.22\)`
 
-Elastic demand (|E| > 1) meaning consumers are sensitive to price changes, so quantity responds more than proportionally to price changes
+Elastic demand (|E| &gt; 1) meaning consumers are sensitive to price changes, so quantity responds more than proportionally to price changes
 
 ---
 
 # Illustration of Arc Elasticity
 
-.center[<img src="arc_elasticity_plot.png" height="80%" width="80%">]
+.center[&lt;img src="arc_elasticity_plot.png" height="80%" width="80%"&gt;]
 
 ---
 
@@ -232,42 +223,42 @@ Use **derivative** and point values:
 
 $$ E_d = \frac{dQ}{dP} \cdot \frac{P}{Q} $$
 
-If $Q = 120 - 3P$, then $\frac{dQ}{dP} = -3$
-- At $P = 10$, $Q = 90$
+If `\(Q = 120 - 3P\)`, then `\(\frac{dQ}{dP} = -3\)`
+- At `\(P = 10\)`, `\(Q = 90\)`
 
-$E_d = -3 \cdot \frac{10}{90} = -0.33$
+`\(E_d = -3 \cdot \frac{10}{90} = -0.33\)`
 
 Inelastic demand meaning consumers are less sensitive to price changes
 
 ---
 
-# Elasticity & Revenue
+# Elasticity &amp; Revenue
 
-- If $|E_d| > 1$: Lowering price **increases** revenue
-- If $|E_d| < 1$: Lowering price **decreases** revenue
-- At $|E_d| = 1$: Revenue is **maximized**
+- If `\(|E_d| &gt; 1\)`: Lowering price **increases** revenue
+- If `\(|E_d| &lt; 1\)`: Lowering price **decreases** revenue
+- At `\(|E_d| = 1\)`: Revenue is **maximized**
 
-### Graph it: Revenue = $P × Q = P(120 - 3P) = 120P - 3P^2$
-- Revenue is maximized where $MR = 0 \Rightarrow$, which corresponds to elasticity = 1 for a downward-sloping demand curve
+### Graph it: Revenue = `\(P × Q = P(120 - 3P) = 120P - 3P^2\)`
+- Revenue is maximized where `\(MR = 0 \Rightarrow\)`, which corresponds to elasticity = 1 for a downward-sloping demand curve
 
 ---
 
 # Illustration of Revenue and Elasticity
 
-.center[<img src="elasticity_revenue_plot.png" height="80%" width="80%">]
+.center[&lt;img src="elasticity_revenue_plot.png" height="80%" width="80%"&gt;]
 
 ---
 
 # Elasticity in Linear Demand
 
-If $Q = a - bP$, then:
+If `\(Q = a - bP\)`, then:
 
 $$ E_d = -b \cdot \frac{P}{Q} $$
 
 - Easy to evaluate at any point
-- At $P = 0$, elasticity = 0 (perfectly inelastic)
-- At $Q = 0$, elasticity = $\infty$ (perfectly elastic | Elasticity approaches infinity)
-- At midpoint, $E_d = -1$
+- At `\(P = 0\)`, elasticity = 0 (perfectly inelastic)
+- At `\(Q = 0\)`, elasticity = `\(\infty\)` (perfectly elastic | Elasticity approaches infinity)
+- At midpoint, `\(E_d = -1\)`
 
 Linear demand: Elasticity changes **along** the curve
 
@@ -276,21 +267,21 @@ Linear demand: Elasticity changes **along** the curve
 # Practice Problems
 
 1. Differentiate using chain rule:
-   - (a) $f(x) = (5x^2 + 1)^4$
+   - (a) `\(f(x) = (5x^2 + 1)^4\)`
 
 2. Differentiate using product rule:
-   - (a) $f(x) = x^2 e^x$
+   - (a) `\(f(x) = x^2 e^x\)`
 
 3. Differentiate using quotient rule:
-   - (a) $f(x) = \frac{e^x}{x^2}$
+   - (a) `\(f(x) = \frac{e^x}{x^2}\)`
 
 4. Find arc elasticity:
    - Price rises from \$8 to \$10; Q falls from 60 to 48
 
-5. For $Q = 100 - 4P$, find point elasticity at $P = 10$
+5. For `\(Q = 100 - 4P\)`, find point elasticity at `\(P = 10\)`
 
 6. Interpret elasticity:
-   - When $E_d = -1$, what happens to total revenue if price increases?
+   - When `\(E_d = -1\)`, what happens to total revenue if price increases?
 
 ???
 
@@ -388,14 +379,14 @@ If price increases or decreases slightly, **total revenue does not change**.
 
 - Price elasticity relates directly to **revenue decisions**
 
-> In economics, calculus lets us optimize decisions, and elasticity helps us understand consumer response.
+&gt; In economics, calculus lets us optimize decisions, and elasticity helps us understand consumer response.
 
 
 ---
 
 class: inverse, center, middle
 
-# 3. Group Activity: Differentiation & Elasticity Challenge
+# 3. Group Activity: Differentiation &amp; Elasticity Challenge
 
 ---
 
@@ -471,7 +462,7 @@ $$
 
 **Interpretation:**  
 As labor increases, the marginal product of labor increases monotonically. The function exhibits increasing marginal returns over the relevant range, as both components of the derivative grow with ( L ).
-- diminishing returns would require the second derivative < 0, which is not the case here.
+- diminishing returns would require the second derivative &lt; 0, which is not the case here.
 
 
 # 🟨 Group 2: Product Rule in Revenue
@@ -507,7 +498,7 @@ E_d = \frac{dQ}{dP} \cdot \frac{P}{Q} = -4 \cdot \frac{10}{80} = -0.5
 $$
 
 **Interpretation:**  
-|E| < 1 → **Inelastic demand**  
+|E| &lt; 1 → **Inelastic demand**  
 ✅ Raising price would **increase revenue**
 
 
@@ -566,3 +557,140 @@ renderthis::to_pdf("W6_1_ME.html")
 
 getwd()
 setwd("C:\\Users\\vyshn\\OneDrive - kdis.ac.kr\\Documents\\GitHub\\Sogang\\2026\\Spring\\Mathematical Methods for International Commerce\\Week 6_1")
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+  "highlightStyle": "github",
+  "highlightLines": true,
+  "countIncrementalSlides": false,
+  "ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
