@@ -455,8 +455,7 @@ plt.show()
 import numpy as np
 import matplotlib.pyplot as plt
 # Parameters for different normal distributions
-params = [
-    (0, 1),   # mean=0, std=1
+params = [    (0, 1),   # mean=0, std=1
     (0, 2),   # mean=0, std=2
     (2, 1),   # mean=2, std=1
     (-2, 1)   # mean=-2, std=1
@@ -464,7 +463,7 @@ params = [
 # Generate x values
 x = np.linspace(-10, 10, 1000)
 # Plot each normal distribution
-plt.figure(figsize=(8, 4))
+plt.figure(figsize=(6, 3))
 for mu, sigma in params:
     y = (1 / (sigma * np.sqrt(2 * np.pi))) * np.exp(-0.5 * ((x - mu) / sigma) ** 2)
     plt.plot(x, y, label=f'μ={mu}, σ={sigma}')
@@ -476,7 +475,7 @@ plt.grid(True)
 plt.show()
 ```
 
-&lt;img src="W-5_SIC_files/figure-html/unnamed-chunk-4-3.png" width="768" /&gt;
+&lt;img src="W-5_SIC_files/figure-html/unnamed-chunk-4-3.png" width="576" /&gt;
 
 ---
 
