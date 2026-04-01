@@ -679,7 +679,7 @@ What minimum guaranteed mileage should Layton announce?
 
 The normal distribution (a continuous distribution) yields a good approximation of the binomial distribution (a discrete distribution) for large values of n. 
 
-The normal probability distribution is generally a good approximation to the binomial probability distribution when n  and n(1- ) are both greater than 5.
+The normal probability distribution is generally a good approximation to the binomial probability distribution when nπ  and n(1-π ) are both greater than 5.
 
 Why it's useful:
 - simplifies calculations
