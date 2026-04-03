@@ -3,7 +3,7 @@ title: "Financial Institutions and System"
 subtitle: "<br/>Week 6: An Economic Analysis of Financial Structure, and Banking and the Management of Financial Institutions"
 author: "Iegor Vyshnevskyi, Ph.D."
 institute: "Sogang University, Graduate School of International Studies"
-date: "April 2, 2026"
+date: "April 9, 2026"
 output:
   xaringan::moon_reader:
     #css: [default, metropolis, metropolis-fonts]
@@ -152,6 +152,8 @@ Figure 1 compares how businesses in the U.S., Germany, Japan, and Canada used ex
 
 8. Debt contracts contain **restrictive covenants** to reduce risk.
 
+> Even today, public equity is not the dominant source of external finance for most firms; bank loans, retained earnings, and private credit remain much more important.
+
 ---
 
 ## Transaction Costs
@@ -206,7 +208,7 @@ Explains why firms don’t rely much on public equity/debt markets.
 
 - Make **private loans** (no free-rider issue).
 
-- Earn higher returns, minimize risks.
+- Use screening, monitoring, diversification, and relationship lending to improve risk-adjusted returns.
 
 Explains Facts 3, 4, and 6.
 
@@ -232,6 +234,8 @@ Explains Fact 7.
 
 Illustrates limits of disclosure-based regulation.
 
+> More recent examples such as Silicon Valley Bank (2023) show that even with strong disclosure, markets and supervisors can underestimate liquidity and interest-rate risk.
+
 ---
 
 ## Moral Hazard in Equity: Principal-Agent Problem
@@ -256,7 +260,7 @@ Illustrates limits of disclosure-based regulation.
 
 - **Debt**: Requires fixed repayments; less monitoring needed.
 
-- Moral hazard only matters if borrower defaults.
+- For debt contracts, moral hazard becomes especially important when borrower actions increase the probability of default or reduce lender protection.
 
 Explains Fact 1.
 
@@ -288,6 +292,8 @@ Explains Facts 3 & 4.
 
 - No collateral → few loans → persistent poverty.
 
+> This is also why credit access often depends on legal identity, credit history, and property rights—not only income.
+
 **Takeaway**: Strong legal infrastructure is crucial for financial access.
 
 ---
@@ -314,15 +320,17 @@ Banks make profits by borrowing funds (via deposits, borrowing) and using them t
 
 ## Bank Liabilities: Checkable and Nontransaction Deposits
 
-- **Checkable deposits**: allow account holders to write checks.
+- **Checkable deposits** (transaction accounts used for payments): allow account holders to write checks.
   - 14% of bank liabilities (June 2020)
   - Declined from 60% in the 1960s
   - Lowest-cost source of bank funds
 
-- **Nontransaction deposits**:
+- **Nontransaction deposits** (savings and time deposits):
   - No check-writing privileges
   - Include savings and time deposits
   - 63% of liabilities (June 2020)
+
+> Deposit composition has shifted over time, with transaction and savings accounts now dominating traditional retail funding.
 
 ---
 
@@ -337,24 +345,28 @@ Banks make profits by borrowing funds (via deposits, borrowing) and using them t
   - Raised via new equity or retained earnings
   - Cushion against asset value declines
 
+> In practice, banks today also rely heavily on wholesale funding and market-based borrowing.
+
 ---
 
 ## Bank Assets: Reserves and Interbank Deposits
 
 - **Reserves**: deposits at the Fed + vault cash
-  - Required reserves (based on reserve ratio)
-  - Excess reserves (insurance against outflows)
+  - Used mainly for payments, liquidity, and settlement
+  - Banks may still hold large reserve balances even though reserve requirements are now zero in the U.S.
 
 - **Deposits at other banks**:
   - Small banks hold funds at larger banks for services
   - Reserves + deposits = ~15% of assets
+
+> Since March 2020, the Federal Reserve has set reserve requirement ratios to zero percent for all depository institutions to support liquidity in the financial system during the COVID-19 pandemic.
 
 ---
 
 ## Bank Assets: Securities and Loans
 
 - **Securities**:
-  - All debt instruments; banks can't hold stock
+  - All debt instruments; 
   - ~20% of bank assets, provide ~10% of income
   - US gov't, agency, state/local bonds
 
@@ -364,6 +376,8 @@ Banks make profits by borrowing funds (via deposits, borrowing) and using them t
 
 - **Other assets**: physical capital (buildings, equipment)
 
+> Commercial banks generally hold mostly debt securities and loans rather than common equity as core balance-sheet assets
+
 ---
 
 ## Table: Commercial Bank Balance Sheet (June 2020)
@@ -371,6 +385,7 @@ Banks make profits by borrowing funds (via deposits, borrowing) and using them t
 .center[<img src="tab1b.jpg" height="60%" width="60%">]
 
 ---
+class: my-one-page-font
 
 ## Basic Banking: Deposit Effects
 .center[<img src="bb1a.jpg" height="20%" width="20%">]
@@ -384,6 +399,8 @@ Banks make profits by borrowing funds (via deposits, borrowing) and using them t
 
 - A check deposit from another bank increases reserves.
 - A check withdrawal causes a reserve loss.
+
+> In modern systems, reserve changes are closely tied to central bank operating procedures and payment settlement, not just textbook reserve multipliers.
 
 ---
 
@@ -411,7 +428,7 @@ Banks make profits by borrowing funds (via deposits, borrowing) and using them t
 
 ## Liquidity Management Example
 
-If a bank’s required reserve ratio is 10%:
+If a bank wants to maintain a liquidity buffer equal to 10% of deposits, then:
 .center[<img src="lm1a.jpg" height="20%" width="20%">]
 .center[<img src="lm1b.jpg" height="20%" width="20%">]
 
@@ -424,6 +441,7 @@ If a bank’s required reserve ratio is 10%:
 - Without reserves, the bank must borrow or sell assets.
 
 ---
+class: my-one-page-font
 
 ## Ways to Cover Reserve Shortfall
 
@@ -439,6 +457,10 @@ If a bank’s required reserve ratio is 10%:
 - **Call in or sell loans**:
   - .center[<img src="lm6.jpg" height="20%" width="20%">]
   - Most costly, harms customer relationships
+
+> In periods of stress, central banks may also create temporary liquidity facilities to support banks and prevent fire sales of assets.
+
+.tiny[The Fed’s Bank Term Funding Program (BTFP) stopped making new loans in March 2024 and was designed to help banks meet liquidity needs during the 2023 stress episode.]
 
 ---
 
@@ -467,6 +489,8 @@ If a bank’s required reserve ratio is 10%:
   - Capital prevents bank failure
   - Affects return to shareholders (ROE)
   - Required by regulators
+
+> Capital rules today are shaped by Basel III, which strengthened risk-based capital and liquidity requirements after the Global Financial Crisis.
 
 ---
 
@@ -497,6 +521,8 @@ Lower capital = higher ROE, but higher risk
 
 > Lending contraction often follows a capital crunch
 
+> In practice, raising new equity during stress can be difficult and expensive, which is why capital shortfalls often lead to balance-sheet contraction
+
 ---
 
 ## Capital Crunch → Credit Crunch (GFC Example)
@@ -506,6 +532,8 @@ Lower capital = higher ROE, but higher risk
 - Banks tightened lending standards
 
 - Lending and credit availability declined
+
+> A similar mechanism reappeared in 2023 when unrealized losses on securities and deposit outflows increased pressure on some regional banks.
 
 ---
 
@@ -534,14 +562,17 @@ Lower capital = higher ROE, but higher risk
 - **Credit rationing** (limit or refuse risky loans)
 
 ---
+class: my-one-page-font
 
 ## Interest-Rate Risk Example
-.center[<img src="inter.jpg" height="80%" width="80%">]
+.center[<img src="inter.jpg" height="70%" width="70%">]
 
 
 - $20M rate-sensitive assets vs. $50M rate-sensitive liabilities
 - 5% rate ↑ → $1.5M profit ↓
 - 5% rate ↓ → $1.5M profit ↑
+
+> This is exactly why banks with long-duration assets and short-term funding can become vulnerable when rates rise quickly.
 
 ---
 
@@ -560,6 +591,8 @@ $$ \Delta \text{Profits} = \text{Gap} \times \Delta \text{Interest Rate} $$
 - **Use interest-rate derivatives** (e.g., swaps, futures)
 
 - Accept some risk if expecting favorable rate movement
+
+> Banks also use deposit pricing, hedging, and balance-sheet reallocation to manage rate exposure
 
 ---
 
@@ -587,6 +620,8 @@ class: my-one-page-font
   - Specialization & long-term relationships
   - Derivatives for hedging
 
+> Today, financial intermediation is increasingly shared between banks and nonbank financial institutions such as money market funds, private credit funds, insurers, and investment funds. The FSB reported NBFI assets of $256.8 trillion in 2024.
+
 ---
 
 
@@ -598,9 +633,11 @@ class: inverse, center, middle
 
 # Next Class
 
-- (Apr 18) 
-  - **Chap 14.** Central Banks   
-  - **Chap 15.** The Money Supply Process
+- (Apr 19) 
+
+  - **Chap 10. Economic Analysis of Financial Regulation**  
+  - **Chap 11. Banking Industry: Structure and Competition** 
+
 
 ---
 
@@ -634,4 +671,4 @@ library(renderthis)
 renderthis::to_pdf("W6_FIS.html")
 
 getwd()
-setwd("C:\\Users\\vyshn\\OneDrive - kdis.ac.kr\\Documents\\GitHub\\Sogang\\2026\\Spring\\Financial Institutions and System\\Week 5")
+setwd("C:\\Users\\vyshn\\OneDrive - kdis.ac.kr\\Documents\\GitHub\\Sogang\\2026\\Spring\\Financial Institutions and System\\Week 6")
