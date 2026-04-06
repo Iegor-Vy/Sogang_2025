@@ -1,0 +1,1625 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Statistics for International Commerce</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Iegor Vyshnevskyi, Ph.D." />
+    <script src="libs/header-attrs-2.29/header-attrs.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Statistics for International Commerce
+]
+.subtitle[
+## Week 6: Sampling Distributions and Confidence Intervals
+]
+.author[
+### Iegor Vyshnevskyi, Ph.D.
+]
+.institute[
+### Sogang University, Geppert School of International Studies
+]
+.date[
+### April 14/ April 16, 2026
+]
+
+---
+
+
+&lt;style&gt;
+@media print{
+  body, html, .remark-slides-area, .remark-notes-area {
+    height: 100% !important;
+    width: 100% !important;
+    overflow: visible;
+    display: inline-block;
+    }
+&lt;/style&gt;
+
+&lt;style type="text/css"&gt;
+.remark-slide-content {
+    font-size: 34px;
+    padding: 1em 4em 1em 4em;
+}
+&lt;/style&gt;
+
+&lt;style type="text/css"&gt;
+.my-one-page-font {
+  font-size: 28px;
+}
+&lt;/style&gt;
+
+&lt;/style&gt;
+
+&lt;style type="text/css"&gt;
+.my-one-page-font-table {
+  font-size: 24px;
+}
+&lt;/style&gt;
+
+&lt;style&gt;
+.tiny { font-size: 60%; }      /* class you can reuse anywhere */
+&lt;/style&gt;
+
+&lt;style&gt;
+.remark-slide-content {
+  position: relative;
+  z-index: 1;
+}
+
+.remark-slide-content::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 600px;          /* adjust size */
+  height: 600px;
+  background-image: url("1. 교장(Seal_Positive).png");  /* place logo file in same folder */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: 0.05;         /* watermark transparency */
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 0;
+}
+&lt;/style&gt;
+
+
+
+
+
+
+Hello everyone!
+
+Yet another **great day** to *keep learning* statistics for international commerce. :-)
+
+---
+
+# Agenda
+
+- Sampling distribution of the sample mean
+- Central Limit Theorem (CLT)
+- Standard error
+- Point estimates and confidence intervals
+- z-interval and t-interval
+- Business and international commerce applications
+
+---
+
+# Learning Objectives
+
+By the end of this class, you should be able to:
+
+- explain what a **sampling distribution** is
+- distinguish **population values** from **sample statistics**
+- use the **Central Limit Theorem**
+- calculate the **standard error of the mean**
+- construct and interpret **confidence intervals**
+- decide when to use **z** versus **t**
+- interpret results in a **business decision** context
+
+---
+
+# Quick Review from Week 5
+
+Last week, we worked with:
+
+- **continuous probability distributions**
+- **normal distribution**
+- **z-scores**
+- **probabilities under the normal curve**
+
+This week, we move from:
+
+### individual observations
+
+to
+
+### sample means
+
+That is the key idea of today's class.
+
+---
+
+# Warm-Up Question
+
+A global e-commerce company wants to know:
+
+&gt; "What is the average amount spent per customer order?"
+
+Should they:
+
+A. Ask **every** customer  
+B. Take a **sample** of customers
+
+### Think:
+
+If they take different random samples, will they always get the same sample mean?
+
+---
+
+# Population vs Sample
+
+## Population
+
+The full set of all units of interest.
+
+Examples:
+- all orders made on Amazon Korea this month
+- all export firms in Korea
+- all shipping times for a logistics company this year
+
+## Sample
+
+A subset selected from the population.
+
+Examples:
+- 100 customer orders
+- 50 export firms
+- 40 shipments
+
+---
+
+# Why Sampling?
+
+We usually use samples because a population may be:
+
+- too large
+- too expensive to study fully
+- too time-consuming to measure
+- constantly changing
+
+### Goal:
+
+Use the sample to learn something about the population.
+
+---
+
+# Key Idea Today
+
+Even if the **population stays the same**, different samples give different sample means.
+
+So we ask:
+
+## How do sample means behave?
+
+That leads us to the:
+
+# Sampling Distribution
+
+---
+
+# What is a Sampling Distribution?
+
+A **sampling distribution** is the probability distribution of a sample statistic.
+
+Today we focus on:
+
+## the sampling distribution of the sample mean
+
+That means:
+
+- take many random samples of the same size `\(n\)`
+- compute the mean for each sample
+- study the distribution of those means
+
+---
+
+# Example: Small Population of Order Values
+
+Suppose the daily order values (in USD) in a tiny online store are:
+
+$$
+6, 7, 8, 10
+$$
+
+Population mean:
+
+$$
+\mu = \frac{6+7+8+10}{4} = 7.75
+$$
+
+We will take all possible samples of size 2.
+
+---
+
+# All Samples of Size 2
+
+Possible samples (without replacement):
+
+- (6, 7) → mean = 6.5
+- (6, 8) → mean = 7.0
+- (6, 10) → mean = 8.0
+- (7, 8) → mean = 7.5
+- (7, 10) → mean = 8.5
+- (8, 10) → mean = 9.0
+
+These means form the **sampling distribution of the sample mean**.
+
+---
+
+# Important Observation
+
+The population values were:
+
+$$
+6, 7, 8, 10
+$$
+
+The sample means were:
+
+$$
+6.5, 7.0, 7.5, 8.0, 8.5, 9.0
+$$
+
+Notice:
+
+- sample means are **less spread out** than individual values
+- the average of sample means is still close to the population mean
+
+This is a major idea in statistics.
+
+---
+
+# Properties of the Sampling Distribution
+
+For the sampling distribution of the sample mean:
+
+## 1. Mean
+
+$$
+\mu_{\bar{x}} = \mu
+$$
+
+The mean of sample means equals the population mean.
+
+## 2. Standard Deviation
+
+$$
+\sigma_{\bar{x}} = \frac{\sigma}{\sqrt{n}}
+$$
+
+This is called the:
+
+# Standard Error
+
+---
+
+# Standard Error of the Mean
+
+The **standard error** tells us how much the sample mean typically varies from sample to sample.
+
+$$
+SE = \frac{\sigma}{\sqrt{n}}
+$$
+
+### Interpretation:
+
+- larger sample size → **smaller error**
+- more variability in population → **larger error**
+
+---
+
+# Intuition
+
+If you average more observations:
+
+- random ups and downs tend to cancel out
+- the sample mean becomes more stable
+
+### Therefore:
+
+Larger samples usually give **more precise estimates**.
+
+---
+
+# Python Example: Sampling Distribution
+
+
+``` python
+import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
+from itertools import combinations
+
+pop = np.array([6, 7, 8, 10])
+all_samples = list(combinations(pop, 2))
+sample_means = np.array([np.mean(sample) for sample in all_samples])
+
+print("sample_means =", sample_means)
+```
+
+```
+## sample_means = [6.5 7.  8.  7.5 8.5 9. ]
+```
+
+``` python
+print("mean(pop) =", pop.mean())
+```
+
+```
+## mean(pop) = 7.75
+```
+
+``` python
+print("mean(sample_means) =", sample_means.mean())
+```
+
+```
+## mean(sample_means) = 7.75
+```
+
+``` python
+print("sd(pop) =", pop.std(ddof=1))
+```
+
+```
+## sd(pop) = 1.707825127659933
+```
+
+``` python
+print("sd(sample_means) =", sample_means.std(ddof=1))
+```
+
+```
+## sd(sample_means) = 0.9354143466934853
+```
+
+---
+
+# Visualizing Population vs Sample Means
+
+
+```
+## (0.0, 1.6)
+```
+
+&lt;img src="W-6_SIC_files/figure-html/unnamed-chunk-2-1.png" width="1152" /&gt;
+
+---
+
+# Sampling Distribution of the Sample Mean – Example
+
+Tartus Industries has seven production employees (considered the population). The hourly earnings of each employee are given in the table below.
+
+&lt;div&gt;
+.center[
+&lt;img src="p1.png" width="60%"&gt;
+]
+
+.tiny[Source: Douglas Lind, William Marchal, Samuel Wathen, Statistical Techniques in Business and Economics, 16th ed. (LMW)]
+&lt;/div&gt;
+
+- What is the population mean?
+- What is the population standard deviation?
+- What is the sampling distribution of the sample mean for samples of size 2?
+- What is the mean of the sampling distribution?
+- What is the standard deviation of the sampling distribution?
+- What observations can be made about the population and the sampling distribution?
+
+---
+# Sampling Distribution of the Sample Mean – Example
+
+&lt;div&gt;
+.center[
+&lt;img src="p2.png" width="90%"&gt;
+]
+
+.tiny[Source: Douglas Lind, William Marchal, Samuel Wathen, Statistical Techniques in Business and Economics, 16th ed. (LMW)]
+&lt;/div&gt;
+
+---
+# Sampling Distribution of the Sample Mean – Example
+
+&lt;div&gt;
+.center[
+&lt;img src="p3.png" width="90%"&gt;
+]
+
+.tiny[Source: Douglas Lind, William Marchal, Samuel Wathen, Statistical Techniques in Business and Economics, 16th ed. (LMW)]
+&lt;/div&gt;
+
+---
+# Sampling Distribution of the Sample Mean – Example
+
+&lt;div&gt;
+.center[
+&lt;img src="p4.png" width="90%"&gt;
+]
+
+.tiny[Source: Douglas Lind, William Marchal, Samuel Wathen, Statistical Techniques in Business and Economics, 16th ed. (LMW)]
+&lt;/div&gt;
+
+---
+# Sampling Distribution of the Sample Mean – Example
+
+&lt;div&gt;
+.center[
+&lt;img src="p5.png" width="80%"&gt;
+]
+
+.tiny[Source: Douglas Lind, William Marchal, Samuel Wathen, Statistical Techniques in Business and Economics, 16th ed. (LMW)]
+&lt;/div&gt;
+
+---
+# Sampling Distribution of the Sample Mean – Example
+
+These observations can be made:
+- The mean of the distribution of the sample mean ($7.71) is equal to the mean of the population.
+
+- The spread in the distribution of the sample mean is less than the spread in the population values.  As size of the sample is increased, the spread of the distribution of the sample mean becomes smaller. 
+
+- The shape of the sampling distribution of the sample mean and the shape of the frequency distribution of the population values are different. The distribution of the sample mean tends to approximate the normal probability distribution.
+
+---
+
+# In-Class Check
+
+Suppose the population standard deviation is 12 and sample size is 36.
+
+What is the standard error?
+
+$$
+SE = \frac{12}{\sqrt{36}} = ?
+$$
+
+### Answer:
+
+$$
+SE = 2
+$$
+
+---
+
+# Commonly Used Sampling Methods
+
+## Simple Random Sampling
+
+&gt; A sample selected so that each item or person in the population has the same chance of being included. 
+
+*EXAMPLE*: A population consists of 845 employees of Nitra Industries. A sample of 52 employees will be selected from that population. The name of each employee is written on a small slip of paper and all slips are deposited in a box. After they have been thoroughly mixed, the first selection is made by drawing a slip out of the box without looking at it. This process is repeated until the sample of 52 employees is chosen.
+
+---
+# Commonly Used Sampling Methods
+## Systematic Random Sampling
+
+&gt; The items or individuals of the population are arranged in some order.  A random starting point is selected and then every kth member of the population is selected for the sample.
+
+*EXAMPLE*: A population consists of 845 employees of Nitra Industries. A sample of 52 employees will be selected from that population.
+
+First, `\(k\)` is calculated as the population size divided by the sample size. For Nitra Industries, we would select every 16th (845/52) employee list. If `\(k\)` is not a whole number, then round down. Random sampling is used in the selection of the first name. Then, select every 16th name on the list thereafter.
+
+---
+# Commonly Used Sampling Methods
+## Stratified Random Sampling
+
+&gt; A population is first divided into subgroups, called strata, and a sample is selected from each stratum. This is useful when a population can be clearly divided in groups based on some characteristics.
+
+*EXAMPLE*: Suppose we want to study the advertising expenditures for the 352 largest companies in the United States to determine whether firms with high returns on equity (a measure of profitability) spend more of each sales dollar on advertising than firms with a low return or deficit. We decide to sample a total of 50 companies. To make sure that the sample is a fair representation of the 352 companies, the companies are grouped on percent return on equity and the number to sample in each group is  proportional to the relative size of the group.  Then, the number of companies is randomly selected from each group. 
+
+---
+# Commonly Used Sampling Methods
+## Cluster Sampling
+
+&gt; A population is divided into clusters using naturally occurring geographic or other boundaries. Then, clusters are randomly selected and a sample is collected by randomly selecting from each cluster.
+
+*EXAMPLE*: Suppose you want to determine the views of residents in the greater Chicago, Illinois, metropolitan area about state and federal environmental protection policies. 
+You can employ cluster sampling by subdividing the region into small units, perhaps by counties.  These are often called primary units.  Of the twelve counties, you randomly select three:  La Porte, Cook, and Kenosha.  Next you select a random sample of residents in each of these counties.  
+
+---
+# Commonly Used Sampling Methods
+## Sampling Error
+
+By definition, sampling is used to calculate sample statistics which are estimates of population parameters.  
+
+So there will always be a difference (usually an unknown difference) between the sample statistic and the population parameter. 
+
+This difference is called sampling error.
+
+---
+class: center, middle
+# Central Limit Theorem (CLT)
+---
+
+# Central Limit Theorem (CLT)
+
+The **Central Limit Theorem** says:
+
+&gt; If we repeatedly take random samples of size `\(n\)`, the sampling distribution of the sample mean becomes approximately normal as `\(n\)` gets larger.
+
+Even if the original population is **not normal**.
+
+---
+
+# Why CLT Matters
+
+This is one of the most important ideas in statistics because it allows us to use:
+
+- normal-based probabilities
+- z-scores
+- confidence intervals
+- hypothesis tests
+
+for many real-world business problems.
+
+---
+
+# Rule of Thumb for CLT
+
+If the population is:
+
+- **normal** → sample mean is normal for any `\(n\)`
+- **roughly symmetric** → often okay when `\(n \ge 10\)`
+- **skewed** → safer when `\(n \ge 30\)` (if very skewed, may need even larger `\(n\)`)
+
+This is why you often hear:
+
+## “30 is a useful benchmark”
+
+---
+# Central Limit Theorem (CLT) 
+&lt;div&gt;
+.center[
+&lt;img src="p6.png" width="80%"&gt;
+]
+
+.tiny[Source: Douglas Lind, William Marchal, Samuel Wathen, Statistical Techniques in Business and Economics, 16th ed. (LMW)]
+&lt;/div&gt;
+
+---
+
+# International Commerce Example
+
+A company ships smartphone accessories globally.
+
+The delivery time of individual parcels is somewhat skewed.
+
+But if we take samples of:
+
+- 5 shipments
+- 30 shipments
+- 100 shipments
+
+then the distribution of the **sample mean delivery time** becomes more and more normal.
+
+---
+
+# Python Simulation: CLT
+
+&lt;img src="W-6_SIC_files/figure-html/unnamed-chunk-3-3.png" width="1152" /&gt;
+
+---
+
+# Interpretation of the Simulation
+
+As sample size increases:
+
+- the distribution of sample means becomes **more bell-shaped**
+- the distribution becomes **narrower**
+- estimates become **more stable**
+
+This is exactly what the CLT predicts.
+
+---
+
+# Example 1: Container Weight Check
+
+A company exports coffee beans.
+
+Each container should contain on average:
+
+- population mean: `\(\mu = 500\)` kg
+- population standard deviation: `\(\sigma = 20\)` kg
+
+A random sample of **25 containers** has mean weight:
+
+$$
+\bar{x} = 507
+$$
+
+Question:
+
+&gt; Is this unusually high?
+
+---
+
+## Step 1: Compute Standard Error
+
+$$
+SE = \frac{\sigma}{\sqrt{n}} = \frac{20}{\sqrt{25}} = 4
+$$
+
+## Step 2: Compute z-value
+
+$$
+z = \frac{\bar{x} - \mu}{SE}
+$$
+
+$$
+z = \frac{507 - 500}{4} = 1.75
+$$
+
+---
+
+# Step 3: Probability
+
+From the standard normal distribution:
+
+$$
+P(Z &gt; 1.75) \approx 0.0401
+$$
+
+### Interpretation:
+
+There is about a **4% chance** of getting a sample mean this high or higher if the true process mean is 500.
+
+That is somewhat unusual.
+
+---
+
+# Python Check
+
+
+```
+## SE = 4.0
+```
+
+```
+## z = 1.75
+```
+
+```
+## p_value = 0.040059156863817114
+```
+
+---
+
+# Business Interpretation
+
+If the company consistently sees sample means this high,
+
+it may suggest:
+
+- overfilling containers
+- higher shipping cost
+- inefficiency in packaging
+
+Statistics helps detect whether a difference is likely due to:
+
+### random sampling variation
+
+or
+
+### a real process issue
+
+---
+
+# Transition to Estimation
+
+So far, we asked:
+
+&gt; “How unusual is a sample mean?”
+
+Now we ask:
+
+&gt; “What does a sample tell us about the population mean?”
+
+This leads to:
+
+# Estimation
+
+&gt; Using sample data to estimate population parameters (`\(\mu\)`, `\(p\)`, etc.).
+
+---
+
+# Point Estimate
+
+A **point estimate** is a single number used to estimate a population parameter.
+
+For example:
+
+- population mean `\(\mu\)` is estimated by sample mean `\(\bar{x}\)`
+- population proportion `\(p\)` is estimated by sample proportion `\(\hat{p}\)`
+
+### Example:
+
+If a sample of customers spends on average **$84**, then **$84** is a point estimate of the true population mean spending.
+
+---
+# Point Estimate
+
+&lt;div&gt;
+.center[
+&lt;img src="p7.png" width="20%"&gt;
+]
+
+&lt;/div&gt;
+
+&gt; The point estimate is a single value that serves as our best guess for the population parameter. However, it does not provide any information about the uncertainty or variability of the estimate.
+
+---
+
+# Problem with Point Estimates
+
+A point estimate gives only **one value**.
+
+But samples vary.
+
+So instead of saying:
+
+&gt; “The true mean is exactly 84.”
+
+we usually prefer:
+
+&gt; “The true mean is probably between A and B.”
+
+That is a:
+
+# Confidence Interval
+
+---
+
+# Confidence Interval (CI)
+
+A **confidence interval** is a range of plausible values for a population parameter.
+
+General form:
+
+$$
+\text{Confidence Interval} = \text{Point Estimate} \pm \text{Margin of Error}
+$$
+
+---
+
+# Margin of Error
+
+The margin of error depends on:
+
+- the **confidence level**
+- the **standard error**
+
+Formula:
+
+$$
+\text{Margin of Error} = (\text{critical value}) \times (\text{standard error})
+$$
+
+---
+
+# Confidence Level
+
+Common confidence levels:
+
+- **90%**
+- **95%**
+- **99%**
+
+### Meaning:
+
+If we repeated the sampling process many times, then about 95% of the intervals constructed this way would contain the true population mean.
+
+---
+
+# Very Important Interpretation
+
+A 95% confidence interval does **not** mean:
+
+&gt; “There is a 95% probability that the true mean is inside this interval.”
+
+Instead, it means:
+
+&gt; “The method produces intervals that capture the true mean about 95% of the time.”
+
+This distinction is important.
+
+---
+# Interpretation of Confidence Intervals
+
+.pull-left[
+
+For a 95% confidence interval about 95% of similarly constructed intervals will contain the parameter being estimated.  
+
+Also 95% of the sample means for a specified sample size will lie within 1.96 standard deviations of the hypothesized population.
+]
+
+.pull-right[
+&lt;div&gt;
+.center[
+&lt;img src="p12.png" width="70%"&gt;
+]
+.tiny[Source: Douglas Lind, William Marchal, Samuel Wathen, Statistical Techniques in Business and Economics, 16th ed. (LMW)]
+&lt;/div&gt;
+]
+
+---
+
+# z-Interval for a Mean
+
+Use this when:
+
+- the population standard deviation **σ is known**
+- or in some simplified textbook settings
+
+Formula:
+
+$$
+\bar{x} \pm z \cdot \frac{\sigma}{\sqrt{n}}
+$$
+
+Where:
+
+- `\(\bar{x}\)` = sample mean
+- `\(z\)` = critical value
+- `\(\sigma\)` = population standard deviation
+- `\(n\)` = sample size
+
+---
+
+# Common z Critical Values
+
+For two-sided confidence intervals:
+
+- 90% CI → `\(z = 1.645\)`
+- 95% CI → `\(z = 1.96\)`
+- 99% CI → `\(z = 2.576\)`
+
+---
+
+# Example 2: Mean Order Value (σ Known)
+
+An international online retailer wants to estimate the mean order value.
+
+A random sample of **64 orders** gives:
+
+- sample mean = **$82**
+- population standard deviation = **$16**
+
+Construct a **95% confidence interval**.
+
+---
+class: my-one-page-font
+
+## Step 1: Standard Error
+
+$$
+SE = \frac{16}{\sqrt{64}} = 2
+$$
+
+## Step 2: Margin of Error
+
+For 95% confidence:
+
+$$
+z = 1.96
+$$
+
+$$
+ME = 1.96 \times 2 = 3.92
+$$
+
+## Step 3: Confidence Interval
+
+$$
+82 \pm 3.92
+$$
+
+$$
+(78.08, 85.92)
+$$
+
+### Interpretation:
+
+We are 95% confident that the population mean order value is between **$78.08 and $85.92**.
+
+---
+
+# Python Check
+
+
+``` python
+xbar = 82
+sigma = 16
+n = 64
+z_star = 1.96
+
+SE = sigma / np.sqrt(n)
+ME = z_star * SE
+lower = xbar - ME
+upper = xbar + ME
+
+print(pd.Series({"SE": SE, "ME": ME, "Lower": lower, "Upper": upper}))
+```
+
+```
+## SE        2.00
+## ME        3.92
+## Lower    78.08
+## Upper    85.92
+## dtype: float64
+```
+
+---
+
+# What Affects the Width of a CI?
+
+A confidence interval becomes **wider** when:
+
+- confidence level is higher
+- variability is larger
+- sample size is smaller
+
+A confidence interval becomes **narrower** when:
+
+- sample size is larger
+
+---
+
+# Visual Intuition
+
+Think:
+
+- **More confidence** → wider net
+- **More data** → more precision
+
+So there is always a trade-off between:
+
+## confidence and precision
+
+---
+
+# Python Illustration: Confidence vs Precision
+
+&lt;img src="W-6_SIC_files/figure-html/unnamed-chunk-6-5.png" width="864" /&gt;
+
+---
+
+# Python Example: Sample Size and CI Width
+
+
+``` python
+ci_df = pd.DataFrame({
+    "n": [25, 64, 100, 400],
+    "sigma": [16, 16, 16, 16],
+    "z": [1.96, 1.96, 1.96, 1.96],
+})
+
+ci_df["SE"] = ci_df["sigma"] / np.sqrt(ci_df["n"])
+ci_df["ME"] = ci_df["z"] * ci_df["SE"]
+ci_df["Width"] = 2 * ci_df["ME"]
+
+print(ci_df.round(2).to_string(index=False))
+```
+
+```
+##   n  sigma    z  SE   ME  Width
+##  25     16 1.96 3.2 6.27  12.54
+##  64     16 1.96 2.0 3.92   7.84
+## 100     16 1.96 1.6 3.14   6.27
+## 400     16 1.96 0.8 1.57   3.14
+```
+
+---
+
+# When σ is Unknown
+
+In real life, we usually do **not** know the population standard deviation `\(\sigma\)`.
+
+So we use:
+
+- sample standard deviation `\(s\)`
+- **t-distribution** instead of z-distribution
+
+---
+
+# t-Distribution
+
+.pull-left[
+The **t-distribution** is:
+
+- bell-shaped
+- symmetric
+- centered at 0
+- similar to z, but with **heavier tails**
+
+Why heavier tails?
+
+Because when `\(\sigma\)` is unknown, there is extra uncertainty.
+]
+
+.pull-right[
+&lt;div&gt;
+.center[
+&lt;img src="p8.png" width="70%"&gt;
+]
+
+.tiny[Source: Douglas Lind, William Marchal, Samuel Wathen, Statistical Techniques in Business and Economics, 16th ed. (LMW)]
+&lt;/div&gt;
+
+]
+
+---
+# Comparing the z and t Distributions When n is Small, 95% Confidence Level
+&lt;div&gt;
+.center[
+&lt;img src="p9.png" width="30%"&gt;
+]
+
+.tiny[Source: Douglas Lind, William Marchal, Samuel Wathen, Statistical Techniques in Business and Economics, 16th ed. (LMW)]
+&lt;/div&gt;
+
+---
+
+# Degrees of Freedom
+
+For a one-sample t-interval:
+
+$$
+df = n - 1
+$$
+
+So if sample size is 15:
+
+$$
+df = 14
+$$
+
+&gt; DF is a measure of how much information we have about variability. With fewer degrees of freedom, the t-distribution has heavier tails.
+
+---
+
+# t vs z
+
+When sample size is small:
+
+- **t** is wider than **z**
+- because we are less certain
+
+When sample size gets large:
+
+- **t** becomes very close to **z**
+
+---
+
+# Visual Comparison of z and t
+
+&lt;img src="W-6_SIC_files/figure-html/unnamed-chunk-8-7.png" width="960" /&gt;
+
+---
+
+# t-Interval for a Mean
+
+Use this when:
+
+- population standard deviation **σ is unknown**
+- population is approximately normal, or sample size is large enough
+
+Formula:
+
+$$
+\bar{x} \pm t \cdot \frac{s}{\sqrt{n}}
+$$
+
+---
+
+# Example 3: Delivery Cost Estimate (σ Unknown)
+
+A firm wants to estimate the average **express shipping cost** for overseas orders.
+
+A sample of **10 shipments** gives:
+
+- sample mean = **$42**
+- sample standard deviation = **$8**
+
+Construct a **95% confidence interval**.
+
+---
+
+# Step 1: Given Information
+
+
+- `\(\bar{x} = 42\)`
+- `\(s = 8\)`
+- `\(n = 10\)`
+- `\(df = 9\)`
+
+For a 95% CI with df = 9:
+
+$$
+t^* \approx 2.262
+$$
+
+
+
+&lt;div&gt;
+.center[
+&lt;img src="p10.png" width="60%"&gt;
+]
+
+.tiny[Source: Douglas Lind, William Marchal, Samuel Wathen, Statistical Techniques in Business and Economics, 16th ed. (LMW)]
+&lt;/div&gt;
+
+
+---
+
+## Step 2: Standard Error
+
+$$
+SE = \frac{8}{\sqrt{10}} \approx 2.53
+$$
+
+## Step 3: Margin of Error
+
+$$
+ME = 2.131 \times 2 = 4.262
+$$
+
+## Step 4: Confidence Interval
+
+$$
+42 \pm 4.262
+$$
+
+$$
+(37.74, 46.26)
+$$
+
+### Interpretation:
+
+We are 95% confident that the true mean express shipping cost is between **$37.74 and $46.26**.
+
+---
+
+# Python Check
+
+
+``` python
+xbar = 42
+s = 8
+n = 16
+df = n - 1
+t_star = stats.t.ppf(0.975, df=df)
+
+SE = s / np.sqrt(n)
+ME = t_star * SE
+lower = xbar - ME
+upper = xbar + ME
+
+print(pd.Series({"t_star": t_star, "SE": SE, "ME": ME, "Lower": lower, "Upper": upper}))
+```
+
+```
+## t_star     2.131450
+## SE         2.000000
+## ME         4.262899
+## Lower     37.737101
+## Upper     46.262899
+## dtype: float64
+```
+
+---
+
+# z or t? Quick Decision Rule
+
+Use **z** when:
+
+- `\(\sigma\)` is known
+
+Use **t** when:
+
+- `\(\sigma\)` is unknown
+
+In most real applications:
+
+## we usually use t
+
+---
+
+# Example 4: International Retail Survey
+
+A company surveys **36 international students** about monthly spending on imported snacks.
+
+Sample results:
+
+- sample mean = **$28**
+- sample standard deviation = **$9**
+
+Question:
+
+Construct a 95% confidence interval.
+
+Should we use z or t?
+
+---
+
+# Solution Idea
+
+Because population standard deviation is **not given**, we use:
+
+## t-interval
+
+Even though `\(n=36\)` is fairly large, t is still the standard choice.
+
+---
+
+# Python Solution
+
+
+``` python
+xbar = 28
+s = 9
+n = 36
+df = n - 1
+t_star = stats.t.ppf(0.975, df=df)
+
+SE = s / np.sqrt(n)
+ME = t_star * SE
+lower = xbar - ME
+upper = xbar + ME
+
+print(pd.Series({"SE": SE, "ME": ME, "Lower": lower, "Upper": upper}))
+```
+
+```
+## SE        1.500000
+## ME        3.045162
+## Lower    24.954838
+## Upper    31.045162
+## dtype: float64
+```
+
+---
+
+# Interpretation Practice
+
+Suppose the 95% CI for average customer spending is:
+
+$$
+(24.95, 31.05)
+$$
+
+Can we say the true mean spending is likely to be:
+
+- **$26** ?
+- **$30** ?
+- **$35** ?
+
+### Answer:
+
+- $26 → plausible
+- $30 → plausible
+- $35 → not supported by this interval
+
+---
+
+# Common Student Mistakes
+
+## Mistake 1
+Using **σ** when only **s** is available
+
+## Mistake 2
+Confusing **standard deviation** with **standard error**
+
+## Mistake 3
+Incorrect interpretation of confidence intervals
+
+## Mistake 4
+Forgetting that **larger n** reduces the interval width
+
+---
+
+# In-Class Practice 1
+
+A company wants to estimate average delivery time for international parcels.
+
+Known information:
+
+- population standard deviation = 6 days
+- sample size = 49
+- sample mean = 18 days
+
+Construct a **95% confidence interval**.
+
+---
+
+# In-Class Practice 2
+
+A fashion retailer wants to estimate the average amount spent by tourists in a duty-free store.
+
+Sample information:
+
+- sample mean = $112
+- sample standard deviation = $24
+- sample size = 25
+
+Construct a **95% confidence interval**.
+
+Should you use z or t?
+
+---
+
+# In-Class Practice 3
+
+A Korean cosmetics exporter samples 40 foreign buyers.
+
+Average monthly order quantity:
+
+- sample mean = 58 units
+- sample standard deviation = 10 units
+
+Construct a **90% confidence interval** for the population mean.
+
+---
+
+# Python Practice Template
+
+
+``` python
+# Replace these values with the numbers from your problem
+xbar = 0
+s_or_sigma = 0
+n = 0
+
+# For z interval (if sigma known)
+# z_star = 1.96
+# SE = s_or_sigma / np.sqrt(n)
+# lower = xbar - z_star * SE
+# upper = xbar + z_star * SE
+
+# For t interval (if sigma unknown)
+# t_star = stats.t.ppf(0.975, df=n - 1)
+# SE = s_or_sigma / np.sqrt(n)
+# lower = xbar - t_star * SE
+# upper = xbar + t_star * SE
+```
+
+---
+
+# Summary
+
+Today we learned:
+
+- what a **sampling distribution** is
+
+- why the **sample mean** has its own distribution
+
+- the meaning of the **Central Limit Theorem**
+
+- how to compute the **standard error**
+
+- how to construct **confidence intervals**
+
+- when to use **z** and when to use **t**
+
+---
+
+# Final Big Idea
+
+Statistics helps us move from:
+
+## a sample
+
+to
+
+## a reasonable conclusion about the population
+
+That is one of the most useful tools in business, economics, and international commerce.
+
+---
+
+# Homework / Reflection / Self-Check
+
+In 3–4 sentences, explain:
+
+1. Why larger samples give more precise estimates.
+
+2. Why a confidence interval is more informative than a point estimate.
+
+3. One international business decision where confidence intervals would be useful.
+
+---
+
+# Next Week
+
+*(April 14 | April 16)* Sampling distributions; central limit theorem; estimation; confidence intervals (LMW Chapters 8 and 9) 
+
+---
+
+class: inverse, center, middle
+
+# Any questions?
+
+# Thank you for your attention and active participation!
+
+
+
+
+???
+1. To print pdf slides
+https://stackoverflow.com/questions/54968311/xaringan-export-slides-to-pdf-while-preserving-formatting
+
+pagedown::chrome_print("W1_ME.html") # but not all pictures are visible
+
+2. Option: https://stackoverflow.com/questions/54968311/xaringan-export-slides-to-pdf-while-preserving-formatting
+
+install.packages("remotes")
+remotes::install_github("jhelvy/xaringanBuilder")
+remotes::install_github("jhelvy/renderthis@v0.0.9")
+
+library(xaringanBuilder)
+build_pdf("DVC.html")
+
+3. Option
+writeBin(as.raw(c()), "favicon.ico") # create an empty favicon.ico file
+install.packages("renderthis")
+remotes::install_github('rstudio/chromote')
+library(renderthis)
+
+renderthis::to_pdf("W-6_SIC.html")
+
+getwd()
+setwd("C:\\Users\\vyshn\\OneDrive - kdis.ac.kr\\Documents\\GitHub\\Sogang\\2026\\Spring\\Statistics for International Commerce\\Week_6")
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+  "highlightStyle": "github",
+  "highlightLines": true,
+  "countIncrementalSlides": false,
+  "ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
