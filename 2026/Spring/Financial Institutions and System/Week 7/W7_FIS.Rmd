@@ -143,6 +143,7 @@ class: inverse, center, middle
 ### Example: FDIC (U.S.)
 - Established in 1934
 - Bank failures dropped from >2,000/year (1930–33) to <15/year until 1981.
+- Today, FDIC insurance covers $250,000 per depositor, per insured bank, per ownership category.
 
 ---
 
@@ -151,7 +152,7 @@ class: inverse, center, middle
 ### 1. **Payoff Method**
 - Let the bank fail.
 - Insured depositors paid up to the limit ($250K).
-- FDIC joins queue with other creditors for remaining assets.
+- Under payoff, insured depositors are paid quickly up to insured limits; the FDIC then recovers value through the receivership process.
 
 ### 2. **Purchase & Assumption Method**
 - Find merger partner to assume liabilities.
@@ -219,6 +220,8 @@ class: inverse, center, middle
 
 - Observed in 2008 Global Financial Crisis.
 
+- The 2023 regional bank failures showed that contagion can also spread through uninsured deposits, rapid digital withdrawals, and interest-rate risk.” SVB failed after realizing losses on securities while trying to raise capital, and First Republic later experienced severe contagion and liquidity stress.
+
 ---
 
 # Eight Types of Financial Regulation
@@ -238,7 +241,7 @@ class: inverse, center, middle
 
 - Limit banks from investing in risky or concentrated assets.
 
-- **Prohibit stock holdings**.
+- Strongly limit direct equity holdings and concentration in risky assets.
 
 - Encourage portfolio **diversification**.
 
@@ -258,6 +261,7 @@ Goal: reduce risk-taking encouraged by deposit insurance.
 2. **Risk-weighted capital (Basel Accords)**
    - Adjust capital needs based on asset risk
 
+> Leverage and risk-based capital requirements vary by jurisdiction and institution type.
 ---
 
 # Basel Accord (Original 1988)
@@ -270,6 +274,7 @@ Goal: reduce risk-taking encouraged by deposit insurance.
   - 50%: mortgages
   - 100%: corporate loans
 
+> This was the original Basel I framework; later Basel reforms became much more risk-sensitive.
 ---
 
 # Limitations of Basel I
@@ -309,7 +314,7 @@ Goal: reduce risk-taking encouraged by deposit insurance.
 - Ignored liquidity risk
 
 → Basel III introduced in 2010
-
+> Post-2008 reforms strengthened capital and liquidity rules, but the 2023 bank failures showed that interest-rate risk and uninsured deposit concentration still matter.
 ---
 
 # Prompt Corrective Action (FDICIA 1991)
@@ -360,6 +365,7 @@ Promoted under:
 - Basel II (Pillar 3)
 - SEC rules
 
+> Disclosure improves market discipline, but it does not eliminate panic if markets react suddenly to bad news.
 ---
 
 # Competition Restrictions
@@ -393,7 +399,7 @@ Promoted under:
 - Empower foreign regulators to act if oversight is weak
 
 - Promote information sharing
-
+> Basel III implementation remains an active international priority in 2025–26.” The Basel Committee’s 2025–26 work programme explicitly lists Basel III implementation, and BIS reported further implementation progress through end-September 2025
 ---
 
 # Summary
@@ -423,7 +429,7 @@ class: inverse, center, middle
 
 - National Bank Act of 1863:
   - Federally chartered banks
-  - Office of the Comptroller of the Currency
+  - Office of the Comptroller of the Currency (OCC) created
   - Dual banking system
 
 - Federal Reserve System created in 1913
@@ -431,11 +437,13 @@ class: inverse, center, middle
 ---
 
 # Supervisory Responsibility (USA case)
-- **Federal Reserve**: state member banks, bank holding companies
+- OCC: national banks and federal savings associations
 
-- **FDIC**: insured state banks not members of Fed
+- Federal Reserve: state member banks and bank holding companies
 
-- **State authorities**: banks without FDIC insurance
+- FDIC: insured state nonmember banks
+
+- State authorities: state-chartered banks alongside federal supervisors
 
 ---
 
@@ -459,7 +467,7 @@ class: inverse, center, middle
 
 ---
 
-# Supply-Side Innovations: Information Technology
+# Supply-Side Innovations: Technology and Financial Engineering
 - Bank credit/debit cards → lower transaction costs
 
 - Electronic banking: ATMs, online banking
@@ -475,6 +483,7 @@ class: inverse, center, middle
 
 - Shadow banking: non-bank intermediation
 
+> Nonbank financial intermediation continues to grow globally; the FSB reported NBFI assets of $256.8 trillion in 2024, with growth double the pace of the banking sector
 ---
 
 # Avoidance of Regulation
@@ -486,6 +495,8 @@ class: inverse, center, middle
 
     - Sweep accounts
 
+> Historically, reserve requirements acted like a tax on some deposit funding. Banks responded through disintermediation, money market funds, and sweep accounts. In the U.S., reserve requirement ratios were reduced to zero in 2020.
+
 ---
 
 # Case: Bruce Bent & 2008 Crisis
@@ -495,6 +506,7 @@ class: inverse, center, middle
 
 - Prompted calls for stricter regulation
 
+- The SEC adopted major money market fund reforms in 2023, including higher liquidity requirements and the removal of gates that allowed temporary suspension of redemptions.
 ---
 
 # Decline of Traditional Banking
@@ -509,8 +521,9 @@ class: inverse, center, middle
 # Liquidity Management Tools
 .center[<img src="lm2a.jpg" height="40%" width="40%">]
 .center[<img src="lm2b.jpg" height="40%" width="40%">]
-- Reserves = legal requirement
-- Excess reserves = buffer
+
+- Reserves = liquidity and settlement balances
+- Excess reserves = liquidity buffer
 
 ---
 
@@ -531,6 +544,7 @@ class: inverse, center, middle
 .center[<img src="lm5.jpg" height="60%" width="60%">]
 - Discount rate applies to loans
 
+> In recent stress episodes, central banks also created special liquidity facilities, not only standard discount-window lending
 ---
 
 # Reducing Loans
@@ -609,6 +623,8 @@ class: inverse, center, middle
 - Capital shortfall → stricter lending
 
 - Economy-wide slowdown
+
+> A similar mechanism appeared in 2023, when unrealized losses and deposit outflows put pressure on regional banks.
 
 ---
 

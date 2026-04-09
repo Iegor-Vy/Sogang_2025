@@ -633,7 +633,7 @@ class: inverse, center, middle
 
 # Next Class
 
-- (Apr 19) 
+- (Apr 16) 
 
   - **Chap 10. Economic Analysis of Financial Regulation**  
   - **Chap 11. Banking Industry: Structure and Competition** 
