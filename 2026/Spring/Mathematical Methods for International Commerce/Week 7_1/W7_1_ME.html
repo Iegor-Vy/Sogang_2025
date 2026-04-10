@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Mathematical Methods for International Commerce</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Iegor Vyshnevskyi, Ph.D." />
+    <meta name="date" content="2026-04-14" />
+    <script src="libs/header-attrs-2.29/header-attrs.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Mathematical Methods for International Commerce
+]
+.subtitle[
+## <br/>Week 7/1: Optimization of Economic Functions (4.6, 4.7)
+]
+.author[
+### Iegor Vyshnevskyi, Ph.D.
+]
+.institute[
+### Sogang University, Geppert School of International Studies
+]
+.date[
+### April 14, 2026
+]
+
+---
+
+
+&lt;style&gt;
+@media print{
+  body, html, .remark-slides-area, .remark-notes-area {
+    height: 100% !important;
+    width: 100% !important;
+    overflow: visible;
+    display: inline-block;
+    }
+&lt;/style&gt;
+
+&lt;style type="text/css"&gt;
+.remark-slide-content {
+    font-size: 34px;
+    padding: 1em 4em 1em 4em;
+}
+&lt;/style&gt;
+
+&lt;style type="text/css"&gt;
+.my-one-page-font {
+  font-size: 28px;
+}
+&lt;/style&gt;
+
+&lt;/style&gt;
+
+&lt;style type="text/css"&gt;
+.my-one-page-font-table {
+  font-size: 24px;
+}
+&lt;/style&gt;
+
+&lt;style&gt;
+.tiny { font-size: 60%; }      /* class you can reuse anywhere */
+&lt;/style&gt;
+
+&lt;style&gt;
+.remark-slide-content {
+  position: relative;
+  z-index: 1;
+}
+
+.remark-slide-content::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 600px;          /* adjust size */
+  height: 600px;
+  background-image: url("1. 교장(Seal_Positive).png");  /* place logo file in same folder */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: 0.05;         /* watermark transparency */
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 0;
+}
+&lt;/style&gt;
+
+
+
+
+
+
+# Agenda  
+
+1. Optimization of Economic Functions (4.6, 4.7) 
+
+2. Group Activity: Optimize the Business!
+
+---
+
+# Learning Objectives
+
+### Section 4.6 – Optimization of Economic Functions
+- Use **first-order derivatives** to find stationary points
+- Use **second-order derivatives** to classify max/min
+- Apply calculus to **maximize or minimize economic functions**
+- Sketch graphs using critical points
+
+### Section 4.7 – Further Optimization Concepts
+- At max profit: **MR = MC**
+- At max profit: **slope of MR &lt; slope of MC**
+- Optimize profits **with/without price discrimination**
+- Show **APL = MPL** at max APL
+- Derive the **EOQ** formula in inventory management
+
+---
+
+class: inverse, center, middle
+
+# 1. Optimization of Economic Functions (4.6, 4.7)
+
+---
+
+# Optimization: Economic Motivation
+
+In economics, we often want to:
+- Maximize **profit**, **revenue**, or **utility**
+
+- Minimize **costs**, **waste**, or **risk**
+
+These require:
+- Finding **stationary points** of a function
+
+- Classifying them using **second-order derivatives**
+
+Note: Stationary points are where the first derivative is zero or undefined.
+- They indicate where a function **changes direction** (max/min)
+
+---
+
+class: my-one-page-font
+
+# Step-by-Step: Find Stationary Points
+
+### 1. First Derivative Test
+Let:
+$$ f(x) = -2x^2 + 40x - 100 $$
+
+Find:
+$$ f'(x) = -4x + 40 $$
+Set derivative = 0:
+$$ -4x + 40 = 0 \Rightarrow x = 10 $$
+
+### 2. Second Derivative Test
+$$ f''(x) = -4 &lt; 0 $$ → Maximum point (because it's negative)
+- If `\(f''(x) &gt; 0\)`, it's a minimum point
+
+### Maximum profit at `\(x = 10\)`, `\(f(10) = -2(100) + 400 - 100 = 200\)`
+
+---
+
+# Graphical Interpretation
+- First derivative = slope of tangent
+- Second derivative = curvature
+- Stationary points: where slope = 0
+- Max if concave down, min if concave up
+
+.center[&lt;img src="p1.png" height="60%" width="60%"&gt;]
+
+
+---
+
+# MR = MC: Condition for Max Profit
+
+If:
+$$ \Pi(x) = R(x) - C(x) $$
+Then:
+$$ \Pi'(x) = R'(x) - C'(x) = 0 $$
+→ So:  
+$$ MR = MC $$
+
+Also:  
+$$ \text{If } MR' &lt; MC' \Rightarrow \text{Local Max} $$
+
+---
+
+# Example: Profit Maximization
+
+Let:  
+$$ R(x) = 60x - x^2, \quad C(x) = 10x + 20 $$
+
+Profit:  
+$$ \Pi(x) = R(x) - C(x) = 60x - x^2 - 10x - 20 = -x^2 + 50x - 20 $$
+
+1. First derivative:
+$$ \Pi'(x) = -2x + 50 $$ → Set to 0 → `\(x = 25\)`
+
+2. Second derivative:
+$$ \Pi''(x) = -2 &lt; 0 $$ → Max point
+
+Max profit at `\(x = 25\)`, `\(\Pi(25) = -625 + 1250 - 20 = 605\)`
+
+---
+
+# APL = MPL: Max Avg Productivity
+
+Let:  
+$$ Q = 20L - L^2 $$
+
+- APL = `\(\frac{Q}{L} = 20 - L\)`
+- MPL = `\(\frac{dQ}{dL} = 20 - 2L\)`
+
+Set APL = MPL:
+$$ 20 - L = 20 - 2L \Rightarrow L = 0 $$
+
+→ Verify using derivative of APL
+
+Note: APL stands for **Average Product of Labor** and MPL for **Marginal Product of Labor**
+- APL = MPL identifies interior maximum of APL (if solution is positive)
+
+- Here solution is `\(𝐿=0\)`, so no economically meaningful interior maximum
+
+- Check this function `\(Q=20L−L2+10\)`.
+---
+
+class: my-one-page-font
+
+# EOQ Formula (Economic Order Quantity)
+
+- Economic Order Quantity (EOQ) is a key concept in inventory management. 
+
+- It helps determine the optimal order quantity that minimizes total inventory costs, which include ordering and holding costs.
+
+Let:
+- `\(D\)` = annual demand
+- `\(C_o\)` = ordering cost per order
+- `\(C_h\)` = holding cost per unit/year
+- `\(Q\)` = order quantity
+
+Total Cost:
+$$ TC(Q) = \frac{D}{Q} C_o + \frac{Q}{2} C_h $$
+
+Minimize `\(TC(Q)\)` by:
+$$ \frac{dTC}{dQ} = -\frac{DC_o}{Q^2} + \frac{C_h}{2} = 0 $$
+
+---
+
+class: my-one-page-font
+
+# EOQ Formula (Economic Order Quantity) (cont'd)
+
+Solve:
+$$ Q^* = \sqrt{\frac{2DC_o}{C_h}} $$
+
+This gives optimal order size
+
+---
+
+# EOQ Formula (Economic Order Quantity) (cont'd)
+
+## Example:
+
+A company sells 1,000 units of a product per year.  
+Each order costs $50 to place.  
+The holding cost per unit is $2 per year.
+
+`\(EOQ = \sqrt{\frac{2 \cdot 1000 \cdot 50}{2}} = \sqrt{50000} \approx 223.6\)`
+
+**Optimal order size = 224 units** (rounded)
+
+### Interpretation
+
+- The company should order **224 units each time** to minimize total inventory costs.
+- This balances the **ordering cost** and the **holding cost** efficiently.
+
+---
+
+# Practice Problems
+
+1. Maximize `\(f(x) = -x^2 + 12x - 15\)` using first and second derivatives.
+
+2. For `\(R(x) = 30x - 0.5x^2\)`, `\(C(x) = 5x + 10\)`, find profit-maximizing output.
+
+3. If `\(Q = 100L - 2L^2\)`, find when APL = MPL.
+
+4. Derive EOQ for `\(D = 1000\)`, `\(C_o = 50\)`, `\(C_h = 2\)`
+
+???
+
+
+## 1. Maximize `\(f(x) = -x^2 + 12x - 15\)`
+
+**Step 1: First derivative**
+
+$$
+f'(x) = -2x + 12
+$$
+
+Set `\(f'(x) = 0\)`:
+
+$$
+-2x + 12 = 0 \Rightarrow x = 6
+$$
+
+**Step 2: Second derivative**
+
+$$
+f''(x) = -2 &lt; 0
+$$
+
+✅ Maximum at `\(x = 6\)`
+
+$$
+f(6) = -(6)^2 + 12(6) - 15 = -36 + 72 - 15 = 21
+$$
+
+**Result:** Max value is **21** at `\(x = 6\)`
+
+
+
+## 2. Profit Maximization
+
+Given:
+
+$$
+R(x) = 30x - 0.5x^2, \quad C(x) = 5x + 10
+$$
+
+Profit:
+
+$$
+\Pi(x) = R(x) - C(x) = 30x - 0.5x^2 - 5x - 10 = -0.5x^2 + 25x - 10
+$$
+
+**First derivative**:
+
+$$
+\Pi'(x) = -x + 25
+$$
+
+Set to 0:
+
+$$
+-x + 25 = 0 \Rightarrow x = 25
+$$
+
+**Second derivative**:
+
+$$
+\Pi''(x) = -1 &lt; 0
+$$
+
+✅ Max profit at `\(x = 25\)`
+
+
+
+## 3. APL = MPL
+
+Given:
+
+$$
+Q = 100L - 2L^2
+$$
+
+$$
+APL = \frac{Q}{L} = 100 - 2L
+$$
+
+$$
+MPL = \frac{dQ}{dL} = 100 - 4L
+$$
+
+Set APL = MPL:
+
+$$
+100 - 2L = 100 - 4L \Rightarrow 2L = 0 \Rightarrow L = 0
+$$
+
+✅ Maximum APL occurs at `\(L = 0\)`
+
+(Note: Unusual — consider verifying if this makes sense in context.)
+
+
+
+## 4. EOQ Formula
+
+Given:
+
+$$
+D = 1000, \quad C_o = 50, \quad C_h = 2
+$$
+
+EOQ Formula:
+
+$$
+EOQ = \sqrt{\frac{2DC_o}{C_h}} = \sqrt{\frac{2 \cdot 1000 \cdot 50}{2}} = \sqrt{50000} = 223.6
+$$
+
+✅ EOQ ≈ **224 units**
+
+
+
+---
+
+# Summary
+- Use first and second derivatives to **optimize** economic functions
+
+- **MR = MC** is critical for profit max
+
+- Derivatives help identify where functions **turn** and **peak**
+
+- APL = MPL and EOQ have clear, testable formulas
+
+&gt; In economics, **optimization** helps us allocate resources most efficiently
+
+---
+
+class: inverse, center, middle
+
+# 2. Group Activity: Optimize the Business!
+
+---
+
+# Group Activity: Optimize the Business!
+
+### Setup:
+- Form **6 teams** of **4-5 students** each.
+
+- Each team represents a **small business** deciding **how many units** of a product to produce.
+
+---
+
+### Your Business Setup:
+You sell eco-friendly water bottles. Your revenue and cost functions are:
+
+- `\(R(x) = 80x - x^2\)` (Revenue)
+- `\(C(x) = 20x + 100\)` (Cost)
+
+---
+
+### Your Task:
+1. Derive the **profit function**: `\(\Pi(x) = R(x) - C(x)\)`
+
+2. Use **first-order** and **second-order derivatives** to find:
+   - The **profit-maximizing output**
+   - The **maximum profit**
+
+3. Sketch a **graph** of `\(R(x), C(x), \Pi(x)\)`
+
+4. Present your findings in **3–4 minutes**
+
+---
+
+### Rules:
+- You can use your notes and calculators.
+
+- One person from each group presents.
+
+- Bonus points for the most creative graph sketch!
+
+---
+
+## Next Class
+
+- (April 16) The Derivative of the Exponential and Natural Log Functions (4.8) 
+
+- (April 21) Mid term exam (in class):
+  - Review all material from the beginning of the semester
+  - Pay attention to the examples in the slides, HW #1, Quiz #1 and the exercises in the textbook
+
+- (April 23) *No Class* (Midterm Exam Week)
+
+---
+
+class: inverse, center, middle
+
+# Any QUESTIONS?
+
+## Thank you for your attention and participation!
+
+
+???
+1. To print pdf slides
+https://stackoverflow.com/questions/54968311/xaringan-export-slides-to-pdf-while-preserving-formatting
+
+pagedown::chrome_print("W1_ME.html") # but not all pictures are visible
+
+2. Option: https://stackoverflow.com/questions/54968311/xaringan-export-slides-to-pdf-while-preserving-formatting
+
+install.packages("remotes")
+remotes::install_github("jhelvy/xaringanBuilder")
+remotes::install_github("jhelvy/renderthis@v0.0.9")
+
+library(xaringanBuilder)
+build_pdf("DVC.html")
+
+3. Option
+writeBin(as.raw(c()), "favicon.ico") # create an empty favicon.ico file
+install.packages("renderthis")
+remotes::install_github('rstudio/chromote')
+library(renderthis)
+
+renderthis::to_pdf("W7_1_ME.html")
+
+getwd()
+setwd("C:\\Users\\vyshn\\OneDrive - kdis.ac.kr\\Documents\\GitHub\\Sogang\\2026\\Spring\\Mathematical Methods for International Commerce\\Week 7_1")
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+  "highlightStyle": "github",
+  "highlightLines": true,
+  "countIncrementalSlides": false,
+  "ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
