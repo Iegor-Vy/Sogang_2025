@@ -4,8 +4,8 @@
     <title>Mathematical Methods for International Commerce</title>
     <meta charset="utf-8" />
     <meta name="author" content="Iegor Vyshnevskyi, Ph.D." />
-    <meta name="date" content="2025-04-18" />
-    <script src="libs/header-attrs-2.28/header-attrs.js"></script>
+    <meta name="date" content="2026-04-14" />
+    <script src="libs/header-attrs-2.29/header-attrs.js"></script>
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
   <body>
@@ -22,10 +22,10 @@ class: center, middle, inverse, title-slide
 ### Iegor Vyshnevskyi, Ph.D.
 ]
 .institute[
-### Sogang University
+### Sogang University, Geppert School of International Studies
 ]
 .date[
-### April 18, 2025
+### April 14, 2026
 ]
 
 ---
@@ -62,12 +62,40 @@ class: center, middle, inverse, title-slide
 }
 &lt;/style&gt;
 
+&lt;style&gt;
+.tiny { font-size: 60%; }      /* class you can reuse anywhere */
+&lt;/style&gt;
+
+&lt;style&gt;
+.remark-slide-content {
+  position: relative;
+  z-index: 1;
+}
+
+.remark-slide-content::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 600px;          /* adjust size */
+  height: 600px;
+  background-image: url("1. 교장(Seal_Positive).png");  /* place logo file in same folder */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: 0.05;         /* watermark transparency */
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 0;
+}
+&lt;/style&gt;
 
 
 
 
 
-# Agenda  
+
+# Agenda    
 
 1. The Derivative of the Exponential and Natural Log Functions (4.8) 
 
@@ -135,7 +163,7 @@ Use when differentiating **functions within functions**.
 
 - In fact, to be precise, we first differentiate the outer function, keeping the inner function untouched,
 then multiply by the derivative of the inner function.
-- Although, mathematicaly, you will get same result, if you first differentiate the inner function and then multiply by the outer function.
+- Differentiate the outer function first (keeping inner unchanged), then multiply by derivative of the inner function.
 
 These rules are essential in **economic models** involving growth, decay, and elasticity.
 
@@ -184,7 +212,7 @@ $$ \frac{d}{dx} \left(\frac{u}{v}\right) = \frac{u'v - uv'}{v^2} $$
 - `\(u = \ln(x)\)`, `\(v = x^2\)`
 - Derivative:
 $$
-\frac{dy}{dx} = \frac{1/x \cdot x^2 - \ln(x) \cdot 2x}{x^4} = \frac{x - 2x\ln(x)}{x^4}
+\frac{dy}{dx} = \frac{1/x \cdot x^2 - \ln(x) \cdot 2x}{x^4} = \frac{x - 2x\ln(x)}{x^4} = \frac{1 - 2\ln(x)}{x^3}
 $$
 
 Use when differentiating ratios like **marginal utility/cost per unit**.
@@ -206,9 +234,12 @@ Interpretation:
 - The **growth rate is proportional** to the current revenue.
 - Common in modeling investment returns, inflation, or GDP.
 
+`$$\frac{R'(t)}{R(t)} = \frac{250e^{0.05t}}{5000e^{0.05t}} = 0.05$$` means revenue grows at a **constant rate of 5%** per time unit.
+
+
 ---
 
-# Application: Elasticity of Growth
+# Application: Growth Rate in Exponential Model
 
 A common growth model:
 $$ Q(t) = Ae^{rt} $$
@@ -221,14 +252,12 @@ Where:
 
 ---
 
-# Application: Elasticity of Growth (cont'd)
+# Application: Growth Rate in Exponential Model (cont'd)
 
 ### Find:
 - $$ \frac{dQ}{dt} = rAe^{rt} = rQ(t) $$
-- Elasticity of growth:
-$$ E = \frac{dQ/dt}{Q} = r $$
 
-**Interpretation:** Elasticity is **constant** in exponential growth → % change in `\(Q\)` for 1% change in time.
+The term `\(\frac{1}{Q}\frac{dQ}{dt}=r\)` represents the constant proportional (continuous) growth rate (semi-elasticity) of `\(Q\)`. This means that at every point in time, the instantaneous rate of change of `\(Q\)` is a constant fraction of its current level.
 
 Used in modeling:
 - Population growth
@@ -237,7 +266,7 @@ Used in modeling:
 
 ---
 
-# Example: Elasticity of Growth
+# Example: Growth Rate in Exponential Model
 
 
 ### Model:
@@ -257,7 +286,10 @@ $$
 
 At \( t = 5 \):
 $$
-Q(5) = 1000 \cdot e^{0.15} \approx 1161.83 \\
+Q(5) = 1000 \cdot e^{0.15} \approx 1161.83
+$$
+
+$$
 \frac{dQ}{dt}\bigg|_{t=5} = 0.03 \cdot 1161.83 \approx \boxed{34.85}
 $$
 
@@ -266,16 +298,16 @@ $$
 
 ---
 
-### Step 2: Elasticity of Growth
+### Step 2: Proportional Growth Rate
 
-### Elasticity Formula:
+### Growth-Rate Formula:
 $$
 E = \frac{\frac{dQ}{dt}}{Q} = \frac{0.03Q}{Q} = \boxed{0.03}
 $$
 
 ### Interpretation
 
-- Elasticity of growth is **constant**: `\(E = 0.03\)` 
+- Proportional growth rate (semi-elasticity) is **constant**: `\(E = 0.03\)` 
 - Output grows at a **constant rate of 3% per unit of time**  
 - Common in models of:
   - Population growth  
@@ -418,10 +450,15 @@ class: inverse, center, middle
 # What You Should Be Able to Do
 
 - Simplify, factor, solve linear &amp; quadratic equations
+
 - Graph demand, supply, quadratic, exponential functions
+
 - Interpret elasticity, marginal cost/revenue, and APL/MPL
+
 - Apply formulas for compound interest, present value, annuities
+
 - Differentiate power, exponential, log functions
+
 - Use derivative tests to find and classify stationary points
 
 ---
@@ -431,7 +468,9 @@ class: inverse, center, middle
 - Factor and solve:
   - `\(x^2 - 5x + 6 = 0\)`
   - `\(2x^2 - 3x - 2 = 0\)`
+
 - Graph: `\(y = x^2 - 4x + 3\)`
+
 - Use quadratic formula
 
 ---
@@ -440,7 +479,9 @@ class: inverse, center, middle
 
 - Sketch and solve:
   - `\(Q_d = 100 - 5P\)`, `\(Q_s = 20 + 3P\)`
+
 - Find equilibrium
+
 - National income:
   - `\(Y = C_0 + cY + I + G\)`, solve for Y
 
@@ -451,7 +492,9 @@ class: inverse, center, middle
 - Simplify:
   - `\(2^3 \times 2^2\)`
   - `\(\ln(e^3)\)`
+
 - Solve: `\(3^x = 81 \Rightarrow x = 4\)`
+
 - Evaluate: `\((1.05)^5\)`
 
 ---
@@ -469,7 +512,9 @@ class: inverse, center, middle
 # Derivatives &amp; Optimization
 
 - Power rule: `\(\frac{d}{dx} x^n\)`
+
 - Product &amp; chain rule, other rules
+
 - Find:
   - Marginal Revenue/Cost
   - When MR = MC
@@ -483,10 +528,12 @@ class: inverse, center, middle
 $$
 E_d = \frac{\Delta Q / \text{avg } Q}{\Delta P / \text{avg } P}
 $$
+
 - Point elasticity:
 $$
 E_d = \frac{dQ}{dP} \cdot \frac{P}{Q}
 $$
+
 - Know how elasticity affects revenue
 
 ---
@@ -501,6 +548,17 @@ Review your:
 **Follow exam instructions!** No phones allowed. Only one A4 double-sided handwritten cheat sheet (formulas only) is permitted. The time limit will be strictly enforced.
 
 Time to shine – you've got this!
+---
+
+## Next Classes
+
+- (April 21) Mid term exam (in class):
+  - Review all material from the beginning of the semester
+  - Pay attention to the examples in the slides, HW #1, Quiz #1 and the exercises in the textbook
+
+- (April 23) *No Class* (Midterm Exam Week)
+
+- (April 28) Functions of Several Variables (5.1) 
 
 ---
 
@@ -508,17 +566,9 @@ class: inverse, center, middle
 
 # Any QUESTIONS?
 
-## Thank you for your attention!
+## Thank you for your attention and participation!
 
----
 
-## Next Classes
-
-- (April 23) No Class (Midterm Exam Week)
-- (April 25) Mid term exam (in class):
-  - Review all material from the beginning of the semester
-  - Pay attention to the examples in the slides, HW #1, Quiz #1 and the exercises in the textbook
-- (April 30) Functions of Several Variables (5.1) 
 
 ???
 1. To print pdf slides
@@ -544,15 +594,15 @@ library(renderthis)
 renderthis::to_pdf("W7_2_ME.html")
 
 getwd()
-setwd("C:/Users/Iegor/OneDrive - kdis.ac.kr/Documents/GitHub/Sogang/2025/Spring/Mathematical Economics/Week 7_2")
+setwd("C:\\Users\\vyshn\\OneDrive - kdis.ac.kr\\Documents\\GitHub\\Sogang\\2026\\Spring\\Mathematical Methods for International Commerce\\Week 7_2")
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
-"highlightStyle": "github",
-"highlightLines": true,
-"countIncrementalSlides": false,
-"ratio": "16:9"
+  "highlightStyle": "github",
+  "highlightLines": true,
+  "countIncrementalSlides": false,
+  "ratio": "16:9"
 });
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));
