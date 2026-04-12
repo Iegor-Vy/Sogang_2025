@@ -1,0 +1,583 @@
+---
+title: "Mathematical Methods for International Commerce "
+subtitle: "<br/>Week 7/2: The Derivative of the Exponential and Natural Log Functions (4.8)"
+author: "Iegor Vyshnevskyi, Ph.D."
+institute: "Sogang University, Geppert School of International Studies"
+date: "April 14, 2026"
+output:
+  xaringan::moon_reader:
+    #css: $$default, metropolis, metropolis-fonts$$
+    css: xaringan-themer.css
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: '16:9'
+---
+
+<style>
+@media print{
+  body, html, .remark-slides-area, .remark-notes-area {
+    height: 100% !important;
+    width: 100% !important;
+    overflow: visible;
+    display: inline-block;
+    }
+</style>
+
+<style type="text/css">
+.remark-slide-content {
+    font-size: 34px;
+    padding: 1em 4em 1em 4em;
+}
+</style>
+
+<style type="text/css">
+.my-one-page-font {
+  font-size: 28px;
+}
+</style>
+
+</style>
+
+<style type="text/css">
+.my-one-page-font-table {
+  font-size: 24px;
+}
+</style>
+
+<style>
+.tiny { font-size: 60%; }      /* class you can reuse anywhere */
+</style>
+
+<style>
+.remark-slide-content {
+  position: relative;
+  z-index: 1;
+}
+
+.remark-slide-content::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 600px;          /* adjust size */
+  height: 600px;
+  background-image: url("1. 교장(Seal_Positive).png");  /* place logo file in same folder */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: 0.05;         /* watermark transparency */
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 0;
+}
+</style>
+
+
+```{r setup, include = FALSE}
+library(tidyverse)
+library(knitr)
+
+opts_chunk$set(fig.width = 10, 
+               message = FALSE, 
+               warning = FALSE,
+               echo = FALSE)
+```
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+#install.packages("xaringanthemer")
+library(xaringanthemer)
+style_mono_accent(
+  base_color = "#851a10",
+  header_font_google = google_font("Josefin Sans"),
+  text_font_google   = google_font("Montserrat", "500", "550i"),
+  code_font_google   = google_font("Fira Mono"),
+  colors = c(
+  red = "#f34213",
+  purple = "#3e2f5b",
+  orange = "#ff8811",
+  green = "#136f63",
+  white = "#FFFFFF"
+)
+)
+```
+
+# Agenda    
+
+1. The Derivative of the Exponential and Natural Log Functions (4.8) 
+
+2. Individual Activity: Solve the Problems!
+
+3. Midterm Exam Review
+
+---
+
+class: inverse, center, middle
+
+# 1. The Derivative of the Exponential and Natural Log Functions (4.8)
+
+---
+
+# Why It Matters: Economics & Finance Perspective
+
+Exponential and logarithmic functions are foundational in economics and finance:
+
+- They model **continuous growth and decay** – essential for understanding investment returns, population growth, inflation, and depreciation.
+- The exponential function captures **compound interest**, while logarithms are key for solving equations involving **growth rates**.
+- Derivatives of these functions help economists and analysts assess **rates of change** – such as marginal returns, discounting future values, or analyzing production over time.
+
+Understanding how to **differentiate** exponential and logarithmic functions equips you with tools to interpret trends, optimize financial decisions, and make precise economic forecasts.
+
+---
+
+# Learning Objectives
+
+## Section 4.8 – Derivatives of Exponential and Logarithmic Functions
+
+- Differentiate the **exponential function**
+- Differentiate the **natural logarithm function**
+- Use **chain, product and quotient rules** with these functions
+- Apply exponential models to **real-world economic problems**
+
+---
+
+# Basic Rules of Differentiation (Exponential & Logarithmic Functions)
+
+### Exponential Function:
+The exponential function grows **proportionally to its value**.
+
+$$
+\frac{d}{dx}e^x = e^x
+$$
+This is unique: the derivative of $e^x$ is itself!
+
+### Natural Logarithm:
+Logarithms are used to reverse exponential growth.
+
+$$
+\frac{d}{dx}\ln(x) = \frac{1}{x}, \quad x > 0
+$$
+
+---
+
+# Basic Rules of Differentiation (Exponential & Logarithmic Functions) (cont'd)
+
+### Chain Rule:
+Use when differentiating **functions within functions**.
+
+- $$ \frac{d}{dx} e^{f(x)} = f'(x) \cdot e^{f(x)} $$
+- $$ \frac{d}{dx} \ln(f(x)) = \frac{f'(x)}{f(x)} $$
+
+- In fact, to be precise, we first differentiate the outer function, keeping the inner function untouched,
+then multiply by the derivative of the inner function.
+- Differentiate the outer function first (keeping inner unchanged), then multiply by derivative of the inner function.
+
+These rules are essential in **economic models** involving growth, decay, and elasticity.
+
+---
+
+class: my-one-page-font-table
+
+# Examples: Basic Differentiation
+
+### 1. Differentiate:
+$$ f(x) = e^{3x} $$
+**Solution:**
+$$ f'(x) = 3e^{3x} $$
+- Use chain rule: derivative of exponent times original exponential
+
+### 2. Differentiate:
+$$ g(x) = \ln(5x^2 + 1) $$
+**Solution:**
+$$ g'(x) = \frac{10x}{5x^2 + 1} $$
+- Chain rule: differentiate inside function $5x^2 + 1$ → $10x$
+
+**Tip:** Exponentials often model compounded growth, and logs appear in utility, elasticity, and returns.
+
+---
+
+# Product & Quotient Rule in Action
+
+## Example 1: Product Rule
+$$ y = x^2 e^x $$
+Apply:
+$$ \frac{d}{dx}(uv) = u'v + uv' $$
+
+- $u = x^2$, $v = e^x$
+- Derivative: $$ \frac{dy}{dx} = 2x e^x + x^2 e^x = e^x(2x + x^2) $$
+
+Use when both parts involve variables (common in cost/revenue products).
+
+---
+# Product & Quotient Rule in Action (cont'd)
+
+## Example 2: Quotient Rule
+$$ y = \frac{\ln(x)}{x^2} $$
+Apply:
+$$ \frac{d}{dx} \left(\frac{u}{v}\right) = \frac{u'v - uv'}{v^2} $$
+
+- $u = \ln(x)$, $v = x^2$
+- Derivative:
+$$
+\frac{dy}{dx} = \frac{1/x \cdot x^2 - \ln(x) \cdot 2x}{x^4} = \frac{x - 2x\ln(x)}{x^4} = \frac{1 - 2\ln(x)}{x^3}
+$$
+
+Use when differentiating ratios like **marginal utility/cost per unit**.
+
+---
+
+# Application: Continuous Revenue Growth
+
+Let the revenue function be:
+$$ R(t) = 5000e^{0.05t} $$
+This implies revenue grows **at a continuous rate of 5%** per time unit.
+
+### Find the rate of change of revenue:
+$$
+R'(t) = 5000 \cdot 0.05e^{0.05t} = 250e^{0.05t}
+$$
+
+Interpretation:
+- The **growth rate is proportional** to the current revenue.
+- Common in modeling investment returns, inflation, or GDP.
+
+---
+
+# Application: Elasticity of Growth
+
+A common growth model:
+$$ Q(t) = Ae^{rt} $$
+Where:
+- $Q(t)$ is output (e.g., capital, population)
+- $A$ is initial value
+- $r$ is the growth rate
+- $t$ is time
+- $e$ is the base of natural logarithm
+
+---
+
+# Application: Elasticity of Growth (cont'd)
+
+### Find:
+- $$ \frac{dQ}{dt} = rAe^{rt} = rQ(t) $$
+
+The term $\frac{1}{Q}\frac{dQ}{dt}=r$ represents the constant proportional (continuous) growth rate (semi-elasticity) of $Q$. This means that at every point in time, the instantaneous rate of change of $Q$ is a constant fraction of its current level.
+
+Used in modeling:
+- Population growth
+- Compound interest
+- Inflation and real returns
+
+---
+
+# Example: Elasticity of Growth
+
+
+### Model:
+$$ Q(t) = 1000 \cdot e^{0.03t} $$  
+- Capital stock in billions  
+- Initial value \( A = 1000 \)  
+- Growth rate \( r = 0.03 \) (3% annually)
+
+---
+
+### Step 1: Instantaneous Growth Rate
+
+Differentiate:
+$$
+\frac{dQ}{dt} = 1000 \cdot 0.03 \cdot e^{0.03t} = 0.03Q(t)
+$$
+
+At \( t = 5 \):
+$$
+Q(5) = 1000 \cdot e^{0.15} \approx 1161.83 \\
+\frac{dQ}{dt}\bigg|_{t=5} = 0.03 \cdot 1161.83 \approx \boxed{34.85}
+$$
+
+**Interpretation**:  
+- At $t = 5$, capital is growing at a rate of **34.85 units per year**, or **3% of its size**, consistent with exponential growth.
+
+---
+
+### Step 2: Elasticity of Growth
+
+### Elasticity Formula:
+$$
+E = \frac{\frac{dQ}{dt}}{Q} = \frac{0.03Q}{Q} = \boxed{0.03}
+$$
+
+### Interpretation
+
+- Elasticity of growth is **constant**: $E = 0.03$ 
+- Output grows at a **constant rate of 3% per unit of time**  
+- Common in models of:
+  - Population growth  
+  - Compound interest  
+  - Inflation-adjusted returns
+
+---
+
+# Summary
+
+- Exponential and log functions are common in **growth, interest, decay** models
+
+- Chain rule is crucial when inside other functions
+
+- Product and quotient rules still apply!
+
+> Exponentials capture **compounding**; logs help **linearize** growth patterns.
+
+---
+
+class: inverse, center, middle
+
+# 2. Individual Activity: Solve the Problems! 
+
+---
+
+# Practice Problems
+
+1. Differentiate:
+   - (a) $f(x) = e^{2x^2}$
+   - (b) $g(x) = \ln(x^2 + 1)$
+
+2. Use product rule:
+   - (a) $y = x e^{3x}$
+
+3. Use quotient rule:
+   - (a) $y = \frac{e^x}{x^3}$
+
+4. Application:
+   - Revenue grows as $R(t) = 12000e^{0.04t}$. Find $R'(t)$ and interpret.
+
+???
+
+
+
+# ✅ Solutions: Practice Problems
+
+
+## 🔹 1. Differentiate:
+
+### (a) $f(x) = e^{2x^2}$
+
+Use chain rule:
+
+$$
+f'(x) = e^{2x^2} \cdot \frac{d}{dx}(2x^2) = e^{2x^2} \cdot 4x = 4x e^{2x^2}
+$$
+
+
+
+### (b) $g(x) = \ln(x^2 + 1)$
+
+Use chain rule:
+
+$$
+g'(x) = \frac{1}{x^2 + 1} \cdot 2x = \frac{2x}{x^2 + 1}
+$$
+
+
+
+## 2. Product Rule
+
+### (a) $y = x e^{3x}$
+
+Let $u = x$, $v = e^{3x}$
+
+$$
+y' = u'v + uv' = 1 \cdot e^{3x} + x \cdot 3e^{3x} = e^{3x} + 3x e^{3x}
+$$
+
+✅ Final Answer: $y' = e^{3x}(1 + 3x)$
+
+
+
+## 3. Quotient Rule
+
+### (a) $y = \frac{e^x}{x^3}$
+
+Let $u = e^x$, $v = x^3$
+
+$$
+y' = \frac{u'v - uv'}{v^2} = \frac{e^x \cdot x^3 - e^x \cdot 3x^2}{x^6}
+= \frac{e^x (x^3 - 3x^2)}{x^6}
+= \frac{e^x x^2 (x - 3)}{x^6} = \frac{e^x(x - 3)}{x^4}
+$$
+
+✅ Final Answer: $y' = \frac{e^x(x - 3)}{x^4}$
+
+
+
+## 4. Application: Revenue Growth
+
+### Given: $R(t) = 12000e^{0.04t}$
+
+$$
+R'(t) = 12000 \cdot 0.04 \cdot e^{0.04t} = 480 e^{0.04t}
+$$
+
+### Interpretation:
+
+The **rate of change of revenue** is proportional to the current revenue level.  
+This reflects **exponential growth** – each year, revenue grows faster.
+
+
+---
+
+class: inverse, center, middle
+
+# 3. Midterm Exam Review 
+
+---
+
+# Midterm Exam Review
+
+## Coverage:
+- Basic Algebra & Solving Equations (1.1–1.4)
+- Supply and Demand, Transposition, National Income (1.5–1.7)
+- Quadratic Functions, Revenue & Profit (2.1–2.2)
+- Indices, Logs, Exponentials (2.3–2.4)
+- Percentages, Compound Interest (3.1–3.2)
+- Geometric Series & Investment Appraisal (3.3–3.4)
+- Derivatives & Marginal Functions (4.1–4.3)
+- Chain/Product/Quotient Rules, Elasticity (4.4–4.5)
+- Optimization (4.6–4.7), Derivatives of Exp/Log (4.8)
+
+**Also Review:** Lecture slides, Homework #1, Quiz #1
+
+---
+
+# What You Should Be Able to Do
+
+- Simplify, factor, solve linear & quadratic equations
+- Graph demand, supply, quadratic, exponential functions
+- Interpret elasticity, marginal cost/revenue, and APL/MPL
+- Apply formulas for compound interest, present value, annuities
+- Differentiate power, exponential, log functions
+- Use derivative tests to find and classify stationary points
+
+---
+
+# Algebra & Quadratics
+
+- Factor and solve:
+  - $x^2 - 5x + 6 = 0$
+  - $2x^2 - 3x - 2 = 0$
+- Graph: $y = x^2 - 4x + 3$
+- Use quadratic formula
+
+---
+
+# Supply & Demand, Income Determination
+
+- Sketch and solve:
+  - $Q_d = 100 - 5P$, $Q_s = 20 + 3P$
+- Find equilibrium
+- National income:
+  - $Y = C_0 + cY + I + G$, solve for Y
+
+---
+
+# Logs, Indices, Exponentials
+
+- Simplify:
+  - $2^3 \times 2^2$
+  - $\ln(e^3)$
+- Solve: $3^x = 81 \Rightarrow x = 4$
+- Evaluate: $(1.05)^5$
+
+---
+
+# Finance Applications
+
+- Calculate:
+  - % increase/decrease
+  - Compound value: $A = P(1 + r)^n$
+  - NPV: $\text{NPV} = \sum \frac{C_t}{(1 + r)^t} - C_0$
+  - Loan instalment (annuity formula)
+
+---
+
+# Derivatives & Optimization
+
+- Power rule: $\frac{d}{dx} x^n$
+- Product & chain rule, other rules
+- Find:
+  - Marginal Revenue/Cost
+  - When MR = MC
+  - Maximize profit using first and second derivative test
+
+---
+
+# Elasticity
+
+- Arc elasticity:
+$$
+E_d = \frac{\Delta Q / \text{avg } Q}{\Delta P / \text{avg } P}
+$$
+- Point elasticity:
+$$
+E_d = \frac{dQ}{dP} \cdot \frac{P}{Q}
+$$
+- Know how elasticity affects revenue
+
+---
+
+# Practice & Prep
+
+Review your:
+  - Lecture slides and solved examples
+  - Homework #1
+  - Quiz #1
+
+**Follow exam instructions!** No phones allowed. Only one A4 double-sided handwritten cheat sheet (formulas only) is permitted. The time limit will be strictly enforced.
+
+Time to shine – you've got this!
+---
+
+## Next Classes
+
+- (April 21) Mid term exam (in class):
+  - Review all material from the beginning of the semester
+  - Pay attention to the examples in the slides, HW #1, Quiz #1 and the exercises in the textbook
+- (April 23) *No Class* (Midterm Exam Week)
+- (April 28) Functions of Several Variables (5.1) 
+
+---
+
+class: inverse, center, middle
+
+# Any QUESTIONS?
+
+## Thank you for your attention and participation!
+
+
+
+???
+1. To print pdf slides
+https://stackoverflow.com/questions/54968311/xaringan-export-slides-to-pdf-while-preserving-formatting
+
+pagedown::chrome_print("W1_ME.html") # but not all pictures are visible
+
+2. Option: https://stackoverflow.com/questions/54968311/xaringan-export-slides-to-pdf-while-preserving-formatting
+
+install.packages("remotes")
+remotes::install_github("jhelvy/xaringanBuilder")
+remotes::install_github("jhelvy/renderthis@v0.0.9")
+
+library(xaringanBuilder)
+build_pdf("DVC.html")
+
+3. Option
+writeBin(as.raw(c()), "favicon.ico") # create an empty favicon.ico file
+install.packages("renderthis")
+remotes::install_github('rstudio/chromote')
+library(renderthis)
+
+renderthis::to_pdf("W7_2_ME.html")
+
+getwd()
+setwd("C:\\Users\\vyshn\\OneDrive - kdis.ac.kr\\Documents\\GitHub\\Sogang\\2026\\Spring\\Mathematical Methods for International Commerce\\Week 7_1")

@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Mathematical Methods for International Commerce</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Iegor Vyshnevskyi, Ph.D." />
+    <meta name="date" content="2025-04-18" />
+    <script src="libs/header-attrs-2.28/header-attrs.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Mathematical Methods for International Commerce
+]
+.subtitle[
+## <br/>Week 7/2: The Derivative of the Exponential and Natural Log Functions (4.8)
+]
+.author[
+### Iegor Vyshnevskyi, Ph.D.
+]
+.institute[
+### Sogang University
+]
+.date[
+### April 18, 2025
+]
+
+---
+
+
+&lt;style&gt;
+@media print{
+  body, html, .remark-slides-area, .remark-notes-area {
+    height: 100% !important;
+    width: 100% !important;
+    overflow: visible;
+    display: inline-block;
+    }
+&lt;/style&gt;
+
+&lt;style type="text/css"&gt;
+.remark-slide-content {
+    font-size: 34px;
+    padding: 1em 4em 1em 4em;
+}
+&lt;/style&gt;
+
+&lt;style type="text/css"&gt;
+.my-one-page-font {
+  font-size: 28px;
+}
+&lt;/style&gt;
+
+&lt;/style&gt;
+
+&lt;style type="text/css"&gt;
+.my-one-page-font-table {
+  font-size: 24px;
+}
+&lt;/style&gt;
+
+
+
+
+
+
+# Agenda  
+
+1. The Derivative of the Exponential and Natural Log Functions (4.8) 
+
+2. Individual Activity: Solve the Problems!
+
+3. Midterm Exam Review
+
+---
+
+class: inverse, center, middle
+
+# 1. The Derivative of the Exponential and Natural Log Functions (4.8)
+
+---
+
+# Why It Matters: Economics &amp; Finance Perspective
+
+Exponential and logarithmic functions are foundational in economics and finance:
+
+- They model **continuous growth and decay** – essential for understanding investment returns, population growth, inflation, and depreciation.
+- The exponential function captures **compound interest**, while logarithms are key for solving equations involving **growth rates**.
+- Derivatives of these functions help economists and analysts assess **rates of change** – such as marginal returns, discounting future values, or analyzing production over time.
+
+Understanding how to **differentiate** exponential and logarithmic functions equips you with tools to interpret trends, optimize financial decisions, and make precise economic forecasts.
+
+---
+
+# Learning Objectives
+
+## Section 4.8 – Derivatives of Exponential and Logarithmic Functions
+
+- Differentiate the **exponential function**
+- Differentiate the **natural logarithm function**
+- Use **chain, product and quotient rules** with these functions
+- Apply exponential models to **real-world economic problems**
+
+---
+
+# Basic Rules of Differentiation (Exponential &amp; Logarithmic Functions)
+
+### Exponential Function:
+The exponential function grows **proportionally to its value**.
+
+$$
+\frac{d}{dx}e^x = e^x
+$$
+This is unique: the derivative of `\(e^x\)` is itself!
+
+### Natural Logarithm:
+Logarithms are used to reverse exponential growth.
+
+$$
+\frac{d}{dx}\ln(x) = \frac{1}{x}, \quad x &gt; 0
+$$
+
+---
+
+# Basic Rules of Differentiation (Exponential &amp; Logarithmic Functions) (cont'd)
+
+### Chain Rule:
+Use when differentiating **functions within functions**.
+
+- $$ \frac{d}{dx} e^{f(x)} = f'(x) \cdot e^{f(x)} $$
+- $$ \frac{d}{dx} \ln(f(x)) = \frac{f'(x)}{f(x)} $$
+
+- In fact, to be precise, we first differentiate the outer function, keeping the inner function untouched,
+then multiply by the derivative of the inner function.
+- Although, mathematicaly, you will get same result, if you first differentiate the inner function and then multiply by the outer function.
+
+These rules are essential in **economic models** involving growth, decay, and elasticity.
+
+---
+
+class: my-one-page-font-table
+
+# Examples: Basic Differentiation
+
+### 1. Differentiate:
+$$ f(x) = e^{3x} $$
+**Solution:**
+$$ f'(x) = 3e^{3x} $$
+- Use chain rule: derivative of exponent times original exponential
+
+### 2. Differentiate:
+$$ g(x) = \ln(5x^2 + 1) $$
+**Solution:**
+$$ g'(x) = \frac{10x}{5x^2 + 1} $$
+- Chain rule: differentiate inside function `\(5x^2 + 1\)` → `\(10x\)`
+
+**Tip:** Exponentials often model compounded growth, and logs appear in utility, elasticity, and returns.
+
+---
+
+# Product &amp; Quotient Rule in Action
+
+## Example 1: Product Rule
+$$ y = x^2 e^x $$
+Apply:
+$$ \frac{d}{dx}(uv) = u'v + uv' $$
+
+- `\(u = x^2\)`, `\(v = e^x\)`
+- Derivative: $$ \frac{dy}{dx} = 2x e^x + x^2 e^x = e^x(2x + x^2) $$
+
+Use when both parts involve variables (common in cost/revenue products).
+
+---
+# Product &amp; Quotient Rule in Action (cont'd)
+
+## Example 2: Quotient Rule
+$$ y = \frac{\ln(x)}{x^2} $$
+Apply:
+$$ \frac{d}{dx} \left(\frac{u}{v}\right) = \frac{u'v - uv'}{v^2} $$
+
+- `\(u = \ln(x)\)`, `\(v = x^2\)`
+- Derivative:
+$$
+\frac{dy}{dx} = \frac{1/x \cdot x^2 - \ln(x) \cdot 2x}{x^4} = \frac{x - 2x\ln(x)}{x^4}
+$$
+
+Use when differentiating ratios like **marginal utility/cost per unit**.
+
+---
+
+# Application: Continuous Revenue Growth
+
+Let the revenue function be:
+$$ R(t) = 5000e^{0.05t} $$
+This implies revenue grows **at a continuous rate of 5%** per time unit.
+
+### Find the rate of change of revenue:
+$$
+R'(t) = 5000 \cdot 0.05e^{0.05t} = 250e^{0.05t}
+$$
+
+Interpretation:
+- The **growth rate is proportional** to the current revenue.
+- Common in modeling investment returns, inflation, or GDP.
+
+---
+
+# Application: Elasticity of Growth
+
+A common growth model:
+$$ Q(t) = Ae^{rt} $$
+Where:
+- `\(Q(t)\)` is output (e.g., capital, population)
+- `\(A\)` is initial value
+- `\(r\)` is the growth rate
+- `\(t\)` is time
+- `\(e\)` is the base of natural logarithm
+
+---
+
+# Application: Elasticity of Growth (cont'd)
+
+### Find:
+- $$ \frac{dQ}{dt} = rAe^{rt} = rQ(t) $$
+- Elasticity of growth:
+$$ E = \frac{dQ/dt}{Q} = r $$
+
+**Interpretation:** Elasticity is **constant** in exponential growth → % change in `\(Q\)` for 1% change in time.
+
+Used in modeling:
+- Population growth
+- Compound interest
+- Inflation and real returns
+
+---
+
+# Example: Elasticity of Growth
+
+
+### Model:
+$$ Q(t) = 1000 \cdot e^{0.03t} $$  
+- Capital stock in billions  
+- Initial value \( A = 1000 \)  
+- Growth rate \( r = 0.03 \) (3% annually)
+
+---
+
+### Step 1: Instantaneous Growth Rate
+
+Differentiate:
+$$
+\frac{dQ}{dt} = 1000 \cdot 0.03 \cdot e^{0.03t} = 0.03Q(t)
+$$
+
+At \( t = 5 \):
+$$
+Q(5) = 1000 \cdot e^{0.15} \approx 1161.83 \\
+\frac{dQ}{dt}\bigg|_{t=5} = 0.03 \cdot 1161.83 \approx \boxed{34.85}
+$$
+
+**Interpretation**:  
+- At `\(t = 5\)`, capital is growing at a rate of **34.85 units per year**, or **3% of its size**, consistent with exponential growth.
+
+---
+
+### Step 2: Elasticity of Growth
+
+### Elasticity Formula:
+$$
+E = \frac{\frac{dQ}{dt}}{Q} = \frac{0.03Q}{Q} = \boxed{0.03}
+$$
+
+### Interpretation
+
+- Elasticity of growth is **constant**: `\(E = 0.03\)` 
+- Output grows at a **constant rate of 3% per unit of time**  
+- Common in models of:
+  - Population growth  
+  - Compound interest  
+  - Inflation-adjusted returns
+
+---
+
+# Summary
+
+- Exponential and log functions are common in **growth, interest, decay** models
+
+- Chain rule is crucial when inside other functions
+
+- Product and quotient rules still apply!
+
+&gt; Exponentials capture **compounding**; logs help **linearize** growth patterns.
+
+---
+
+class: inverse, center, middle
+
+# 2. Individual Activity: Solve the Problems! 
+
+---
+
+# Practice Problems
+
+1. Differentiate:
+   - (a) `\(f(x) = e^{2x^2}\)`
+   - (b) `\(g(x) = \ln(x^2 + 1)\)`
+
+2. Use product rule:
+   - (a) `\(y = x e^{3x}\)`
+
+3. Use quotient rule:
+   - (a) `\(y = \frac{e^x}{x^3}\)`
+
+4. Application:
+   - Revenue grows as `\(R(t) = 12000e^{0.04t}\)`. Find `\(R'(t)\)` and interpret.
+
+???
+
+
+
+# ✅ Solutions: Practice Problems
+
+
+## 🔹 1. Differentiate:
+
+### (a) `\(f(x) = e^{2x^2}\)`
+
+Use chain rule:
+
+$$
+f'(x) = e^{2x^2} \cdot \frac{d}{dx}(2x^2) = e^{2x^2} \cdot 4x = 4x e^{2x^2}
+$$
+
+
+
+### (b) `\(g(x) = \ln(x^2 + 1)\)`
+
+Use chain rule:
+
+$$
+g'(x) = \frac{1}{x^2 + 1} \cdot 2x = \frac{2x}{x^2 + 1}
+$$
+
+
+
+## 2. Product Rule
+
+### (a) `\(y = x e^{3x}\)`
+
+Let `\(u = x\)`, `\(v = e^{3x}\)`
+
+$$
+y' = u'v + uv' = 1 \cdot e^{3x} + x \cdot 3e^{3x} = e^{3x} + 3x e^{3x}
+$$
+
+✅ Final Answer: `\(y' = e^{3x}(1 + 3x)\)`
+
+
+
+## 3. Quotient Rule
+
+### (a) `\(y = \frac{e^x}{x^3}\)`
+
+Let `\(u = e^x\)`, `\(v = x^3\)`
+
+$$
+y' = \frac{u'v - uv'}{v^2} = \frac{e^x \cdot x^3 - e^x \cdot 3x^2}{x^6}
+= \frac{e^x (x^3 - 3x^2)}{x^6}
+= \frac{e^x x^2 (x - 3)}{x^6} = \frac{e^x(x - 3)}{x^4}
+$$
+
+✅ Final Answer: `\(y' = \frac{e^x(x - 3)}{x^4}\)`
+
+
+
+## 4. Application: Revenue Growth
+
+### Given: `\(R(t) = 12000e^{0.04t}\)`
+
+$$
+R'(t) = 12000 \cdot 0.04 \cdot e^{0.04t} = 480 e^{0.04t}
+$$
+
+### Interpretation:
+
+The **rate of change of revenue** is proportional to the current revenue level.  
+This reflects **exponential growth** – each year, revenue grows faster.
+
+
+---
+
+class: inverse, center, middle
+
+# 3. Midterm Exam Review 
+
+---
+
+# Midterm Exam Review
+
+## Coverage:
+- Basic Algebra &amp; Solving Equations (1.1–1.4)
+- Supply and Demand, Transposition, National Income (1.5–1.7)
+- Quadratic Functions, Revenue &amp; Profit (2.1–2.2)
+- Indices, Logs, Exponentials (2.3–2.4)
+- Percentages, Compound Interest (3.1–3.2)
+- Geometric Series &amp; Investment Appraisal (3.3–3.4)
+- Derivatives &amp; Marginal Functions (4.1–4.3)
+- Chain/Product/Quotient Rules, Elasticity (4.4–4.5)
+- Optimization (4.6–4.7), Derivatives of Exp/Log (4.8)
+
+**Also Review:** Lecture slides, Homework #1, Quiz #1
+
+---
+
+# What You Should Be Able to Do
+
+- Simplify, factor, solve linear &amp; quadratic equations
+- Graph demand, supply, quadratic, exponential functions
+- Interpret elasticity, marginal cost/revenue, and APL/MPL
+- Apply formulas for compound interest, present value, annuities
+- Differentiate power, exponential, log functions
+- Use derivative tests to find and classify stationary points
+
+---
+
+# Algebra &amp; Quadratics
+
+- Factor and solve:
+  - `\(x^2 - 5x + 6 = 0\)`
+  - `\(2x^2 - 3x - 2 = 0\)`
+- Graph: `\(y = x^2 - 4x + 3\)`
+- Use quadratic formula
+
+---
+
+# Supply &amp; Demand, Income Determination
+
+- Sketch and solve:
+  - `\(Q_d = 100 - 5P\)`, `\(Q_s = 20 + 3P\)`
+- Find equilibrium
+- National income:
+  - `\(Y = C_0 + cY + I + G\)`, solve for Y
+
+---
+
+# Logs, Indices, Exponentials
+
+- Simplify:
+  - `\(2^3 \times 2^2\)`
+  - `\(\ln(e^3)\)`
+- Solve: `\(3^x = 81 \Rightarrow x = 4\)`
+- Evaluate: `\((1.05)^5\)`
+
+---
+
+# Finance Applications
+
+- Calculate:
+  - % increase/decrease
+  - Compound value: `\(A = P(1 + r)^n\)`
+  - NPV: `\(\text{NPV} = \sum \frac{C_t}{(1 + r)^t} - C_0\)`
+  - Loan instalment (annuity formula)
+
+---
+
+# Derivatives &amp; Optimization
+
+- Power rule: `\(\frac{d}{dx} x^n\)`
+- Product &amp; chain rule, other rules
+- Find:
+  - Marginal Revenue/Cost
+  - When MR = MC
+  - Maximize profit using first and second derivative test
+
+---
+
+# Elasticity
+
+- Arc elasticity:
+$$
+E_d = \frac{\Delta Q / \text{avg } Q}{\Delta P / \text{avg } P}
+$$
+- Point elasticity:
+$$
+E_d = \frac{dQ}{dP} \cdot \frac{P}{Q}
+$$
+- Know how elasticity affects revenue
+
+---
+
+# Practice &amp; Prep
+
+Review your:
+  - Lecture slides and solved examples
+  - Homework #1
+  - Quiz #1
+
+**Follow exam instructions!** No phones allowed. Only one A4 double-sided handwritten cheat sheet (formulas only) is permitted. The time limit will be strictly enforced.
+
+Time to shine – you've got this!
+
+---
+
+class: inverse, center, middle
+
+# Any QUESTIONS?
+
+## Thank you for your attention!
+
+---
+
+## Next Classes
+
+- (April 23) No Class (Midterm Exam Week)
+- (April 25) Mid term exam (in class):
+  - Review all material from the beginning of the semester
+  - Pay attention to the examples in the slides, HW #1, Quiz #1 and the exercises in the textbook
+- (April 30) Functions of Several Variables (5.1) 
+
+???
+1. To print pdf slides
+https://stackoverflow.com/questions/54968311/xaringan-export-slides-to-pdf-while-preserving-formatting
+
+pagedown::chrome_print("W1_ME.html") # but not all pictures are visible
+
+2. Option: https://stackoverflow.com/questions/54968311/xaringan-export-slides-to-pdf-while-preserving-formatting
+
+install.packages("remotes")
+remotes::install_github("jhelvy/xaringanBuilder")
+remotes::install_github("jhelvy/renderthis@v0.0.9")
+
+library(xaringanBuilder)
+build_pdf("DVC.html")
+
+3. Option
+writeBin(as.raw(c()), "favicon.ico") # create an empty favicon.ico file
+install.packages("renderthis")
+remotes::install_github('rstudio/chromote')
+library(renderthis)
+
+renderthis::to_pdf("W7_2_ME.html")
+
+getwd()
+setwd("C:/Users/Iegor/OneDrive - kdis.ac.kr/Documents/GitHub/Sogang/2025/Spring/Mathematical Economics/Week 7_2")
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
