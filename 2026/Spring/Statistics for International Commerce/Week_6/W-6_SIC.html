@@ -1124,6 +1124,8 @@ $$
 \bar{x} \pm t \cdot \frac{s}{\sqrt{n}}
 $$
 
+where *Margin of Error* = `\(t \cdot \frac{s}{\sqrt{n}}\)` stands for error due to sampling variability and the fact that we are estimating `\(\sigma\)` with `\(s\)`. 
+
 ---
 
 # Example 3: Delivery Cost Estimate (σ Unknown)
@@ -1175,22 +1177,22 @@ $$
 ## Step 3: Margin of Error
 
 $$
-ME = 2.131 \times 2 = 4.262
+ME = 2.262 \times 2.53 \approx 5.72 \text{ which means that the margin of error is about 5.72 dollars.}
 $$
 
 ## Step 4: Confidence Interval
 
 $$
-42 \pm 4.262
+42 \pm 5.72
 $$
 
 $$
-(37.74, 46.26)
+(36.28, 47.72)
 $$
 
 ### Interpretation:
 
-We are 95% confident that the true mean express shipping cost is between **$37.74 and $46.26**.
+We are 95% confident that the true mean express shipping cost is between **\$36.28 and \$47.72**.
 
 ---
 
@@ -1200,7 +1202,7 @@ We are 95% confident that the true mean express shipping cost is between **$37.7
 ``` python
 xbar = 42
 s = 8
-n = 16
+n = 10
 df = n - 1
 t_star = stats.t.ppf(0.975, df=df)
 
@@ -1213,11 +1215,11 @@ print(pd.Series({"t_star": t_star, "SE": SE, "ME": ME, "Lower": lower, "Upper": 
 ```
 
 ```
-## t_star     2.131450
-## SE         2.000000
-## ME         4.262899
-## Lower     37.737101
-## Upper     46.262899
+## t_star     2.262157
+## SE         2.529822
+## ME         5.722855
+## Lower     36.277145
+## Upper     47.722855
 ## dtype: float64
 ```
 
@@ -1447,6 +1449,9 @@ In 3–4 sentences, explain:
 
 *(April 14 | April 16)* Sampling distributions; central limit theorem; estimation; confidence intervals (LMW Chapters 8 and 9) 
 
+*(April 21 | April 23)* No class / Midterm exam
+
+*(April 28 | April 30)* One-sample hypothesis testing (LMW Chapter 10) 
 ---
 
 class: inverse, center, middle
