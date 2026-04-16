@@ -232,18 +232,28 @@ Use when differentiating ratios like **marginal utility/cost per unit**.
 
 Let the revenue function be:
 $$ R(t) = 5000e^{0.05t} $$
-This implies revenue grows **at a continuous rate of 5%** per time unit.
+This means revenue grows at **5% of its current level** per time unit.
 
 ### Find the rate of change of revenue:
 $$
 R'(t) = 5000 \cdot 0.05e^{0.05t} = 250e^{0.05t}
 $$
 
-Interpretation:
-- The **growth rate is proportional** to the current revenue.
-- Common in modeling investment returns, inflation, or GDP.
+---
+# Application: Continuous Revenue Growth (cont'd)
 
-$$\frac{R'(t)}{R(t)} = \frac{250e^{0.05t}}{5000e^{0.05t}} = 0.05$$ means revenue grows at a **constant rate of 5%** per time unit.
+Interpretation:
+- The **proportional growth rate** is constant: $$\frac{R'(t)}{R(t)} = \frac{250e^{0.05t}}{5000e^{0.05t}} = 0.05$$.
+- The **dollar increase is not constant** because $$R'(t)=250e^{0.05t}$$ rises over time.
+- Common in modeling investment returns, inflation, or GDP.
+---
+# Application: Continuous Revenue Growth (cont'd)
+
+Quick check:
+- At $t=0$, $R(0)=5000$ and $R'(0)=250$ (5% of 5000).
+- At $t=10$, $R(10)=5000e^{0.5} \approx 8243.6$ and $R'(10)=0.05\,R(10) \approx 412.2$.
+
+So, the **percentage rate (5%) is constant**, but the **absolute increase** gets larger as revenue grows.
 
 
 ---
