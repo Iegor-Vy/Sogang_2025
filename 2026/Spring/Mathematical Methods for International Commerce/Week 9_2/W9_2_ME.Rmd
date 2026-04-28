@@ -3,7 +3,7 @@ title: "Mathematical Methods for International Commerce "
 subtitle: "<br/>Week 9/2: Partial Elasticity and Marginal Functions (5.2) "
 author: "Iegor Vyshnevskyi, Ph.D."
 institute: "Sogang University, Geppert School of International Studies"
-date: "April 28, 2026"
+date: "April 30, 2026"
 output:
   xaringan::moon_reader:
     #css: $$default, metropolis, metropolis-fonts$$
