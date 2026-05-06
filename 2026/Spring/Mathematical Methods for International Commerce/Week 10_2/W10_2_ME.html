@@ -698,49 +698,66 @@ Since `\(D &gt; 0\)` and `\(C_{xx} &gt; 0\)`, the stationary point `\((2, 3)\)` 
 - Therefore, this is a unique cost-minimizing input mix.
 
 ---
-# Your turn: Profit Maximization (Group 6)
+# Your turn: Two-Variable Profit Maximization (Group 6)
 
-A firm has:
+A firm has profit function:
 
 $$
-\Pi(x) = 100x - 10x^2 - 200
+\Pi(x, y) = 80x + 42y - 4x^2 - 2xy - 3y^2 - 100
 $$
 
 ### Tasks:
-1. Find the optimal output.  
-2. Verify the result using the second derivative.  
+1. Find the stationary point `\((x^*, y^*)\)`.  
+2. Classify the stationary point using the Hessian.  
 3. Interpret the result economically.
 
 ???
 
-# ✅ Solution: First-Order Condition
+# ✅ Solution: First-Order Conditions
 
-1. First derivative:
-
-$$
-\Pi'(x) = 100 - 20x
-$$
-
-Set equal to zero:
+1. First-order partial derivatives:
 
 $$
-100 - 20x = 0 \Rightarrow x^* = 5
+\Pi_x = 80 - 8x - 2y, \quad \Pi_y = 42 - 2x - 6y
 $$
 
-# ✅ Solution: Second-Order Condition
-
-2. Second derivative:
+Set both equal to zero:
 
 $$
-\Pi''(x) = -20 &lt; 0
+80 - 8x - 2y = 0 \Rightarrow 4x + y = 40
 $$
 
-Since the second derivative is negative, `\(x^* = 5\)` gives a **maximum**.
+$$
+42 - 2x - 6y = 0 \Rightarrow x + 3y = 21
+$$
+
+Solving simultaneously gives:
+
+$$
+(x^*, y^*) = (9, 4)
+$$
+
+# ✅ Solution: Second-Order Conditions
+
+2. Second-order derivatives:
+
+$$
+\Pi_{xx} = -8, \quad \Pi_{yy} = -6, \quad \Pi_{xy} = -2
+$$
+
+Hessian determinant:
+
+$$
+D = \Pi_{xx}\Pi_{yy} - (\Pi_{xy})^2 = (-8)(-6) - (-2)^2 = 44 &gt; 0
+$$
+
+Since `\(D &gt; 0\)` and `\(\Pi_{xx} &lt; 0\)`, the stationary point `\((9, 4)\)` is a **local maximum**.
 
 # 🌟 Economic Interpretation
 
-- Profit is maximized when the firm produces **5 units**.  
-- Beyond this level, marginal losses from additional output dominate, reducing total profit.
+- Profit is maximized at the decision mix `\((x, y) = (9, 4)\)`.  
+- The negative curvature in both directions and positive Hessian determinant confirm a concave profit surface around this point.  
+- Producing away from this combination lowers total profit.
 
 ---
 
