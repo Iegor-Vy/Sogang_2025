@@ -295,6 +295,8 @@ $$ Q = 420L - 8L^2 + L^2 $$
 
 $$ Q = 420L - 7L^2 $$
 
+> After substituting the constraint, the problem becomes a single-variable optimization problem. Therefore, we can use the ordinary second derivative test (No need for Lagrange multipliers and Hessian).
+
 ---
 
 # Step 3: First and Second Derivatives
@@ -535,13 +537,19 @@ Since the second derivative is positive, the point is a **minimum**.
 - $L \approx 92.38$ units of labor  
 
 ---
-
+class: my-one-page-font
 # **Economic Interpretation:**
 - The firm minimizes cost by using 69.28 units of capital and 92.38 units of labor.
-
 - This combination ensures that the production target of 160 units is met at the lowest cost.
-
 **Important:** Verify that the marginal product per dollar spent is equalized across both inputs, ensuring cost minimization.
+- Marginal Product of Capital (MPK):
+  $$ MPK = \frac{\partial Q}{\partial K} = K^{-1/2}L^{1/2} $$
+- Marginal Product of Labor (MPL):
+  $$ MPL = \frac{\partial Q}{\partial L} = K^{1/2}L^{-1/2} $$
+- Marginal Product per Dollar:
+  $$ \frac{MPK}{P_K} = \frac{K^{-1/2}L^{1/2}}{4} $$
+  $$ \frac{MPL}{P_L} = \frac{K^{1/2}L^{-1/2}}{3} $$
+- At the optimal point, these ratios should be equal, confirming that the firm is minimizing cost effectively.
 
 ---
 
