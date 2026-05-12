@@ -679,7 +679,7 @@ Monthly spending (USD):
 
 
 ```
-## {'whiskers': [&lt;matplotlib.lines.Line2D object at 0x000001A264D92490&gt;, &lt;matplotlib.lines.Line2D object at 0x000001A264D925D0&gt;, &lt;matplotlib.lines.Line2D object at 0x000001A264D92D50&gt;, &lt;matplotlib.lines.Line2D object at 0x000001A264D92E90&gt;, &lt;matplotlib.lines.Line2D object at 0x000001A264D93610&gt;, &lt;matplotlib.lines.Line2D object at 0x000001A264D93750&gt;], 'caps': [&lt;matplotlib.lines.Line2D object at 0x000001A264D92710&gt;, &lt;matplotlib.lines.Line2D object at 0x000001A264D92850&gt;, &lt;matplotlib.lines.Line2D object at 0x000001A264D92FD0&gt;, &lt;matplotlib.lines.Line2D object at 0x000001A264D93110&gt;, &lt;matplotlib.lines.Line2D object at 0x000001A264D93890&gt;, &lt;matplotlib.lines.Line2D object at 0x000001A264D939D0&gt;], 'boxes': [&lt;matplotlib.lines.Line2D object at 0x000001A264D2A210&gt;, &lt;matplotlib.lines.Line2D object at 0x000001A264D92C10&gt;, &lt;matplotlib.lines.Line2D object at 0x000001A264D934D0&gt;], 'medians': [&lt;matplotlib.lines.Line2D object at 0x000001A264D92990&gt;, &lt;matplotlib.lines.Line2D object at 0x000001A264D93250&gt;, &lt;matplotlib.lines.Line2D object at 0x000001A264D93B10&gt;], 'fliers': [&lt;matplotlib.lines.Line2D object at 0x000001A264D92AD0&gt;, &lt;matplotlib.lines.Line2D object at 0x000001A264D93390&gt;, &lt;matplotlib.lines.Line2D object at 0x000001A264D93C50&gt;], 'means': []}
+## {'whiskers': [&lt;matplotlib.lines.Line2D object at 0x000001BA59AF6490&gt;, &lt;matplotlib.lines.Line2D object at 0x000001BA59AF65D0&gt;, &lt;matplotlib.lines.Line2D object at 0x000001BA59AF6D50&gt;, &lt;matplotlib.lines.Line2D object at 0x000001BA59AF6E90&gt;, &lt;matplotlib.lines.Line2D object at 0x000001BA59AF7610&gt;, &lt;matplotlib.lines.Line2D object at 0x000001BA59AF7750&gt;], 'caps': [&lt;matplotlib.lines.Line2D object at 0x000001BA59AF6710&gt;, &lt;matplotlib.lines.Line2D object at 0x000001BA59AF6850&gt;, &lt;matplotlib.lines.Line2D object at 0x000001BA59AF6FD0&gt;, &lt;matplotlib.lines.Line2D object at 0x000001BA59AF7110&gt;, &lt;matplotlib.lines.Line2D object at 0x000001BA59AF7890&gt;, &lt;matplotlib.lines.Line2D object at 0x000001BA59AF79D0&gt;], 'boxes': [&lt;matplotlib.lines.Line2D object at 0x000001BA59A92210&gt;, &lt;matplotlib.lines.Line2D object at 0x000001BA59AF6C10&gt;, &lt;matplotlib.lines.Line2D object at 0x000001BA59AF74D0&gt;], 'medians': [&lt;matplotlib.lines.Line2D object at 0x000001BA59AF6990&gt;, &lt;matplotlib.lines.Line2D object at 0x000001BA59AF7250&gt;, &lt;matplotlib.lines.Line2D object at 0x000001BA59AF7B10&gt;], 'fliers': [&lt;matplotlib.lines.Line2D object at 0x000001BA59AF6AD0&gt;, &lt;matplotlib.lines.Line2D object at 0x000001BA59AF7390&gt;, &lt;matplotlib.lines.Line2D object at 0x000001BA59AF7C50&gt;], 'means': []}
 ```
 
 &lt;img src="W-11_SIC_files/figure-html/n2z6wr-1.png" width="960" /&gt;
@@ -924,6 +924,289 @@ Alternatives:
 | t-test | compare 2 means  |
 | ANOVA  | compare 3+ means |
 
+---
+class: inverse, center, middle
+
+# Some Extra Intuition
+
+---
+class: my-one-page-font
+# ANOVA Intuition: What Are We Actually Measuring?
+
+Suppose a company compares customer spending across 3 regions:
+
+| Region | Spending |
+|---|---|
+| Asia | 70, 75 |
+| Europe | 60, 65 |
+| North America | 80, 85 |
+
+Overall average spending:
+
+$$
+\bar{x}_{overall} = 72.5
+$$
+
+ANOVA asks:
+
+&gt; "Why are observations different from each other?"
+
+There are only two possible reasons:
+
+1. **Natural randomness inside each group** - customers inside the same region are not identical
+
+2. **Actual differences between group averages** - regions themselves may behave differently
+
+ANOVA separates total variation into these two parts.
+
+---
+
+# The Three Important Quantities
+
+## 1. SST = Total Variation
+
+Measures:
+
+&gt; "How far are ALL observations from the overall average?"
+
+It ignores groups completely.
+
+Large SST:
+- observations overall are very spread out
+
+---
+
+## 2. SSE = Within-Group Variation (Error, SSW)
+
+Measures:
+
+&gt; "How far are observations from THEIR OWN group average?"
+
+This captures:
+- natural randomness
+- individual differences
+- noise
+
+If customers inside each region behave similarly:
+- SSE becomes smaller
+
+---
+
+## 3. SSTr = Between-Group Variation (Treatment, SSB)
+
+Measures:
+
+&gt; "How far are group averages from the overall average?"
+
+This captures:
+- actual group differences
+
+If regional averages differ strongly:
+- SSTr becomes larger
+
+---
+
+# The Big Relationship
+
+ANOVA always splits total variation:
+
+$$
+SST = SSTr + SSE
+$$
+
+Meaning:
+
+$$
+\text{Total variation} = \text{Between-group variation} + \text{Within-group variation}
+$$
+
+
+---
+# Example
+
+## Step 1. Compute Group Means
+
+| Region | Values | Group Mean |
+|---|---|---|
+| Asia | 70, 75 | 72.5 |
+| Europe | 60, 65 | 62.5 |
+| North America | 80, 85 | 82.5 |
+
+Overall mean:
+
+$$
+\bar{x}_{overall} = 72.5
+$$
+
+---
+class: my-one-page-font-table
+# Step 2. Compute SSE (Within-Group Variation)
+
+SSE asks:
+
+&gt; "How different are customers INSIDE the same group?"
+
+Example for Europe:
+
+$$
+(60-62.5)^2 + (65-62.5)^2
+$$
+
+$$
+= 6.25 + 6.25 = 12.5
+$$
+
+Do this for all groups:
+
+Asia:
+$$
+(70-72.5)^2 + (75-72.5)^2 = 12.5
+$$
+
+Europe:
+$$
+12.5
+$$
+
+North America:
+$$
+12.5
+$$
+
+So:
+
+$$
+SSE = 37.5
+$$
+
+Interpretation:
+
+Customers inside each region differ only a little.
+
+---
+class: my-one-page-font-table
+# Step 3. Compute SSTr (Between-Group Variation)
+
+SSTr asks:
+
+&gt; "How different are GROUP AVERAGES from the OVERALL average?"
+
+Asia:
+$$
+2(72.5-72.5)^2 = 0
+$$
+
+Europe:
+$$
+2(62.5-72.5)^2 = 200
+$$
+
+North America:
+$$
+2(82.5-72.5)^2 = 200
+$$
+
+So:
+
+$$
+SSTr = 400
+$$
+
+Interpretation:
+
+Regional averages are VERY different.
+
+---
+# Final ANOVA Logic
+
+We found:
+
+$$
+SSE = 37.5
+$$
+
+$$
+SSTr = 400
+$$
+
+So:
+
+$$
+SST = 437.5
+$$
+
+---
+
+# What Does the F-Statistic Do?
+
+The F-statistic compares:
+
+$$
+F =
+\frac{\text{Between-group variation}}
+{\text{Within-group variation}}
+$$
+
+or conceptually:
+
+$$
+F =
+\frac{SSTr}{SSE}
+$$
+
+(after adjusting for degrees of freedom)
+
+---
+
+# Plain English Meaning of F
+.pull-left[
+## Small F
+
+- groups are similar
+- within-group randomness dominates
+
+Meaning:
+&gt; differences probably happened by chance
+]
+.pull-right[
+## Large F
+
+- group averages differ a lot
+- within-group randomness is relatively small
+
+Meaning:
+&gt; real group differences likely exist
+]
+---
+
+# Intuition for This Example
+
+Here:
+
+- customers INSIDE each region are relatively similar
+- regional averages are very different
+
+So:
+
+$$
+F \text{ becomes large}
+$$
+
+which gives evidence that:
+- spending truly differs across regions
+
+---
+
+# One Sentence Summary
+
+ANOVA asks:
+
+&gt; "Are group differences large relative to normal randomness inside groups?"
+
+---
+class: inverse, center, middle
+
+# In-class Practice
 ---
 
 # In-Class Practice
