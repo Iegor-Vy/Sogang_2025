@@ -1140,6 +1140,8 @@ Interpretation:
 
 Regional averages are VERY different.
 
+.tiny[We multiply by 2 because there are 2 observations in each group, so the group mean's deviation from the overall mean is counted for each observation in that group.]
+
 ---
 # Final ANOVA Logic
 
@@ -1157,6 +1159,11 @@ So:
 
 $$
 SST = 437.5
+$$
+
+## To check: calculate SST directly:
+$$
+(70-72.5)^2 + (75-72.5)^2 + (60-72.5)^2 + (65-72.5)^2 + (80-72.5)^2 + (85-72.5)^2 = 437.5
 $$
 
 ---

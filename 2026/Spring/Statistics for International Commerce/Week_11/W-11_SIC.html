@@ -679,7 +679,7 @@ Monthly spending (USD):
 
 
 ```
-## {'whiskers': [&lt;matplotlib.lines.Line2D object at 0x000001BA59AF6490&gt;, &lt;matplotlib.lines.Line2D object at 0x000001BA59AF65D0&gt;, &lt;matplotlib.lines.Line2D object at 0x000001BA59AF6D50&gt;, &lt;matplotlib.lines.Line2D object at 0x000001BA59AF6E90&gt;, &lt;matplotlib.lines.Line2D object at 0x000001BA59AF7610&gt;, &lt;matplotlib.lines.Line2D object at 0x000001BA59AF7750&gt;], 'caps': [&lt;matplotlib.lines.Line2D object at 0x000001BA59AF6710&gt;, &lt;matplotlib.lines.Line2D object at 0x000001BA59AF6850&gt;, &lt;matplotlib.lines.Line2D object at 0x000001BA59AF6FD0&gt;, &lt;matplotlib.lines.Line2D object at 0x000001BA59AF7110&gt;, &lt;matplotlib.lines.Line2D object at 0x000001BA59AF7890&gt;, &lt;matplotlib.lines.Line2D object at 0x000001BA59AF79D0&gt;], 'boxes': [&lt;matplotlib.lines.Line2D object at 0x000001BA59A92210&gt;, &lt;matplotlib.lines.Line2D object at 0x000001BA59AF6C10&gt;, &lt;matplotlib.lines.Line2D object at 0x000001BA59AF74D0&gt;], 'medians': [&lt;matplotlib.lines.Line2D object at 0x000001BA59AF6990&gt;, &lt;matplotlib.lines.Line2D object at 0x000001BA59AF7250&gt;, &lt;matplotlib.lines.Line2D object at 0x000001BA59AF7B10&gt;], 'fliers': [&lt;matplotlib.lines.Line2D object at 0x000001BA59AF6AD0&gt;, &lt;matplotlib.lines.Line2D object at 0x000001BA59AF7390&gt;, &lt;matplotlib.lines.Line2D object at 0x000001BA59AF7C50&gt;], 'means': []}
+## {'whiskers': [&lt;matplotlib.lines.Line2D object at 0x000001DFFFF92490&gt;, &lt;matplotlib.lines.Line2D object at 0x000001DFFFF925D0&gt;, &lt;matplotlib.lines.Line2D object at 0x000001DFFFF92D50&gt;, &lt;matplotlib.lines.Line2D object at 0x000001DFFFF92E90&gt;, &lt;matplotlib.lines.Line2D object at 0x000001DFFFF93610&gt;, &lt;matplotlib.lines.Line2D object at 0x000001DFFFF93750&gt;], 'caps': [&lt;matplotlib.lines.Line2D object at 0x000001DFFFF92710&gt;, &lt;matplotlib.lines.Line2D object at 0x000001DFFFF92850&gt;, &lt;matplotlib.lines.Line2D object at 0x000001DFFFF92FD0&gt;, &lt;matplotlib.lines.Line2D object at 0x000001DFFFF93110&gt;, &lt;matplotlib.lines.Line2D object at 0x000001DFFFF93890&gt;, &lt;matplotlib.lines.Line2D object at 0x000001DFFFF939D0&gt;], 'boxes': [&lt;matplotlib.lines.Line2D object at 0x000001DFFFF2A210&gt;, &lt;matplotlib.lines.Line2D object at 0x000001DFFFF92C10&gt;, &lt;matplotlib.lines.Line2D object at 0x000001DFFFF934D0&gt;], 'medians': [&lt;matplotlib.lines.Line2D object at 0x000001DFFFF92990&gt;, &lt;matplotlib.lines.Line2D object at 0x000001DFFFF93250&gt;, &lt;matplotlib.lines.Line2D object at 0x000001DFFFF93B10&gt;], 'fliers': [&lt;matplotlib.lines.Line2D object at 0x000001DFFFF92AD0&gt;, &lt;matplotlib.lines.Line2D object at 0x000001DFFFF93390&gt;, &lt;matplotlib.lines.Line2D object at 0x000001DFFFF93C50&gt;], 'means': []}
 ```
 
 &lt;img src="W-11_SIC_files/figure-html/n2z6wr-1.png" width="960" /&gt;
@@ -1116,6 +1116,8 @@ Interpretation:
 
 Regional averages are VERY different.
 
+.tiny[We multiply by 2 because there are 2 observations in each group, so the group mean's deviation from the overall mean is counted for each observation in that group.]
+
 ---
 # Final ANOVA Logic
 
@@ -1133,6 +1135,11 @@ So:
 
 $$
 SST = 437.5
+$$
+
+## To check: calculate SST directly:
+$$
+(70-72.5)^2 + (75-72.5)^2 + (60-72.5)^2 + (65-72.5)^2 + (80-72.5)^2 + (85-72.5)^2 = 437.5
 $$
 
 ---
