@@ -1,6 +1,7 @@
 ---
 title: "Financial Institutions and System"
 subtitle: "<br/>Week 11: The Foreign Exchange Market.<br/> The International Financial System."
+author: "Iegor Vyshnevskyi, Ph.D."
 institute: "Sogang University, Graduate School of International Studies"
 date: "May 14, 2026"
 output:

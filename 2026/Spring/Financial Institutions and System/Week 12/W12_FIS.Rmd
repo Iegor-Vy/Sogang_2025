@@ -1,0 +1,464 @@
+---
+title: "Financial Institutions and System"
+subtitle: "<br/>Week 13: ESG and Sustainable Finance: The Role of Financial Institutions in Promoting Sustainability."
+author: "Iegor Vyshnevskyi, Ph.D."
+institute: "Sogang University, Graduate School of International Studies"
+date: "May 14, 2026"
+output:
+  xaringan::moon_reader:
+    #css: [default, metropolis, metropolis-fonts]
+    css: xaringan-themer.css
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: '16:9'
+---
+
+<style>
+@media print{
+  body, html, .remark-slides-area, .remark-notes-area {
+    height: 100% !important;
+    width: 100% !important;
+    overflow: visible;
+    display: inline-block;
+    }
+}
+</style>
+
+<style type="text/css">
+.remark-slide-content {
+    font-size: 34px;
+    padding: 1em 4em 1em 4em;
+}
+</style>
+
+<style type="text/css">
+.my-one-page-font {
+  font-size: 28px;
+}
+</style>
+
+<style type="text/css">
+.my-one-page-font-table {
+  font-size: 24px;
+}
+</style>
+
+<style>
+.tiny { font-size: 60%; }      /* class you can reuse anywhere */
+</style>
+
+<style>
+.remark-slide-content {
+  position: relative;
+  z-index: 1;
+}
+
+.remark-slide-content::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 600px;          /* adjust size */
+  height: 600px;
+  background-image: url("1. 교장(Seal_Positive).png");  /* place logo file in same folder */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: 0.05;         /* watermark transparency */
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 0;
+}
+</style>
+
+
+```{r setup, include = FALSE}
+library(tidyverse)
+library(knitr)
+
+opts_chunk$set(fig.width = 10, 
+               message = FALSE, 
+               warning = FALSE,
+               echo = FALSE)
+```
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+#install.packages("xaringanthemer")
+library(xaringanthemer)
+style_mono_accent(
+  base_color = "#851a10",
+  header_font_google = google_font("Josefin Sans"),
+  text_font_google   = google_font("Montserrat", "500", "550i"),
+  code_font_google   = google_font("Fira Mono"),
+  colors = c(
+  red = "#f34213",
+  purple = "#3e2f5b",
+  orange = "#ff8811",
+  green = "#136f63",
+  white = "#FFFFFF"
+)
+)
+```
+
+
+# Agenda  
+
+1. ESG and Sustainable Finance: The Role of Financial Institutions in Promoting Sustainability  
+
+2. Class Activity
+
+---
+
+# Climate Change: It's Getting Warmer
+
+<div>
+.center[<img src="p1 copy.png" height="70%" width="70%">]
+</div>
+
+<span style="font-size: 60%;">(Source: Met Office Climate Dashboard)</span>
+
+- Global average temperatures continue to rise relative to pre-industrial levels.
+- Climate change is no longer a distant risk — it's a present reality.
+> 2023 and 2024 were among the warmest years on record globally.
+---
+
+# The Cost of Climate Disasters
+
+<div>
+.center[<img src="p2 copy.png" height="70%" width="70%">]
+</div>
+
+<span style="font-size: 60%;">(Source: Our World in Data based on EM-DAT)</span>
+
+- Disasters impose significant and rising economic costs relative to GDP.
+- Wildfires, floods, and storms cause both direct and indirect damage.
+> Economic losses are unevenly distributed, with emerging economies often more vulnerable.
+---
+
+# Financial System's Contribution
+
+<div>
+.center[<img src="p3 copy.png" height="70%" width="70%">]
+</div>
+
+<span style="font-size: 60%;">(Source: Banking on Climate Chaos Report 2025)</span>
+
+- Major global banks have continued to provide trillions of dollars in fossil-fuel financing since the Paris Agreement.
+- $7.9 trillion invested since the Paris Agreement.
+
+---
+
+
+class: inverse, center, middle
+
+# 1. ESG and Sustainable Finance: The Role of Financial Institutions in Promoting Sustainability
+
+---
+
+# Introduction: What is ESG and Sustainable Finance?
+
+- **ESG**: Environmental, Social, and Governance criteria used to evaluate corporate behavior
+  - ESG is one framework used within broader sustainable-finance practices.
+
+- **Sustainable Finance**: Financial activities that consider ESG factors to support long-term economic and societal well-being
+
+> "Sustainable finance integrates environmental, social, and governance considerations into financial decision-making, aiming to balance economic advancement with ecological preservation and social justice."
+
+---
+
+# Climate change = stress
+
+.center[<img src="p1.png" height="80%" width="80%">]
+.small[Source: RFI Global, MacroMonitor US Households Study]
+
+> Climate risk can affect both borrowers and financial institutions directly.
+
+---
+
+# Why ESG Matters in Finance
+
+- Reputational risk reduction (e.g., scandals, greenwashing)
+- Some studies suggest ESG may improve long-term resilience and risk management
+- Rising regulatory demands (EU taxonomy, SFDR)
+- Societal expectation: 40% of U.S. households would sacrifice some return for ESG-aligned investments
+
+.center[<img src="p2.png" height="60%" width="60%">]
+.small[Source: RFI Global, MacroMonitor US Households Study]
+
+---
+
+# ESG Principles Breakdown
+
+### Environmental
+- Climate risk management
+- Green investments
+- Sustainable resource use
+
+### Social
+- Financial inclusion
+- Labor rights
+- Community development
+
+### Governance
+- Transparency and disclosures
+- Anti-corruption
+- Board diversity
+- Executive compensation alignment
+- Shareholder rights
+
+---
+
+# ESG Integration: Methods Used
+
+- **ESG Ratings**: Evaluate ESG performance across firms
+
+- **Impact Investing**: Intentional investments generating measurable societal benefits
+
+- **Green/blue Bonds & Loans**: Fund environmentally beneficial projects
+
+- **ESG Indexes**: Used as benchmarks or to create ESG-focused portfolios
+
+.tiny[Blue bonds finance ocean and marine sustainability projects.]
+---
+
+# ESG Metrics in Practice
+
+.pull-left[
+.center[<img src="p7.png" height="90%" width="90%">]
+.small[Source: [Novisto](https://novisto.com/resources/blogs/understanding-esg-metrics-definition-examples)]
+]
+
+.pull-right[
+- ESG integration varies across sectors
+
+- Disclosure standards: GRI, SASB, TCFD
+
+- Governance typically has clearer measurement frameworks than social or environmental dimensions
+]
+
+> ESG ratings from different providers often disagree substantially, creating challenges for investors and companies alike.
+---
+
+# ESG Investing Market Overview
+
+.center[<img src="p5.png" height="90%" width="90%">]
+.small[Source: [Grand View Research](https://www.grandviewresearch.com/industry-analysis/esg-investing-market-report)]
+
+.tiny[Global ESG market estimates vary significantly depending on methodology and classification.]
+---
+
+# ESG Investing Market Overview (cont.)
+
+.center[<img src="p6.png" height="90%" width="90%">]
+.small[Source: [Grand View Research](https://www.grandviewresearch.com/industry-analysis/esg-investing-market-report)]
+
+---
+
+# Investor Landscape in ESG
+
+- **Institutional Investors (55.7%)** dominate ESG investing due to risk management and fiduciary duty
+
+- **Retail Investors** gaining ground via ESG-themed ETFs and robo-advisors
+
+> Online platforms and fintech apps democratize ESG investing for individuals
+
+.tiny[Institutional investors often integrate ESG partly because climate and governance risks may affect long-term portfolio value.]
+---
+
+# Financial Institutions as ESG Catalysts
+
+### Banking Sector
+- Green deposits
+- Sustainable infrastructure financing
+- Transition financing for carbon-intensive sectors
+
+### Investment Sector
+- ESG ETFs and mutual funds
+- Stewardship and shareholder engagement
+
+> Large global financial institutions increasingly offer ESG-linked products and transition-finance initiatives
+
+---
+
+# Consumer Expectations and Sentiment
+
+.center[<img src="p2_3.jpg" height="60%" width="60%">]
+
+- Younger investors (<40) show stronger preference for ESG
+- ESG values shape client loyalty and product design
+- Transparency and social impact are now competitive advantages
+
+---
+
+# Global ESG Policy and Practice Trends
+
+- Rise of climate-related financial risk disclosures
+
+- EU Sustainable Finance Disclosure Regulation (SFDR)
+
+- Sovereign green bonds (India, EU, others)
+
+- Global ESG market estimated at $35 trillion+ assets under management
+
+- ISSB (IFRS S1 and S2) standards are becoming a major global framework for sustainability and climate disclosures
+
+- Importance of financing transition of carbon-intensive sectors
+
+> ESG adoption is now seen as essential to financial and economic stability, though some countries and U.S. states have also seen anti-ESG political backlash
+
+---
+
+# Case: ESG During and After COVID-19
+
+.pull-left[
+**During the crisis (2020–2021)**
+- Short-term survival overrode long-term ESG commitments
+- Many firms paused sustainability reporting and green investments
+- Supply chain disruptions exposed social governance gaps
+
+**Post-pandemic rebound (2022–present)**
+- Resilience and stakeholder capitalism moved to center stage
+- ESG AUM surged as investors reassessed systemic risks
+- "S" factor gained prominence: labor rights, health equity, digital access
+]
+
+.pull-right[
+**Key lessons for financial institutions**
+- ESG frameworks must be **crisis-resilient**, not crisis-contingent
+- Climate risk and pandemic risk share structural similarities
+- Firms with strong ESG foundations showed faster recovery
+
+> "COVID-19 did not derail ESG — it stress-tested it and revealed its importance."
+]
+
+---
+
+# ESG in Central Banks and Regulation
+
+- **ECB**: ECB increasingly integrates climate-related financial risk into supervision, stress testing, and collateral frameworks
+
+- **RBI (India)**: Draft Disclosure Framework on Climate-related Risks (2024), Green Bond issuance
+
+- **NGFS**: Global platform for green central banking
+
+- **ESG Reporting**: Alignment with GRI, TCFD, EU CSRD
+
+> Regulatory clarity drives better ESG integration and accountability
+> ESG in financial regulation is becoming mandatory, not optional
+> Climate stress testing is becoming increasingly common among central banks and regulators
+
+---
+# Challenges and Criticism of ESG
+
+- ESG ratings often differ across providers
+
+- Risk of greenwashing and misleading disclosures
+
+- Difficulty measuring social and environmental impact
+
+- Debate over whether ESG improves returns
+
+- Political backlash against ESG in some countries
+
+- Tension between sustainability goals and energy security
+
+> ESG remains an evolving and contested framework.
+---
+
+# Summary & Discussion
+
+- ESG is reshaping how banks and asset managers operate
+
+- Regulation, data, and consumer pressure drive ESG adoption
+
+- Financial institutions play a central role in steering capital toward sustainability
+
+- ESG is not just risk mitigation—it’s also opportunity creation
+
+- ESG implementation remains controversial because of measurement challenges, greenwashing concerns, and political disagreements
+
+---
+
+# Q&A and Reflection
+
+- What is the biggest challenge to ESG integration?
+
+- Which ESG factor (E, S, G) is most critical in your context?
+
+- How should regulators ensure transparency without stifling innovation?
+
+---
+
+# Used resources
+
+- Mishkin, F. S. (2021). *Economics of Money, Banking, and Financial Markets*, 12th Edition
+- Zairis (2024) *Sustainable Finance and ESG Importance*
+- RFI Global MacroMonitor Reports
+- Dan Byrne, *Guide to ESG in the Finance Sector*
+- Grand View Research ESG Market Reports
+
+---
+
+class: inverse, center, middle
+
+# 2. Class Activity
+
+---
+class: my-one-page-font
+# Looking Ahead: Course Roadmap
+
+We are entering the final phase of the course. Here's what's coming:
+
+## Session Schedule & Topics
+
+- **(May 28) FinTech Revolution**
+  - Guest Speaker (in-person)
+  - How technology is reshaping financial services
+
+- **(June 4) AI & Machine Learning in Finance**
+  - Guest Speaker (online)
+  - Final Exam Review Session
+
+- **(June 11) Student Project Presentations**
+  - Showcase your applied research and insights
+
+- **(June 18) Final Examination**
+  - Comprehensive assessment of course material
+
+---
+
+class: inverse, center, middle
+
+# Any Questions?
+
+## Thank you for your attention and participation! 
+
+
+???
+1. To print pdf slides
+https://stackoverflow.com/questions/54968311/xaringan-export-slides-to-pdf-while-preserving-formatting
+
+pagedown::chrome_print("W1_ME.html") # but not all pictures are visible
+
+2. Option: https://stackoverflow.com/questions/54968311/xaringan-export-slides-to-pdf-while-preserving-formatting
+
+install.packages("remotes")
+remotes::install_github("jhelvy/xaringanBuilder")
+remotes::install_github("jhelvy/renderthis@v0.0.9")
+
+library(xaringanBuilder)
+build_pdf("DVC.html")
+
+3. Option
+writeBin(as.raw(c()), "favicon.ico") # create an empty favicon.ico file
+install.packages("renderthis")
+remotes::install_github('rstudio/chromote')
+library(renderthis)
+
+renderthis::to_pdf("W12_FIS.html")
+
+getwd()
+setwd("C:\\Users\\vyshn\\OneDrive - kdis.ac.kr\\Documents\\GitHub\\Sogang\\2026\\Spring\\Financial Institutions and System\\Week 12")
