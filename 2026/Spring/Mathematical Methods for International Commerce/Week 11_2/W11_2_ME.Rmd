@@ -291,7 +291,6 @@ $$
 Objective: Maximize profit given the constraint that the total output is 15 units.
 
 ---
-
 # Step 1: Formulate the Lagrangian
 
 Objective function (Profit):
@@ -321,12 +320,15 @@ Profit function:
 $$
 \pi = 50Q_1 - Q_1^2 + 3Q_1Q_2 + 30Q_2 - Q_2^2 - (10Q_1 + Q_1Q_2 + 10Q_2)
 $$
+---
+# Step 1: Formulate the Lagrangian (continued)
 
 Simplify:
 
 $$
 \pi = 40Q_1 - Q_1^2 + 2Q_1Q_2 + 20Q_2 - Q_2^2
 $$
+
 
 Constraint/Production quota:
 
@@ -527,8 +529,9 @@ Good luck!
 ## Next Classes
 
 - (May 19) Indefinite Integration (6.1) 
-   - Home Work #2 announcement
+
 - (May 26) Quiz #2
+  - Covers materials after Midterm Exam
 ---
 
 class: inverse, center, middle
