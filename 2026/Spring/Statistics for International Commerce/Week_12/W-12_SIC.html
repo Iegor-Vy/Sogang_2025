@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Statistics for International Commerce</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Iegor Vyshnevskyi, Ph.D." />
+    <script src="libs/header-attrs-2.29/header-attrs.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Statistics for International Commerce
+]
+.subtitle[
+## Week 12: Correlation and Simple Linear Regression
+]
+.author[
+### Iegor Vyshnevskyi, Ph.D.
+]
+.institute[
+### Sogang University, Geppert School of International Studies
+]
+.date[
+### May 19/21, 2026
+]
+
+---
+
+
+&lt;style&gt;
+@media print{
+  body, html, .remark-slides-area, .remark-notes-area {
+    height: 100% !important;
+    width: 100% !important;
+    overflow: visible;
+    display: inline-block;
+    }
+}
+&lt;/style&gt;
+
+&lt;style type="text/css"&gt;
+.remark-slide-content {
+    font-size: 34px;
+    padding: 1em 4em 1em 4em;
+}
+&lt;/style&gt;
+
+&lt;style type="text/css"&gt;
+.my-one-page-font {
+  font-size: 28px;
+}
+&lt;/style&gt;
+
+&lt;style type="text/css"&gt;
+.my-one-page-font-table {
+  font-size: 24px;
+}
+&lt;/style&gt;
+
+&lt;style&gt;
+.tiny { font-size: 60%; }      /* class you can reuse anywhere */
+&lt;/style&gt;
+
+&lt;style&gt;
+.remark-slide-content {
+  position: relative;
+  z-index: 1;
+}
+
+.remark-slide-content::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 600px;          /* adjust size */
+  height: 600px;
+  background-image: url("1. 교장(Seal_Positive).png");  /* place logo file in same folder */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: 0.05;         /* watermark transparency */
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 0;
+}
+&lt;/style&gt;
+
+
+
+
+
+
+# Agenda
+
+* relationships between variables
+
+* correlation
+
+* regression line
+
+* prediction
+
+* interpretation
+
+---
+
+# Learning Objectives
+
+After this lecture, you should be able to:
+
+* explain correlation
+
+* interpret correlation coefficients
+
+* estimate a simple regression model
+
+* interpret slope and intercept
+
+* evaluate model fit
+
+* use regression for business decisions
+
+---
+
+# Motivation
+
+A company asks:
+
+&gt; “Does advertising increase sales?”
+
+We want to study the relationship between:
+
+* advertising spending
+* sales revenue
+
+---
+
+# Correlation vs Regression
+.pull-left[
+## Correlation
+
+Measures:
+
+* strength of relationship
+
+* direction of relationship
+]
+.pull-right[
+## Regression
+
+Builds an equation:
+
+* predicts one variable from another
+
+* quantifies how much one variable changes when the other changes
+]
+---
+
+# Scatterplot
+
+The first step is usually:
+
+## visualize the relationship
+
+&lt;div&gt;
+.center[
+&lt;img src="p14.png" width="50%"&gt;
+]
+
+&lt;/div&gt;
+
+---
+# Example: Simulated Data &amp; Scatterplot
+
+
+
+```
+##    advertising       sales
+## 0    54.967142  195.978423
+## 1    48.617357  168.422595
+## 2    56.476885  187.695932
+## 3    65.230299  211.174340
+## 4    47.658466  140.797569
+```
+
+&lt;img src="W-12_SIC_files/figure-html/unnamed-chunk-3-1.png" width="960" /&gt;
+
+---
+class: inverse, center, middle
+
+# Correlation
+
+---
+# Correlation
+
+Correlation measures:
+
+* strength
+* direction
+
+of a linear relationship.
+
+Correlation analysis examines the relationship between two quantitative variables.
+
+*Core question:*
+
+&gt; Does the data indicate a linear relationship between the two variables?
+
+
+---
+
+# Correlation Coefficient
+
+The correlation coefficient is denoted by:
+.pull-left[
+$$
+r \quad \text{(sample)}
+$$
+]
+.pull-right[
+$$
+\rho \quad \text{(population)}
+$$
+]
+
+Definition:
+
+.pull-left[
+$$
+r = \frac{s_{xy}}{s_x s_y}
+$$
+]
+.pull-right[
+$$
+\rho = \frac{\sigma_{xy}}{\sigma_x \sigma_y}
+$$
+]
+
+Here, `\(s_{xy}\)` and `\(\sigma_{xy}\)` are sample and population covariance, respectively.
+
+.tiny[Covariance measures how two variables vary together. A positive covariance indicates that the variables tend to increase together, while a negative covariance indicates that one variable tends to increase when the other decreases. The correlation coefficient standardizes this measure by dividing by the product of the standard deviations, giving a value between -1 and 1 that is easier to interpret.]
+---
+# Correlation Coefficient (cont.)
+ (cont.)
+
+&lt;div&gt;
+.center[
+&lt;img src="p1.png" width="90%"&gt;
+]
+
+&lt;/div&gt;
+
+---
+
+# Interpretation of Correlation Coefficient
+
+It ranges from -1 up to and including +1.
+
+
+| Value of r | Interpretation               |
+| ---------- | ---------------------------- |
+| Near +1    | strong positive relationship |
+| Near -1    | strong negative relationship |
+| Near 0     | weak linear relationship     |
+
+
+The coefficient of correlation measures the direction and strength of the linear relationship between two quantitative variables.
+
+---
+# Interpretation of Correlation Coefficient (cont.)
+
+&lt;div&gt;
+.center[
+&lt;img src="p2.png" width="70%"&gt;
+]
+
+&lt;/div&gt;
+
+---
+# Interpretation of Correlation Coefficient (cont.)
+
+&lt;div&gt;
+.center[
+&lt;img src="p3.png" width="70%"&gt;
+]
+
+&lt;/div&gt;
+
+---
+# Example: Compute Correlation
+
+
+``` python
+corr = df["advertising"].corr(df["sales"])
+
+print(f"Correlation coefficient: {corr}")
+```
+
+```
+## Correlation coefficient: 0.8769243576088251
+```
+
+## Interpretation
+
+Positive correlation means:
+
+* larger advertising spending
+
+* tends to be associated with larger sales
+
+---
+
+# Important Warning
+
+## Correlation does NOT imply causation
+
+Two variables may move together because:
+
+* one affects the other
+
+* another hidden factor affects both
+
+* coincidence
+
+*For example, ice cream sales and number of K-pop concerts may both increase during summer months, but one does not cause the other.*
+
+---
+# Correlation Analysis – Example
+
+The sales manager of Copier Sales of America wants to evaluate whether monthly sales calls are related to monthly copier sales.
+
+A random sample of 15 sales representatives is selected, and for each representative the manager records:
+
+* number of sales calls last month
+* number of copiers sold last month
+
+*Goal*: test whether sales calls and copiers sold are correlated at `\(\alpha = 0.05\)`.
+
+&lt;div&gt;
+.center[
+&lt;img src="p4.png" width="65%"&gt;
+]
+
+&lt;/div&gt;
+
+---
+# Correlation Analysis – Example (cont.)
+
+Step 1: State the null and alternate hypotheses.
+
+$$
+H_0: \rho = 0
+$$
+
+$$
+H_1: \rho \ne 0
+$$
+
+Step 2: Select a level of significance.
+
+$$
+\alpha = 0.05
+$$
+
+Step 3: Identify the test statistic.
+
+For testing a correlation coefficient, use:
+
+$$
+t = \frac{r\sqrt{n-2}}{\sqrt{1-r^2}}, \qquad df = n-2,
+$$
+where `\(n\)` is the sample size and `\(r\)` is the sample correlation coefficient.
+
+---
+# Correlation Analysis – Example (cont.)
+Step 4: Formulate a decision rule. 
+
+For a two-tailed test, reject `\(H_0\)` if:
+
+
+$$
+\lvert t \rvert &gt; t_{\alpha/2,\,n-2}
+$$
+
+With `\(n=15\)`, `\(df=13\)` and `\(\alpha/2=0.025\)`:
+
+
+$$
+\lvert t \rvert &gt; t_{0.025,13}
+$$
+
+(That is, `\(t\)` is greater than the critical value `\(t_{\alpha/2, n-2}\)` or less than `\(-t_{\alpha/2, n-2}\)`.)
+
+$$
+\lvert t \rvert &gt; 2.160
+$$
+
+&lt;div&gt;
+.center[
+&lt;img src="p5.png" width="30%"&gt;
+]
+
+&lt;/div&gt;
+
+---
+# Correlation Analysis – Example (cont.)
+Step 5: Take a sample, calculate the statistics, arrive at a decision.   
+
+&lt;div&gt;
+.center[
+&lt;img src="p6.png" width="90%"&gt;
+]
+
+&lt;/div&gt;
+
+---
+# Correlation Analysis – Example (cont.)
+
+Step 5 (continued): Take a sample, calculate the statistics, arrive at a decision.   
+
+
+&lt;div&gt;
+.center[
+&lt;img src="p7.png" width="60%"&gt;
+]
+
+&lt;/div&gt;
+
+Step 6: Interpret the result.
+
+The data indicate a statistically significant correlation between sales calls and copiers sold.
+
+The sample correlation is `\(r = 0.865\)`, which suggests a strong positive linear relationship.
+
+In practical terms, representatives who make more sales calls tend to sell more copiers.
+
+*Important*: this result indicates association, not causation. *A different study design is required to establish causal effects.*
+---
+class: inverse, center, middle
+
+# Simple Linear Regression
+
+---
+# Example
+
+* Assume a linear relationship between home size (square feet) and January heating cost.
+
+Question:
+
+How does heating cost change as home size increases?
+
+
+* In a study of automobile fuel efficiency, assume a linear relationship between miles per gallon (MPG) and vehicle weight.
+
+Question:
+
+How does MPG change as vehicle weight increases?
+
+
+&gt; In both cases, the slope of the regression line tells us the expected change in the response variable for a one-unit increase in the explanatory variable.
+
+---
+# Regression Analysis: Variables
+
+In simple linear regression:
+
+* `\(Y\)`: dependent (response) variable to be predicted
+* `\(X\)`: independent (predictor) variable used for prediction
+
+Examples:
+
+* Home heating: `\(Y=\mathrm{Heating\ Cost}\)`, `\(X=\mathrm{Home\ Size}\)`
+
+$$
+  \mathrm{Heating\ Cost} = a + b(\mathrm{Home\ Size})
+$$
+
+* Fuel efficiency: `\(Y=\mathrm{MPG}\)`, `\(X=\mathrm{Car\ Weight}\)`
+
+$$
+  \mathrm{MPG} = a + b(\mathrm{Car\ Weight})
+$$
+---
+
+# Simple Linear Regression: General Form
+
+Goal: estimate the line that best predicts `\(Y\)` from `\(X\)`.
+
+$$
+\hat{y} = a + bX
+$$
+
+* `\(Y\)`: dependent (response) variable
+* `\(X\)`: independent (predictor) variable
+* `\(a\)` (intercept): expected value of `\(Y\)` when `\(X=0\)`
+* `\(b\)` (slope): expected change in `\(Y\)` for a 1-unit increase in `\(X\)`
+* `\(\hat{y}\)`: predicted value of `\(Y\)` based on the regression line
+
+Least Squares Principle:
+
+$$
+	\text{Choose } a \text{ and } b \text{ to minimize } \sum_{i=1}^{n}(y_i-a-bx_i)^2
+$$
+
+&lt;div&gt;
+.center[
+&lt;img src="p8.png" width="48%"&gt;
+]
+
+&lt;/div&gt;
+
+---
+
+# Business Interpretation
+
+Example:
+
+$$
+Sales = 20 + 3 \times Advertising
+$$
+
+Interpretation:
+
+* each additional unit of advertising
+
+* increases expected sales by 3 units
+
+---
+# Regression Analysis – Example
+
+Using the Copier Sales of America data, estimate a simple linear regression model with least squares.
+
+* `\(X\)`: number of sales calls (independent variable)
+* `\(Y\)`: number of copiers sold (dependent variable)
+
+Question: What is the expected number of copiers sold when a representative makes 20 calls?
+
+&lt;div&gt;
+.center[
+&lt;img src="p9.png" width="60%"&gt;
+]
+
+&lt;/div&gt;
+
+---
+# Regression Analysis – Example (cont.)
+## Descriptive statistics &amp; Correlation coefficient
+
+
+&lt;div&gt;
+.center[
+&lt;img src="p10.png" width="60%"&gt;
+]
+
+&lt;/div&gt;
+
+---
+
+# Regression Analysis – Example (cont.)
+Step 1: Estimate the slope `\(b\)`.
+&lt;div&gt;
+.center[
+&lt;img src="p11.png" width="48%"&gt;
+]
+
+&lt;/div&gt;
+
+Step 2: Estimate the intercept `\(a\)`.
+&lt;div&gt;
+.center[
+&lt;img src="p12.png" width="48%"&gt;
+]
+
+&lt;/div&gt;
+
+Step 3: Write the regression equation.
+
+$$
+\widehat{\text{Copiers Sold}} = 19.9632 + 0.2608(\text{Sales Calls})
+$$
+
+Step 4: Predict sales for 20 calls.
+
+$$
+\widehat{\text{Copiers Sold}} = 19.9632 + 0.2608(20) = 25.1792
+$$
+
+---
+# Regression Analysis: Testing the Significance of the Slope – Example
+Step 1: State the null and alternate hypotheses.
+.pull-left[
+$$
+H_0: \beta_1 = 0
+$$
+]
+.pull-right[
+$$
+H_1: \beta_1 \ne 0
+$$
+]
+
+Step 2: Select a level of significance.
+
+$$
+\alpha = 0.05
+$$
+
+Step 3: Identify the test statistic.
+
+Use the slope t-test:
+
+$$
+t = \frac{b_1}{SE(b_1)} \sim t(n-2)
+$$
+
+---
+# Regression Analysis: Testing the Significance of the Slope – Example
+
+Step 4: Formulate a decision rule.
+
+For a two-tailed test, reject `\(H_0\)` if:
+
+$$
+\lvert t \rvert &gt; t_{\alpha/2,\,n-2}
+$$
+
+With `\(n=15\)` (`\(df=13\)`):
+
+$$
+\lvert t \rvert &gt; t_{0.025,13}
+$$
+
+$$
+\lvert t \rvert &gt; 2.160
+$$
+
+---
+# Regression Analysis: Testing the Significance of the Slope – Example (cont.)
+
+Step 5: Use the sample output (Excel/ANOVA table) and make a decision.
+
+&lt;div&gt;
+.center[
+&lt;img src="p13.png" width="60%"&gt;
+]
+
+&lt;/div&gt;
+
+Decision: Reject `\(H_0\)`. The slope is statistically different from zero.
+---
+# Regression Analysis: Testing the Significance of the Slope – Example (cont.)
+
+
+Step 6: Interpret the result.
+
+The estimated slope is about `\(0.2606\)`, so each additional sales call is associated with an increase of about `\(0.2606\)` copiers sold, on average.
+
+If sales calls increase by 10, predicted copier sales increase by about `\(2.606\)`.
+
+As with correlation analysis, this does not by itself establish causality. Causal interpretation requires stronger assumptions (for example, no correlation between `\(X\)` and the error term).
+---
+
+
+# Estimating the Model in Python
+
+
+```
+## R-squared: 0.769
+```
+
+```
+## Adj. R-squared: 0.763
+```
+
+```
+## F-statistic p-value: 1.18e-13
+```
+
+```
+## Coefficient Summary
+```
+
+```
+##                coef  std err       t  p-value
+## Intercept    32.688   11.809   2.768    0.009
+## Advertising   2.726    0.242  11.247    0.000
+```
+
+## Important Output
+
+Focus on:
+
+* coefficients
+* p-values
+* R-squared
+
+---
+
+# Regression Line
+
+&lt;img src="W-12_SIC_files/figure-html/unnamed-chunk-6-3.png" width="960" /&gt;
+
+---
+
+# Interpreting the Slope
+
+Suppose:
+
+$$
+b = 3.2
+$$
+
+Interpretation:
+
+For each additional unit of advertising spending,
+expected sales increase by approximately 3.2 units.
+
+---
+
+# Coefficient of Determination: R-Squared
+.pull-left[
+R-squared measures:
+
+&gt; how much variation in y is explained by x
+
+## Interpretation of R-Squared
+
+| R²     | Meaning                  |
+| ------ | ------------------------ |
+| Near 0 | weak explanatory power   |
+| Near 1 | strong explanatory power |
+]
+
+.pull-right[
+## Example
+
+If:
+
+$$
+R^2 = 0.70
+$$
+
+Interpretation:
+
+70% of variation in sales is explained by advertising.
+]
+---
+
+# Prediction Example
+
+Suppose:
+
+$$
+Sales = 20 + 3x
+$$
+
+If advertising = 15:
+
+$$
+Sales = 20 + 3(15)
+$$
+
+$$
+= 65
+$$
+
+---
+
+# Residuals
+.pull-left[
+Residual:
+
+$$
+e = y - \hat{y}
+$$
+
+Meaning:
+
+* prediction error
+
+## Visual Intuition
+
+Residuals are:
+
+* vertical distances
+* between actual points and regression line
+]
+.pull-right[
+## Why Residuals Matter
+
+Large residuals may indicate:
+
+* poor predictions
+* missing variables
+* unusual observations
+]
+---
+
+# Example: Residual Plot
+
+&lt;img src="W-12_SIC_files/figure-html/unnamed-chunk-7-5.png" width="960" /&gt;
+
+It shows that residuals are randomly scattered around zero, suggesting a good fit.
+---
+
+# Assumptions (Simplified)
+
+Regression works best when:
+
+* relationship is roughly linear
+
+* residuals are random
+
+* observations are independent
+
+---
+
+# Business Applications
+
+Regression is widely used for:
+
+* sales forecasting
+
+* pricing analysis
+
+* demand estimation
+
+* customer analytics
+
+* financial analysis
+
+---
+
+# Example Business Questions
+
+* Does advertising affect sales?
+
+* Does delivery time affect customer ratings?
+
+* Does discount rate increase demand?
+
+---
+
+# Common Mistakes
+
+* assuming correlation means causation
+
+* extrapolating too far outside data range
+
+* ignoring outliers
+
+* focusing only on R²
+
+---
+
+# Correlation vs Regression
+
+| Correlation           | Regression             |
+| --------------------- | ---------------------- |
+| measures relationship | predicts outcome       |
+| symmetric             | directional            |
+| no dependent variable | has dependent variable |
+
+---
+class: inverse, center, middle
+
+# In-class Practice
+---
+
+# In-Class Practice
+
+Please open Week 12 lab in Colab and follow the instructions to practice with real data.
+
+---
+
+# Final Idea
+
+Regression helps transform:
+
+## data → prediction → decision
+
+# One Sentence Summary
+
+**Correlation measures relationships, whileRegression builds predictive models.**
+
+
+---
+
+# Next week
+
+*(May 26)* Special Lecture: Modern Analytics Workflow in Business and Research  
+
+*(May 28)* Quiz #2 
+
+---
+
+class: inverse, center, middle
+
+# Any questions?
+
+# Thank you for your attention and active participation!
+
+
+
+???
+1. To print pdf slides
+https://stackoverflow.com/questions/54968311/xaringan-export-slides-to-pdf-while-preserving-formatting
+
+pagedown::chrome_print("W-11_SIC.html") # but not all pictures are visible
+
+2. Option: https://stackoverflow.com/questions/54968311/xaringan-export-slides-to-pdf-while-preserving-formatting
+
+install.packages("remotes")
+remotes::install_github("jhelvy/xaringanBuilder")
+remotes::install_github("jhelvy/renderthis@v0.0.9")
+
+library(xaringanBuilder)
+build_pdf("W-11_SIC.html")
+
+3. Option
+writeBin(as.raw(c()), "favicon.ico") # create an empty favicon.ico file
+install.packages("renderthis")
+remotes::install_github('rstudio/chromote')
+library(renderthis)
+
+renderthis::to_pdf("W-12_SIC.html")
+
+getwd()
+setwd("C:\\Users\\vyshn\\OneDrive - kdis.ac.kr\\Documents\\GitHub\\Sogang\\2026\\Spring\\Statistics for International Commerce\\Week_12")
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+  "highlightStyle": "github",
+  "highlightLines": true,
+  "countIncrementalSlides": false,
+  "ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

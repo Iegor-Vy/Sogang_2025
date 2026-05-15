@@ -1,9 +1,9 @@
 ---
 title: "Statistics for International Commerce"
-subtitle: "Week 11: Analysis of variance (ANOVA)"
+subtitle: "Week 12: Correlation and Simple Linear Regression"
 author: "Iegor Vyshnevskyi, Ph.D."
 institute: "Sogang University, Geppert School of International Studies"
-date: "May 12/14, 2026"
+date: "May 19/21, 2026"
 output:
   xaringan::moon_reader:
     #css: $$default, metropolis, metropolis-fonts$$
@@ -110,15 +110,15 @@ style_mono_accent(
 
 # Agenda
 
-* why start with the F-distribution
+* relationships between variables
 
-* testing equality of two population variances
+* correlation
 
-* transition: from variance testing to ANOVA
+* regression line
 
-* one-way ANOVA (logic + implementation)
+* prediction
 
-* business interpretation
+* interpretation
 
 ---
 
@@ -126,140 +126,196 @@ style_mono_accent(
 
 After this lecture, you should be able to:
 
-* explain why ANOVA is needed
+* explain correlation
 
-* conduct a one-way ANOVA
+* interpret correlation coefficients
 
-* interpret ANOVA output
+* estimate a simple regression model
 
-* understand the F-statistic
+* interpret slope and intercept
 
-* apply ANOVA in business settings
+* evaluate model fit
 
----
-
-# Why We Start with Two-Variance Testing
-
-ANOVA relies on the F-distribution, which is built from variance ratios.
-
-So we begin with a two-variance F-test to build intuition.
-
-This helps students see:
-
-* what an F ratio measures
-* how degrees of freedom affect the critical value
-* how a variance-based test leads naturally to ANOVA
-
-Then we extend that same F logic from comparing variances to comparing means.
+* use regression for business decisions
 
 ---
 
-# Testing the Hypothesis of Two Equal Population Variances: The F Distribution
+# Motivation
 
-The F distribution is named after Sir Ronald Fisher, one of the founders of modern statistics.
+A company asks:
 
-It is used to:
+> “Does advertising increase sales?”
 
-* test whether two population variances are equal
+We want to study the relationship between:
 
-$$
-\frac{s_1^2}{s_2^2} \sim F(n_1-1, n_2-1)
-$$
-
-* test whether several population means are equal (ANOVA)
-
-*What is variance?* 
-> It measures how far observations are spread around the mean.
-
-*Why do we care about variances?* 
-> Because they tell us about the consistency or variability of data, which is crucial for understanding differences between groups. 
+* advertising spending
+* sales revenue
 
 ---
 
-# Characteristics of a F-Distribution
-
+# Correlation vs Regression
 .pull-left[
-* There is a family of F-distributions.
+## Correlation
 
-* An F statistic is always a ratio (numerator / denominator).
+Measures:
 
-* A specific F-distribution is determined by two degrees of freedom:
-  * numerator df
-  * denominator df
+* strength of relationship
 
-* The F-distribution is continuous.
-
-* F-values cannot be negative.
-
-* The F-distribution is positively skewed.
-
-* It is asymptotic: as $F \to \infty$, the curve approaches the x-axis but never touches it.
-
+* direction of relationship
 ]
-
 .pull-right[
+## Regression
+
+Builds an equation:
+
+* predicts one variable from another
+
+* quantifies how much one variable changes when the other changes
+]
+---
+
+# Scatterplot
+
+The first step is usually:
+
+## visualize the relationship
+
 <div>
 .center[
-<img src="p1.png" width="70%">
+<img src="p14.png" width="50%">
 ]
 
 </div>
+
+---
+# Example: Simulated Data & Scatterplot
+```{python, id="py_setup", echo=FALSE}
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from scipy import stats
+import statsmodels.api as sm
+```
+
+```{python, id="a5m7qw"}
+np.random.seed(42)
+
+advertising = np.random.normal(50, 10, 40)
+
+sales = 20 + 3*advertising + np.random.normal(0, 15, 40)
+
+df = pd.DataFrame({
+    "advertising": advertising,
+    "sales": sales
+})
+
+df.head()
+```
+
+```{python, id="p4w9tk"}
+plt.scatter(df["advertising"], df["sales"])
+
+plt.xlabel("Advertising Spending")
+plt.ylabel("Sales Revenue")
+plt.title("Advertising vs Sales")
+
+plt.show()
+```
+
+---
+class: inverse, center, middle
+
+# Correlation
+
+---
+# Correlation
+
+Correlation measures:
+
+* strength
+* direction
+
+of a linear relationship.
+
+Correlation analysis examines the relationship between two quantitative variables.
+
+*Core question:*
+
+> Does the data indicate a linear relationship between the two variables?
+
+
+---
+
+# Correlation Coefficient
+
+The correlation coefficient is denoted by:
+.pull-left[
+$$
+r \quad \text{(sample)}
+$$
+]
+.pull-right[
+$$
+\rho \quad \text{(population)}
+$$
 ]
 
----
-
-# Testing the Hypothesis of Two Equal Population Variances
-
-The F-distribution tests whether the variance of one normal population equals the variance of another.
-
-$$
-H_0: \sigma_1^2 = \sigma_2^2
-$$
-
-$$
-H_1: \sigma_1^2 \ne \sigma_2^2
-$$
-
-It tells us whether the variability in one group is significantly different from the variability in another group.
-
----
-
-# Testing the Hypothesis of Two Equal Population Variances
-
-Examples:
-
-* Two shearing machines produce bars with the same target length. We test whether production variability is also the same.
-
-* Two stock portfolios have similar average returns. We test whether return variability differs (for example, technology stocks vs utility stocks).
-
-* Men and women may spend similar average time reading a newspaper, but one group may show much larger variation in reading time.
-
----
-# Testing the Hypothesis of Two Equal Population Variances – Example
+Definition:
 
 .pull-left[
-Lammers Limos offers service from Toledo city hall to Metro Airport in Detroit.
-
-The company president is comparing two routes: U.S. 25 and I-75.
-
-He collected sample travel times (in minutes) for each route.
-
-At $\alpha = 0.10$, test whether the travel-time variation differs between the two routes.
+$$
+r = \frac{s_{xy}}{s_x s_y}
+$$
+]
+.pull-right[
+$$
+\rho = \frac{\sigma_{xy}}{\sigma_x \sigma_y}
+$$
 ]
 
-.pull-right[
+Here, $s_{xy}$ and $\sigma_{xy}$ are sample and population covariance, respectively.
+
+.tiny[Covariance measures how two variables vary together. A positive covariance indicates that the variables tend to increase together, while a negative covariance indicates that one variable tends to increase when the other decreases. The correlation coefficient standardizes this measure by dividing by the product of the standard deviations, giving a value between -1 and 1 that is easier to interpret.]
+---
+# Correlation Coefficient (cont.)
+ (cont.)
+
+<div>
+.center[
+<img src="p1.png" width="90%">
+]
+
+</div>
+
+---
+
+# Interpretation of Correlation Coefficient
+
+It ranges from -1 up to and including +1.
+
+
+| Value of r | Interpretation               |
+| ---------- | ---------------------------- |
+| Near +1    | strong positive relationship |
+| Near -1    | strong negative relationship |
+| Near 0     | weak linear relationship     |
+
+
+The coefficient of correlation measures the direction and strength of the linear relationship between two quantitative variables.
+
+---
+# Interpretation of Correlation Coefficient (cont.)
+
 <div>
 .center[
 <img src="p2.png" width="70%">
 ]
 
 </div>
-]
 
 ---
-# Testing the Hypothesis of Two Equal Population Variances – Example
+# Interpretation of Correlation Coefficient (cont.)
 
-Compute the sample means and variances:
 <div>
 .center[
 <img src="p3.png" width="70%">
@@ -268,127 +324,120 @@ Compute the sample means and variances:
 </div>
 
 ---
-# Testing the Hypothesis of Two Equal Population Variances – Example
+# Example: Compute Correlation
 
-Step 1: State the hypotheses.
+```{python, id="u8f2mc", echo=TRUE}
+corr = df["advertising"].corr(df["sales"])
 
-$$
-H_0: \sigma_1^2 = \sigma_2^2
-$$
+print(f"Correlation coefficient: {corr}")
+```
 
-$$
-H_1: \sigma_1^2 \ne \sigma_2^2
-$$
+## Interpretation
 
-Step 2: Choose the significance level.
+Positive correlation means:
 
-$$
-\alpha = 0.10
-$$
+* larger advertising spending
 
-Step 3: Select the test statistic.
-
-Use the ratio of sample variances, placing the larger variance in the numerator:
-
-$$
-F = \frac{s_1^2}{s_2^2} \sim F(n_1-1, n_2-1)
-$$
+* tends to be associated with larger sales
 
 ---
 
-# Testing the Hypothesis of Two Equal Population Variances – Example
-.pull-left[
-Step 4: State the decision rule.
+# Important Warning
 
-For a two-tailed test of variances:
+## Correlation does NOT imply causation
 
-Reject $H_0$ if $F > F_{\alpha/2, v_1, v_2}$.
+Two variables may move together because:
 
-Substitute values:
+* one affects the other
 
-$F > F_{0.10/2, 7-1, 8-1} = F_{0.05, 6, 7}$.
-]				
+* another hidden factor affects both
 
-.pull-right[
+* coincidence
+
+*For example, ice cream sales and number of K-pop concerts may both increase during summer months, but one does not cause the other.*
+
+---
+# Correlation Analysis – Example
+
+The sales manager of Copier Sales of America wants to evaluate whether monthly sales calls are related to monthly copier sales.
+
+A random sample of 15 sales representatives is selected, and for each representative the manager records:
+
+* number of sales calls last month
+* number of copiers sold last month
+
+*Goal*: test whether sales calls and copiers sold are correlated at $\alpha = 0.05$.
+
 <div>
 .center[
-<img src="p4.png" width="90%">
+<img src="p4.png" width="65%">
 ]
 
 </div>
 
-F critical values with alpha = 0.05
+---
+# Correlation Analysis – Example (cont.)
 
-]
+Step 1: State the null and alternate hypotheses.
+
+$$
+H_0: \rho = 0
+$$
+
+$$
+H_1: \rho \ne 0
+$$
+
+Step 2: Select a level of significance.
+
+$$
+\alpha = 0.05
+$$
+
+Step 3: Identify the test statistic.
+
+For testing a correlation coefficient, use:
+
+$$
+t = \frac{r\sqrt{n-2}}{\sqrt{1-r^2}}, \qquad df = n-2,
+$$
+where $n$ is the sample size and $r$ is the sample correlation coefficient.
 
 ---
-# Testing the Hypothesis of Two Equal Population Variances – Example
+# Correlation Analysis – Example (cont.)
+Step 4: Formulate a decision rule. 
 
-Step 5: Compute the value of F and make a decision.
+For a two-tailed test, reject $H_0$ if:
+
+
+$$
+\lvert t \rvert > t_{\alpha/2,\,n-2}
+$$
+
+With $n=15$, $df=13$ and $\alpha/2=0.025$:
+
+
+$$
+\lvert t \rvert > t_{0.025,13}
+$$
+
+(That is, $t$ is greater than the critical value $t_{\alpha/2, n-2}$ or less than $-t_{\alpha/2, n-2}$.)
+
+$$
+\lvert t \rvert > 2.160
+$$
 
 <div>
 .center[
-<img src="p5.png" width="40%">
+<img src="p5.png" width="30%">
 ]
 
 </div>
 
-The decision is to reject the null hypothesis because the computed F-value ($4.23$) is larger than the critical value ($3.87$).
-
-Step 6: Interpret the result.
-
-The data indicate a difference in travel-time variation between the two routes.
-
 ---
-# Testing the Hypothesis of Three or More Equal Population Means
+# Correlation Analysis – Example (cont.)
+Step 5: Take a sample, calculate the statistics, arrive at a decision.   
 
-The F-distribution is also used to test whether three or more population means are equal.
-
-Assumptions:
-
-* each population is approximately normal
-* population standard deviations are equal
-* samples are random and independent
-
----
-# Testing the Hypothesis of Three or More Equal Population Means
-
-The null hypothesis states all population means are equal.
-
-The alternative states at least one mean differs.
-
-The test statistic follows the F-distribution.
-
-Hypothesis setup and decision rule:
-
-$$
-H_0: \mu_1 = \mu_2 = \cdots = \mu_k
-$$
-
-$$
-H_1:\text{ not all means are equal}
-$$
-
-Reject $H_0$ if $F > F_{\alpha, k-1, n-k}$.
-
----
-# Testing the Hypothesis of Three or More Equal Population Means – Example
-
-.pull-left[
-Four major carriers hired Brunner Marketing Research, Inc., to measure passenger satisfaction.
-
-The survey covered ticketing, boarding, in-flight service, baggage handling, pilot communication, and related service items.
-
-There were 25 questions, each scored as:
-
-* excellent = 4
-* good = 3
-* fair = 2
-* poor = 1
-
-]
-
-.pull-right[
 <div>
 .center[
 <img src="p6.png" width="90%">
@@ -396,843 +445,476 @@ There were 25 questions, each scored as:
 
 </div>
 
-Question: Is mean satisfaction different across the four airlines?
-
-Use alpha = 0.01.
-
-]
-
-Scores were summed to create an overall satisfaction score for each passenger.
-
-Passengers were randomly sampled from all four airlines.
-
 ---
-# Testing the Hypothesis of Three or More Equal Population Means – Example
+# Correlation Analysis – Example (cont.)
 
-Compute the treatment means and the grand mean:
-
-<div>
-.center[
-<img src="p7.png" width="50%">
-]
-
-</div>
-
----
-# Testing the Hypothesis of Three or More Equal Population Means – Example
-
-Step 1: State the hypotheses.
-
-$$
-H_0: \mu_N = \mu_W = \mu_P = \mu_B
-$$
-
-$$
-H_1: \text{not all means are equal}
-$$
-
-Step 2: Choose the significance level.
-
-$$
-\alpha = 0.01
-$$
-
-Step 3: Select the test statistic.
-
-Because we compare more than two means, use the ANOVA F-statistic:
-
-$$
-F = \frac{MST}{MSE} = \frac{SST/(k-1)}{SSE/(n-k)} \sim F(k-1, n-k)
-$$
-
-.tiny[
-Where: MST = mean square for treatments, MSE = mean square for error, SST = sum of squares for treatments, SSE = sum of squares for error, k = number of groups, n = total observations.
-]
----
-# Testing the Hypothesis of Three or More Equal Population Means – Example
-Step 4: Formulate the decision rule.
-
-For one-way ANOVA, reject $H_0$ if:
-
-$$
-F > F_{\alpha, k-1, n-k}
-$$
-
-Degrees of freedom:
-
-* numerator (treatments): $k-1 = 4-1 = 3$
-* denominator (error): $n-k = 22-4 = 18$
----
-# Testing the Hypothesis of Three or More Equal Population Means – Example
-
-.pull-left[
-From the F-table at $\alpha = 0.01$:
-
-$F_{0.01,3,18} = 5.09$.
-]
-
-.pull-right[
-<div>
-.center[
-<img src="p8.png" width="70%">
-]
-</div>
-]
-
----
-# Testing the Hypothesis of Three or More Equal Population Means – Example
-Step 5: Compute the F value and make a decision.
-
-Create the ANOVA table:
+Step 5 (continued): Take a sample, calculate the statistics, arrive at a decision.   
 
 
 <div>
 .center[
-<img src="p9.png" width="60%">
+<img src="p7.png" width="60%">
 ]
+
 </div>
-
----
-# Creating the ANOVA Table: Computing SS Total and SSE
-
-.pull-left[
-  Computing the total sum of squares:
-
-<div>
-.center[
-<img src="p10.png" width="80%">
-]
-</div>
-]
-
-
-.pull-right[
-  Computing the error sum of squares:
-
-<div>
-.center[
-<img src="p11.png" width="80%">
-]
-</div>
-]
-
----
-# Creating the ANOVA Table: Treatment Sum of Squares, SST, and the ANOVA Table
-
-Step 5 (continued):
-
-The computed value is $F = 8.99$.
-
-Since $8.99 > 5.09$, reject $H_0$.
-
-<div>
-.center[
-<img src="p12.png" width="40%">
-]
-</div>
-
----
-# Testing the Hypothesis of Three or More Equal Population Means – Example
 
 Step 6: Interpret the result.
 
-The population mean satisfaction scores are not all equal.
+The data indicate a statistically significant correlation between sales calls and copiers sold.
 
-At least one airline differs from the others, but ANOVA alone does not identify which specific pair(s) differ.
+The sample correlation is $r = 0.865$, which suggests a strong positive linear relationship.
+
+In practical terms, representatives who make more sales calls tend to sell more copiers.
+
+*Important*: this result indicates association, not causation. *A different study design is required to establish causal effects.*
+---
+class: inverse, center, middle
+
+# Simple Linear Regression
 
 ---
+# Example
 
-# Transition: From F-Test to ANOVA
+* Assume a linear relationship between home size (square feet) and January heating cost.
 
-In the two-variance test, F compares one sample variance to another.
+Question:
 
-In ANOVA, F compares:
+How does heating cost change as home size increases?
 
-* variation between group means
-* variation within groups
 
-Same distribution family, different hypothesis target:
+* In a study of automobile fuel efficiency, assume a linear relationship between miles per gallon (MPG) and vehicle weight.
+
+Question:
+
+How does MPG change as vehicle weight increases?
+
+
+> In both cases, the slope of the regression line tells us the expected change in the response variable for a one-unit increase in the explanatory variable.
+
+---
+# Regression Analysis: Variables
+
+In simple linear regression:
+
+* $Y$: dependent (response) variable to be predicted
+* $X$: independent (predictor) variable used for prediction
+
+Examples:
+
+* Home heating: $Y=\mathrm{Heating\ Cost}$, $X=\mathrm{Home\ Size}$
 
 $$
-H_0: \sigma_1^2 = \sigma_2^2 \quad \longrightarrow \quad H_0: \mu_1 = \mu_2 = \cdots = \mu_k
+  \mathrm{Heating\ Cost} = a + b(\mathrm{Home\ Size})
 $$
 
-Now we apply this framework to a one-way ANOVA workflow.
+* Fuel efficiency: $Y=\mathrm{MPG}$, $X=\mathrm{Car\ Weight}$
+
+$$
+  \mathrm{MPG} = a + b(\mathrm{Car\ Weight})
+$$
 ---
 
-# ANOVA Framework
+# Simple Linear Regression: General Form
 
-.pull-left[
-ANOVA stands for Analysis of Variance. It is a statistical method used to analyze the differences between the means of two or more groups or treatments. It is often used to determine whether there are any statistically significant differences between the means of different groups.
+Goal: estimate the line that best predicts $Y$ from $X$.
 
-]
+$$
+\hat{y} = a + bX
+$$
 
+* $Y$: dependent (response) variable
+* $X$: independent (predictor) variable
+* $a$ (intercept): expected value of $Y$ when $X=0$
+* $b$ (slope): expected change in $Y$ for a 1-unit increase in $X$
+* $\hat{y}$: predicted value of $Y$ based on the regression line
 
-.pull-right[
+Least Squares Principle:
+
+$$
+	\text{Choose } a \text{ and } b \text{ to minimize } \sum_{i=1}^{n}(y_i-a-bx_i)^2
+$$
 
 <div>
 .center[
-<img src="p13.png" width="90%">
+<img src="p8.png" width="48%">
 ]
+
 </div>
-]
-
-ANOVA compares the variation between group means to the variation within the groups. If the variation between group means is significantly larger than the variation within groups, it suggests a significant difference between the means of the groups.
-
-ANOVA calculates an F-statistic by comparing between-group variability to within-group variability. If the F-statistic exceeds a critical value, it indicates significant differences between group means.
-
-
----
-
-# Motivation
-
-A company asks:
-
-> Do customers from different regions spend different amounts?
-
-We now compare:
-
-* Asia
-* Europe
-* North America
-
----
-
-# Problem
-
-Could we use many t-tests?
-
-Example:
-
-* Asia vs Europe
-* Asia vs North America
-* Europe vs North America
-
-Problem:
-
-## too many tests increase Type I error
-
----
-
-# Solution
-
-## Analysis of Variance (ANOVA)
-
-ANOVA compares:
-
-* several population means
-* using one overall test
-
-### What is variance?
-
-Variance measures how far observations are spread around the mean.
-
-* higher variance: observations are more spread out
-* lower variance: observations are closer to the mean
-
-### Why is it called "analysis of variance"?
-ANOVA analyzes the variance within and between groups to determine if group means differ significantly.
-
----
-
-# Main Idea
-.pull-left[
-ANOVA compares:
-
-* variation between groups
-  vs
-* variation within groups
-
-
-# Intuition
-
-If group means are very different:
-
-* between-group variation becomes large
-
-If observations inside groups are similar:
-
-* within-group variation stays small
-
-Then:
-
-## evidence against H0 increases
-]
-
-.pull-right[
-
-# Hypotheses
-
-## One-Way ANOVA
-
-* H0: all population means are equal
-* H1: at least one mean differs
-]
----
-
-# Example Dataset
-
-Monthly spending (USD):
-
-* Asia
-* Europe
-* North America
-
-```{python w5v8dp}
-import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
-from scipy import stats
-
-np.random.seed(42)
-
-asia = np.random.normal(70, 10, 30)
-europe = np.random.normal(65, 10, 30)
-na = np.random.normal(80, 10, 30)
-
-df = pd.DataFrame({
-    "spending": np.concatenate([asia, europe, na]),
-    "region": ["Asia"]*30 + ["Europe"]*30 + ["NorthAmerica"]*30
-})
-
-df.head()
-```
-
----
-
-# Visual Comparison
-
-```{python n2z6wr, echo=FALSE}
-plt.boxplot(
-    [asia, europe, na],
-    labels=["Asia","Europe","North America"]
-)
-
-plt.ylabel("Monthly Spending (USD)")
-plt.title("Customer Spending by Region")
-plt.show()
-```
-
-It shows some differences in central tendency and spread, but we need a formal test to determine if these differences are statistically significant.
----
-
-# Group Means
-
-```{python 6h8q2v}
-df.groupby("region")["spending"].mean()
-```
-
----
-
-# ANOVA Test Statistic
-
-## F-statistic
-
-$$
-F = \frac{\text{Variation Between Groups}}
-{\text{Variation Within Groups}}
-$$
-
----
-
-# Interpretation of F
-
-* Large F:
-
-  * groups differ substantially
-
-* Small F:
-
-  * group means are similar
-
----
-
-# Running ANOVA in Python
-
-```{python f4m9ks, echo=TRUE}
-# f_stat compares between-group variation to within-group variation.
-# p_value is the probability of observing an F this large (or larger) if H0 is true.
-f_stat, p_value = stats.f_oneway(
-    asia,
-    europe,
-    na
-)
-
-print(f"F-statistic: {f_stat:.4f}")
-print(f"p-value: {p_value:.6f}")
-```
-
----
-
-# Interpretation
-
-Decision rule:
-
-* p-value < 0.05 → reject H0
-* otherwise → do not reject H0
-
-How to read the output:
-
-* F-statistic: larger values indicate stronger evidence that group means differ
-* p-value: if very small, the observed differences are unlikely under equal means
 
 ---
 
 # Business Interpretation
 
-If spending differs by region:
-
-* pricing strategy may differ
-* marketing may be localized
-* inventory allocation may change
-
----
-
-# ANOVA Table
-
-ANOVA separates variation into:
-
-| Source         | Meaning                 |
-| -------------- | ----------------------- |
-| Between groups | differences among means |
-| Within groups  | random variation        |
-
-It quantifies how much of the total variation is due to differences between groups vs random variation within groups.
-
----
-
-# Sum of Squares
-
-Key concepts:
-
-## SST
-
-Total variation
-
-## SSB
-
-Between-group variation
-
-## SSW
-
-Within-group variation
-
-
-# Relationship
-
-$$
-SST = SSB + SSW
-$$
-
----
-
-# Degrees of Freedom
-
-For one-way ANOVA:
-
-* df between = k - 1. Shows how many groups we have minus one (because we estimate one mean per group).
-* df within = n - k. Shows how many observations we have minus the number of groups (because we lose one degree of freedom for each group mean estimated).
-
-Where:
-
-* k = number of groups
-* n = total observations
-
----
-
-# ANOVA Using statsmodels
-
-```{python u9q5hx}
-try:
-  # ols() fits a linear model with region as a categorical predictor.
-  # anova_lm(..., typ=2) returns the ANOVA table for that model.
-  import statsmodels.api as sm
-  from statsmodels.formula.api import ols
-
-  model = ols(
-    'spending ~ C(region)',
-    data=df
-  ).fit()
-
-  anova_table = sm.stats.anova_lm(model, typ=2)
-  print(anova_table)
-except ModuleNotFoundError:
-  print("statsmodels is not installed in the current Python environment.")
-  print("Install it with: pip install statsmodels")
-```
-
-## Interpretation of This ANOVA Result
-
-What this means:
-
-* `df = 2` for `C(region)` means 3 groups were compared ($k-1 = 3-1 = 2$).
-* `df = 87` for residual means there were 90 observations total ($n-k = 90-3 = 87$).
-* `F = 24.24` is large, so between-group variation is much larger than within-group variation.
-* `PR(>F) = 4.29e-09` is far below 0.05, so reject $H_0$.
-* Conclusion: average spending is not the same across all regions; at least one region mean differs.
-* `NaN` in the residual row for `F` and `PR(>F)` is normal because the residual row is the error baseline, not a separate hypothesis test.
----
-## Reading the Output
-
-Important columns:
-
-* `sum_sq`: variation attributed to each source
-* `df`: degrees of freedom for each source
-* `F`: test statistic = explained variation / unexplained variation
-* `PR(>F)`: p-value for the ANOVA F-test
-
-How to interpret quickly:
-
-* small p-value (typically < 0.05) => reject equal-means null
-* large p-value => insufficient evidence that group means differ
-
 Example:
 
-* if `PR(>F) = 0.003`, then $0.003 < 0.05$, so reject $H_0$
-
----
-
-# Important Warning
-
-ANOVA only tells us:
-
-> at least one mean differs
-
-But NOT:
-
-* which groups differ
-
----
-
-# Post Hoc Tests
-
-If ANOVA is significant:
-
-* we may need additional comparisons
-
-Examples:
-
-* Tukey test
-* pairwise t-tests
-
----
-
-# Assumptions of ANOVA
-
-1. Independent observations (i.e., random sampling)
-
-2. Approximately normal groups (though ANOVA is robust to moderate violations)
-
-3. Similar variances across groups (also known as homogeneity of variances)
-
----
-
-# What if Assumptions Fail?
-
-Possible issues:
-
-* unreliable p-values
-* misleading conclusions
-
-Alternatives:
-
-* nonparametric methods
-* transformations
-
----
-
-# Summary Table
-
-| Method | Main Use         |
-| ------ | ---------------- |
-| t-test | compare 2 means  |
-| ANOVA  | compare 3+ means |
-
----
-class: inverse, center, middle
-
-# Some Extra Intuition
-
----
-class: my-one-page-font
-# ANOVA Intuition: What Are We Actually Measuring?
-
-Suppose a company compares customer spending across 3 regions:
-
-| Region | Spending |
-|---|---|
-| Asia | 70, 75 |
-| Europe | 60, 65 |
-| North America | 80, 85 |
-
-Overall average spending:
-
 $$
-\bar{x}_{overall} = 72.5
-$$
-
-ANOVA asks:
-
-> "Why are observations different from each other?"
-
-There are only two possible reasons:
-
-1. **Natural randomness inside each group** - customers inside the same region are not identical
-
-2. **Actual differences between group averages** - regions themselves may behave differently
-
-ANOVA separates total variation into these two parts.
-
----
-
-# The Three Important Quantities
-
-## 1. SST = Total Variation
-
-Measures:
-
-> "How far are ALL observations from the overall average?"
-
-It ignores groups completely.
-
-Large SST:
-- observations overall are very spread out
-
----
-
-## 2. SSE = Within-Group Variation (Error, SSW)
-
-Measures:
-
-> "How far are observations from THEIR OWN group average?"
-
-This captures:
-- natural randomness
-- individual differences
-- noise
-
-If customers inside each region behave similarly:
-- SSE becomes smaller
-
----
-
-## 3. SSTr = Between-Group Variation (Treatment, SSB)
-
-Measures:
-
-> "How far are group averages from the overall average?"
-
-This captures:
-- actual group differences
-
-If regional averages differ strongly:
-- SSTr becomes larger
-
----
-
-# The Big Relationship
-
-ANOVA always splits total variation:
-
-$$
-SST = SSTr + SSE
-$$
-
-Meaning:
-
-$$
-\text{Total variation} = \text{Between-group variation} + \text{Within-group variation}
-$$
-
-
----
-# Example
-
-## Step 1. Compute Group Means
-
-| Region | Values | Group Mean |
-|---|---|---|
-| Asia | 70, 75 | 72.5 |
-| Europe | 60, 65 | 62.5 |
-| North America | 80, 85 | 82.5 |
-
-Overall mean:
-
-$$
-\bar{x}_{overall} = 72.5
-$$
-
----
-class: my-one-page-font-table
-# Step 2. Compute SSE (Within-Group Variation)
-
-SSE asks:
-
-> "How different are customers INSIDE the same group?"
-
-Example for Europe:
-
-$$
-(60-62.5)^2 + (65-62.5)^2
-$$
-
-$$
-= 6.25 + 6.25 = 12.5
-$$
-
-Do this for all groups:
-
-Asia:
-$$
-(70-72.5)^2 + (75-72.5)^2 = 12.5
-$$
-
-Europe:
-$$
-12.5
-$$
-
-North America:
-$$
-12.5
-$$
-
-So:
-
-$$
-SSE = 37.5
+Sales = 20 + 3 \times Advertising
 $$
 
 Interpretation:
 
-Customers inside each region differ only a little.
+* each additional unit of advertising
+
+* increases expected sales by 3 units
 
 ---
-class: my-one-page-font-table
-# Step 3. Compute SSTr (Between-Group Variation)
+# Regression Analysis – Example
 
-SSTr asks:
+Using the Copier Sales of America data, estimate a simple linear regression model with least squares.
 
-> "How different are GROUP AVERAGES from the OVERALL average?"
+* $X$: number of sales calls (independent variable)
+* $Y$: number of copiers sold (dependent variable)
 
-Asia:
-$$
-2(72.5-72.5)^2 = 0
-$$
+Question: What is the expected number of copiers sold when a representative makes 20 calls?
 
-Europe:
-$$
-2(62.5-72.5)^2 = 200
-$$
+<div>
+.center[
+<img src="p9.png" width="60%">
+]
 
-North America:
-$$
-2(82.5-72.5)^2 = 200
-$$
-
-So:
-
-$$
-SSTr = 400
-$$
-
-Interpretation:
-
-Regional averages are VERY different.
-
-.tiny[We multiply by 2 because there are 2 observations in each group, so the group mean's deviation from the overall mean is counted for each observation in that group.]
+</div>
 
 ---
-# Final ANOVA Logic
+# Regression Analysis – Example (cont.)
+## Descriptive statistics & Correlation coefficient
 
-We found:
 
-$$
-SSE = 37.5
-$$
+<div>
+.center[
+<img src="p10.png" width="60%">
+]
 
-$$
-SSTr = 400
-$$
-
-So:
-
-$$
-SST = 437.5
-$$
-
-## To check: calculate SST directly:
-$$
-(70-72.5)^2 + (75-72.5)^2 + (60-72.5)^2 + (65-72.5)^2 + (80-72.5)^2 + (85-72.5)^2 = 437.5
-$$
+</div>
 
 ---
 
-# What Does the F-Statistic Do?
+# Regression Analysis – Example (cont.)
+Step 1: Estimate the slope $b$.
+<div>
+.center[
+<img src="p11.png" width="48%">
+]
 
-The F-statistic compares:
+</div>
+
+Step 2: Estimate the intercept $a$.
+<div>
+.center[
+<img src="p12.png" width="48%">
+]
+
+</div>
+
+Step 3: Write the regression equation.
 
 $$
-F =
-\frac{\text{Between-group variation}}
-{\text{Within-group variation}}
+\widehat{\text{Copiers Sold}} = 19.9632 + 0.2608(\text{Sales Calls})
 $$
 
-or conceptually:
+Step 4: Predict sales for 20 calls.
 
 $$
-F =
-\frac{SSTr}{SSE}
+\widehat{\text{Copiers Sold}} = 19.9632 + 0.2608(20) = 25.1792
 $$
-
-(after adjusting for degrees of freedom)
 
 ---
-
-# Plain English Meaning of F
+# Regression Analysis: Testing the Significance of the Slope – Example
+Step 1: State the null and alternate hypotheses.
 .pull-left[
-## Small F
-
-- groups are similar
-- within-group randomness dominates
-
-Meaning:
-> differences probably happened by chance
+$$
+H_0: \beta_1 = 0
+$$
 ]
 .pull-right[
-## Large F
+$$
+H_1: \beta_1 \ne 0
+$$
+]
 
-- group averages differ a lot
-- within-group randomness is relatively small
+Step 2: Select a level of significance.
 
-Meaning:
-> real group differences likely exist
+$$
+\alpha = 0.05
+$$
+
+Step 3: Identify the test statistic.
+
+Use the slope t-test:
+
+$$
+t = \frac{b_1}{SE(b_1)} \sim t(n-2)
+$$
+
+---
+# Regression Analysis: Testing the Significance of the Slope – Example
+
+Step 4: Formulate a decision rule.
+
+For a two-tailed test, reject $H_0$ if:
+
+$$
+\lvert t \rvert > t_{\alpha/2,\,n-2}
+$$
+
+With $n=15$ ($df=13$):
+
+$$
+\lvert t \rvert > t_{0.025,13}
+$$
+
+$$
+\lvert t \rvert > 2.160
+$$
+
+---
+# Regression Analysis: Testing the Significance of the Slope – Example (cont.)
+
+Step 5: Use the sample output (Excel/ANOVA table) and make a decision.
+
+<div>
+.center[
+<img src="p13.png" width="60%">
+]
+
+</div>
+
+Decision: Reject $H_0$. The slope is statistically different from zero.
+---
+# Regression Analysis: Testing the Significance of the Slope – Example (cont.)
+
+
+Step 6: Interpret the result.
+
+The estimated slope is about $0.2606$, so each additional sales call is associated with an increase of about $0.2606$ copiers sold, on average.
+
+If sales calls increase by 10, predicted copier sales increase by about $2.606$.
+
+As with correlation analysis, this does not by itself establish causality. Causal interpretation requires stronger assumptions (for example, no correlation between $X$ and the error term).
+---
+
+
+# Estimating the Model in Python
+
+```{python, echo=FALSE, id="q2n8rf"}
+X = sm.add_constant(df["advertising"])
+
+model = sm.OLS(df["sales"], X).fit()
+
+coef_table = pd.DataFrame({
+  "coef": model.params,
+  "std err": model.bse,
+  "t": model.tvalues,
+  "p-value": model.pvalues
+})
+
+coef_table.index = ["Intercept", "Advertising"]
+coef_table = coef_table.round(3)
+
+print(f"R-squared: {model.rsquared:.3f}")
+print(f"Adj. R-squared: {model.rsquared_adj:.3f}")
+print(f"F-statistic p-value: {model.f_pvalue:.4g}\n")
+print("Coefficient Summary")
+print(coef_table.to_string())
+```
+
+## Important Output
+
+Focus on:
+
+* coefficients
+* p-values
+* R-squared
+
+---
+
+# Regression Line
+
+```{python, id="g5k3pa"}
+plt.scatter(df["advertising"], df["sales"])
+
+predicted = model.predict(X)
+
+plt.plot(df["advertising"], predicted)
+
+plt.xlabel("Advertising Spending")
+plt.ylabel("Sales Revenue")
+plt.title("Regression Line")
+
+plt.show()
+```
+
+---
+
+# Interpreting the Slope
+
+Suppose:
+
+$$
+b = 3.2
+$$
+
+Interpretation:
+
+For each additional unit of advertising spending,
+expected sales increase by approximately 3.2 units.
+
+---
+
+# Coefficient of Determination: R-Squared
+.pull-left[
+R-squared measures:
+
+> how much variation in y is explained by x
+
+## Interpretation of R-Squared
+
+| R²     | Meaning                  |
+| ------ | ------------------------ |
+| Near 0 | weak explanatory power   |
+| Near 1 | strong explanatory power |
+]
+
+.pull-right[
+## Example
+
+If:
+
+$$
+R^2 = 0.70
+$$
+
+Interpretation:
+
+70% of variation in sales is explained by advertising.
 ]
 ---
 
-# Intuition for This Example
+# Prediction Example
 
-Here:
-
-- customers INSIDE each region are relatively similar
-- regional averages are very different
-
-So:
+Suppose:
 
 $$
-F \text{ becomes large}
+Sales = 20 + 3x
 $$
 
-which gives evidence that:
-- spending truly differs across regions
+If advertising = 15:
+
+$$
+Sales = 20 + 3(15)
+$$
+
+$$
+= 65
+$$
 
 ---
 
-# One Sentence Summary
+# Residuals
+.pull-left[
+Residual:
 
-ANOVA asks:
+$$
+e = y - \hat{y}
+$$
 
-> "Are group differences large relative to normal randomness inside groups?"
+Meaning:
+
+* prediction error
+
+## Visual Intuition
+
+Residuals are:
+
+* vertical distances
+* between actual points and regression line
+]
+.pull-right[
+## Why Residuals Matter
+
+Large residuals may indicate:
+
+* poor predictions
+* missing variables
+* unusual observations
+]
+---
+
+# Example: Residual Plot
+
+```{python, id="x3k7vf"}
+residuals = df["sales"] - predicted
+
+plt.scatter(predicted, residuals)
+
+plt.axhline(y=0)
+
+plt.xlabel("Predicted Sales")
+plt.ylabel("Residuals")
+plt.title("Residual Plot")
+
+plt.show()
+```
+
+It shows that residuals are randomly scattered around zero, suggesting a good fit.
+---
+
+# Assumptions (Simplified)
+
+Regression works best when:
+
+* relationship is roughly linear
+
+* residuals are random
+
+* observations are independent
+
+---
+
+# Business Applications
+
+Regression is widely used for:
+
+* sales forecasting
+
+* pricing analysis
+
+* demand estimation
+
+* customer analytics
+
+* financial analysis
+
+---
+
+# Example Business Questions
+
+* Does advertising affect sales?
+
+* Does delivery time affect customer ratings?
+
+* Does discount rate increase demand?
+
+---
+
+# Common Mistakes
+
+* assuming correlation means causation
+
+* extrapolating too far outside data range
+
+* ignoring outliers
+
+* focusing only on R²
+
+---
+
+# Correlation vs Regression
+
+| Correlation           | Regression             |
+| --------------------- | ---------------------- |
+| measures relationship | predicts outcome       |
+| symmetric             | directional            |
+| no dependent variable | has dependent variable |
 
 ---
 class: inverse, center, middle
@@ -1242,25 +924,28 @@ class: inverse, center, middle
 
 # In-Class Practice
 
-Please open Week 11 lab in Colab and follow the instructions to practice ANOVA with real data.
+Please open Week 12 lab in Colab and follow the instructions to practice with real data.
 
 ---
 
 # Final Idea
 
-ANOVA helps businesses understand:
+Regression helps transform:
 
-* customer differences
-* regional variation
-* product performance
-* market segmentation
+## data → prediction → decision
+
+# One Sentence Summary
+
+**Correlation measures relationships, whileRegression builds predictive models.**
 
 
 ---
 
 # Next week
 
-*(May 19 | May 21)* Correlation and simple linear regression (LMW Chapter 13)  
+*(May 26)* Special Lecture: Modern Analytics Workflow in Business and Research  
+
+*(May 28)* Quiz #2 
 
 ---
 
@@ -1269,6 +954,7 @@ class: inverse, center, middle
 # Any questions?
 
 # Thank you for your attention and active participation!
+
 
 
 ???
@@ -1292,10 +978,10 @@ install.packages("renderthis")
 remotes::install_github('rstudio/chromote')
 library(renderthis)
 
-renderthis::to_pdf("W-11_SIC.html")
+renderthis::to_pdf("W-12_SIC.html")
 
 getwd()
-setwd("C:\\Users\\vyshn\\OneDrive - kdis.ac.kr\\Documents\\GitHub\\Sogang\\2026\\Spring\\Statistics for International Commerce\\Week_11")
+setwd("C:\\Users\\vyshn\\OneDrive - kdis.ac.kr\\Documents\\GitHub\\Sogang\\2026\\Spring\\Statistics for International Commerce\\Week_12")
 
 
 
