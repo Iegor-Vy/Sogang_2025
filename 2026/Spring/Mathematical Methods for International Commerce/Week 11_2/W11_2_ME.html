@@ -225,8 +225,80 @@ $$
 $$
 
 ---
+class: my-one-page-font
+# Step 5_1: Check the second order derivative (Optional for now)
 
-# Step 6: Calculate Optimal Value
+*Note*: We don't use Bordered Hessian here because we have only one constraint and the second derivative test is sufficient to classify the stationary point.
+
+To classify the stationary point, use the constraint:
+
+$$
+2x + 3y = 6
+$$
+
+Solve for `\(y\)`:
+
+$$
+3y = 6 - 2x
+$$
+
+$$
+y = 2 - \frac{2}{3}x
+$$
+
+Substitute this into the objective function:
+
+$$
+f(x, y) = x^2 - 3xy + 12x
+$$
+
+$$
+f(x) = x^2 - 3x\left(2 - \frac{2}{3}x\right) + 12x
+$$
+---
+class: my-one-page-font
+# Step 5_1: Check the second order derivative (Optional for now)
+
+Expand:
+
+$$
+f(x) = x^2 - 6x + 2x^2 + 12x
+$$
+
+$$
+f(x) = 3x^2 + 6x
+$$
+
+Now take the second derivative:
+
+$$
+f'(x) = 6x + 6
+$$
+
+$$
+f''(x) = 6
+$$
+
+Since:
+
+$$
+f''(x) &gt; 0
+$$
+
+the stationary point is a **constrained minimum**.
+
+Therefore:
+
+$$
+x = -1, \quad y = \frac{8}{3}
+$$
+
+gives a **minimum value** of the objective function subject to the constraint.
+
+
+---
+
+# Step 6: Calculate Optimal/Minimal Value
 
 - Optimal solution:
   - `\(x = -1\)`, `\(y = \frac{8}{3}\)`, `\(\lambda = 1\)`
@@ -500,7 +572,7 @@ class: my-one-page-font-table
   - Chapter 5.1: Exercise 5.1, Problem 5 (p. 411)
   - Chapter 5.2: Exercise 5.2, Problem 7 (p. 427)
   - Chapter 5.3: Exercise 5.3, Practice Problem inside the chapter (p. 432 only)
-  - Chapter 5.4: Exercise 5.4, Problem 5 (p. 457)
+  - Chapter 5.4: Exercise 5.4, Problem 5 (p. 456)
   - Chapter 5.5: Exercise 5.5, Problems 6 and 7  (p. 467)
   - Chapter 5.6: Exercise 5.6, Problem 4 (p. 479)
   - Chapter 6.1: Exercise 6.1, Problem 3 (p. 506)
