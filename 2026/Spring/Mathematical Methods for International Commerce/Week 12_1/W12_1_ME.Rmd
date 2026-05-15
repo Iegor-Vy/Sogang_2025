@@ -1,0 +1,531 @@
+---
+title: "Mathematical Methods for International Commerce "
+subtitle: "<br/>Week 12/1: Indefinite Integration (6.1)"
+author: "Iegor Vyshnevskyi, Ph.D."
+institute: "Sogang University"
+date: "May 19, 2026"
+output:
+  xaringan::moon_reader:
+    #css: $$default, metropolis, metropolis-fonts$$
+    css: xaringan-themer.css
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: '16:9'
+---
+
+<style>
+@media print{
+  body, html, .remark-slides-area, .remark-notes-area {
+    height: 100% !important;
+    width: 100% !important;
+    overflow: visible;
+    display: inline-block;
+    }
+}
+</style>
+
+<style type="text/css">
+.remark-slide-content {
+    font-size: 34px;
+    padding: 1em 4em 1em 4em;
+}
+</style>
+
+<style type="text/css">
+.my-one-page-font {
+  font-size: 28px;
+}
+</style>
+
+<style type="text/css">
+.my-one-page-font-table {
+  font-size: 24px;
+}
+</style>
+
+<style>
+.tiny { font-size: 60%; }      /* class you can reuse anywhere */
+</style>
+
+<style>
+.remark-slide-content {
+  position: relative;
+  z-index: 1;
+}
+
+.remark-slide-content::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 600px;          /* adjust size */
+  height: 600px;
+  background-image: url("1. 교장(Seal_Positive).png");  /* place logo file in same folder */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: 0.05;         /* watermark transparency */
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 0;
+}
+</style>
+
+
+```{r setup, include = FALSE}
+library(tidyverse)
+library(knitr)
+
+opts_chunk$set(fig.width = 10, 
+               message = FALSE, 
+               warning = FALSE,
+               echo = FALSE)
+```
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+#install.packages("xaringanthemer")
+library(xaringanthemer)
+style_mono_accent(
+  base_color = "#851a10",
+  header_font_google = google_font("Josefin Sans"),
+  text_font_google   = google_font("Montserrat", "500", "550i"),
+  code_font_google   = google_font("Fira Mono"),
+  colors = c(
+  red = "#f34213",
+  purple = "#3e2f5b",
+  orange = "#ff8811",
+  green = "#136f63",
+  white = "#FFFFFF"
+)
+)
+```
+
+# Why It Matters in Economics & Finance
+- Integration helps in determining total cost, total revenue, and accumulated savings over time.
+
+- It is crucial in calculating areas under curves, which represent total accumulated quantities.
+
+- Applications include:
+  - Finding total cost from marginal cost
+  - Determining total revenue from marginal revenue
+  - Estimating accumulated savings from marginal propensity to save
+
+---
+
+# Learning Objectives
+- Recognize the notation for indefinite integration
+
+- Integrate power functions and exponential functions
+
+- Apply integration to find total cost and total revenue
+
+- Apply integration to determine consumption and savings functions
+
+- Use inspection and linearity rules to integrate polynomial and exponential functions
+
+---
+
+# Understanding Indefinite Integration
+- Indefinite integration is the reverse of differentiation.
+
+- The general form:
+  $$ \int f(x) \, dx = F(x) + C $$
+  where:
+  - $f(x)$ is the integrand
+  - $F(x)$ is the antiderivative
+  - $C$ is the constant of integration
+
+<span style="font-size: 60%;">**Note:** The antiderivative, also known as the indefinite integral, is a function whose derivative equals the original function $f(x)$. In essence, finding the antiderivative reverses the process of differentiation.</span>
+
+---
+
+# Understanding Indefinite Integration (cont.)
+
+- Example:
+
+  - If $f(x) = 3x^2$, then:
+
+  $$
+  \int 3x^2 \, dx = x^3 + C
+  $$
+
+  - Why? Because $\frac{d}{dx}(x^3 + C) = 3x^2$.
+
+---
+
+# The Constant of Integration
+
+- Why do we add $+C$?
+  - Represents an **arbitrary constant** since differentiation eliminates constants.
+
+- Example:
+
+  - $\int 3x^2 \, dx = x^3 + C$
+  - Both $x^3 + 5$ and $x^3 - 7$ differentiate to $3x^2$.
+
+- From economics perspective, $C$ often represents fixed costs or baseline values in economic applications.
+- In practice, we often determine $C$ using initial conditions or boundary values.
+
+---
+
+# Indefinite Integration: Water Tank Analogy
+
+<div>
+.center[
+<img src="p33.png" width="90%">
+]
+
+</div>
+
+---
+
+
+# Power Rule for Indefinite Integrals
+
+- General formula:
+
+$$
+\int x^n \, dx = \frac{x^{n+1}}{n+1} + C \quad (n \neq -1)
+$$
+
+- Examples:
+
+  - $\int x^5 \, dx = \frac{x^6}{6} + C$
+
+  - $\int x^{-3} \, dx = \frac{x^{-2}}{-2} + C = -\frac{1}{2x^2} + C$
+
+---
+
+# Integration of Exponential Functions
+
+- Formula:
+
+$$
+\int e^{mx} \, dx = \frac{1}{m} e^{mx} + C
+$$
+
+- Example:
+
+  - $\int e^{2x} \, dx = \frac{1}{2} e^{2x} + C$
+
+  - $\int e^{-0.5x} \, dx = -2 e^{-0.5x} + C$
+
+---
+
+# Practical Example: Marginal Revenue to Total Revenue (1)
+
+- Suppose the **marginal revenue function** is given by:
+
+$$
+MR(x) = 50 - 2x
+$$
+
+- To find the total revenue function:
+
+$$
+TR(x) = \int (50 - 2x) \, dx
+$$
+
+$$
+= 50x - x^2 + C
+$$
+
+- **Economic Interpretation:**
+  - The area under the MR curve represents the total revenue.
+
+---
+
+# Practical Example: Marginal Revenue to Total Revenue (2)
+- If the marginal revenue is given by:
+  $$ MR(x) = 12 - 2x $$
+
+- The total revenue function is:
+  $$ TR(x) = \int (12 - 2x) \, dx = 12x - x^2 + C $$
+
+- Interpretation:
+  - The total revenue function represents the total income generated from selling $x$ units of a good.
+  - The constant $C$ represents the initial value of total revenue when output is zero.
+  - The area under the marginal revenue curve gives the total revenue.
+  - The total revenue function changes quadratically with respect to $x$.
+
+---
+
+# Practical Example: Marginal Cost to Total Cost (1)
+
+- If the marginal cost is given by:
+  $$ MC(x) = 3x^2 + 5 $$
+
+- The total cost function is found by integrating:
+  $$ TC(x) = \int (3x^2 + 5) \, dx = x^3 + 5x + C $$
+
+---
+
+# Practical Example: Marginal Cost to Total Cost (2)
+
+- Given the marginal cost function:
+
+$$
+MC(x) = 4x^2 - 3x + 7
+$$
+
+- Integrate to find the total cost function:
+
+$$
+TC(x) = \int (4x^2 - 3x + 7) \, dx = \frac{4x^3}{3} - \frac{3x^2}{2} + 7x + C
+$$
+
+---
+
+# Economic Example: Consumption & Savings
+- Given the marginal propensity to consume (MPC):
+
+$$
+MPC = 0.8
+$$
+
+- Integrate to find the consumption function:
+
+$$
+\int 0.8 \, dY = 0.8Y + C
+$$
+
+- If $MPS=s$, then integrating gives the savings function $S(Y)=sY+C$.
+
+---
+
+# Method of Inspection
+- For more complex integrals, identify a form that simplifies to a known pattern:
+
+$$
+\int (5x^2 + 3x + 2) \, dx = \int 5x^2 \, dx + \int 3x \, dx + \int 2 \, dx
+$$
+
+$$
+= \frac{5x^3}{3} + \frac{3x^2}{2} + 2x + C
+$$
+---
+
+# Practice Problems
+1. Integrate:
+   - (a) $\int 4x^3 \, dx$
+   - (b) $\int e^{2x} \, dx$
+
+2. Find the total cost given $MC = 5x^2 - 3x + 4$.
+
+3. Determine the total revenue function given $MR = 15 - 0.5x$.
+
+4. Given the marginal propensity to consume is $MPC = 0.8$, determine the consumption function if initial consumption is 100.
+
+---
+
+# Summary
+- Indefinite integration helps in finding total values given marginal functions.
+
+- Applications in economics include calculating total cost, total revenue, and accumulated savings.
+
+- Key formulas:
+  - Power Rule
+  - Exponential Function
+  - Method of Inspection
+
+---
+
+class: inverse, center, middle
+
+# 2. Group Activity
+
+---
+
+
+# Math Battle: Indefinite Integrals
+
+**Objective:** Apply indefinite integration concepts to solve economic problems.  
+**Format:** 6 groups, 4-5 students each. Each group receives a distinct problem.  
+**Time:** 20 minutes to solve, 5 minutes to present.
+
+### Math Battle Rules:
+
+- Each group presents their solutions. 
+- Other groups can challenge the solution if they find discrepancies.
+- Correct challenges earn 2 points; incorrect challenges lose 1 point.
+- Winning group gets a prize!
+
+---
+
+# Group 1: Marginal Cost and Total Cost
+
+A firm’s marginal cost function is:
+
+$$
+MC(x) = 12x^2 - 6x + 4
+$$
+
+1. Find the total cost function by integration.
+
+2. If fixed cost is $80, determine the constant of integration.
+
+3. Interpret the meaning of the fixed cost economically.
+
+---
+
+# Group 2: Marginal Revenue and Total Revenue
+
+A firm’s marginal revenue function is:
+
+$$
+MR(x) = 30 - 4x
+$$
+
+1. Find the total revenue function by integration.
+
+2. Assume total revenue is zero when output is zero. Determine the constant of integration.
+
+3. At what output level does marginal revenue become zero?
+
+---
+
+# Group 3: Consumption Function
+
+The marginal propensity to consume is constant:
+
+$$
+MPC = 0.75
+$$
+
+1. Integrate to find the consumption function.
+
+2. If autonomous consumption is $120, determine the full consumption function.
+
+3. Explain economically what the MPC means.
+
+---
+
+# Group 4: Savings Function
+
+The marginal propensity to save is:
+
+$$
+MPS(Y) = 0.2
+$$
+
+1. Integrate to find the savings function.
+
+2. If initial savings are \(-\$50\) when income is zero, determine the full savings function.
+
+3. Interpret the meaning of negative initial savings and positive marginal propensity to save.
+
+---
+
+# Group 5: Investment Accumulation
+
+A firm’s marginal investment function is:
+
+$$
+MI(t) = 100e^{0.04t}
+$$
+
+1. Integrate to find the total investment function.
+
+2. Assume accumulated investment is zero at ( t = 0 ). Determine the constant of integration.
+
+3. Calculate the accumulated investment after 5 years.
+
+---
+
+# Group 6: Marginal Benefit and Total Benefit
+
+A consumer’s marginal benefit function is:
+
+$$
+MB(Q) = 20 - 2Q
+$$
+
+1. Integrate to find the total benefit function.
+
+2. Assume total benefit is zero when quantity is zero. Determine the constant of integration.
+
+3. Explain why total benefit increases at a decreasing rate.
+
+---
+
+
+class: inverse, center, middle
+
+# 3. Home work #2
+
+---
+
+class: my-one-page-font-table
+## Homework #2
+
+- **Due Date:** June 11, 2026, end of the day.
+- **Submission Format:** Submit your solutions as a single PDF file via the Cyber Campus.
+- **Instructions:** 
+  - Clearly show all steps and calculations.
+  - Include explanations for your answers where applicable.
+  - Ensure your submission is neat and well-organized.
+  - Bring any questions to the office hours or email me.
+
+- Work on your Home Assignment #2 (Jacques, 10th edition, Chapters 5-9):
+  - Chapter 5.1: Exercise 5.1, Problem 5 (p. 411)
+  - Chapter 5.2: Exercise 5.2, Problem 7 (p. 427)
+  - Chapter 5.3: Exercise 5.3, Practice Problem inside the chapter (p. 432 only)
+  - Chapter 5.4: Exercise 5.4, Problem 5 (p. 456)
+  - Chapter 5.5: Exercise 5.5, Problems 6 and 7  (p. 467)
+  - Chapter 5.6: Exercise 5.6, Problem 4 (p. 479)
+  - Chapter 6.1: Exercise 6.1, Problem 3 (p. 506)
+  - Chapter 6.2: Exercise 6.2, Problem 6 (p. 521)
+  - Chapter 7.1: Exercise 7.1, Problem 5 (p. 553)
+  - Chapter 7.2: Exercise 7.2, Problem 6 (p. 572)
+  - Chapter 7.3: Exercise 7.3, Problem 5 (p. 584)
+  - Chapter 8.1: Exercise 8.1, Problem 6 (p. 615)
+  - Chapter 8.2: Exercise 8.2, Problem 3 (p. 626)
+  - Chapter 9.1: Exercise 9.1, Problem 4 (p. 655)
+  - Chapter 9.2: Exercise 9.2, Problem 3 (p. 670)
+
+Good luck!
+
+---
+
+## Next Classes
+
+- (May 21) Definite Integration (6.2) 
+
+- (May 26) Quiz #2
+  - Covers materials after Midterm Exam
+---
+
+class: inverse, center, middle
+
+# Any QUESTIONS?
+
+## Thank you for your attention and participation!
+
+???
+1. To print pdf slides
+https://stackoverflow.com/questions/54968311/xaringan-export-slides-to-pdf-while-preserving-formatting
+
+pagedown::chrome_print("W1_ME.html") # but not all pictures are visible
+
+2. Option: https://stackoverflow.com/questions/54968311/xaringan-export-slides-to-pdf-while-preserving-formatting
+
+install.packages("remotes")
+remotes::install_github("jhelvy/xaringanBuilder")
+remotes::install_github("jhelvy/renderthis@v0.0.9")
+
+library(xaringanBuilder)
+build_pdf("DVC.html")
+
+3. Option
+writeBin(as.raw(c()), "favicon.ico") # create an empty favicon.ico file
+install.packages("renderthis")
+remotes::install_github('rstudio/chromote')
+library(renderthis)
+
+renderthis::to_pdf("W12_1_ME.html")
+
+getwd()
+setwd("C:\\Users\\vyshn\\OneDrive - kdis.ac.kr\\Documents\\GitHub\\Sogang\\2026\\Spring\\Mathematical Methods for International Commerce\\Week 12_1")
