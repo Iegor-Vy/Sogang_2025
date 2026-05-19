@@ -1,0 +1,399 @@
+---
+title: "International Commerce in a Changing World"
+subtitle: "Finance, AI, and Global Careers"
+author: "Iegor Vyshnevskyi, Ph.D."
+institute: "Sogang University, Geppert School of International Studies\nAlbatross Seminar"
+date: "May 20, 2026"
+output:
+  xaringan::moon_reader:
+    #css: $$default, metropolis, metropolis-fonts$$
+    css: xaringan-themer.css
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: '16:9'
+---
+
+<style>
+@media print{
+  body, html, .remark-slides-area, .remark-notes-area {
+    height: 100% !important;
+    width: 100% !important;
+    overflow: visible;
+    display: inline-block;
+    }
+}
+</style>
+
+<style type="text/css">
+.remark-slide-content {
+    font-size: 34px;
+    padding: 1em 4em 1em 4em;
+}
+</style>
+
+<style type="text/css">
+.my-one-page-font {
+  font-size: 28px;
+}
+</style>
+
+<style type="text/css">
+.my-one-page-font-table {
+  font-size: 24px;
+}
+</style>
+
+<style>
+.tiny { font-size: 60%; }      /* class you can reuse anywhere */
+</style>
+
+<style>
+.remark-slide-content {
+  position: relative;
+  z-index: 1;
+}
+
+.remark-slide-content::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 600px;          /* adjust size */
+  height: 600px;
+  background-image: url("1. 교장(Seal_Positive).png");  /* place logo file in same folder */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: 0.05;         /* watermark transparency */
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 0;
+}
+</style>
+
+
+```{r setup, include = FALSE}
+library(tidyverse)
+library(knitr)
+
+opts_chunk$set(fig.width = 10, 
+               message = FALSE, 
+               warning = FALSE,
+               echo = FALSE)
+```
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+#install.packages("xaringanthemer")
+library(xaringanthemer)
+style_mono_accent(
+  base_color = "#851a10",
+  header_font_google = google_font("Josefin Sans"),
+  text_font_google   = google_font("Montserrat", "500", "550i"),
+  code_font_google   = google_font("Fira Mono"),
+  colors = c(
+  red = "#f34213",
+  purple = "#3e2f5b",
+  orange = "#ff8811",
+  green = "#136f63",
+  white = "#FFFFFF"
+)
+)
+```
+
+
+# International Commerce Today
+
+.pull-left[
+
+### International Commerce is no longer only:
+
+* Trade
+
+* Import / Export
+
+* Logistics
+
+* Accounting
+
+]
+
+.pull-right[
+
+### Today it also includes:
+
+* Artificial Intelligence
+
+* Data Science
+
+* FinTech
+
+* Global Finance
+
+* Digital Payments
+
+* Geopolitics
+
+* Central Banking
+
+* Climate Risk
+
+* Global Supply Chains
+
+]
+
+> International commerce today is not only about goods crossing borders. It is also about information, finance, technology, and global coordination.
+
+---
+
+class: center, middle
+
+# A Question
+
+## What skills will matter most in the next 10 years?
+
+---
+
+# My Journey
+
+.pull-left[
+
+### Academic & Professional Path
+
+* Ukraine
+
+* Banking sector
+
+* Export-import banking
+
+* Central Bank of Ukraine
+
+* KDI School
+
+* Research in central banking
+
+* Sogang University
+
+]
+
+.pull-right[
+
+### What I learned
+
+* Careers rarely follow a straight line
+
+* Analytical skills matter everywhere
+
+* Communication & collaboration matter everywhere
+
+* Technology changes every field
+
+* International experience is a major advantage
+
+]
+
+.tiny[This is a very brief summary of my journey. You may visit my [page](https://iegor-vy.github.io/) for more details.]
+
+---
+
+<div style="flex: 1; text-align: center;">
+    <img src="p2.png" style="max-width: 80%; height: auto;">
+  </div>
+
+---
+
+<div style="flex: 1; text-align: center;">
+    <img src="p3.png" style="max-width: 80%; height: auto;">
+  </div>
+
+
+---
+
+# AI is Changing Commerce
+.pull-left[
+<div style="flex: 1; text-align: center;">
+    <img src="p3.jpg" style="max-width: 100%; height: auto;">
+  </div>
+
+.tiny[Source: [BIS](https://www.bis.org/publ/arpdf/ar2024e3.htm).]
+]
+
+.pull-right[
+<div style="flex: 1; text-align: center;">
+    <img src="p4.png" style="max-width: 100%; height: auto;">
+  </div>
+
+.tiny[Source: [DMR](https://dimensionmarketresearch.com/report/ai-in-banking-market/).]
+]
+
+* AI is not replacing all jobs.
+
+* But people who know how to work with AI may replace those who do not.
+
+---
+
+<div style="flex: 1; text-align: center;">
+    <img src="p5.png" style="max-width: 60%; height: auto;">
+  </div>
+
+
+---
+
+<div style="flex: 1; text-align: center;">
+    <img src="p6.png" style="max-width: 90%; height: auto;">
+  </div>
+
+.tiny[The project link is [here](https://centralbanktexts.github.io/).]
+
+---
+
+# Future Careers
+
+.pull-left[
+
+### Traditional Careers
+
+* Banking
+
+* Trade
+
+* Consulting
+
+* Government
+
+* International organizations
+
+]
+
+.pull-right[
+
+### Emerging Careers
+
+* FinTech
+
+* AI in Finance
+
+* Economic Data Analyst
+
+* ESG & Climate Finance
+
+* Digital Policy
+
+* Risk Analytics
+
+]
+
+---
+
+class: center, middle
+
+# Important Message
+
+## Do not rush to define your entire future immediately.
+
+### University is the time to:
+
+Explore
+
+Experiment
+
+Build skills
+
+Learn how to think
+
+Networking
+
+Having fun
+
+---
+
+# Core Skills in 2030
+
+.pull-left[
+
+### What employers expect
+
+According to the World Economic Forum, the most important future skills combine:
+
+- *AI and big data*
+- *Technological literacy*
+- *Analytical thinking*
+- *Creative thinking*
+- *Curiosity and lifelong learning*
+- *Resilience and flexibility*
+
+### Key message
+
+International Commerce students need both:
+
+**technical skills** + **human skills**
+
+]
+
+.pull-right[
+
+<div style="flex: 1; text-align: center;">
+    <img src="p1.png" style="max-width: 90%; height: auto;">
+  </div>
+
+> Return on skills is higher than return on knowledge. 
+.tiny[
+Source: World Economic Forum, Future of Jobs Survey 2024.
+]
+]
+
+
+
+---
+
+# Final Advice
+
+#### Have your own standards and principles.
+
+#### Try difficult things early.
+
+#### Learn how to communicate clearly.
+
+#### Collaborate with others.
+
+#### Build solid knowledge and real skills.
+
+#### Become professionals in whatever field you choose.
+
+---
+
+class: center, middle
+
+# Thank You!
+
+## Questions?
+
+
+
+???
+1. To print pdf slides
+https://stackoverflow.com/questions/54968311/xaringan-export-slides-to-pdf-while-preserving-formatting
+
+pagedown::chrome_print("W1_ME.html") # but not all pictures are visible
+
+2. Option: https://stackoverflow.com/questions/54968311/xaringan-export-slides-to-pdf-while-preserving-formatting
+
+install.packages("remotes")
+remotes::install_github("jhelvy/xaringanBuilder")
+remotes::install_github("jhelvy/renderthis@v0.0.9")
+
+library(xaringanBuilder)
+build_pdf("DVC.html")
+
+3. Option
+writeBin(as.raw(c()), "favicon.ico") # create an empty favicon.ico file
+install.packages("renderthis")
+remotes::install_github('rstudio/chromote')
+library(renderthis)
+
+renderthis::to_pdf("Albatross.html")
+
+getwd()
+setwd("C:\\Users\\vyshn\\OneDrive - kdis.ac.kr\\Documents\\GitHub\\Sogang\\2026\\Spring\\Other\\Albatross Seminar")

@@ -2,7 +2,7 @@
 title: "Mathematical Methods for International Commerce "
 subtitle: "<br/>Week 11/1: Constrained Optimization (5.5) "
 author: "Iegor Vyshnevskyi, Ph.D."
-institute: "Sogang University"
+institute: "Sogang University, Geppert School of International Studies"
 date: "May 12, 2026"
 output:
   xaringan::moon_reader:
