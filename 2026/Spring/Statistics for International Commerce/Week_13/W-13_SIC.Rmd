@@ -1,6 +1,6 @@
 ---
 title: "Statistics for International Commerce"
-subtitle: "Week 13: Special Lecture on Modern Analytics Workflow in Business and Research // How Real Data Projects Are Built Today"
+subtitle: "Week 13: Special Lecture on Modern Analytics Workflow in Business and Research\nHow Real Data Projects Are Built Today"
 author: "Iegor Vyshnevskyi, Ph.D."
 institute: "Sogang University, Geppert School of International Studies"
 date: "May 26, 2026"
@@ -108,39 +108,6 @@ style_mono_accent(
 )
 ```
 
-
-ROLE: Answering as an expert in statistics education, data science workflows, and computational research infrastructure.
-
-TL;DR: Below is a complete xaringan lecture deck for “Modern Analytics Workflow in Business and Research,” designed specifically for your undergraduate International Commerce students. It is practical, visual, inspirational, and intentionally non-technical.
-
-ANSWER:
-
-```r id="j4m7wp"
----
-title: "Modern Analytics Workflow in Business and Research"
-subtitle: "How Real Data Projects Are Built Today"
-author: "Iegor Vyshnevskyi, Ph.D."
-output:
-  xaringan::moon_reader:
-    css: [default, metropolis, metropolis-fonts]
-    nature:
-      ratio: "16:9"
-      highlightStyle: github
-      highlightLines: true
-      countIncrementalSlides: false
----
-```
-
-```{r setup, include=FALSE} id="u6r9hf"
-knitr::opts_chunk$set(
-  echo = TRUE,
-  warning = FALSE,
-  message = FALSE
-)
-```
-
----
-
 # Today
 
 ## How Modern Analytics Actually Works
@@ -148,9 +115,13 @@ knitr::opts_chunk$set(
 We will talk about:
 
 * how companies and researchers work with data
+
 * how analytics projects are organized
+
 * modern tools used in practice
+
 * collaboration and reproducibility
+
 * AI-assisted workflows
 
 ---
@@ -165,11 +136,28 @@ Modern analytics is NOT just:
 
 It is an entire workflow:
 
-[
-\text{Data} \rightarrow
-\text{Analysis} \rightarrow
-\text{Collaboration} \rightarrow
-\text{Decision}
+.center[
+<div style="margin-top: 14px; display: flex; align-items: stretch; justify-content: center; gap: 10px;">
+  <div style="width: 22%; background: #e8f3ff; border-left: 6px solid #2b6cb0; border-radius: 10px; padding: 12px 10px; line-height: 1.2;">
+    <strong>1) Data</strong><br>
+    Collect and define
+  </div>
+  <div style="font-size: 42px; color: #851a10; align-self: center;">&rarr;</div>
+  <div style="width: 22%; background: #eafaf1; border-left: 6px solid #2f855a; border-radius: 10px; padding: 12px 10px; line-height: 1.2;">
+    <strong>2) Analysis</strong><br>
+    Turn data into insight
+  </div>
+  <div style="font-size: 42px; color: #851a10; align-self: center;">&rarr;</div>
+  <div style="width: 22%; background: #fff6e8; border-left: 6px solid #c05621; border-radius: 10px; padding: 12px 10px; line-height: 1.2;">
+    <strong>3) Collaboration</strong><br>
+    Share and validate
+  </div>
+  <div style="font-size: 42px; color: #851a10; align-self: center;">&rarr;</div>
+  <div style="width: 22%; background: #f7ecff; border-left: 6px solid #6b46c1; border-radius: 10px; padding: 12px 10px; line-height: 1.2;">
+    <strong>4) Decision</strong><br>
+    Act with confidence
+  </div>
+</div>
 ]
 
 ---
@@ -177,19 +165,17 @@ It is an entire workflow:
 # Typical Analytics Workflow
 
 .center[
-Raw Data
-↓
-Python / SQL / Excel
-↓
-Cleaning & Analysis
-↓
-Visualization
-↓
-Collaboration
-↓
-Report / Dashboard / Paper
-↓
-Business Decision
+<div style="margin-top: 6px; width: 85%; margin-left: auto; margin-right: auto;">
+  <div style="background:#f3f7ff; border-left:8px solid #2b6cb0; border-radius:8px; padding:10px 14px; margin-bottom:8px;"><strong>Input:</strong> Raw Data (DB, API, Excel, Survey)</div>
+  <div style="text-align:center; color:#851a10; font-size:32px; line-height:0.8;">&darr;</div>
+  <div style="background:#ecfff4; border-left:8px solid #2f855a; border-radius:8px; padding:10px 14px; margin-bottom:8px;"><strong>Processing:</strong> Python / SQL / Excel + Cleaning</div>
+  <div style="text-align:center; color:#851a10; font-size:32px; line-height:0.8;">&darr;</div>
+  <div style="background:#fff9ed; border-left:8px solid #b7791f; border-radius:8px; padding:10px 14px; margin-bottom:8px;"><strong>Insight:</strong> Analysis + Visualization</div>
+  <div style="text-align:center; color:#851a10; font-size:32px; line-height:0.8;">&darr;</div>
+  <div style="background:#f4f0ff; border-left:8px solid #6b46c1; border-radius:8px; padding:10px 14px; margin-bottom:8px;"><strong>Delivery:</strong> Collaboration + Report / Dashboard / Paper</div>
+  <div style="text-align:center; color:#851a10; font-size:32px; line-height:0.8;">&darr;</div>
+  <div style="background:#ffecec; border-left:8px solid #c53030; border-radius:8px; padding:10px 14px;"><strong>Outcome:</strong> Business Decision</div>
+</div>
 ]
 
 ---
@@ -202,12 +188,38 @@ Suppose a company asks:
 
 A modern analytics workflow may involve:
 
-* databases
-* Python analysis
-* dashboards
-* collaboration through GitHub
-* reports in Overleaf or PowerPoint
-* AI tools
+.center[
+<div style="margin-top: 6px; width: 94%; margin-left: auto; margin-right: auto;">
+  <div style="background:#fff9ed; border-left:8px solid #b7791f; border-radius:10px; padding:10px 14px; margin-bottom:10px; text-align:left;">
+    <strong>Pause and discuss:</strong> if sales fall in Europe, which part of the workflow would you check first?
+  </div>
+  <div style="display:flex; align-items:stretch; justify-content:space-between; gap:8px; margin-bottom:10px;">
+    <div style="flex:1; background:#e8f3ff; border-radius:10px; padding:10px 8px; min-height:76px;">
+      <strong>1</strong><br>Data<br><span class="tiny">databases, APIs, Excel</span>
+    </div>
+    <div style="font-size:30px; color:#851a10; align-self:center;">&rarr;</div>
+    <div style="flex:1; background:#ecfff4; border-radius:10px; padding:10px 8px; min-height:76px;">
+      <strong>2</strong><br>Analysis<br><span class="tiny">Python and cleaning</span>
+    </div>
+    <div style="font-size:30px; color:#851a10; align-self:center;">&rarr;</div>
+    <div style="flex:1; background:#fff6e8; border-radius:10px; padding:10px 8px; min-height:76px;">
+      <strong>3</strong><br>Output<br><span class="tiny">charts, dashboards</span>
+    </div>
+    <div style="font-size:30px; color:#851a10; align-self:center;">&rarr;</div>
+    <div style="flex:1; background:#f4f0ff; border-radius:10px; padding:10px 8px; min-height:76px;">
+      <strong>4</strong><br>Sharing<br><span class="tiny">GitHub, Overleaf, PowerPoint</span>
+    </div>
+  </div>
+  <div style="display:flex; gap:10px; align-items:stretch;">
+    <div style="flex:1; background:#ffecec; border-left:8px solid #c53030; border-radius:10px; padding:10px 12px; text-align:left;">
+      <strong>Team question:</strong><br>What would you do in step 1, and what would you show in step 3?
+    </div>
+    <div style="flex:1; background:#eefbf8; border-left:8px solid #2f855a; border-radius:10px; padding:10px 12px; text-align:left;">
+      <strong>Real tools:</strong><br>database + notebook + dashboard + collaborative writing
+    </div>
+  </div>
+</div>
+]
 
 ---
 
@@ -215,14 +227,21 @@ A modern analytics workflow may involve:
 
 These workflows are used in:
 
-* consulting
-* finance
-* fintech
-* e-commerce
-* logistics
-* research institutes
-* central banks
-* tech companies
+<div style="margin-top: 8px; width: 94%; margin-left: auto; margin-right: auto;">
+  <div style="background:#fff9ed; border-left:8px solid #b7791f; border-radius:10px; padding:10px 14px; margin-bottom:10px; text-align:left;">
+    <strong>Ask the room:</strong> where do you think analytics is most important in everyday business and research?
+  </div>
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:10px;">
+    <div style="background:#e8f3ff; border-radius:10px; padding:12px 10px; min-height:70px;"><strong>Consulting</strong><br>client decisions</div>
+    <div style="background:#ecfff4; border-radius:10px; padding:12px 10px; min-height:70px;"><strong>Finance</strong><br>risk and forecasting</div>
+    <div style="background:#fff6e8; border-radius:10px; padding:12px 10px; min-height:70px;"><strong>Fintech</strong><br>products and users</div>
+    <div style="background:#f4f0ff; border-radius:10px; padding:12px 10px; min-height:70px;"><strong>E-commerce</strong><br>sales and behavior</div>
+    <div style="background:#ffecec; border-radius:10px; padding:12px 10px; min-height:70px;"><strong>Logistics</strong><br>routes and delivery</div>
+    <div style="background:#eefbf8; border-radius:10px; padding:12px 10px; min-height:70px;"><strong>Research</strong><br>evidence and papers</div>
+    <div style="background:#f7ecff; border-radius:10px; padding:12px 10px; min-height:70px;"><strong>Central Banks</strong><br>policy and stability</div>
+    <div style="background:#fdf2f8; border-radius:10px; padding:12px 10px; min-height:70px;"><strong>Tech</strong><br>products and analytics</div>
+  </div>
+</div>
 
 ---
 
@@ -232,26 +251,42 @@ Very few real projects are done alone.
 
 Modern projects involve:
 
-* analysts
-* managers
-* developers
-* researchers
-* designers
-* domain experts
+<div style="margin-top: 8px; width: 94%; margin-left: auto; margin-right: auto;">
+  <div style="background:#ecfff4; border-left:8px solid #2f855a; border-radius:10px; padding:10px 14px; margin-bottom:10px; text-align:left;">
+    <strong>Who does what?</strong> Each role sees the project from a different angle.
+  </div>
+  <div style="display:flex; flex-wrap:wrap; gap:10px; justify-content:center;">
+    <div style="background:#e8f3ff; border-radius:999px; padding:10px 14px;"><strong>Analysts</strong>: find patterns</div>
+    <div style="background:#fff9ed; border-radius:999px; padding:10px 14px;"><strong>Managers</strong>: decide priorities</div>
+    <div style="background:#f4f0ff; border-radius:999px; padding:10px 14px;"><strong>Developers</strong>: build tools</div>
+    <div style="background:#ffecec; border-radius:999px; padding:10px 14px;"><strong>Researchers</strong>: test ideas</div>
+    <div style="background:#eefbf8; border-radius:999px; padding:10px 14px;"><strong>Designers</strong>: make it clear</div>
+    <div style="background:#fff6e8; border-radius:999px; padding:10px 14px;"><strong>Domain experts</strong>: add context</div>
+  </div>
+  <div style="margin-top:12px; background:#fff9ed; border-left:8px solid #b7791f; border-radius:10px; padding:10px 14px; text-align:left;">
+    <strong>Discussion cue:</strong> what goes wrong if one of these roles is missing?
+  </div>
+</div>
 
 ---
 
 # Typical Workflow Tools
 
-| Purpose           | Common Tools      |
-| ----------------- | ----------------- |
-| Coding            | Python, R         |
-| Development       | VS Code           |
-| Cloud notebooks   | Google Colab      |
-| Version control   | GitHub            |
-| Writing/reporting | Overleaf          |
-| Visualization     | Tableau, Power BI |
-| AI assistance     | ChatGPT, Copilot  |
+.center[
+<div style="margin-top: 8px; width: 95%; margin-left: auto; margin-right: auto;">
+  <div style="background:#fff9ed; border-left:8px solid #b7791f; border-radius:10px; padding:10px 14px; margin-bottom:10px; text-align:left;">
+    <strong>Quick question:</strong> which of these tools do you already know, and which one would help you most right now?
+  </div>
+  <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:10px;">
+    <div style="background:#e8f3ff; border-radius:10px; padding:12px 10px; min-height:70px;"><strong>Coding</strong><br>Python, R</div>
+    <div style="background:#ecfff4; border-radius:10px; padding:12px 10px; min-height:70px;"><strong>Development</strong><br>VS Code</div>
+    <div style="background:#fff6e8; border-radius:10px; padding:12px 10px; min-height:70px;"><strong>Cloud notebooks</strong><br>Google Colab</div>
+    <div style="background:#f4f0ff; border-radius:10px; padding:12px 10px; min-height:70px;"><strong>Version control</strong><br>GitHub</div>
+    <div style="background:#ffecec; border-radius:10px; padding:12px 10px; min-height:70px;"><strong>Writing/reporting</strong><br>Overleaf</div>
+    <div style="background:#eefbf8; border-radius:10px; padding:12px 10px; min-height:70px;"><strong>Visualization + AI</strong><br>Tableau, Power BI, Copilot</div>
+  </div>
+</div>
+]
 
 ---
 
@@ -259,87 +294,110 @@ Modern projects involve:
 
 Data can come from:
 
-* company databases
-* APIs
-* Excel files
-* surveys
-* websites
-* financial markets
-* text documents
+.center[
+<div style="margin-top: 8px; width: 94%; margin-left: auto; margin-right: auto;">
+  <div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:center;">
+    <div style="background:#e8f3ff; border-radius:999px; padding:10px 14px;"><strong>Company</strong>: databases</div>
+    <div style="background:#ecfff4; border-radius:999px; padding:10px 14px;"><strong>Web</strong>: APIs, websites</div>
+    <div style="background:#fff6e8; border-radius:999px; padding:10px 14px;"><strong>Files</strong>: Excel, text documents</div>
+    <div style="background:#f4f0ff; border-radius:999px; padding:10px 14px;"><strong>People</strong>: surveys</div>
+    <div style="background:#ffecec; border-radius:999px; padding:10px 14px;"><strong>Markets</strong>: financial data</div>
+  </div>
+  <div style="margin-top:12px; background:#fff9ed; border-left:8px solid #b7791f; border-radius:10px; padding:10px 14px; text-align:left;">
+    <strong>Think first:</strong> where would you look if you needed sales data for one country over time?
+  </div>
+</div>
+]
 
 ---
 
 # Example Types of Data
 
-| Type        | Example          |
-| ----------- | ---------------- |
-| Numerical   | sales revenue    |
-| Categorical | customer type    |
-| Time series | stock prices     |
-| Text        | reviews, reports |
-| Images      | product photos   |
+.center[
+<div style="margin-top: 8px; width: 92%; margin-left: auto; margin-right: auto; display:grid; grid-template-columns: repeat(2, 1fr); gap:10px;">
+  <div style="background:#e8f3ff; border-radius:10px; padding:12px 14px;"><strong>Numerical</strong><br>sales revenue</div>
+  <div style="background:#ecfff4; border-radius:10px; padding:12px 14px;"><strong>Categorical</strong><br>customer type</div>
+  <div style="background:#fff6e8; border-radius:10px; padding:12px 14px;"><strong>Time series</strong><br>stock prices</div>
+  <div style="background:#f4f0ff; border-radius:10px; padding:12px 14px;"><strong>Text</strong><br>reviews, reports</div>
+  <div style="background:#ffecec; border-radius:10px; padding:12px 14px; grid-column: span 2;"><strong>Images</strong><br>product photos</div>
+</div>
+]
 
 ---
 
 # Example: Python in Analytics
 
-```python id="y1z4rf"
+```{python id="y1z4rf"}
 import pandas as pd
+import numpy as np
 
-df = pd.read_csv("sales_data.csv")
+# Generate sample sales data
+np.random.seed(42)
+df = pd.DataFrame({
+    'region': np.random.choice(['Asia', 'Europe', 'North America'], 100),
+    'sales': np.random.uniform(50, 200, 100),
+    'quarter': np.random.choice(['Q1', 'Q2', 'Q3', 'Q4'], 100)
+})
 
 df.head()
 ```
 
 Python helps us:
 
-* organize data
-* analyze data
-* automate repetitive work
+.center[
+<div style="margin-top: 8px; width: 94%; margin-left: auto; margin-right: auto; display:flex; gap:10px;">
+  <div style="flex:1; background:#e8f3ff; border-radius:10px; padding:10px 12px;"><strong>Organize</strong><br>clean and structure data</div>
+  <div style="flex:1; background:#ecfff4; border-radius:10px; padding:10px 12px;"><strong>Analyze</strong><br>find patterns and relationships</div>
+  <div style="flex:1; background:#fff9ed; border-radius:10px; padding:10px 12px;"><strong>Automate</strong><br>repeat tasks faster and safer</div>
+</div>
+]
 
 ---
 
 # Why Python Became So Popular
 
-Python is:
-
-* flexible
-* beginner-friendly
-* widely used
-* powerful for analytics and AI
-
-It is used by:
-
-* Google
-* Netflix
-* banks
-* startups
-* researchers
+.center[
+<div style="margin-top: 8px; width: 94%; margin-left: auto; margin-right: auto;">
+  <div style="background:#fff9ed; border-left:8px solid #b7791f; border-radius:10px; padding:10px 14px; margin-bottom:10px; text-align:left;">
+    <strong>Class prompt:</strong> why do you think Python spread so quickly across business and research?
+  </div>
+  <div style="display:grid; grid-template-columns: repeat(2, 1fr); gap:10px;">
+    <div style="background:#e8f3ff; border-radius:10px; padding:12px 14px;"><strong>Easy to start</strong><br>simple syntax and readable code</div>
+    <div style="background:#ecfff4; border-radius:10px; padding:12px 14px;"><strong>Flexible</strong><br>data, web, automation, AI</div>
+    <div style="background:#fff6e8; border-radius:10px; padding:12px 14px;"><strong>Widely used</strong><br>companies, banks, startups</div>
+    <div style="background:#f4f0ff; border-radius:10px; padding:12px 14px;"><strong>Community</strong><br>libraries, tutorials, examples</div>
+  </div>
+</div>
+]
 
 ---
 
 # Why We Use Google Colab
 
-Advantages:
-
-* cloud-based
-* no installation
-* easy sharing
-* works in browser
-* free GPU access in some cases
-
-Great for:
-
-* learning
-* teamwork
-* quick experiments
-
+.center[
+<div style="margin-top: 8px; width: 94%; margin-left: auto; margin-right: auto;">
+  <div style="background:#ecfff4; border-left:8px solid #2f855a; border-radius:10px; padding:10px 14px; margin-bottom:10px; text-align:left;">
+    <strong>Imagine you are in class:</strong> what makes Colab easier for beginners than installing software locally?
+  </div>
+  <div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:center;">
+    <div style="background:#e8f3ff; border-radius:999px; padding:10px 14px;">No installation</div>
+    <div style="background:#fff6e8; border-radius:999px; padding:10px 14px;">Easy sharing</div>
+    <div style="background:#f4f0ff; border-radius:999px; padding:10px 14px;">Works in browser</div>
+    <div style="background:#ffecec; border-radius:999px; padding:10px 14px;">Good for teamwork</div>
+    <div style="background:#eefbf8; border-radius:999px; padding:10px 14px;">Quick experiments</div>
+  </div>
+</div>
+]
 ---
 
 # But Professionals Often Use VS Code
 
-.center[ <img src="https://code.visualstudio.com/assets/home/home-screenshot-mac-2x-v2.png" width="75%">
+<div>
+.center[
+<img src="p1.png" width="80%">
 ]
+
+</div>
 
 ---
 
@@ -349,11 +407,19 @@ VS Code is a professional coding environment.
 
 Advantages:
 
-* project organization
-* multiple files
-* extensions
-* GitHub integration
-* AI tools integration
+.center[
+<div style="margin-top: 8px; width: 94%; margin-left: auto; margin-right: auto;">
+  <div style="background:#f3f7ff; border-left:8px solid #2b6cb0; border-radius:10px; padding:10px 14px; margin-bottom:10px; text-align:left;">
+    <strong>Why professionals like it:</strong> which feature matters most when a project gets bigger?
+  </div>
+  <div style="display:grid; grid-template-columns: repeat(2, 1fr); gap:10px;">
+    <div style="background:#e8f3ff; border-radius:10px; padding:12px 14px;"><strong>Project organization</strong><br>multiple folders and files</div>
+    <div style="background:#ecfff4; border-radius:10px; padding:12px 14px;"><strong>Extensions</strong><br>extra tools for data work</div>
+    <div style="background:#fff6e8; border-radius:10px; padding:12px 14px;"><strong>GitHub integration</strong><br>version control in one place</div>
+    <div style="background:#f4f0ff; border-radius:10px; padding:12px 14px;"><strong>AI tools</strong><br>support for coding and debugging</div>
+  </div>
+</div>
+]
 
 ---
 
@@ -369,48 +435,92 @@ The goal is:
 
 Tools are just tools.
 
+.center[
+<div style="margin-top: 10px; width: 90%; margin-left: auto; margin-right: auto; background:#fff9ed; border-left:8px solid #b7791f; border-radius:10px; padding:12px 14px; text-align:left;">
+  <strong>Big idea:</strong> the tool matters less than whether it helps you solve the actual problem.
+</div>
+]
+
 ---
 
 # Example Workflow
 
-Suppose we analyze:
-
-* customer spending
-* delivery performance
-* regional sales
-
-Workflow:
-
-1. Load data
-2. Clean data
-3. Analyze
-4. Visualize
-5. Share results
-6. Make decision
-
+.center[
+<div style="margin-top: 8px; width: 94%; margin-left: auto; margin-right: auto;">
+  <div style="background:#fff9ed; border-left:8px solid #b7791f; border-radius:10px; padding:10px 14px; margin-bottom:10px; text-align:left;">
+    <strong>Try this mentally:</strong> if the data are messy, which step should happen before any chart is made?
+  </div>
+  <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:10px;">
+    <div style="background:#e8f3ff; border-radius:10px; padding:12px 10px;"><strong>1. Load</strong><br>bring data into the project</div>
+    <div style="background:#ecfff4; border-radius:10px; padding:12px 10px;"><strong>2. Clean</strong><br>fix missing values and errors</div>
+    <div style="background:#fff6e8; border-radius:10px; padding:12px 10px;"><strong>3. Analyze</strong><br>find patterns and answer questions</div>
+    <div style="background:#f4f0ff; border-radius:10px; padding:12px 10px;"><strong>4. Visualize</strong><br>make the result easy to see</div>
+    <div style="background:#ffecec; border-radius:10px; padding:12px 10px;"><strong>5. Share</strong><br>present to others</div>
+    <div style="background:#eefbf8; border-radius:10px; padding:12px 10px;"><strong>6. Decide</strong><br>turn insight into action</div>
+  </div>
+</div>
+]
 ---
 
 # Step 2. Visualization
 
 Visualization helps people:
 
-* understand patterns
-* detect problems
-* communicate findings
+.center[
+<div style="margin-top: 8px; width: 92%; margin-left: auto; margin-right: auto; display:flex; gap:10px;">
+  <div style="flex:1; background:#e8f3ff; border-radius:10px; padding:10px 12px;"><strong>Understand</strong><br>see patterns faster</div>
+  <div style="flex:1; background:#ffecec; border-radius:10px; padding:10px 12px;"><strong>Detect</strong><br>spot problems early</div>
+  <div style="flex:1; background:#ecfff4; border-radius:10px; padding:10px 12px;"><strong>Communicate</strong><br>share findings clearly</div>
+</div>
+]
 
 ---
 
 # Example
 
-```python id="e3t7md"
+```{python id="e3t7md"}
 import matplotlib.pyplot as plt
+import numpy as np
 
 regions = ["Asia", "Europe", "North America"]
 sales = [120, 90, 150]
 
-plt.bar(regions, sales)
-plt.title("Regional Sales")
-plt.ylabel("Million USD")
+colors = ["#3A86FF", "#FF9F1C", "#2EC4B6"]
+
+fig, ax = plt.subplots(figsize=(10, 5.5))
+bars = ax.bar(regions, sales, color=colors, edgecolor="#2f2f2f", linewidth=1.2)
+
+avg_sales = np.mean(sales)
+ax.axhline(avg_sales, color="#851a10", linestyle="--", linewidth=2, label=f"Average = {avg_sales:.0f}")
+
+max_idx = int(np.argmax(sales))
+bars[max_idx].set_edgecolor("#851a10")
+bars[max_idx].set_linewidth(2.6)
+
+for bar, value in zip(bars, sales):
+  ax.text(
+    bar.get_x() + bar.get_width() / 2,
+    value + 3,
+    f"{value}",
+    ha="center",
+    va="bottom",
+    fontsize=12,
+    fontweight="bold",
+  )
+
+ax.set_title("Regional Sales Snapshot", fontsize=18, pad=12, fontweight="bold")
+ax.text(0.5, 1.01, "North America currently leads", transform=ax.transAxes,
+    ha="center", va="bottom", fontsize=11, color="#444444")
+ax.set_ylabel("Million USD")
+ax.set_ylim(0, max(sales) * 1.25)
+
+ax.set_axisbelow(True)
+ax.yaxis.grid(True, linestyle=":", alpha=0.35)
+ax.spines["top"].set_visible(False)
+ax.spines["right"].set_visible(False)
+ax.legend(frameon=False, loc="upper left")
+
+plt.tight_layout()
 plt.show()
 ```
 
@@ -425,6 +535,12 @@ In real business:
 A brilliant analysis nobody understands:
 
 ## has little value
+
+.center[
+<div style="margin-top: 10px; width: 90%; margin-left: auto; margin-right: auto; background:#fff9ed; border-left:8px solid #b7791f; border-radius:10px; padding:12px 14px; text-align:left;">
+  <strong>Check your message:</strong> if you had 30 seconds to explain the result, what would you say first?
+</div>
+]
 
 ---
 
@@ -442,16 +558,28 @@ Solution:
 
 ## version control
 
+.center[
+<div style="margin-top: 8px; width: 92%; margin-left: auto; margin-right: auto; display:flex; gap:10px;">
+  <div style="flex:1; background:#e8f3ff; border-radius:10px; padding:10px 12px;"><strong>Problem</strong><br>too many versions</div>
+  <div style="flex:1; background:#ecfff4; border-radius:10px; padding:10px 12px;"><strong>Tool</strong><br>GitHub</div>
+  <div style="flex:1; background:#fff9ed; border-radius:10px; padding:10px 12px;"><strong>Result</strong><br>clear history and teamwork</div>
+</div>
+]
+
 ---
 
 # GitHub
 
 GitHub is used to:
 
-* store code
-* track changes
-* collaborate
-* manage projects
+.center[
+<div style="margin-top: 8px; width: 90%; margin-left: auto; margin-right: auto; display:flex; flex-wrap:wrap; gap:10px; justify-content:center;">
+  <div style="background:#e8f3ff; border-radius:999px; padding:10px 14px;">Store code</div>
+  <div style="background:#ecfff4; border-radius:999px; padding:10px 14px;">Track changes</div>
+  <div style="background:#fff6e8; border-radius:999px; padding:10px 14px;">Collaborate</div>
+  <div style="background:#f4f0ff; border-radius:999px; padding:10px 14px;">Manage projects</div>
+</div>
+]
 
 ---
 
@@ -465,24 +593,30 @@ final_project_REAL_final_v2_LAST.xlsx
 
 With GitHub:
 
-* clear history
-* safer collaboration
-* reproducibility
+.center[
+<div style="margin-top: 8px; width: 92%; margin-left: auto; margin-right: auto; display:flex; gap:10px;">
+  <div style="flex:1; background:#ffecec; border-left:8px solid #c53030; border-radius:10px; padding:10px 12px;"><strong>Without GitHub</strong><br>file chaos and confusion</div>
+  <div style="flex:1; background:#ecfff4; border-left:8px solid #2f855a; border-radius:10px; padding:10px 12px;"><strong>With GitHub</strong><br>history, safety, reproducibility</div>
+</div>
+]
 
 ---
 
 # Example GitHub Workflow
 
 .center[
-Notebook
-↓
-Upload to GitHub
-↓
-Collaborator edits
-↓
-Track changes
-↓
-Final project
+<div style="margin-top: 8px; width: 88%; margin-left: auto; margin-right: auto;">
+  <div style="display:flex; justify-content:space-between; gap:10px; margin-bottom:8px;">
+    <div style="flex:1; background:#e8f3ff; border-top:6px solid #2b6cb0; border-radius:8px; padding:10px;"><strong>1. Notebook</strong><br>Start analysis</div>
+    <div style="flex:1; background:#ecfff4; border-top:6px solid #2f855a; border-radius:8px; padding:10px;"><strong>2. Upload</strong><br>Push to GitHub</div>
+    <div style="flex:1; background:#fff9ed; border-top:6px solid #b7791f; border-radius:8px; padding:10px;"><strong>3. Collaborate</strong><br>Teammate edits</div>
+  </div>
+  <div style="text-align:center; color:#851a10; font-size:32px; line-height:0.9; margin:4px 0;">&darr;</div>
+  <div style="display:flex; justify-content:space-between; gap:10px;">
+    <div style="flex:1; background:#f4f0ff; border-top:6px solid #6b46c1; border-radius:8px; padding:10px;"><strong>4. Track Changes</strong><br>History + review</div>
+    <div style="flex:1; background:#ffecec; border-top:6px solid #c53030; border-radius:8px; padding:10px;"><strong>5. Final Project</strong><br>Stable shared version</div>
+  </div>
+</div>
 ]
 
 ---
@@ -491,99 +625,116 @@ Final project
 
 Research today often includes:
 
-* code
-* datasets
-* visualizations
-* collaborative writing
-* reproducibility
+.center[
+<div style="margin-top: 8px; width: 94%; margin-left: auto; margin-right: auto;">
+  <div style="background:#fff9ed; border-left:8px solid #b7791f; border-radius:10px; padding:10px 14px; margin-bottom:10px; text-align:left;">
+    <strong>Think of a real paper:</strong> what do you need besides the text itself to make it convincing?
+  </div>
+  <div style="display:grid; grid-template-columns: repeat(2, 1fr); gap:10px;">
+    <div style="background:#e8f3ff; border-radius:10px; padding:12px 14px;"><strong>Code</strong><br>for cleaning and analysis</div>
+    <div style="background:#ecfff4; border-radius:10px; padding:12px 14px;"><strong>Datasets</strong><br>the evidence base</div>
+    <div style="background:#fff6e8; border-radius:10px; padding:12px 14px;"><strong>Figures & Tables</strong><br>what the reader sees first</div>
+    <div style="background:#f4f0ff; border-radius:10px; padding:12px 14px;"><strong>Collaborative Writing</strong><br>drafts, comments, revisions</div>
+    <div style="background:#ffecec; border-radius:10px; padding:12px 14px; grid-column: span 2;"><strong>Reproducibility</strong><br>someone else should be able to follow your steps</div>
+  </div>
+  <div style="margin-top:12px; background:#ecfff4; border-left:8px solid #2f855a; border-radius:10px; padding:10px 14px; text-align:left;">
+    <strong>Discussion cue:</strong> which part becomes the bottleneck when the project gets bigger?
+  </div>
+</div>
+]
 
 ---
 
 # Example Research Workflow
 
 .center[
-Data Collection
-↓
-Python Analysis
-↓
-Figures & Tables
-↓
-GitHub Collaboration
-↓
-Overleaf Paper
-↓
-Publication
+<div style="margin-top: 8px; width: 88%; margin-left: auto; margin-right: auto;">
+  <div style="background:#f3f7ff; border-left:8px solid #2b6cb0; border-radius:8px; padding:10px 14px; margin-bottom:7px;"><strong>1. Data Collection</strong> from surveys, experiments, or databases</div>
+  <div style="text-align:center; color:#851a10; font-size:30px; line-height:0.8;">&darr;</div>
+  <div style="background:#ecfff4; border-left:8px solid #2f855a; border-radius:8px; padding:10px 14px; margin-bottom:7px;"><strong>2. Python Analysis</strong> for cleaning, modeling, and testing</div>
+  <div style="text-align:center; color:#851a10; font-size:30px; line-height:0.8;">&darr;</div>
+  <div style="background:#fff9ed; border-left:8px solid #b7791f; border-radius:8px; padding:10px 14px; margin-bottom:7px;"><strong>3. Figures & Tables</strong> to communicate core findings</div>
+  <div style="text-align:center; color:#851a10; font-size:30px; line-height:0.8;">&darr;</div>
+  <div style="background:#f4f0ff; border-left:8px solid #6b46c1; border-radius:8px; padding:10px 14px; margin-bottom:7px;"><strong>4. GitHub Collaboration</strong> for versioning and co-author work</div>
+  <div style="text-align:center; color:#851a10; font-size:30px; line-height:0.8;">&darr;</div>
+  <div style="background:#ffecec; border-left:8px solid #c53030; border-radius:8px; padding:10px 14px; margin-bottom:7px;"><strong>5. Overleaf Paper</strong> for structured writing and references</div>
+  <div style="text-align:center; color:#851a10; font-size:30px; line-height:0.8;">&darr;</div>
+  <div style="background:#fdeff8; border-left:8px solid #97266d; border-radius:8px; padding:10px 14px;"><strong>6. Publication</strong> as reproducible output</div>
+</div>
 ]
 
 ---
 
-# What Is Overleaf?
-
-Overleaf is a collaborative writing platform.
-
-Used for:
-
-* academic papers
-* reports
-* presentations
-* equations
-* references
-
----
-
-# Why Researchers Like Overleaf
-
-Advantages:
-
-* real-time collaboration
-* cloud-based
-* version history
-* professional formatting
-
+.center[
+<div style="margin-top: 8px; width: 94%; margin-left: auto; margin-right: auto;">
+  <div style="background:#fff9ed; border-left:8px solid #b7791f; border-radius:10px; padding:10px 14px; margin-bottom:10px; text-align:left;">
+    <strong>Think like a co-author:</strong> what makes writing easier when several people edit the same document?
+  </div>
+  <div style="display:grid; grid-template-columns: repeat(2, 1fr); gap:10px;">
+    <div style="background:#e8f3ff; border-radius:10px; padding:12px 14px;"><strong>What it is</strong><br>a collaborative writing platform</div>
+    <div style="background:#ecfff4; border-radius:10px; padding:12px 14px;"><strong>Used for</strong><br>papers, reports, presentations</div>
+    <div style="background:#fff6e8; border-radius:10px; padding:12px 14px;"><strong>Also useful for</strong><br>equations and references</div>
+    <div style="background:#f4f0ff; border-radius:10px; padding:12px 14px;"><strong>Why researchers like it</strong><br>real-time collaboration, version history, cloud access</div>
+  </div>
+</div>
+]
 ---
 
 # Example of Reproducibility
 
-Good analytics means:
+.center[
+<div style="margin-top: 8px; width: 94%; margin-left: auto; margin-right: auto;">
+  <div style="background:#ecfff4; border-left:8px solid #2f855a; border-radius:10px; padding:10px 14px; margin-bottom:10px; text-align:left;">
+    <strong>Question:</strong> if a classmate runs your code, do they get the same answer?
+  </div>
+  <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:10px;">
+    <div style="background:#e8f3ff; border-radius:10px; padding:12px 14px;"><strong>Reproduce</strong><br>same result again</div>
+    <div style="background:#fff6e8; border-radius:10px; padding:12px 14px;"><strong>Transparent</strong><br>clear calculations</div>
+    <div style="background:#f4f0ff; border-radius:10px; padding:12px 14px;"><strong>Documented</strong><br>workflow is written down</div>
+  </div>
+</div>
+]
 
-* someone else can reproduce results
-* calculations are transparent
-* workflow is documented
 
----
 
 # Why Reproducibility Matters
 
-Without reproducibility:
-
-* mistakes become harder to detect
-* results may not be trustworthy
-
-In business:
-
-* this can cost money
-
-In research:
-
-* this affects credibility
+.center[
+<div style="margin-top: 8px; width: 94%; margin-left: auto; margin-right: auto; display:flex; gap:10px;">
+  <div style="flex:1; background:#ffecec; border-left:8px solid #c53030; border-radius:10px; padding:10px 12px; text-align:left;">
+    <strong>Without reproducibility</strong><br>harder to find mistakes, weaker trust, unclear results
+  </div>
+  <div style="flex:1; background:#ecfff4; border-left:8px solid #2f855a; border-radius:10px; padding:10px 12px; text-align:left;">
+    <strong>With reproducibility</strong><br>easier review, stronger credibility, safer decisions
+  </div>
+</div>
+<div style="margin-top:12px; background:#fff9ed; border-left:8px solid #b7791f; border-radius:10px; padding:10px 14px; text-align:left;">
+  <strong>Discussion cue:</strong> where would reproducibility matter more, a business report or a research paper?
+</div>
+]
 
 ---
 
 # AI Is Changing Analytics
 
-AI tools now help with:
-
-* coding
-* debugging
-* summarizing
-* visualization
-* writing
-
-Examples:
-
-* ChatGPT
-* GitHub Copilot
-* Cursor AI
+.center[
+<div style="margin-top: 8px; width: 94%; margin-left: auto; margin-right: auto;">
+  <div style="background:#fff9ed; border-left:8px solid #b7791f; border-radius:10px; padding:10px 14px; margin-bottom:10px; text-align:left;">
+    <strong>AI is changing the workflow:</strong> where would you let AI help, and where would you still check manually?
+  </div>
+  <div style="display:grid; grid-template-columns: repeat(2, 1fr); gap:10px;">
+    <div style="background:#e8f3ff; border-radius:10px; padding:12px 14px;"><strong>Coding</strong><br>generate or explain code</div>
+    <div style="background:#ecfff4; border-radius:10px; padding:12px 14px;"><strong>Debugging</strong><br>spot errors faster</div>
+    <div style="background:#fff6e8; border-radius:10px; padding:12px 14px;"><strong>Summarizing</strong><br>compress long text or notes</div>
+    <div style="background:#f4f0ff; border-radius:10px; padding:12px 14px;"><strong>Writing + Visualization</strong><br>draft text and suggest charts</div>
+  </div>
+  <div style="margin-top:12px; display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
+    <div style="background:#e8f3ff; border-radius:999px; padding:10px 14px;">ChatGPT</div>
+    <div style="background:#ecfff4; border-radius:999px; padding:10px 14px;">GitHub Copilot</div>
+    <div style="background:#fff6e8; border-radius:999px; padding:10px 14px;">Cursor AI</div>
+  </div>
+</div>
+]
 
 ---
 
@@ -591,17 +742,19 @@ Examples:
 
 AI is a tool.
 
-You still need:
-
-* logic
-* statistics
-* critical thinking
-
-AI can produce:
-
-* mistakes
-* hallucinations
-* wrong interpretation
+.center[
+<div style="margin-top: 8px; width: 94%; margin-left: auto; margin-right: auto; display:flex; gap:10px;">
+  <div style="flex:1; background:#ecfff4; border-left:8px solid #2f855a; border-radius:10px; padding:10px 12px; text-align:left;">
+    <strong>You still need</strong><br>logic, statistics, critical thinking
+  </div>
+  <div style="flex:1; background:#ffecec; border-left:8px solid #c53030; border-radius:10px; padding:10px 12px; text-align:left;">
+    <strong>AI can produce</strong><br>mistakes, hallucinations, wrong interpretation
+  </div>
+</div>
+<div style="margin-top:12px; background:#fff9ed; border-left:8px solid #b7791f; border-radius:10px; padding:10px 14px; text-align:left;">
+  <strong>Rule of thumb:</strong> use AI to speed up work, not to replace judgment.
+</div>
+]
 
 ---
 
@@ -613,20 +766,28 @@ The most valuable skill is:
 
 ## turning data into decisions
 
+.center[
+<div style="margin-top: 10px; width: 90%; margin-left: auto; margin-right: auto; background:#fff9ed; border-left:8px solid #b7791f; border-radius:10px; padding:12px 14px; text-align:left;">
+  <strong>Final check:</strong> can you explain why the result matters, not just what the result is?
+</div>
+]
+
 ---
 
 # Example Careers
 
 These workflows are used in:
 
-| Career            | Uses                     |
-| ----------------- | ------------------------ |
-| Data analyst      | dashboards, reports      |
-| Business analyst  | strategy decisions       |
-| Research analyst  | statistical analysis     |
-| Financial analyst | forecasting              |
-| Consultant        | client analytics         |
-| Policy analyst    | evidence-based decisions |
+.center[
+<div style="margin-top: 8px; width: 94%; margin-left: auto; margin-right: auto; display:grid; grid-template-columns: repeat(2, 1fr); gap:10px;">
+  <div style="background:#e8f3ff; border-radius:10px; padding:12px 14px;"><strong>Data analyst</strong><br>dashboards, reports</div>
+  <div style="background:#ecfff4; border-radius:10px; padding:12px 14px;"><strong>Business analyst</strong><br>strategy decisions</div>
+  <div style="background:#fff6e8; border-radius:10px; padding:12px 14px;"><strong>Research analyst</strong><br>statistical analysis</div>
+  <div style="background:#f4f0ff; border-radius:10px; padding:12px 14px;"><strong>Financial analyst</strong><br>forecasting</div>
+  <div style="background:#ffecec; border-radius:10px; padding:12px 14px;"><strong>Consultant</strong><br>client analytics</div>
+  <div style="background:#eefbf8; border-radius:10px; padding:12px 14px;"><strong>Policy analyst</strong><br>evidence-based decisions</div>
+</div>
+]
 
 ---
 
@@ -638,10 +799,14 @@ Not only:
 
 But also:
 
-* communication
-* teamwork
-* problem solving
-* business understanding
+.center[
+<div style="margin-top: 8px; width: 92%; margin-left: auto; margin-right: auto; display:grid; grid-template-columns: repeat(2, 1fr); gap:10px;">
+  <div style="background:#e8f3ff; border-radius:10px; padding:12px 14px;"><strong>Technical</strong><br>tools, methods, coding</div>
+  <div style="background:#ecfff4; border-radius:10px; padding:12px 14px;"><strong>Human</strong><br>communication, teamwork</div>
+  <div style="background:#fff6e8; border-radius:10px; padding:12px 14px;"><strong>Thinking</strong><br>problem solving</div>
+  <div style="background:#f4f0ff; border-radius:10px; padding:12px 14px;"><strong>Context</strong><br>business understanding</div>
+</div>
+]
 
 ---
 
@@ -657,6 +822,12 @@ From this course, you already learned:
 
 These are real foundations.
 
+.center[
+<div style="margin-top: 10px; width: 90%; margin-left: auto; margin-right: auto; background:#fff9ed; border-left:8px solid #b7791f; border-radius:10px; padding:12px 14px; text-align:left;">
+  <strong>You already have a toolkit:</strong> the next step is connecting it to real problems, not starting from zero.
+</div>
+]
+
 ---
 
 # Important Message
@@ -669,17 +840,27 @@ You do NOT need to become:
 
 to use analytics effectively.
 
+.center[
+<div style="margin-top: 10px; width: 90%; margin-left: auto; margin-right: auto; background:#ecfff4; border-left:8px solid #2f855a; border-radius:10px; padding:12px 14px; text-align:left;">
+  <strong>Takeaway:</strong> you do not need to be the best coder in the room to make a useful analysis.
+</div>
+]
+
 ---
 
 # Final Idea
 
 Modern analytics combines:
 
-* statistics
-* coding
-* communication
-* collaboration
-* business thinking
+.center[
+<div style="margin-top: 8px; width: 94%; margin-left: auto; margin-right: auto; display:grid; grid-template-columns: repeat(5, 1fr); gap:8px;">
+  <div style="background:#e8f3ff; border-radius:10px; padding:10px 8px;"><strong>Stats</strong></div>
+  <div style="background:#ecfff4; border-radius:10px; padding:10px 8px;"><strong>Coding</strong></div>
+  <div style="background:#fff6e8; border-radius:10px; padding:10px 8px;"><strong>Communication</strong></div>
+  <div style="background:#f4f0ff; border-radius:10px; padding:10px 8px;"><strong>Collaboration</strong></div>
+  <div style="background:#ffecec; border-radius:10px; padding:10px 8px;"><strong>Business</strong></div>
+</div>
+]
 
 ---
 
@@ -687,1216 +868,11 @@ Modern analytics combines:
 
 ## Data is valuable only when it helps people make better decisions.
 
----
-
-# Questions?
-
-```
-
-SOURCES:
-- [1] User course profile and workflow context from this chat
-- [2] Standard modern analytics workflow practices in business and research
-- [3] Public documentation for VS Code, GitHub, Overleaf, and Google Colab
-
-VERIFICATION STATUS: Verified
-```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# Agenda
-
-* why start with the F-distribution
-
-* testing equality of two population variances
-
-* transition: from variance testing to ANOVA
-
-* one-way ANOVA (logic + implementation)
-
-* business interpretation
-
----
-
-# Learning Objectives
-
-After this lecture, you should be able to:
-
-* explain why ANOVA is needed
-
-* conduct a one-way ANOVA
-
-* interpret ANOVA output
-
-* understand the F-statistic
-
-* apply ANOVA in business settings
-
----
-
-# Why We Start with Two-Variance Testing
-
-ANOVA relies on the F-distribution, which is built from variance ratios.
-
-So we begin with a two-variance F-test to build intuition.
-
-This helps students see:
-
-* what an F ratio measures
-* how degrees of freedom affect the critical value
-* how a variance-based test leads naturally to ANOVA
-
-Then we extend that same F logic from comparing variances to comparing means.
-
----
-
-# Testing the Hypothesis of Two Equal Population Variances: The F Distribution
-
-The F distribution is named after Sir Ronald Fisher, one of the founders of modern statistics.
-
-It is used to:
-
-* test whether two population variances are equal
-
-$$
-\frac{s_1^2}{s_2^2} \sim F(n_1-1, n_2-1)
-$$
-
-* test whether several population means are equal (ANOVA)
-
-*What is variance?* 
-> It measures how far observations are spread around the mean.
-
-*Why do we care about variances?* 
-> Because they tell us about the consistency or variability of data, which is crucial for understanding differences between groups. 
-
----
-
-# Characteristics of a F-Distribution
-
-.pull-left[
-* There is a family of F-distributions.
-
-* An F statistic is always a ratio (numerator / denominator).
-
-* A specific F-distribution is determined by two degrees of freedom:
-  * numerator df
-  * denominator df
-
-* The F-distribution is continuous.
-
-* F-values cannot be negative.
-
-* The F-distribution is positively skewed.
-
-* It is asymptotic: as $F \to \infty$, the curve approaches the x-axis but never touches it.
-
-]
-
-.pull-right[
-<div>
 .center[
-<img src="p1.png" width="70%">
-]
-
+<div style="margin-top: 10px; width: 90%; margin-left: auto; margin-right: auto; background:#fff9ed; border-left:8px solid #b7791f; border-radius:10px; padding:12px 14px; text-align:left;">
+  <strong>Final question:</strong> what is one decision in your life or work that could be better with data?
 </div>
 ]
-
----
-
-# Testing the Hypothesis of Two Equal Population Variances
-
-The F-distribution tests whether the variance of one normal population equals the variance of another.
-
-$$
-H_0: \sigma_1^2 = \sigma_2^2
-$$
-
-$$
-H_1: \sigma_1^2 \ne \sigma_2^2
-$$
-
-It tells us whether the variability in one group is significantly different from the variability in another group.
-
----
-
-# Testing the Hypothesis of Two Equal Population Variances
-
-Examples:
-
-* Two shearing machines produce bars with the same target length. We test whether production variability is also the same.
-
-* Two stock portfolios have similar average returns. We test whether return variability differs (for example, technology stocks vs utility stocks).
-
-* Men and women may spend similar average time reading a newspaper, but one group may show much larger variation in reading time.
-
----
-# Testing the Hypothesis of Two Equal Population Variances – Example
-
-.pull-left[
-Lammers Limos offers service from Toledo city hall to Metro Airport in Detroit.
-
-The company president is comparing two routes: U.S. 25 and I-75.
-
-He collected sample travel times (in minutes) for each route.
-
-At $\alpha = 0.10$, test whether the travel-time variation differs between the two routes.
-]
-
-.pull-right[
-<div>
-.center[
-<img src="p2.png" width="70%">
-]
-
-</div>
-]
-
----
-# Testing the Hypothesis of Two Equal Population Variances – Example
-
-Compute the sample means and variances:
-<div>
-.center[
-<img src="p3.png" width="70%">
-]
-
-</div>
-
----
-# Testing the Hypothesis of Two Equal Population Variances – Example
-
-Step 1: State the hypotheses.
-
-$$
-H_0: \sigma_1^2 = \sigma_2^2
-$$
-
-$$
-H_1: \sigma_1^2 \ne \sigma_2^2
-$$
-
-Step 2: Choose the significance level.
-
-$$
-\alpha = 0.10
-$$
-
-Step 3: Select the test statistic.
-
-Use the ratio of sample variances, placing the larger variance in the numerator:
-
-$$
-F = \frac{s_1^2}{s_2^2} \sim F(n_1-1, n_2-1)
-$$
-
----
-
-# Testing the Hypothesis of Two Equal Population Variances – Example
-.pull-left[
-Step 4: State the decision rule.
-
-For a two-tailed test of variances:
-
-Reject $H_0$ if $F > F_{\alpha/2, v_1, v_2}$.
-
-Substitute values:
-
-$F > F_{0.10/2, 7-1, 8-1} = F_{0.05, 6, 7}$.
-]				
-
-.pull-right[
-<div>
-.center[
-<img src="p4.png" width="90%">
-]
-
-</div>
-
-F critical values with alpha = 0.05
-
-]
-
----
-# Testing the Hypothesis of Two Equal Population Variances – Example
-
-Step 5: Compute the value of F and make a decision.
-
-<div>
-.center[
-<img src="p5.png" width="40%">
-]
-
-</div>
-
-The decision is to reject the null hypothesis because the computed F-value ($4.23$) is larger than the critical value ($3.87$).
-
-Step 6: Interpret the result.
-
-The data indicate a difference in travel-time variation between the two routes.
-
----
-# Testing the Hypothesis of Three or More Equal Population Means
-
-The F-distribution is also used to test whether three or more population means are equal.
-
-Assumptions:
-
-* each population is approximately normal
-* population standard deviations are equal
-* samples are random and independent
-
----
-# Testing the Hypothesis of Three or More Equal Population Means
-
-The null hypothesis states all population means are equal.
-
-The alternative states at least one mean differs.
-
-The test statistic follows the F-distribution.
-
-Hypothesis setup and decision rule:
-
-$$
-H_0: \mu_1 = \mu_2 = \cdots = \mu_k
-$$
-
-$$
-H_1:\text{ not all means are equal}
-$$
-
-Reject $H_0$ if $F > F_{\alpha, k-1, n-k}$.
-
----
-# Testing the Hypothesis of Three or More Equal Population Means – Example
-
-.pull-left[
-Four major carriers hired Brunner Marketing Research, Inc., to measure passenger satisfaction.
-
-The survey covered ticketing, boarding, in-flight service, baggage handling, pilot communication, and related service items.
-
-There were 25 questions, each scored as:
-
-* excellent = 4
-* good = 3
-* fair = 2
-* poor = 1
-
-]
-
-.pull-right[
-<div>
-.center[
-<img src="p6.png" width="90%">
-]
-
-</div>
-
-Question: Is mean satisfaction different across the four airlines?
-
-Use alpha = 0.01.
-
-]
-
-Scores were summed to create an overall satisfaction score for each passenger.
-
-Passengers were randomly sampled from all four airlines.
-
----
-# Testing the Hypothesis of Three or More Equal Population Means – Example
-
-Compute the treatment means and the grand mean:
-
-<div>
-.center[
-<img src="p7.png" width="50%">
-]
-
-</div>
-
----
-# Testing the Hypothesis of Three or More Equal Population Means – Example
-
-Step 1: State the hypotheses.
-
-$$
-H_0: \mu_N = \mu_W = \mu_P = \mu_B
-$$
-
-$$
-H_1: \text{not all means are equal}
-$$
-
-Step 2: Choose the significance level.
-
-$$
-\alpha = 0.01
-$$
-
-Step 3: Select the test statistic.
-
-Because we compare more than two means, use the ANOVA F-statistic:
-
-$$
-F = \frac{MST}{MSE} = \frac{SST/(k-1)}{SSE/(n-k)} \sim F(k-1, n-k)
-$$
-
-.tiny[
-Where: MST = mean square for treatments, MSE = mean square for error, SST = sum of squares for treatments, SSE = sum of squares for error, k = number of groups, n = total observations.
-]
----
-# Testing the Hypothesis of Three or More Equal Population Means – Example
-Step 4: Formulate the decision rule.
-
-For one-way ANOVA, reject $H_0$ if:
-
-$$
-F > F_{\alpha, k-1, n-k}
-$$
-
-Degrees of freedom:
-
-* numerator (treatments): $k-1 = 4-1 = 3$
-* denominator (error): $n-k = 22-4 = 18$
----
-# Testing the Hypothesis of Three or More Equal Population Means – Example
-
-.pull-left[
-From the F-table at $\alpha = 0.01$:
-
-$F_{0.01,3,18} = 5.09$.
-]
-
-.pull-right[
-<div>
-.center[
-<img src="p8.png" width="70%">
-]
-</div>
-]
-
----
-# Testing the Hypothesis of Three or More Equal Population Means – Example
-Step 5: Compute the F value and make a decision.
-
-Create the ANOVA table:
-
-
-<div>
-.center[
-<img src="p9.png" width="60%">
-]
-</div>
-
----
-# Creating the ANOVA Table: Computing SS Total and SSE
-
-.pull-left[
-  Computing the total sum of squares:
-
-<div>
-.center[
-<img src="p10.png" width="80%">
-]
-</div>
-]
-
-
-.pull-right[
-  Computing the error sum of squares:
-
-<div>
-.center[
-<img src="p11.png" width="80%">
-]
-</div>
-]
-
----
-# Creating the ANOVA Table: Treatment Sum of Squares, SST, and the ANOVA Table
-
-Step 5 (continued):
-
-The computed value is $F = 8.99$.
-
-Since $8.99 > 5.09$, reject $H_0$.
-
-<div>
-.center[
-<img src="p12.png" width="40%">
-]
-</div>
-
----
-# Testing the Hypothesis of Three or More Equal Population Means – Example
-
-Step 6: Interpret the result.
-
-The population mean satisfaction scores are not all equal.
-
-At least one airline differs from the others, but ANOVA alone does not identify which specific pair(s) differ.
-
----
-
-# Transition: From F-Test to ANOVA
-
-In the two-variance test, F compares one sample variance to another.
-
-In ANOVA, F compares:
-
-* variation between group means
-* variation within groups
-
-Same distribution family, different hypothesis target:
-
-$$
-H_0: \sigma_1^2 = \sigma_2^2 \quad \longrightarrow \quad H_0: \mu_1 = \mu_2 = \cdots = \mu_k
-$$
-
-Now we apply this framework to a one-way ANOVA workflow.
----
-
-# ANOVA Framework
-
-.pull-left[
-ANOVA stands for Analysis of Variance. It is a statistical method used to analyze the differences between the means of two or more groups or treatments. It is often used to determine whether there are any statistically significant differences between the means of different groups.
-
-]
-
-
-.pull-right[
-
-<div>
-.center[
-<img src="p13.png" width="90%">
-]
-</div>
-]
-
-ANOVA compares the variation between group means to the variation within the groups. If the variation between group means is significantly larger than the variation within groups, it suggests a significant difference between the means of the groups.
-
-ANOVA calculates an F-statistic by comparing between-group variability to within-group variability. If the F-statistic exceeds a critical value, it indicates significant differences between group means.
-
-
----
-
-# Motivation
-
-A company asks:
-
-> Do customers from different regions spend different amounts?
-
-We now compare:
-
-* Asia
-* Europe
-* North America
-
----
-
-# Problem
-
-Could we use many t-tests?
-
-Example:
-
-* Asia vs Europe
-* Asia vs North America
-* Europe vs North America
-
-Problem:
-
-## too many tests increase Type I error
-
----
-
-# Solution
-
-## Analysis of Variance (ANOVA)
-
-ANOVA compares:
-
-* several population means
-* using one overall test
-
-### What is variance?
-
-Variance measures how far observations are spread around the mean.
-
-* higher variance: observations are more spread out
-* lower variance: observations are closer to the mean
-
-### Why is it called "analysis of variance"?
-ANOVA analyzes the variance within and between groups to determine if group means differ significantly.
-
----
-
-# Main Idea
-.pull-left[
-ANOVA compares:
-
-* variation between groups
-  vs
-* variation within groups
-
-
-# Intuition
-
-If group means are very different:
-
-* between-group variation becomes large
-
-If observations inside groups are similar:
-
-* within-group variation stays small
-
-Then:
-
-## evidence against H0 increases
-]
-
-.pull-right[
-
-# Hypotheses
-
-## One-Way ANOVA
-
-* H0: all population means are equal
-* H1: at least one mean differs
-]
----
-
-# Example Dataset
-
-Monthly spending (USD):
-
-* Asia
-* Europe
-* North America
-
-```{python w5v8dp}
-import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
-from scipy import stats
-
-np.random.seed(42)
-
-asia = np.random.normal(70, 10, 30)
-europe = np.random.normal(65, 10, 30)
-na = np.random.normal(80, 10, 30)
-
-df = pd.DataFrame({
-    "spending": np.concatenate([asia, europe, na]),
-    "region": ["Asia"]*30 + ["Europe"]*30 + ["NorthAmerica"]*30
-})
-
-df.head()
-```
-
----
-
-# Visual Comparison
-
-```{python n2z6wr, echo=FALSE}
-plt.boxplot(
-    [asia, europe, na],
-    labels=["Asia","Europe","North America"]
-)
-
-plt.ylabel("Monthly Spending (USD)")
-plt.title("Customer Spending by Region")
-plt.show()
-```
-
-It shows some differences in central tendency and spread, but we need a formal test to determine if these differences are statistically significant.
----
-
-# Group Means
-
-```{python 6h8q2v}
-df.groupby("region")["spending"].mean()
-```
-
----
-
-# ANOVA Test Statistic
-
-## F-statistic
-
-$$
-F = \frac{\text{Variation Between Groups}}
-{\text{Variation Within Groups}}
-$$
-
----
-
-# Interpretation of F
-
-* Large F:
-
-  * groups differ substantially
-
-* Small F:
-
-  * group means are similar
-
----
-
-# Running ANOVA in Python
-
-```{python f4m9ks, echo=TRUE}
-# f_stat compares between-group variation to within-group variation.
-# p_value is the probability of observing an F this large (or larger) if H0 is true.
-f_stat, p_value = stats.f_oneway(
-    asia,
-    europe,
-    na
-)
-
-print(f"F-statistic: {f_stat:.4f}")
-print(f"p-value: {p_value:.6f}")
-```
-
----
-
-# Interpretation
-
-Decision rule:
-
-* p-value < 0.05 → reject H0
-* otherwise → do not reject H0
-
-How to read the output:
-
-* F-statistic: larger values indicate stronger evidence that group means differ
-* p-value: if very small, the observed differences are unlikely under equal means
-
----
-
-# Business Interpretation
-
-If spending differs by region:
-
-* pricing strategy may differ
-* marketing may be localized
-* inventory allocation may change
-
----
-
-# ANOVA Table
-
-ANOVA separates variation into:
-
-| Source         | Meaning                 |
-| -------------- | ----------------------- |
-| Between groups | differences among means |
-| Within groups  | random variation        |
-
-It quantifies how much of the total variation is due to differences between groups vs random variation within groups.
-
----
-
-# Sum of Squares
-
-Key concepts:
-
-## SST
-
-Total variation
-
-## SSB
-
-Between-group variation
-
-## SSW
-
-Within-group variation
-
-
-# Relationship
-
-$$
-SST = SSB + SSW
-$$
-
----
-
-# Degrees of Freedom
-
-For one-way ANOVA:
-
-* df between = k - 1. Shows how many groups we have minus one (because we estimate one mean per group).
-* df within = n - k. Shows how many observations we have minus the number of groups (because we lose one degree of freedom for each group mean estimated).
-
-Where:
-
-* k = number of groups
-* n = total observations
-
----
-
-# ANOVA Using statsmodels
-
-```{python u9q5hx}
-try:
-  # ols() fits a linear model with region as a categorical predictor.
-  # anova_lm(..., typ=2) returns the ANOVA table for that model.
-  import statsmodels.api as sm
-  from statsmodels.formula.api import ols
-
-  model = ols(
-    'spending ~ C(region)',
-    data=df
-  ).fit()
-
-  anova_table = sm.stats.anova_lm(model, typ=2)
-  print(anova_table)
-except ModuleNotFoundError:
-  print("statsmodels is not installed in the current Python environment.")
-  print("Install it with: pip install statsmodels")
-```
-
-## Interpretation of This ANOVA Result
-
-What this means:
-
-* `df = 2` for `C(region)` means 3 groups were compared ($k-1 = 3-1 = 2$).
-* `df = 87` for residual means there were 90 observations total ($n-k = 90-3 = 87$).
-* `F = 24.24` is large, so between-group variation is much larger than within-group variation.
-* `PR(>F) = 4.29e-09` is far below 0.05, so reject $H_0$.
-* Conclusion: average spending is not the same across all regions; at least one region mean differs.
-* `NaN` in the residual row for `F` and `PR(>F)` is normal because the residual row is the error baseline, not a separate hypothesis test.
----
-## Reading the Output
-
-Important columns:
-
-* `sum_sq`: variation attributed to each source
-* `df`: degrees of freedom for each source
-* `F`: test statistic = explained variation / unexplained variation
-* `PR(>F)`: p-value for the ANOVA F-test
-
-How to interpret quickly:
-
-* small p-value (typically < 0.05) => reject equal-means null
-* large p-value => insufficient evidence that group means differ
-
-Example:
-
-* if `PR(>F) = 0.003`, then $0.003 < 0.05$, so reject $H_0$
-
----
-
-# Important Warning
-
-ANOVA only tells us:
-
-> at least one mean differs
-
-But NOT:
-
-* which groups differ
-
----
-
-# Post Hoc Tests
-
-If ANOVA is significant:
-
-* we may need additional comparisons
-
-Examples:
-
-* Tukey test
-* pairwise t-tests
-
----
-
-# Assumptions of ANOVA
-
-1. Independent observations (i.e., random sampling)
-
-2. Approximately normal groups (though ANOVA is robust to moderate violations)
-
-3. Similar variances across groups (also known as homogeneity of variances)
-
----
-
-# What if Assumptions Fail?
-
-Possible issues:
-
-* unreliable p-values
-* misleading conclusions
-
-Alternatives:
-
-* nonparametric methods
-* transformations
-
----
-
-# Summary Table
-
-| Method | Main Use         |
-| ------ | ---------------- |
-| t-test | compare 2 means  |
-| ANOVA  | compare 3+ means |
-
----
-class: inverse, center, middle
-
-# Some Extra Intuition
-
----
-class: my-one-page-font
-# ANOVA Intuition: What Are We Actually Measuring?
-
-Suppose a company compares customer spending across 3 regions:
-
-| Region | Spending |
-|---|---|
-| Asia | 70, 75 |
-| Europe | 60, 65 |
-| North America | 80, 85 |
-
-Overall average spending:
-
-$$
-\bar{x}_{overall} = 72.5
-$$
-
-ANOVA asks:
-
-> "Why are observations different from each other?"
-
-There are only two possible reasons:
-
-1. **Natural randomness inside each group** - customers inside the same region are not identical
-
-2. **Actual differences between group averages** - regions themselves may behave differently
-
-ANOVA separates total variation into these two parts.
-
----
-
-# The Three Important Quantities
-
-## 1. SST = Total Variation
-
-Measures:
-
-> "How far are ALL observations from the overall average?"
-
-It ignores groups completely.
-
-Large SST:
-- observations overall are very spread out
-
----
-
-## 2. SSE = Within-Group Variation (Error, SSW)
-
-Measures:
-
-> "How far are observations from THEIR OWN group average?"
-
-This captures:
-- natural randomness
-- individual differences
-- noise
-
-If customers inside each region behave similarly:
-- SSE becomes smaller
-
----
-
-## 3. SSTr = Between-Group Variation (Treatment, SSB)
-
-Measures:
-
-> "How far are group averages from the overall average?"
-
-This captures:
-- actual group differences
-
-If regional averages differ strongly:
-- SSTr becomes larger
-
----
-
-# The Big Relationship
-
-ANOVA always splits total variation:
-
-$$
-SST = SSTr + SSE
-$$
-
-Meaning:
-
-$$
-\text{Total variation} = \text{Between-group variation} + \text{Within-group variation}
-$$
-
-
----
-# Example
-
-## Step 1. Compute Group Means
-
-| Region | Values | Group Mean |
-|---|---|---|
-| Asia | 70, 75 | 72.5 |
-| Europe | 60, 65 | 62.5 |
-| North America | 80, 85 | 82.5 |
-
-Overall mean:
-
-$$
-\bar{x}_{overall} = 72.5
-$$
-
----
-class: my-one-page-font-table
-# Step 2. Compute SSE (Within-Group Variation)
-
-SSE asks:
-
-> "How different are customers INSIDE the same group?"
-
-Example for Europe:
-
-$$
-(60-62.5)^2 + (65-62.5)^2
-$$
-
-$$
-= 6.25 + 6.25 = 12.5
-$$
-
-Do this for all groups:
-
-Asia:
-$$
-(70-72.5)^2 + (75-72.5)^2 = 12.5
-$$
-
-Europe:
-$$
-12.5
-$$
-
-North America:
-$$
-12.5
-$$
-
-So:
-
-$$
-SSE = 37.5
-$$
-
-Interpretation:
-
-Customers inside each region differ only a little.
-
----
-class: my-one-page-font-table
-# Step 3. Compute SSTr (Between-Group Variation)
-
-SSTr asks:
-
-> "How different are GROUP AVERAGES from the OVERALL average?"
-
-Asia:
-$$
-2(72.5-72.5)^2 = 0
-$$
-
-Europe:
-$$
-2(62.5-72.5)^2 = 200
-$$
-
-North America:
-$$
-2(82.5-72.5)^2 = 200
-$$
-
-So:
-
-$$
-SSTr = 400
-$$
-
-Interpretation:
-
-Regional averages are VERY different.
-
-.tiny[We multiply by 2 because there are 2 observations in each group, so the group mean's deviation from the overall mean is counted for each observation in that group.]
-
----
-# Final ANOVA Logic
-
-We found:
-
-$$
-SSE = 37.5
-$$
-
-$$
-SSTr = 400
-$$
-
-So:
-
-$$
-SST = 437.5
-$$
-
-## To check: calculate SST directly:
-$$
-(70-72.5)^2 + (75-72.5)^2 + (60-72.5)^2 + (65-72.5)^2 + (80-72.5)^2 + (85-72.5)^2 = 437.5
-$$
-
----
-
-# What Does the F-Statistic Do?
-
-The F-statistic compares:
-
-$$
-F =
-\frac{\text{Between-group variation}}
-{\text{Within-group variation}}
-$$
-
-or conceptually:
-
-$$
-F =
-\frac{SSTr}{SSE}
-$$
-
-(after adjusting for degrees of freedom)
-
----
-
-# Plain English Meaning of F
-.pull-left[
-## Small F
-
-- groups are similar
-- within-group randomness dominates
-
-Meaning:
-> differences probably happened by chance
-]
-.pull-right[
-## Large F
-
-- group averages differ a lot
-- within-group randomness is relatively small
-
-Meaning:
-> real group differences likely exist
-]
----
-
-# Intuition for This Example
-
-Here:
-
-- customers INSIDE each region are relatively similar
-- regional averages are very different
-
-So:
-
-$$
-F \text{ becomes large}
-$$
-
-which gives evidence that:
-- spending truly differs across regions
-
----
-
-# One Sentence Summary
-
-ANOVA asks:
-
-> "Are group differences large relative to normal randomness inside groups?"
-
----
-class: inverse, center, middle
-
-# In-class Practice
----
-
-# In-Class Practice
-
-Please open Week 11 lab in Colab and follow the instructions to practice ANOVA with real data.
-
----
-
-# Final Idea
-
-ANOVA helps businesses understand:
-
-* customer differences
-* regional variation
-* product performance
-* market segmentation
-
-
----
-
-# Next week
-
-*(May 19 | May 21)* Correlation and simple linear regression (LMW Chapter 13)  
 
 ---
 
@@ -1905,6 +881,7 @@ class: inverse, center, middle
 # Any questions?
 
 # Thank you for your attention and active participation!
+
 
 
 ???
@@ -1928,10 +905,10 @@ install.packages("renderthis")
 remotes::install_github('rstudio/chromote')
 library(renderthis)
 
-renderthis::to_pdf("W-11_SIC.html")
+renderthis::to_pdf("W-13_SIC.html")
 
 getwd()
-setwd("C:\\Users\\vyshn\\OneDrive - kdis.ac.kr\\Documents\\GitHub\\Sogang\\2026\\Spring\\Statistics for International Commerce\\Week_11")
+setwd("C:\\Users\\vyshn\\OneDrive - kdis.ac.kr\\Documents\\GitHub\\Sogang\\2026\\Spring\\Statistics for International Commerce\\Week_13")
 
 
 

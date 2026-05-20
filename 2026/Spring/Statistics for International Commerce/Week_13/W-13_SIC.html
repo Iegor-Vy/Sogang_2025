@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Statistics for International Commerce</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Iegor Vyshnevskyi, Ph.D." />
+    <meta name="date" content="2026-05-26" />
+    <script src="libs/header-attrs-2.29/header-attrs.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Statistics for International Commerce
+]
+.subtitle[
+## Week 13: Special Lecture on Modern Analytics Workflow in Business and Research
+How Real Data Projects Are Built Today
+]
+.author[
+### Iegor Vyshnevskyi, Ph.D.
+]
+.institute[
+### Sogang University, Geppert School of International Studies
+]
+.date[
+### May 26, 2026
+]
+
+---
+
+
+&lt;style&gt;
+@media print{
+  body, html, .remark-slides-area, .remark-notes-area {
+    height: 100% !important;
+    width: 100% !important;
+    overflow: visible;
+    display: inline-block;
+    }
+}
+&lt;/style&gt;
+
+&lt;style type="text/css"&gt;
+.remark-slide-content {
+    font-size: 34px;
+    padding: 1em 4em 1em 4em;
+}
+&lt;/style&gt;
+
+&lt;style type="text/css"&gt;
+.my-one-page-font {
+  font-size: 28px;
+}
+&lt;/style&gt;
+
+&lt;style type="text/css"&gt;
+.my-one-page-font-table {
+  font-size: 24px;
+}
+&lt;/style&gt;
+
+&lt;style&gt;
+.tiny { font-size: 60%; }      /* class you can reuse anywhere */
+&lt;/style&gt;
+
+&lt;style&gt;
+.remark-slide-content {
+  position: relative;
+  z-index: 1;
+}
+
+.remark-slide-content::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 600px;          /* adjust size */
+  height: 600px;
+  background-image: url("1. 교장(Seal_Positive).png");  /* place logo file in same folder */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: 0.05;         /* watermark transparency */
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 0;
+}
+&lt;/style&gt;
+
+
+
+
+
+
+# Today
+
+## How Modern Analytics Actually Works
+
+We will talk about:
+
+* how companies and researchers work with data
+
+* how analytics projects are organized
+
+* modern tools used in practice
+
+* collaboration and reproducibility
+
+* AI-assisted workflows
+
+---
+
+# Big Idea
+
+Modern analytics is NOT just:
+
+* statistics
+* coding
+* charts
+
+It is an entire workflow:
+
+.center[
+&lt;div style="margin-top: 14px; display: flex; align-items: stretch; justify-content: center; gap: 10px;"&gt;
+  &lt;div style="width: 22%; background: #e8f3ff; border-left: 6px solid #2b6cb0; border-radius: 10px; padding: 12px 10px; line-height: 1.2;"&gt;
+    &lt;strong&gt;1) Data&lt;/strong&gt;&lt;br&gt;
+    Collect and define
+  &lt;/div&gt;
+  &lt;div style="font-size: 42px; color: #851a10; align-self: center;"&gt;&amp;rarr;&lt;/div&gt;
+  &lt;div style="width: 22%; background: #eafaf1; border-left: 6px solid #2f855a; border-radius: 10px; padding: 12px 10px; line-height: 1.2;"&gt;
+    &lt;strong&gt;2) Analysis&lt;/strong&gt;&lt;br&gt;
+    Turn data into insight
+  &lt;/div&gt;
+  &lt;div style="font-size: 42px; color: #851a10; align-self: center;"&gt;&amp;rarr;&lt;/div&gt;
+  &lt;div style="width: 22%; background: #fff6e8; border-left: 6px solid #c05621; border-radius: 10px; padding: 12px 10px; line-height: 1.2;"&gt;
+    &lt;strong&gt;3) Collaboration&lt;/strong&gt;&lt;br&gt;
+    Share and validate
+  &lt;/div&gt;
+  &lt;div style="font-size: 42px; color: #851a10; align-self: center;"&gt;&amp;rarr;&lt;/div&gt;
+  &lt;div style="width: 22%; background: #f7ecff; border-left: 6px solid #6b46c1; border-radius: 10px; padding: 12px 10px; line-height: 1.2;"&gt;
+    &lt;strong&gt;4) Decision&lt;/strong&gt;&lt;br&gt;
+    Act with confidence
+  &lt;/div&gt;
+&lt;/div&gt;
+]
+
+---
+
+# Typical Analytics Workflow
+
+.center[
+&lt;div style="margin-top: 6px; width: 85%; margin-left: auto; margin-right: auto;"&gt;
+  &lt;div style="background:#f3f7ff; border-left:8px solid #2b6cb0; border-radius:8px; padding:10px 14px; margin-bottom:8px;"&gt;&lt;strong&gt;Input:&lt;/strong&gt; Raw Data (DB, API, Excel, Survey)&lt;/div&gt;
+  &lt;div style="text-align:center; color:#851a10; font-size:32px; line-height:0.8;"&gt;&amp;darr;&lt;/div&gt;
+  &lt;div style="background:#ecfff4; border-left:8px solid #2f855a; border-radius:8px; padding:10px 14px; margin-bottom:8px;"&gt;&lt;strong&gt;Processing:&lt;/strong&gt; Python / SQL / Excel + Cleaning&lt;/div&gt;
+  &lt;div style="text-align:center; color:#851a10; font-size:32px; line-height:0.8;"&gt;&amp;darr;&lt;/div&gt;
+  &lt;div style="background:#fff9ed; border-left:8px solid #b7791f; border-radius:8px; padding:10px 14px; margin-bottom:8px;"&gt;&lt;strong&gt;Insight:&lt;/strong&gt; Analysis + Visualization&lt;/div&gt;
+  &lt;div style="text-align:center; color:#851a10; font-size:32px; line-height:0.8;"&gt;&amp;darr;&lt;/div&gt;
+  &lt;div style="background:#f4f0ff; border-left:8px solid #6b46c1; border-radius:8px; padding:10px 14px; margin-bottom:8px;"&gt;&lt;strong&gt;Delivery:&lt;/strong&gt; Collaboration + Report / Dashboard / Paper&lt;/div&gt;
+  &lt;div style="text-align:center; color:#851a10; font-size:32px; line-height:0.8;"&gt;&amp;darr;&lt;/div&gt;
+  &lt;div style="background:#ffecec; border-left:8px solid #c53030; border-radius:8px; padding:10px 14px;"&gt;&lt;strong&gt;Outcome:&lt;/strong&gt; Business Decision&lt;/div&gt;
+&lt;/div&gt;
+]
+
+---
+
+# Real-World Example
+
+Suppose a company asks:
+
+&gt; “Why are sales falling in Europe?”
+
+A modern analytics workflow may involve:
+
+.center[
+&lt;div style="margin-top: 6px; width: 94%; margin-left: auto; margin-right: auto;"&gt;
+  &lt;div style="background:#fff9ed; border-left:8px solid #b7791f; border-radius:10px; padding:10px 14px; margin-bottom:10px; text-align:left;"&gt;
+    &lt;strong&gt;Pause and discuss:&lt;/strong&gt; if sales fall in Europe, which part of the workflow would you check first?
+  &lt;/div&gt;
+  &lt;div style="display:flex; align-items:stretch; justify-content:space-between; gap:8px; margin-bottom:10px;"&gt;
+    &lt;div style="flex:1; background:#e8f3ff; border-radius:10px; padding:10px 8px; min-height:76px;"&gt;
+      &lt;strong&gt;1&lt;/strong&gt;&lt;br&gt;Data&lt;br&gt;&lt;span class="tiny"&gt;databases, APIs, Excel&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div style="font-size:30px; color:#851a10; align-self:center;"&gt;&amp;rarr;&lt;/div&gt;
+    &lt;div style="flex:1; background:#ecfff4; border-radius:10px; padding:10px 8px; min-height:76px;"&gt;
+      &lt;strong&gt;2&lt;/strong&gt;&lt;br&gt;Analysis&lt;br&gt;&lt;span class="tiny"&gt;Python and cleaning&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div style="font-size:30px; color:#851a10; align-self:center;"&gt;&amp;rarr;&lt;/div&gt;
+    &lt;div style="flex:1; background:#fff6e8; border-radius:10px; padding:10px 8px; min-height:76px;"&gt;
+      &lt;strong&gt;3&lt;/strong&gt;&lt;br&gt;Output&lt;br&gt;&lt;span class="tiny"&gt;charts, dashboards&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div style="font-size:30px; color:#851a10; align-self:center;"&gt;&amp;rarr;&lt;/div&gt;
+    &lt;div style="flex:1; background:#f4f0ff; border-radius:10px; padding:10px 8px; min-height:76px;"&gt;
+      &lt;strong&gt;4&lt;/strong&gt;&lt;br&gt;Sharing&lt;br&gt;&lt;span class="tiny"&gt;GitHub, Overleaf, PowerPoint&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div style="display:flex; gap:10px; align-items:stretch;"&gt;
+    &lt;div style="flex:1; background:#ffecec; border-left:8px solid #c53030; border-radius:10px; padding:10px 12px; text-align:left;"&gt;
+      &lt;strong&gt;Team question:&lt;/strong&gt;&lt;br&gt;What would you do in step 1, and what would you show in step 3?
+    &lt;/div&gt;
+    &lt;div style="flex:1; background:#eefbf8; border-left:8px solid #2f855a; border-radius:10px; padding:10px 12px; text-align:left;"&gt;
+      &lt;strong&gt;Real tools:&lt;/strong&gt;&lt;br&gt;database + notebook + dashboard + collaborative writing
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+]
+
+---
+
+# Why This Matters
+
+These workflows are used in:
+
+&lt;div style="margin-top: 8px; width: 94%; margin-left: auto; margin-right: auto;"&gt;
+  &lt;div style="background:#fff9ed; border-left:8px solid #b7791f; border-radius:10px; padding:10px 14px; margin-bottom:10px; text-align:left;"&gt;
+    &lt;strong&gt;Ask the room:&lt;/strong&gt; where do you think analytics is most important in everyday business and research?
+  &lt;/div&gt;
+  &lt;div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:10px;"&gt;
+    &lt;div style="background:#e8f3ff; border-radius:10px; padding:12px 10px; min-height:70px;"&gt;&lt;strong&gt;Consulting&lt;/strong&gt;&lt;br&gt;client decisions&lt;/div&gt;
+    &lt;div style="background:#ecfff4; border-radius:10px; padding:12px 10px; min-height:70px;"&gt;&lt;strong&gt;Finance&lt;/strong&gt;&lt;br&gt;risk and forecasting&lt;/div&gt;
+    &lt;div style="background:#fff6e8; border-radius:10px; padding:12px 10px; min-height:70px;"&gt;&lt;strong&gt;Fintech&lt;/strong&gt;&lt;br&gt;products and users&lt;/div&gt;
+    &lt;div style="background:#f4f0ff; border-radius:10px; padding:12px 10px; min-height:70px;"&gt;&lt;strong&gt;E-commerce&lt;/strong&gt;&lt;br&gt;sales and behavior&lt;/div&gt;
+    &lt;div style="background:#ffecec; border-radius:10px; padding:12px 10px; min-height:70px;"&gt;&lt;strong&gt;Logistics&lt;/strong&gt;&lt;br&gt;routes and delivery&lt;/div&gt;
+    &lt;div style="background:#eefbf8; border-radius:10px; padding:12px 10px; min-height:70px;"&gt;&lt;strong&gt;Research&lt;/strong&gt;&lt;br&gt;evidence and papers&lt;/div&gt;
+    &lt;div style="background:#f7ecff; border-radius:10px; padding:12px 10px; min-height:70px;"&gt;&lt;strong&gt;Central Banks&lt;/strong&gt;&lt;br&gt;policy and stability&lt;/div&gt;
+    &lt;div style="background:#fdf2f8; border-radius:10px; padding:12px 10px; min-height:70px;"&gt;&lt;strong&gt;Tech&lt;/strong&gt;&lt;br&gt;products and analytics&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+---
+
+# Modern Analytics Is Collaborative
+
+Very few real projects are done alone.
+
+Modern projects involve:
+
+&lt;div style="margin-top: 8px; width: 94%; margin-left: auto; margin-right: auto;"&gt;
+  &lt;div style="background:#ecfff4; border-left:8px solid #2f855a; border-radius:10px; padding:10px 14px; margin-bottom:10px; text-align:left;"&gt;
+    &lt;strong&gt;Who does what?&lt;/strong&gt; Each role sees the project from a different angle.
+  &lt;/div&gt;
+  &lt;div style="display:flex; flex-wrap:wrap; gap:10px; justify-content:center;"&gt;
+    &lt;div style="background:#e8f3ff; border-radius:999px; padding:10px 14px;"&gt;&lt;strong&gt;Analysts&lt;/strong&gt;: find patterns&lt;/div&gt;
+    &lt;div style="background:#fff9ed; border-radius:999px; padding:10px 14px;"&gt;&lt;strong&gt;Managers&lt;/strong&gt;: decide priorities&lt;/div&gt;
+    &lt;div style="background:#f4f0ff; border-radius:999px; padding:10px 14px;"&gt;&lt;strong&gt;Developers&lt;/strong&gt;: build tools&lt;/div&gt;
+    &lt;div style="background:#ffecec; border-radius:999px; padding:10px 14px;"&gt;&lt;strong&gt;Researchers&lt;/strong&gt;: test ideas&lt;/div&gt;
+    &lt;div style="background:#eefbf8; border-radius:999px; padding:10px 14px;"&gt;&lt;strong&gt;Designers&lt;/strong&gt;: make it clear&lt;/div&gt;
+    &lt;div style="background:#fff6e8; border-radius:999px; padding:10px 14px;"&gt;&lt;strong&gt;Domain experts&lt;/strong&gt;: add context&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div style="margin-top:12px; background:#fff9ed; border-left:8px solid #b7791f; border-radius:10px; padding:10px 14px; text-align:left;"&gt;
+    &lt;strong&gt;Discussion cue:&lt;/strong&gt; what goes wrong if one of these roles is missing?
+  &lt;/div&gt;
+&lt;/div&gt;
+
+---
+
+# Typical Workflow Tools
+
+.center[
+&lt;div style="margin-top: 8px; width: 95%; margin-left: auto; margin-right: auto;"&gt;
+  &lt;div style="background:#fff9ed; border-left:8px solid #b7791f; border-radius:10px; padding:10px 14px; margin-bottom:10px; text-align:left;"&gt;
+    &lt;strong&gt;Quick question:&lt;/strong&gt; which of these tools do you already know, and which one would help you most right now?
+  &lt;/div&gt;
+  &lt;div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:10px;"&gt;
+    &lt;div style="background:#e8f3ff; border-radius:10px; padding:12px 10px; min-height:70px;"&gt;&lt;strong&gt;Coding&lt;/strong&gt;&lt;br&gt;Python, R&lt;/div&gt;
+    &lt;div style="background:#ecfff4; border-radius:10px; padding:12px 10px; min-height:70px;"&gt;&lt;strong&gt;Development&lt;/strong&gt;&lt;br&gt;VS Code&lt;/div&gt;
+    &lt;div style="background:#fff6e8; border-radius:10px; padding:12px 10px; min-height:70px;"&gt;&lt;strong&gt;Cloud notebooks&lt;/strong&gt;&lt;br&gt;Google Colab&lt;/div&gt;
+    &lt;div style="background:#f4f0ff; border-radius:10px; padding:12px 10px; min-height:70px;"&gt;&lt;strong&gt;Version control&lt;/strong&gt;&lt;br&gt;GitHub&lt;/div&gt;
+    &lt;div style="background:#ffecec; border-radius:10px; padding:12px 10px; min-height:70px;"&gt;&lt;strong&gt;Writing/reporting&lt;/strong&gt;&lt;br&gt;Overleaf&lt;/div&gt;
+    &lt;div style="background:#eefbf8; border-radius:10px; padding:12px 10px; min-height:70px;"&gt;&lt;strong&gt;Visualization + AI&lt;/strong&gt;&lt;br&gt;Tableau, Power BI, Copilot&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+]
+
+---
+
+# Step 1. Working with Data
+
+Data can come from:
+
+.center[
+&lt;div style="margin-top: 8px; width: 94%; margin-left: auto; margin-right: auto;"&gt;
+  &lt;div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:center;"&gt;
+    &lt;div style="background:#e8f3ff; border-radius:999px; padding:10px 14px;"&gt;&lt;strong&gt;Company&lt;/strong&gt;: databases&lt;/div&gt;
+    &lt;div style="background:#ecfff4; border-radius:999px; padding:10px 14px;"&gt;&lt;strong&gt;Web&lt;/strong&gt;: APIs, websites&lt;/div&gt;
+    &lt;div style="background:#fff6e8; border-radius:999px; padding:10px 14px;"&gt;&lt;strong&gt;Files&lt;/strong&gt;: Excel, text documents&lt;/div&gt;
+    &lt;div style="background:#f4f0ff; border-radius:999px; padding:10px 14px;"&gt;&lt;strong&gt;People&lt;/strong&gt;: surveys&lt;/div&gt;
+    &lt;div style="background:#ffecec; border-radius:999px; padding:10px 14px;"&gt;&lt;strong&gt;Markets&lt;/strong&gt;: financial data&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div style="margin-top:12px; background:#fff9ed; border-left:8px solid #b7791f; border-radius:10px; padding:10px 14px; text-align:left;"&gt;
+    &lt;strong&gt;Think first:&lt;/strong&gt; where would you look if you needed sales data for one country over time?
+  &lt;/div&gt;
+&lt;/div&gt;
+]
+
+---
+
+# Example Types of Data
+
+.center[
+&lt;div style="margin-top: 8px; width: 92%; margin-left: auto; margin-right: auto; display:grid; grid-template-columns: repeat(2, 1fr); gap:10px;"&gt;
+  &lt;div style="background:#e8f3ff; border-radius:10px; padding:12px 14px;"&gt;&lt;strong&gt;Numerical&lt;/strong&gt;&lt;br&gt;sales revenue&lt;/div&gt;
+  &lt;div style="background:#ecfff4; border-radius:10px; padding:12px 14px;"&gt;&lt;strong&gt;Categorical&lt;/strong&gt;&lt;br&gt;customer type&lt;/div&gt;
+  &lt;div style="background:#fff6e8; border-radius:10px; padding:12px 14px;"&gt;&lt;strong&gt;Time series&lt;/strong&gt;&lt;br&gt;stock prices&lt;/div&gt;
+  &lt;div style="background:#f4f0ff; border-radius:10px; padding:12px 14px;"&gt;&lt;strong&gt;Text&lt;/strong&gt;&lt;br&gt;reviews, reports&lt;/div&gt;
+  &lt;div style="background:#ffecec; border-radius:10px; padding:12px 14px; grid-column: span 2;"&gt;&lt;strong&gt;Images&lt;/strong&gt;&lt;br&gt;product photos&lt;/div&gt;
+&lt;/div&gt;
+]
+
+---
+
+# Example: Python in Analytics
+
+
+```
+##           region       sales quarter
+## 0  North America   79.807352      Q3
+## 1           Asia   50.828318      Q2
+## 2  North America  172.319214      Q3
+## 3  North America  156.028602      Q3
+## 4           Asia  159.351075      Q3
+```
+
+Python helps us:
+
+.center[
+&lt;div style="margin-top: 8px; width: 94%; margin-left: auto; margin-right: auto; display:flex; gap:10px;"&gt;
+  &lt;div style="flex:1; background:#e8f3ff; border-radius:10px; padding:10px 12px;"&gt;&lt;strong&gt;Organize&lt;/strong&gt;&lt;br&gt;clean and structure data&lt;/div&gt;
+  &lt;div style="flex:1; background:#ecfff4; border-radius:10px; padding:10px 12px;"&gt;&lt;strong&gt;Analyze&lt;/strong&gt;&lt;br&gt;find patterns and relationships&lt;/div&gt;
+  &lt;div style="flex:1; background:#fff9ed; border-radius:10px; padding:10px 12px;"&gt;&lt;strong&gt;Automate&lt;/strong&gt;&lt;br&gt;repeat tasks faster and safer&lt;/div&gt;
+&lt;/div&gt;
+]
+
+---
+
+# Why Python Became So Popular
+
+.center[
+&lt;div style="margin-top: 8px; width: 94%; margin-left: auto; margin-right: auto;"&gt;
+  &lt;div style="background:#fff9ed; border-left:8px solid #b7791f; border-radius:10px; padding:10px 14px; margin-bottom:10px; text-align:left;"&gt;
+    &lt;strong&gt;Class prompt:&lt;/strong&gt; why do you think Python spread so quickly across business and research?
+  &lt;/div&gt;
+  &lt;div style="display:grid; grid-template-columns: repeat(2, 1fr); gap:10px;"&gt;
+    &lt;div style="background:#e8f3ff; border-radius:10px; padding:12px 14px;"&gt;&lt;strong&gt;Easy to start&lt;/strong&gt;&lt;br&gt;simple syntax and readable code&lt;/div&gt;
+    &lt;div style="background:#ecfff4; border-radius:10px; padding:12px 14px;"&gt;&lt;strong&gt;Flexible&lt;/strong&gt;&lt;br&gt;data, web, automation, AI&lt;/div&gt;
+    &lt;div style="background:#fff6e8; border-radius:10px; padding:12px 14px;"&gt;&lt;strong&gt;Widely used&lt;/strong&gt;&lt;br&gt;companies, banks, startups&lt;/div&gt;
+    &lt;div style="background:#f4f0ff; border-radius:10px; padding:12px 14px;"&gt;&lt;strong&gt;Community&lt;/strong&gt;&lt;br&gt;libraries, tutorials, examples&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+]
+
+---
+
+# Why We Use Google Colab
+
+.center[
+&lt;div style="margin-top: 8px; width: 94%; margin-left: auto; margin-right: auto;"&gt;
+  &lt;div style="background:#ecfff4; border-left:8px solid #2f855a; border-radius:10px; padding:10px 14px; margin-bottom:10px; text-align:left;"&gt;
+    &lt;strong&gt;Imagine you are in class:&lt;/strong&gt; what makes Colab easier for beginners than installing software locally?
+  &lt;/div&gt;
+  &lt;div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:center;"&gt;
+    &lt;div style="background:#e8f3ff; border-radius:999px; padding:10px 14px;"&gt;No installation&lt;/div&gt;
+    &lt;div style="background:#fff6e8; border-radius:999px; padding:10px 14px;"&gt;Easy sharing&lt;/div&gt;
+    &lt;div style="background:#f4f0ff; border-radius:999px; padding:10px 14px;"&gt;Works in browser&lt;/div&gt;
+    &lt;div style="background:#ffecec; border-radius:999px; padding:10px 14px;"&gt;Good for teamwork&lt;/div&gt;
+    &lt;div style="background:#eefbf8; border-radius:999px; padding:10px 14px;"&gt;Quick experiments&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+]
+---
+
+# But Professionals Often Use VS Code
+
+&lt;div&gt;
+.center[
+&lt;img src="p1.png" width="80%"&gt;
+]
+
+&lt;/div&gt;
+
+---
+
+# What Is VS Code?
+
+VS Code is a professional coding environment.
+
+Advantages:
+
+.center[
+&lt;div style="margin-top: 8px; width: 94%; margin-left: auto; margin-right: auto;"&gt;
+  &lt;div style="background:#f3f7ff; border-left:8px solid #2b6cb0; border-radius:10px; padding:10px 14px; margin-bottom:10px; text-align:left;"&gt;
+    &lt;strong&gt;Why professionals like it:&lt;/strong&gt; which feature matters most when a project gets bigger?
+  &lt;/div&gt;
+  &lt;div style="display:grid; grid-template-columns: repeat(2, 1fr); gap:10px;"&gt;
+    &lt;div style="background:#e8f3ff; border-radius:10px; padding:12px 14px;"&gt;&lt;strong&gt;Project organization&lt;/strong&gt;&lt;br&gt;multiple folders and files&lt;/div&gt;
+    &lt;div style="background:#ecfff4; border-radius:10px; padding:12px 14px;"&gt;&lt;strong&gt;Extensions&lt;/strong&gt;&lt;br&gt;extra tools for data work&lt;/div&gt;
+    &lt;div style="background:#fff6e8; border-radius:10px; padding:12px 14px;"&gt;&lt;strong&gt;GitHub integration&lt;/strong&gt;&lt;br&gt;version control in one place&lt;/div&gt;
+    &lt;div style="background:#f4f0ff; border-radius:10px; padding:12px 14px;"&gt;&lt;strong&gt;AI tools&lt;/strong&gt;&lt;br&gt;support for coding and debugging&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+]
+
+---
+
+# But Remember
+
+The goal is NOT:
+
+## “learn software”
+
+The goal is:
+
+## solve problems with data
+
+Tools are just tools.
+
+.center[
+&lt;div style="margin-top: 10px; width: 90%; margin-left: auto; margin-right: auto; background:#fff9ed; border-left:8px solid #b7791f; border-radius:10px; padding:12px 14px; text-align:left;"&gt;
+  &lt;strong&gt;Big idea:&lt;/strong&gt; the tool matters less than whether it helps you solve the actual problem.
+&lt;/div&gt;
+]
+
+---
+
+# Example Workflow
+
+.center[
+&lt;div style="margin-top: 8px; width: 94%; margin-left: auto; margin-right: auto;"&gt;
+  &lt;div style="background:#fff9ed; border-left:8px solid #b7791f; border-radius:10px; padding:10px 14px; margin-bottom:10px; text-align:left;"&gt;
+    &lt;strong&gt;Try this mentally:&lt;/strong&gt; if the data are messy, which step should happen before any chart is made?
+  &lt;/div&gt;
+  &lt;div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:10px;"&gt;
+    &lt;div style="background:#e8f3ff; border-radius:10px; padding:12px 10px;"&gt;&lt;strong&gt;1. Load&lt;/strong&gt;&lt;br&gt;bring data into the project&lt;/div&gt;
+    &lt;div style="background:#ecfff4; border-radius:10px; padding:12px 10px;"&gt;&lt;strong&gt;2. Clean&lt;/strong&gt;&lt;br&gt;fix missing values and errors&lt;/div&gt;
+    &lt;div style="background:#fff6e8; border-radius:10px; padding:12px 10px;"&gt;&lt;strong&gt;3. Analyze&lt;/strong&gt;&lt;br&gt;find patterns and answer questions&lt;/div&gt;
+    &lt;div style="background:#f4f0ff; border-radius:10px; padding:12px 10px;"&gt;&lt;strong&gt;4. Visualize&lt;/strong&gt;&lt;br&gt;make the result easy to see&lt;/div&gt;
+    &lt;div style="background:#ffecec; border-radius:10px; padding:12px 10px;"&gt;&lt;strong&gt;5. Share&lt;/strong&gt;&lt;br&gt;present to others&lt;/div&gt;
+    &lt;div style="background:#eefbf8; border-radius:10px; padding:12px 10px;"&gt;&lt;strong&gt;6. Decide&lt;/strong&gt;&lt;br&gt;turn insight into action&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+]
+---
+
+# Step 2. Visualization
+
+Visualization helps people:
+
+.center[
+&lt;div style="margin-top: 8px; width: 92%; margin-left: auto; margin-right: auto; display:flex; gap:10px;"&gt;
+  &lt;div style="flex:1; background:#e8f3ff; border-radius:10px; padding:10px 12px;"&gt;&lt;strong&gt;Understand&lt;/strong&gt;&lt;br&gt;see patterns faster&lt;/div&gt;
+  &lt;div style="flex:1; background:#ffecec; border-radius:10px; padding:10px 12px;"&gt;&lt;strong&gt;Detect&lt;/strong&gt;&lt;br&gt;spot problems early&lt;/div&gt;
+  &lt;div style="flex:1; background:#ecfff4; border-radius:10px; padding:10px 12px;"&gt;&lt;strong&gt;Communicate&lt;/strong&gt;&lt;br&gt;share findings clearly&lt;/div&gt;
+&lt;/div&gt;
+]
+
+---
+
+# Example
+
+
+```
+## (0.0, 187.5)
+```
+
+&lt;img src="W-13_SIC_files/figure-html/unnamed-chunk-2-1.png" width="960" /&gt;
+
+---
+
+# Important Reality
+
+In real business:
+
+* communication matters as much as analysis
+
+A brilliant analysis nobody understands:
+
+## has little value
+
+.center[
+&lt;div style="margin-top: 10px; width: 90%; margin-left: auto; margin-right: auto; background:#fff9ed; border-left:8px solid #b7791f; border-radius:10px; padding:12px 14px; text-align:left;"&gt;
+  &lt;strong&gt;Check your message:&lt;/strong&gt; if you had 30 seconds to explain the result, what would you say first?
+&lt;/div&gt;
+]
+
+---
+
+# Step 3. Collaboration
+
+Modern projects involve many people.
+
+Problem:
+
+* multiple versions
+* accidental overwriting
+* confusion
+
+Solution:
+
+## version control
+
+.center[
+&lt;div style="margin-top: 8px; width: 92%; margin-left: auto; margin-right: auto; display:flex; gap:10px;"&gt;
+  &lt;div style="flex:1; background:#e8f3ff; border-radius:10px; padding:10px 12px;"&gt;&lt;strong&gt;Problem&lt;/strong&gt;&lt;br&gt;too many versions&lt;/div&gt;
+  &lt;div style="flex:1; background:#ecfff4; border-radius:10px; padding:10px 12px;"&gt;&lt;strong&gt;Tool&lt;/strong&gt;&lt;br&gt;GitHub&lt;/div&gt;
+  &lt;div style="flex:1; background:#fff9ed; border-radius:10px; padding:10px 12px;"&gt;&lt;strong&gt;Result&lt;/strong&gt;&lt;br&gt;clear history and teamwork&lt;/div&gt;
+&lt;/div&gt;
+]
+
+---
+
+# GitHub
+
+GitHub is used to:
+
+.center[
+&lt;div style="margin-top: 8px; width: 90%; margin-left: auto; margin-right: auto; display:flex; flex-wrap:wrap; gap:10px; justify-content:center;"&gt;
+  &lt;div style="background:#e8f3ff; border-radius:999px; padding:10px 14px;"&gt;Store code&lt;/div&gt;
+  &lt;div style="background:#ecfff4; border-radius:999px; padding:10px 14px;"&gt;Track changes&lt;/div&gt;
+  &lt;div style="background:#fff6e8; border-radius:999px; padding:10px 14px;"&gt;Collaborate&lt;/div&gt;
+  &lt;div style="background:#f4f0ff; border-radius:999px; padding:10px 14px;"&gt;Manage projects&lt;/div&gt;
+&lt;/div&gt;
+]
+
+---
+
+# Why GitHub Matters
+
+Without version control:
+
+```text id="f6k3vn"
+final_project_REAL_final_v2_LAST.xlsx
+```
+
+With GitHub:
+
+.center[
+&lt;div style="margin-top: 8px; width: 92%; margin-left: auto; margin-right: auto; display:flex; gap:10px;"&gt;
+  &lt;div style="flex:1; background:#ffecec; border-left:8px solid #c53030; border-radius:10px; padding:10px 12px;"&gt;&lt;strong&gt;Without GitHub&lt;/strong&gt;&lt;br&gt;file chaos and confusion&lt;/div&gt;
+  &lt;div style="flex:1; background:#ecfff4; border-left:8px solid #2f855a; border-radius:10px; padding:10px 12px;"&gt;&lt;strong&gt;With GitHub&lt;/strong&gt;&lt;br&gt;history, safety, reproducibility&lt;/div&gt;
+&lt;/div&gt;
+]
+
+---
+
+# Example GitHub Workflow
+
+.center[
+&lt;div style="margin-top: 8px; width: 88%; margin-left: auto; margin-right: auto;"&gt;
+  &lt;div style="display:flex; justify-content:space-between; gap:10px; margin-bottom:8px;"&gt;
+    &lt;div style="flex:1; background:#e8f3ff; border-top:6px solid #2b6cb0; border-radius:8px; padding:10px;"&gt;&lt;strong&gt;1. Notebook&lt;/strong&gt;&lt;br&gt;Start analysis&lt;/div&gt;
+    &lt;div style="flex:1; background:#ecfff4; border-top:6px solid #2f855a; border-radius:8px; padding:10px;"&gt;&lt;strong&gt;2. Upload&lt;/strong&gt;&lt;br&gt;Push to GitHub&lt;/div&gt;
+    &lt;div style="flex:1; background:#fff9ed; border-top:6px solid #b7791f; border-radius:8px; padding:10px;"&gt;&lt;strong&gt;3. Collaborate&lt;/strong&gt;&lt;br&gt;Teammate edits&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div style="text-align:center; color:#851a10; font-size:32px; line-height:0.9; margin:4px 0;"&gt;&amp;darr;&lt;/div&gt;
+  &lt;div style="display:flex; justify-content:space-between; gap:10px;"&gt;
+    &lt;div style="flex:1; background:#f4f0ff; border-top:6px solid #6b46c1; border-radius:8px; padding:10px;"&gt;&lt;strong&gt;4. Track Changes&lt;/strong&gt;&lt;br&gt;History + review&lt;/div&gt;
+    &lt;div style="flex:1; background:#ffecec; border-top:6px solid #c53030; border-radius:8px; padding:10px;"&gt;&lt;strong&gt;5. Final Project&lt;/strong&gt;&lt;br&gt;Stable shared version&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+]
+
+---
+
+# Modern Research Works Similarly
+
+Research today often includes:
+
+.center[
+&lt;div style="margin-top: 8px; width: 94%; margin-left: auto; margin-right: auto;"&gt;
+  &lt;div style="background:#fff9ed; border-left:8px solid #b7791f; border-radius:10px; padding:10px 14px; margin-bottom:10px; text-align:left;"&gt;
+    &lt;strong&gt;Think of a real paper:&lt;/strong&gt; what do you need besides the text itself to make it convincing?
+  &lt;/div&gt;
+  &lt;div style="display:grid; grid-template-columns: repeat(2, 1fr); gap:10px;"&gt;
+    &lt;div style="background:#e8f3ff; border-radius:10px; padding:12px 14px;"&gt;&lt;strong&gt;Code&lt;/strong&gt;&lt;br&gt;for cleaning and analysis&lt;/div&gt;
+    &lt;div style="background:#ecfff4; border-radius:10px; padding:12px 14px;"&gt;&lt;strong&gt;Datasets&lt;/strong&gt;&lt;br&gt;the evidence base&lt;/div&gt;
+    &lt;div style="background:#fff6e8; border-radius:10px; padding:12px 14px;"&gt;&lt;strong&gt;Figures &amp; Tables&lt;/strong&gt;&lt;br&gt;what the reader sees first&lt;/div&gt;
+    &lt;div style="background:#f4f0ff; border-radius:10px; padding:12px 14px;"&gt;&lt;strong&gt;Collaborative Writing&lt;/strong&gt;&lt;br&gt;drafts, comments, revisions&lt;/div&gt;
+    &lt;div style="background:#ffecec; border-radius:10px; padding:12px 14px; grid-column: span 2;"&gt;&lt;strong&gt;Reproducibility&lt;/strong&gt;&lt;br&gt;someone else should be able to follow your steps&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div style="margin-top:12px; background:#ecfff4; border-left:8px solid #2f855a; border-radius:10px; padding:10px 14px; text-align:left;"&gt;
+    &lt;strong&gt;Discussion cue:&lt;/strong&gt; which part becomes the bottleneck when the project gets bigger?
+  &lt;/div&gt;
+&lt;/div&gt;
+]
+
+---
+
+# Example Research Workflow
+
+.center[
+&lt;div style="margin-top: 8px; width: 88%; margin-left: auto; margin-right: auto;"&gt;
+  &lt;div style="background:#f3f7ff; border-left:8px solid #2b6cb0; border-radius:8px; padding:10px 14px; margin-bottom:7px;"&gt;&lt;strong&gt;1. Data Collection&lt;/strong&gt; from surveys, experiments, or databases&lt;/div&gt;
+  &lt;div style="text-align:center; color:#851a10; font-size:30px; line-height:0.8;"&gt;&amp;darr;&lt;/div&gt;
+  &lt;div style="background:#ecfff4; border-left:8px solid #2f855a; border-radius:8px; padding:10px 14px; margin-bottom:7px;"&gt;&lt;strong&gt;2. Python Analysis&lt;/strong&gt; for cleaning, modeling, and testing&lt;/div&gt;
+  &lt;div style="text-align:center; color:#851a10; font-size:30px; line-height:0.8;"&gt;&amp;darr;&lt;/div&gt;
+  &lt;div style="background:#fff9ed; border-left:8px solid #b7791f; border-radius:8px; padding:10px 14px; margin-bottom:7px;"&gt;&lt;strong&gt;3. Figures &amp; Tables&lt;/strong&gt; to communicate core findings&lt;/div&gt;
+  &lt;div style="text-align:center; color:#851a10; font-size:30px; line-height:0.8;"&gt;&amp;darr;&lt;/div&gt;
+  &lt;div style="background:#f4f0ff; border-left:8px solid #6b46c1; border-radius:8px; padding:10px 14px; margin-bottom:7px;"&gt;&lt;strong&gt;4. GitHub Collaboration&lt;/strong&gt; for versioning and co-author work&lt;/div&gt;
+  &lt;div style="text-align:center; color:#851a10; font-size:30px; line-height:0.8;"&gt;&amp;darr;&lt;/div&gt;
+  &lt;div style="background:#ffecec; border-left:8px solid #c53030; border-radius:8px; padding:10px 14px; margin-bottom:7px;"&gt;&lt;strong&gt;5. Overleaf Paper&lt;/strong&gt; for structured writing and references&lt;/div&gt;
+  &lt;div style="text-align:center; color:#851a10; font-size:30px; line-height:0.8;"&gt;&amp;darr;&lt;/div&gt;
+  &lt;div style="background:#fdeff8; border-left:8px solid #97266d; border-radius:8px; padding:10px 14px;"&gt;&lt;strong&gt;6. Publication&lt;/strong&gt; as reproducible output&lt;/div&gt;
+&lt;/div&gt;
+]
+
+---
+
+.center[
+&lt;div style="margin-top: 8px; width: 94%; margin-left: auto; margin-right: auto;"&gt;
+  &lt;div style="background:#fff9ed; border-left:8px solid #b7791f; border-radius:10px; padding:10px 14px; margin-bottom:10px; text-align:left;"&gt;
+    &lt;strong&gt;Think like a co-author:&lt;/strong&gt; what makes writing easier when several people edit the same document?
+  &lt;/div&gt;
+  &lt;div style="display:grid; grid-template-columns: repeat(2, 1fr); gap:10px;"&gt;
+    &lt;div style="background:#e8f3ff; border-radius:10px; padding:12px 14px;"&gt;&lt;strong&gt;What it is&lt;/strong&gt;&lt;br&gt;a collaborative writing platform&lt;/div&gt;
+    &lt;div style="background:#ecfff4; border-radius:10px; padding:12px 14px;"&gt;&lt;strong&gt;Used for&lt;/strong&gt;&lt;br&gt;papers, reports, presentations&lt;/div&gt;
+    &lt;div style="background:#fff6e8; border-radius:10px; padding:12px 14px;"&gt;&lt;strong&gt;Also useful for&lt;/strong&gt;&lt;br&gt;equations and references&lt;/div&gt;
+    &lt;div style="background:#f4f0ff; border-radius:10px; padding:12px 14px;"&gt;&lt;strong&gt;Why researchers like it&lt;/strong&gt;&lt;br&gt;real-time collaboration, version history, cloud access&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+]
+---
+
+# Example of Reproducibility
+
+.center[
+&lt;div style="margin-top: 8px; width: 94%; margin-left: auto; margin-right: auto;"&gt;
+  &lt;div style="background:#ecfff4; border-left:8px solid #2f855a; border-radius:10px; padding:10px 14px; margin-bottom:10px; text-align:left;"&gt;
+    &lt;strong&gt;Question:&lt;/strong&gt; if a classmate runs your code, do they get the same answer?
+  &lt;/div&gt;
+  &lt;div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:10px;"&gt;
+    &lt;div style="background:#e8f3ff; border-radius:10px; padding:12px 14px;"&gt;&lt;strong&gt;Reproduce&lt;/strong&gt;&lt;br&gt;same result again&lt;/div&gt;
+    &lt;div style="background:#fff6e8; border-radius:10px; padding:12px 14px;"&gt;&lt;strong&gt;Transparent&lt;/strong&gt;&lt;br&gt;clear calculations&lt;/div&gt;
+    &lt;div style="background:#f4f0ff; border-radius:10px; padding:12px 14px;"&gt;&lt;strong&gt;Documented&lt;/strong&gt;&lt;br&gt;workflow is written down&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+]
+
+
+
+# Why Reproducibility Matters
+
+.center[
+&lt;div style="margin-top: 8px; width: 94%; margin-left: auto; margin-right: auto; display:flex; gap:10px;"&gt;
+  &lt;div style="flex:1; background:#ffecec; border-left:8px solid #c53030; border-radius:10px; padding:10px 12px; text-align:left;"&gt;
+    &lt;strong&gt;Without reproducibility&lt;/strong&gt;&lt;br&gt;harder to find mistakes, weaker trust, unclear results
+  &lt;/div&gt;
+  &lt;div style="flex:1; background:#ecfff4; border-left:8px solid #2f855a; border-radius:10px; padding:10px 12px; text-align:left;"&gt;
+    &lt;strong&gt;With reproducibility&lt;/strong&gt;&lt;br&gt;easier review, stronger credibility, safer decisions
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div style="margin-top:12px; background:#fff9ed; border-left:8px solid #b7791f; border-radius:10px; padding:10px 14px; text-align:left;"&gt;
+  &lt;strong&gt;Discussion cue:&lt;/strong&gt; where would reproducibility matter more, a business report or a research paper?
+&lt;/div&gt;
+]
+
+---
+
+# AI Is Changing Analytics
+
+.center[
+&lt;div style="margin-top: 8px; width: 94%; margin-left: auto; margin-right: auto;"&gt;
+  &lt;div style="background:#fff9ed; border-left:8px solid #b7791f; border-radius:10px; padding:10px 14px; margin-bottom:10px; text-align:left;"&gt;
+    &lt;strong&gt;AI is changing the workflow:&lt;/strong&gt; where would you let AI help, and where would you still check manually?
+  &lt;/div&gt;
+  &lt;div style="display:grid; grid-template-columns: repeat(2, 1fr); gap:10px;"&gt;
+    &lt;div style="background:#e8f3ff; border-radius:10px; padding:12px 14px;"&gt;&lt;strong&gt;Coding&lt;/strong&gt;&lt;br&gt;generate or explain code&lt;/div&gt;
+    &lt;div style="background:#ecfff4; border-radius:10px; padding:12px 14px;"&gt;&lt;strong&gt;Debugging&lt;/strong&gt;&lt;br&gt;spot errors faster&lt;/div&gt;
+    &lt;div style="background:#fff6e8; border-radius:10px; padding:12px 14px;"&gt;&lt;strong&gt;Summarizing&lt;/strong&gt;&lt;br&gt;compress long text or notes&lt;/div&gt;
+    &lt;div style="background:#f4f0ff; border-radius:10px; padding:12px 14px;"&gt;&lt;strong&gt;Writing + Visualization&lt;/strong&gt;&lt;br&gt;draft text and suggest charts&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div style="margin-top:12px; display:flex; gap:10px; justify-content:center; flex-wrap:wrap;"&gt;
+    &lt;div style="background:#e8f3ff; border-radius:999px; padding:10px 14px;"&gt;ChatGPT&lt;/div&gt;
+    &lt;div style="background:#ecfff4; border-radius:999px; padding:10px 14px;"&gt;GitHub Copilot&lt;/div&gt;
+    &lt;div style="background:#fff6e8; border-radius:999px; padding:10px 14px;"&gt;Cursor AI&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+]
+
+---
+
+# But Important Warning
+
+AI is a tool.
+
+.center[
+&lt;div style="margin-top: 8px; width: 94%; margin-left: auto; margin-right: auto; display:flex; gap:10px;"&gt;
+  &lt;div style="flex:1; background:#ecfff4; border-left:8px solid #2f855a; border-radius:10px; padding:10px 12px; text-align:left;"&gt;
+    &lt;strong&gt;You still need&lt;/strong&gt;&lt;br&gt;logic, statistics, critical thinking
+  &lt;/div&gt;
+  &lt;div style="flex:1; background:#ffecec; border-left:8px solid #c53030; border-radius:10px; padding:10px 12px; text-align:left;"&gt;
+    &lt;strong&gt;AI can produce&lt;/strong&gt;&lt;br&gt;mistakes, hallucinations, wrong interpretation
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div style="margin-top:12px; background:#fff9ed; border-left:8px solid #b7791f; border-radius:10px; padding:10px 14px; text-align:left;"&gt;
+  &lt;strong&gt;Rule of thumb:&lt;/strong&gt; use AI to speed up work, not to replace judgment.
+&lt;/div&gt;
+]
+
+---
+
+# The Most Valuable Skill
+
+Not memorizing formulas.
+
+The most valuable skill is:
+
+## turning data into decisions
+
+.center[
+&lt;div style="margin-top: 10px; width: 90%; margin-left: auto; margin-right: auto; background:#fff9ed; border-left:8px solid #b7791f; border-radius:10px; padding:12px 14px; text-align:left;"&gt;
+  &lt;strong&gt;Final check:&lt;/strong&gt; can you explain why the result matters, not just what the result is?
+&lt;/div&gt;
+]
+
+---
+
+# Example Careers
+
+These workflows are used in:
+
+.center[
+&lt;div style="margin-top: 8px; width: 94%; margin-left: auto; margin-right: auto; display:grid; grid-template-columns: repeat(2, 1fr); gap:10px;"&gt;
+  &lt;div style="background:#e8f3ff; border-radius:10px; padding:12px 14px;"&gt;&lt;strong&gt;Data analyst&lt;/strong&gt;&lt;br&gt;dashboards, reports&lt;/div&gt;
+  &lt;div style="background:#ecfff4; border-radius:10px; padding:12px 14px;"&gt;&lt;strong&gt;Business analyst&lt;/strong&gt;&lt;br&gt;strategy decisions&lt;/div&gt;
+  &lt;div style="background:#fff6e8; border-radius:10px; padding:12px 14px;"&gt;&lt;strong&gt;Research analyst&lt;/strong&gt;&lt;br&gt;statistical analysis&lt;/div&gt;
+  &lt;div style="background:#f4f0ff; border-radius:10px; padding:12px 14px;"&gt;&lt;strong&gt;Financial analyst&lt;/strong&gt;&lt;br&gt;forecasting&lt;/div&gt;
+  &lt;div style="background:#ffecec; border-radius:10px; padding:12px 14px;"&gt;&lt;strong&gt;Consultant&lt;/strong&gt;&lt;br&gt;client analytics&lt;/div&gt;
+  &lt;div style="background:#eefbf8; border-radius:10px; padding:12px 14px;"&gt;&lt;strong&gt;Policy analyst&lt;/strong&gt;&lt;br&gt;evidence-based decisions&lt;/div&gt;
+&lt;/div&gt;
+]
+
+---
+
+# What Employers Often Want
+
+Not only:
+
+* technical skills
+
+But also:
+
+.center[
+&lt;div style="margin-top: 8px; width: 92%; margin-left: auto; margin-right: auto; display:grid; grid-template-columns: repeat(2, 1fr); gap:10px;"&gt;
+  &lt;div style="background:#e8f3ff; border-radius:10px; padding:12px 14px;"&gt;&lt;strong&gt;Technical&lt;/strong&gt;&lt;br&gt;tools, methods, coding&lt;/div&gt;
+  &lt;div style="background:#ecfff4; border-radius:10px; padding:12px 14px;"&gt;&lt;strong&gt;Human&lt;/strong&gt;&lt;br&gt;communication, teamwork&lt;/div&gt;
+  &lt;div style="background:#fff6e8; border-radius:10px; padding:12px 14px;"&gt;&lt;strong&gt;Thinking&lt;/strong&gt;&lt;br&gt;problem solving&lt;/div&gt;
+  &lt;div style="background:#f4f0ff; border-radius:10px; padding:12px 14px;"&gt;&lt;strong&gt;Context&lt;/strong&gt;&lt;br&gt;business understanding&lt;/div&gt;
+&lt;/div&gt;
+]
+
+---
+
+# What You Already Know
+
+From this course, you already learned:
+
+* descriptive statistics
+* probability
+* hypothesis testing
+* ANOVA
+* Python basics
+
+These are real foundations.
+
+.center[
+&lt;div style="margin-top: 10px; width: 90%; margin-left: auto; margin-right: auto; background:#fff9ed; border-left:8px solid #b7791f; border-radius:10px; padding:12px 14px; text-align:left;"&gt;
+  &lt;strong&gt;You already have a toolkit:&lt;/strong&gt; the next step is connecting it to real problems, not starting from zero.
+&lt;/div&gt;
+]
+
+---
+
+# Important Message
+
+You do NOT need to become:
+
+* expert programmer
+* mathematician
+* AI engineer
+
+to use analytics effectively.
+
+.center[
+&lt;div style="margin-top: 10px; width: 90%; margin-left: auto; margin-right: auto; background:#ecfff4; border-left:8px solid #2f855a; border-radius:10px; padding:12px 14px; text-align:left;"&gt;
+  &lt;strong&gt;Takeaway:&lt;/strong&gt; you do not need to be the best coder in the room to make a useful analysis.
+&lt;/div&gt;
+]
+
+---
+
+# Final Idea
+
+Modern analytics combines:
+
+.center[
+&lt;div style="margin-top: 8px; width: 94%; margin-left: auto; margin-right: auto; display:grid; grid-template-columns: repeat(5, 1fr); gap:8px;"&gt;
+  &lt;div style="background:#e8f3ff; border-radius:10px; padding:10px 8px;"&gt;&lt;strong&gt;Stats&lt;/strong&gt;&lt;/div&gt;
+  &lt;div style="background:#ecfff4; border-radius:10px; padding:10px 8px;"&gt;&lt;strong&gt;Coding&lt;/strong&gt;&lt;/div&gt;
+  &lt;div style="background:#fff6e8; border-radius:10px; padding:10px 8px;"&gt;&lt;strong&gt;Communication&lt;/strong&gt;&lt;/div&gt;
+  &lt;div style="background:#f4f0ff; border-radius:10px; padding:10px 8px;"&gt;&lt;strong&gt;Collaboration&lt;/strong&gt;&lt;/div&gt;
+  &lt;div style="background:#ffecec; border-radius:10px; padding:10px 8px;"&gt;&lt;strong&gt;Business&lt;/strong&gt;&lt;/div&gt;
+&lt;/div&gt;
+]
+
+---
+
+# One Sentence Summary
+
+## Data is valuable only when it helps people make better decisions.
+
+.center[
+&lt;div style="margin-top: 10px; width: 90%; margin-left: auto; margin-right: auto; background:#fff9ed; border-left:8px solid #b7791f; border-radius:10px; padding:12px 14px; text-align:left;"&gt;
+  &lt;strong&gt;Final question:&lt;/strong&gt; what is one decision in your life or work that could be better with data?
+&lt;/div&gt;
+]
+
+---
+
+class: inverse, center, middle
+
+# Any questions?
+
+# Thank you for your attention and active participation!
+
+
+
+???
+1. To print pdf slides
+https://stackoverflow.com/questions/54968311/xaringan-export-slides-to-pdf-while-preserving-formatting
+
+pagedown::chrome_print("W-11_SIC.html") # but not all pictures are visible
+
+2. Option: https://stackoverflow.com/questions/54968311/xaringan-export-slides-to-pdf-while-preserving-formatting
+
+install.packages("remotes")
+remotes::install_github("jhelvy/xaringanBuilder")
+remotes::install_github("jhelvy/renderthis@v0.0.9")
+
+library(xaringanBuilder)
+build_pdf("W-11_SIC.html")
+
+3. Option
+writeBin(as.raw(c()), "favicon.ico") # create an empty favicon.ico file
+install.packages("renderthis")
+remotes::install_github('rstudio/chromote')
+library(renderthis)
+
+renderthis::to_pdf("W-13_SIC.html")
+
+getwd()
+setwd("C:\\Users\\vyshn\\OneDrive - kdis.ac.kr\\Documents\\GitHub\\Sogang\\2026\\Spring\\Statistics for International Commerce\\Week_13")
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+  "highlightStyle": "github",
+  "highlightLines": true,
+  "countIncrementalSlides": false,
+  "ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
