@@ -2,13 +2,12 @@
 title: "Mathematical Methods for International Commerce "
 subtitle: "<br/>Week 13/2: Basic Matrix Operation (7.1)</br>Matrix Inversion (7.2)"
 author: "Iegor Vyshnevskyi, Ph.D."
-institute: "Sogang University"
-date: "May 30, 2025"
+institute: "Sogang University, Geppert School of International Studies"
+date: "May 28, 2026"
 output:
   xaringan::moon_reader:
-    #css: [default, metropolis, metropolis-fonts]
+    #css: $$default, metropolis, metropolis-fonts$$
     css: xaringan-themer.css
-    mathjax: "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML"
     lib_dir: libs
     nature:
       highlightStyle: github
@@ -25,6 +24,7 @@ output:
     overflow: visible;
     display: inline-block;
     }
+}
 </style>
 
 <style type="text/css">
@@ -40,11 +40,49 @@ output:
 }
 </style>
 
-</style>
-
 <style type="text/css">
 .my-one-page-font-table {
   font-size: 24px;
+}
+</style>
+
+<style>
+.tiny { font-size: 60%; }      /* class you can reuse anywhere */
+</style>
+
+<style>
+.visual-break {
+  width: 45%;
+  margin: 0.5em auto 0.7em auto;
+  border-top: 2px solid rgba(133, 26, 16, 0.35);
+}
+
+.spacious li {
+  margin-bottom: 0.3em;
+}
+</style>
+
+<style>
+.remark-slide-content {
+  position: relative;
+  z-index: 1;
+}
+
+.remark-slide-content::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 600px;          /* adjust size */
+  height: 600px;
+  background-image: url("1. 교장(Seal_Positive).png");  /* place logo file in same folder */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: 0.05;         /* watermark transparency */
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 0;
 }
 </style>
 
@@ -63,7 +101,7 @@ opts_chunk$set(fig.width = 10,
 #install.packages("xaringanthemer")
 library(xaringanthemer)
 style_mono_accent(
-  base_color = "#1c5253",
+  base_color = "#851a10",
   header_font_google = google_font("Josefin Sans"),
   text_font_google   = google_font("Montserrat", "500", "550i"),
   code_font_google   = google_font("Fira Mono"),
@@ -112,17 +150,14 @@ class: inverse, center, middle
 
 Suppose that a firm produces three types of goods (G1, G2, G3) and sells them to two customers (C1 and C2). The matrix:
 
-$$A = \begin{bmatrix}
-    & \text{G1} & \text{G2} & \text{G3} \\
-\text{C1} & 7 & 3 & 4 \\
-\text{C2} & 1 & 5 & 6
-\end{bmatrix}$$
+$$A = \begin{bmatrix} 7 & 3 & 4 \\ 1 & 5 & 6 \end{bmatrix}$$
 
+<div class="visual-break"></div>
 
-represents monthly sales:
-- Row 1: customer C1
-- Row 2: customer C2
-- Columns: goods G1, G2, G3
+represents monthly sales where:
+
+- Rows: C1, C2 (customers)
+- Columns: G1, G2, G3 (goods)
 
 This format allows for compact storage and easy operations like summing totals or multiplying by price vectors.
 
@@ -134,6 +169,8 @@ This format allows for compact storage and easy operations like summing totals o
 
 $$A = \begin{bmatrix} 2 & 3 \\ 4 & 5 \end{bmatrix}$$
 
+<div class="visual-break"></div>
+
 - **Order**: number of rows $\times$ number of columns (dimensions)
 - **Row vector**: 1 row, $n$ columns  
 - **Column vector**: $n$ rows, 1 column
@@ -141,6 +178,7 @@ $$A = \begin{bmatrix} 2 & 3 \\ 4 & 5 \end{bmatrix}$$
 - **Square matrix**: same number of rows and columns (e.g., $2 \times 2$)
 
 - **Zero matrix**: all elements are zero
+
 $$O = \begin{bmatrix} 0 & 0 \\ 0 & 0 \end{bmatrix}$$
 
 ---
@@ -200,26 +238,48 @@ $$AB = \begin{bmatrix} 1\cdot2 + 2\cdot1 & 1\cdot0 + 2\cdot5 \\ 3\cdot2 + 4\cdot
 
 - Dimensions of the result: $m \times p$
 
+> Matrix multiplication is NOT element-by-element multiplication.
+---
+
+# Basic Matrix Operations (continued)
+
+## Matrix Multiplication: Row × Column
+
+$$A = \begin{bmatrix} \color{blue}{1} & \color{blue}{2} \\ 3 & 4 \end{bmatrix}, \quad B = \begin{bmatrix} \color{red}{2} & 0 \\ \color{red}{1} & 5 \end{bmatrix}, \quad AB = \begin{bmatrix} \color{purple}{4} & ? \\ ? & ? \end{bmatrix}$$
+
+<div class="visual-break"></div>
+
+The **first element** $\color{purple}{c_{11}}$ comes from $\color{blue}{\text{Row 1 of } A}$ × $\color{red}{\text{Col 1 of } B}$:
+
+$$\color{purple}{c_{11}} = \color{blue}{1}\cdot\color{red}{2} + \color{blue}{2}\cdot\color{red}{1} = 2 + 2 = \color{purple}{4}$$
+
+<div class="visual-break"></div>
+
+In general: $c_{ij} = \text{row}_i(A) \cdot \text{col}_j(B)$ — each entry is a **dot product**.
+
+> Matrix multiplication is **not** element-by-element — it is row × column interaction.
+
 ---
 # Basic Matrix Operations (continued)
 
-## Matrix Multiplication Advice
-> Take the trouble to check before you begin that it is possible to form the matrix product and anticipate the order of the end result.
+## Matrix Multiplication: Dimension Check
 
-- Jot down the dimensions: inner numbers must match.
-- The result’s dimensions = outer numbers.
+**Before multiplying**, verify dimensions:
 
-If:
+- **Inner dimensions must match**: $A_{m \times n} \cdot B_{n \times p}$ is valid
+- **Result dimensions**: $m \times p$ (outer dimensions)
 
-$$A: 3\times5,\quad B: 5\times2,\quad C: 3\times4$$
+<div class="visual-break"></div>
 
-Then:
-- AB is possible → result is 3×2
-- AC is **not** possible (inner numbers don't match)
+Example:
+$$A: 3\times5, \quad B: 5\times2, \quad C: 3\times4$$
 
-.center[<img src="p1.png" height="30%" width="30%">]
+✓ $A \cdot B$: inner is $5 = 5$ ✓ → result is $3 \times 2$
+
+✗ $A \cdot C$: inner is $5 \ne 3$ ✗ → **not defined**
 
 ---
+
 # Basic Matrix Operations (continued)
 
 ## General Matrix Multiplication
@@ -235,6 +295,8 @@ B = \begin{bmatrix} 3 & 1 & 2 & 1 \\ 1 & 0 & 1 & 2 \\ 5 & 4 & 1 & 1 \end{bmatrix
 
 Check: A is 2×3, B is 3×4 ⇒ AB exists, size is 2×4
 ---
+class: spacious
+
 # Basic Matrix Operations (continued)
 
 ## Calculating Elements of AB
@@ -246,9 +308,9 @@ Check: A is 2×3, B is 3×4 ⇒ AB exists, size is 2×4
 
 Continue for second row…
 ---
-## Basic Matrix Operations (continued)
+# Basic Matrix Operations (continued)
 
-# Full Product AB
+## Full Product AB
 
 $$AB = \begin{bmatrix} 7 & 2 & 5 & 4 \\ 23 & 17 & 6 & 5 \end{bmatrix}$$
 
@@ -256,7 +318,6 @@ Step-by-step matrix multiplication shows the power of matrix algebra in summariz
 ---
 class: my-one-page-font
 
-## Basic Matrix Operations (continued)
 # Properties of Matrix Operations
 
 - A matrix is a rectangular array of numbers, organized into rows and columns. 
@@ -266,7 +327,7 @@ class: my-one-page-font
 Provided that the indicated sums and products make sense,
 
 - $A + B = B + A$
-- $A − A = 0$
+- $A - A = O$ where $O$ is the zero matrix
 - $A + 0 = A$
 - $k(A + B) = kA + kB$
 - $k(lA) = (kl)A$
@@ -293,6 +354,10 @@ $$\begin{cases}
 Where:
 
 $$A = \begin{bmatrix} 2 & 3 \\ 4 & -1 \end{bmatrix}, \quad X = \begin{bmatrix} x \\ y \end{bmatrix}, \quad B = \begin{bmatrix} 8 \\ 2 \end{bmatrix}$$
+
+- $A$: coefficient matrix
+- $X$: vector of unknowns
+- $B$: constants vector
 
 ---
 
@@ -324,7 +389,7 @@ If $\det (A) = ad - bc \ne 0$, the inverse is:
 
 $$A^{-1} = \frac{1}{ad - bc} \begin{bmatrix} d & -b \\ -c & a \end{bmatrix}$$
 
-*Note*: $\det (A)$ is the determinant of $A$.
+*Note*: $\det (A)$ is the determinant of $A$. If $\det(A)=0$, the matrix is singular and cannot be inverted.
 
 ---
 
@@ -346,6 +411,8 @@ For any nonzero number `x`, its reciprocal is `1/x`.
 From $AX = B$, multiply both sides by $A^{-1}$:
 
 $$X = A^{-1}B$$
+
+<div class="visual-break"></div>
 
 - This allows us to find the solution vector $X$ directly.
 
@@ -370,6 +437,8 @@ Write the system as:
 
 $$\begin{bmatrix}-4 & 1 \\ 2 & -5\end{bmatrix} \begin{bmatrix}P_1 \\ P_2\end{bmatrix} = \begin{bmatrix}-13 \\ -7\end{bmatrix}$$
 
+<div class="visual-break"></div>
+
 Let:
 $$A = \begin{bmatrix}-4 & 1 \\ 2 & -5\end{bmatrix}$$
 $$x = \begin{bmatrix}P_1 \\ P_2\end{bmatrix}$$
@@ -393,13 +462,17 @@ Using the formula for a 2x2 inverse:
 
 $$A^{-1} = \frac{1}{\text{det}(A)} \begin{bmatrix}-5 & -1 \\ -2 & -4\end{bmatrix} = \frac{1}{18} \begin{bmatrix}-5 & -1 \\ -2 & -4\end{bmatrix}$$
 
+<div class="visual-break"></div>
+
 ---
 
 ### Step 4: Solve for x
 
 Multiply $$A^{-1}$$ by $$b$$:
 
-$$x = A^{-1}b = \frac{1}{18} \begin{bmatrix}-5 & -1 \\ -2 & -4\end{bmatrix} \begin{bmatrix}-13 \\ -7\end{bmatrix}$$
+$$\begin{bmatrix}P_1 \\ P_2\end{bmatrix}
+=
+A^{-1}b = \frac{1}{18} \begin{bmatrix}-5 & -1 \\ -2 & -4\end{bmatrix} \begin{bmatrix}-13 \\ -7\end{bmatrix}$$
 
 ---
 
@@ -411,6 +484,8 @@ $$\begin{aligned}
 P_1 &= \frac{1}{18}((-5)(-13) + (-1)(-7)) = \frac{1}{18}(65 + 7) = \frac{72}{18} = 4 \\
 P_2 &= \frac{1}{18}((-2)(-13) + (-4)(-7)) = \frac{1}{18}(26 + 28) = \frac{54}{18} = 3
 \end{aligned}$$
+
+<div class="visual-break"></div>
 
 ---
 
@@ -432,14 +507,18 @@ The identity matrix:
 
 $$I = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix}$$
 
+<div class="visual-break"></div>
+
 Check that for any matrix $A$:
 
 $$AI = A, \quad IA = A$$
 
 To compute an inverse, we need **cofactors**:
-- The cofactor $A_{ij}$ is the determinant of the 2x2 matrix formed by removing row $i$ and column $j$, multiplied by $(-1)^{i+j}$
+- The cofactor $A_{ij}$ equals the determinant of the corresponding minor multiplied by $(-1)^{i+j}$
 
 ---
+
+class: spacious
 
 # 3x3 Matrices, Determinants, and Cofactors (cont)
 
@@ -447,9 +526,13 @@ Example: For matrix $A$, to find $A_{23}$, delete row 2 and column 3 to get:
 
 $$\text{Minor of } A_{23} = \begin{bmatrix} a_{11} & a_{12} \\ a_{31} & a_{32} \end{bmatrix}$$
 
+<div class="visual-break"></div>
+
 Cofactor:
 
 $$A_{23} = (-1)^{2+3} \cdot (a_{11}a_{32} - a_{12}a_{31}) = -a_{11}a_{32} + a_{12}a_{31}$$
+
+<div class="visual-break"></div>
 
 This sign pattern follows the "checkerboard" rule:
 
@@ -466,6 +549,8 @@ To compute $\det(A)$:
 - Multiply elements in any row/column by their cofactors
 - The sum gives the determinant
 - Same result regardless of row/column used — useful for checking!
+
+<div class="visual-break"></div>
 
 If expanding along the first row:
 
@@ -512,15 +597,29 @@ $$A^{-1}A = I \quad \text{and} \quad AA^{-1} = I$$
 class: my-one-page-font
 # 3x3 Matrices, Determinants, and Cofactors (cont)
 
-## Example: Inverse of a 3x3 Matrix
+## Example: Cofactor Computation
 
 Given:
 $$A = \begin{bmatrix} 2 & 4 & 1 \\ 4 & 3 & 7 \\ 2 & 1 & 3 \end{bmatrix}$$
 
-Previously computed cofactors:
-$$A_{11} = 2,\quad A_{12} = 2,\quad A_{13} = -2 \\
-A_{21} = -11,\quad A_{22} = 4,\quad A_{23} = 6 \\
-A_{31} = 25,\quad A_{32} = -10,\quad A_{33} = -10$$
+<div class="visual-break"></div>
+
+To find cofactor $A_{11}$: delete row 1 and column 1:
+
+$$A_{11} = (+1) \begin{vmatrix} 3 & 7 \\ 1 & 3 \end{vmatrix} = 3(3) - 7(1) = 9 - 7 = 2$$
+
+<div class="visual-break"></div>
+
+Similarly, all cofactors:
+$$A_{11} = 2,\quad A_{12} = 2,\quad A_{13} = -2$$
+$$A_{21} = -11,\quad A_{22} = 4,\quad A_{23} = 6$$
+$$A_{31} = 25,\quad A_{32} = -10,\quad A_{33} = -10$$
+
+---
+class: my-one-page-font
+# 3x3 Matrices, Determinants, and Cofactors (cont)
+
+## Example: Cofactor Computation (cont)
 
 $$\text{adjugate}(A) = \begin{bmatrix} 2 & 2 & -2 \\ -11 & 4 & 6 \\ 25 & -10 & -10 \end{bmatrix}, \quad
 \text{adjoint}(A) = \text{adjugate}(A)^T = \begin{bmatrix} 2 & -11 & 25 \\ 2 & 4 & -10 \\ -2 & 6 & -10 \end{bmatrix}$$
@@ -563,6 +662,8 @@ $$\begin{cases}
 
 ---
 
+class: spacious
+
 # Practice Problems (continued)
 - We are given a system of equations:
 
@@ -571,27 +672,43 @@ $$9P_1 + P_2 = 43 \\
 
 Express this system in matrix form and hence find the values of P1 and P2.
 
-- Find the inverse of the matrix:
+- Determine whether the inverse exists for the matrix:
 $$A = \begin{bmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \\ 7 & 8 & 9 \end{bmatrix}$$
 
-???
+---
 
-Matrix form:
-\[
-A = \begin{bmatrix} 9 & 1 \\ 2 & 7 \end{bmatrix}, \quad x = \begin{bmatrix} P_1 \\ P_2 \end{bmatrix}, \quad b = \begin{bmatrix} 43 \\ 57 \end{bmatrix}
-\]
+class: my-one-page-font
 
-\[
-\det(A) = 9 \cdot 7 - 1 \cdot 2 = 63 - 2 = 61 \ne 0
-\]
+# Brief Solutions (Practice)
 
-\[
-A^{-1} = \frac{1}{61} \begin{bmatrix} 7 & -1 \\ -2 & 9 \end{bmatrix}
-\]
+- For $A = \begin{bmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \end{bmatrix}$:
+  - $A^T = \begin{bmatrix} 1 & 4 \\ 2 & 5 \\ 3 & 6 \end{bmatrix}$
+  - $2A = \begin{bmatrix} 2 & 4 & 6 \\ 8 & 10 & 12 \end{bmatrix}$
+  - $A + A = \begin{bmatrix} 2 & 4 & 6 \\ 8 & 10 & 12 \end{bmatrix}$
 
-\[
-x = A^{-1}b = \frac{1}{61} \begin{bmatrix} 7 & -1 \\ -2 & 9 \end{bmatrix} \begin{bmatrix} 43 \\ 57 \end{bmatrix} = \frac{1}{61} \begin{bmatrix} 7\cdot43 - 57 \\ -2\cdot43 + 9\cdot57 \end{bmatrix} = \frac{1}{61} \begin{bmatrix} 244 \ 431 \end{bmatrix} = \begin{bmatrix} 4 \ 7 \end{bmatrix}
-\]
+<div class="visual-break"></div>
+
+- $\begin{bmatrix} 2 & 1 \\ 3 & 4 \end{bmatrix}\begin{bmatrix} 1 & 0 \\ 0 & 5 \end{bmatrix} = \begin{bmatrix} 2 & 5 \\ 3 & 20 \end{bmatrix}$
+
+- $\begin{bmatrix} 3 & 2 \\ 1 & 4 \end{bmatrix}^{-1} = \frac{1}{10}\begin{bmatrix} 4 & -2 \\ -1 & 3 \end{bmatrix}$
+
+- System $\begin{cases} 3x + 2y = 10 \\ 4x - y = 5 \end{cases}$ gives:
+  - $x = \frac{20}{11},\; y = \frac{25}{11}$
+
+---
+
+class: my-one-page-font
+
+# Brief Solutions (continued)
+
+- System $\begin{cases} 9P_1 + P_2 = 43 \\ 2P_1 + 7P_2 = 57 \end{cases}$ gives:
+  - $P_1 = 4,\; P_2 = 7$
+
+<div class="visual-break"></div>
+
+- For $A = \begin{bmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \\ 7 & 8 & 9 \end{bmatrix}$:
+  - $\det(A) = 0$
+  - Inverse does **not** exist (singular matrix)
 
 ---
 
@@ -619,7 +736,7 @@ class: my-one-page-font-table
 
 ## Homework #2
 
-- **Due Date:** June 13, 2025, before the start of class.
+- **Due Date:** June 11, 2026, before the start of class.
 - **Submission Format:** Submit your solutions as a single PDF file via the Cyber Campus.
 - **Instructions:** 
   - Clearly show all steps and calculations.
@@ -631,7 +748,7 @@ class: my-one-page-font-table
   - Chapter 5.1: Exercise 5.1, Problem 5 (p. 411)
   - Chapter 5.2: Exercise 5.2, Problem 7 (p. 427)
   - Chapter 5.3: Exercise 5.3, Practice Problem inside the chapter (p. 432 only)
-  - Chapter 5.4: Exercise 5.4, Problem 5 (p. 457)
+  - Chapter 5.4: Exercise 5.4, Problem 5 (p. 456)
   - Chapter 5.5: Exercise 5.5, Problems 6 and 7  (p. 467)
   - Chapter 5.6: Exercise 5.6, Problem 4 (p. 479)
   - Chapter 6.1: Exercise 6.1, Problem 3 (p. 506)
@@ -648,19 +765,18 @@ Good luck!
 
 
 ---
+## Next Class
+
+- (June 2) Cramer’s Rule (7.3) 
+
+
+---
 
 class: inverse, center, middle
 
 # Any QUESTIONS?
 
-## Thank you for your attention!
-
----
-
-## Next Classes
-
-- (June 4) Cramer’s Rule (7.3) 
-
+## Thank you for your attention and participation!
 
 ???
 1. To print pdf slides
@@ -686,4 +802,4 @@ library(renderthis)
 renderthis::to_pdf("W13_2_ME.html")
 
 getwd()
-setwd("C:/Users/Iegor/OneDrive - kdis.ac.kr/Documents/GitHub/Sogang/2025/Spring/Mathematical Economics/Week 13_2")
+setwd("C:\\Users\\vyshn\\OneDrive - kdis.ac.kr\\Documents\\GitHub\\Sogang\\2026\\Spring\\Mathematical Methods for International Commerce\\Week 13_2")

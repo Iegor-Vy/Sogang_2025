@@ -759,7 +759,7 @@ class: my-one-page-font-table
 
 ## Homework #2
 
-- **Due Date:** June 13, 2025, before the start of class.
+- **Due Date:** June 11, 2026, before the start of class.
 - **Submission Format:** Submit your solutions as a single PDF file via the Cyber Campus.
 - **Instructions:** 
   - Clearly show all steps and calculations.

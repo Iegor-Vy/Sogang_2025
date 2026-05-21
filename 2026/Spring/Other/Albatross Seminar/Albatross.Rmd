@@ -326,16 +326,6 @@ C) Balanced mix of both
 
 ---
 
-<div style="display: flex; align-items: center; justify-content: center; min-height: 65vh;">
-  <img src="p6.png" style="max-width: 95vw; max-height: 70vh; object-fit: contain;">
-</div>
-
-<div class="prompt-box"><strong>Research workflow in one line:</strong> central bank statements -> NLP and econometrics -> measurable market reactions. This is how commerce, policy, and data science connect in practice.</div>
-
-.tiny[The project link is [here](https://centralbanktexts.github.io/).]
-
----
-
 # Future Careers
 
 .pull-left[
@@ -425,6 +415,19 @@ International Commerce students need both:
 Source: World Economic Forum, Future of Jobs Survey 2024.
 ]
 ]
+
+
+---
+
+# Research in Practice
+
+<div style="display: flex; align-items: center; justify-content: center; min-height: 65vh;">
+  <img src="p6.png" style="max-width: 95vw; max-height: 70vh; object-fit: contain;">
+</div>
+
+<div class="prompt-box"><strong>Research workflow in one line:</strong> central bank statements -> NLP and econometrics -> measurable market reactions. This is how commerce, policy, and data science connect in practice.</div>
+
+.tiny[The project link is [here](https://centralbanktexts.github.io/).]
 
 
 ---
