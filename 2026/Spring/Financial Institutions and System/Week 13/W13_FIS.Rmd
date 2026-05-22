@@ -1,0 +1,286 @@
+---
+title: "Financial Institutions and System"
+subtitle: "<br/>Week 13 Guest Lecture: FinTech: Evolution and Current State"
+author: "Iegor Vyshnevskyi, Ph.D."
+institute: "Sogang University, Graduate School of International Studies"
+date: "May 28, 2026"
+output:
+  xaringan::moon_reader:
+    #css: [default, metropolis, metropolis-fonts]
+    css: xaringan-themer.css
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: '16:9'
+---
+
+<style>
+@media print{
+  body, html, .remark-slides-area, .remark-notes-area {
+    height: 100% !important;
+    width: 100% !important;
+    overflow: visible;
+    display: inline-block;
+    }
+}
+</style>
+
+<style type="text/css">
+.remark-slide-content {
+    font-size: 30px;
+    line-height: 1.35;
+    padding: 1.1em 3.6em 1.1em 3.6em;
+}
+
+.remark-slide-content h1 {
+  margin-bottom: 0.55em;
+  line-height: 1.2;
+}
+
+.remark-slide-content h2,
+.remark-slide-content h3 {
+  margin-top: 0.2em;
+  margin-bottom: 0.4em;
+  line-height: 1.2;
+}
+
+.remark-slide-content p {
+  margin-top: 0.35em;
+  margin-bottom: 0.55em;
+}
+
+.remark-slide-content ul,
+.remark-slide-content ol {
+  line-height: 1.35;
+  margin-top: 0.2em;
+}
+
+.remark-slide-content li {
+  margin-bottom: 0.3em;
+}
+</style>
+
+<style type="text/css">
+.my-one-page-font {
+  font-size: 28px;
+}
+</style>
+
+<style type="text/css">
+.my-one-page-font-table {
+  font-size: 24px;
+}
+</style>
+
+<style>
+.tiny { font-size: 60%; }      /* class you can reuse anywhere */
+</style>
+
+<style>
+.remark-slide-content {
+  position: relative;
+  z-index: 1;
+}
+
+.remark-slide-content::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 600px;          /* adjust size */
+  height: 600px;
+  background-image: url("1. 교장(Seal_Positive).png");  /* place logo file in same folder */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: 0.05;         /* watermark transparency */
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 0;
+}
+</style>
+
+
+```{r setup, include = FALSE}
+library(tidyverse)
+library(knitr)
+
+opts_chunk$set(fig.width = 10, 
+               message = FALSE, 
+               warning = FALSE,
+               echo = FALSE)
+```
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+#install.packages("xaringanthemer")
+library(xaringanthemer)
+style_mono_accent(
+  base_color = "#851a10",
+  header_font_google = google_font("Josefin Sans"),
+  text_font_google   = google_font("Montserrat", "500", "550i"),
+  code_font_google   = google_font("Fira Mono"),
+  colors = c(
+  red = "#f34213",
+  purple = "#3e2f5b",
+  orange = "#ff8811",
+  green = "#136f63",
+  white = "#FFFFFF"
+)
+)
+```
+
+
+# Agenda
+
+1. Welcome and Session Purpose
+
+2. Guest Speaker Introduction
+
+3. Why This Topic Matters for FIS
+
+4. Lecture: "FinTech: Evolution and Current State"
+
+5. Q&A and Reflection
+
+---
+
+# Welcome
+
+It is a privilege to host Professor Cho today.
+
+His perspective combines:
+
+- Academic depth
+
+- Policy relevance
+
+- Practical understanding of digital transformation in finance
+
+Please join me in welcoming him warmly.
+
+---
+
+class: my-one-page-font
+
+# Guest Speaker
+
+.pull-left[
+.center[<img src="p1.jpg" height="80%" width="80%">]
+]
+
+.pull-right[
+## Professor CHO, Man (조만)
+
+- Visiting Professor, Sogang University
+
+- Emeritus Professor, KDI School of Public Policy and Management
+
+- Ph.D., The Wharton School, University of Pennsylvania
+
+- Research areas: FinTech and Data Economy, Risk Management, Real Estate Finance, Regional Development
+]
+
+.tiny[Source: Sogang Economics Faculty Profile: https://econ.sogang.ac.kr/econ/1806/subview.do]
+
+---
+
+# Why His Voice Matters
+
+Professor Cho's work connects long-term finance questions with current digital changes:
+
+- How data transforms credit assessment
+
+- Whether digital finance improves consumer welfare
+
+- How innovation affects access, risk, and regulation
+
+His research helps us evaluate FinTech not only as technology, but as a financial-system transformation.
+
+---
+
+# Selected Work Relevant to Today
+
+- "The Impact of Non-Financial Alternative Data on Credit Risk Assessment" (2023)
+
+- "Data Economy in Korea: Cases of Finance, Real Estate, and Medical Care Sectors" (2023)
+
+- "Did Financial Consumers Benefit from the Digital Transformation?" (2021)
+
+- "FinTech Megatrends: What Welfare Implications Can We Draw for Financial Consumers?" (2021)
+
+- "Housing Demand Elasticities in Korean Cities: Variations over Time and Across Location" (2020)
+
+These studies frame today's lecture around evidence, not hype.
+
+---
+
+# Lecture Focus
+
+## FinTech: Evolution and Current State
+
+As you listen, focus on three layers:
+
+1. Evolution
+  - From digitization to platform and data-driven finance
+
+2. Current state
+  - Changes in payments, credit, intermediation, and supervision
+
+3. Implications
+  - Who benefits, who is excluded, and where risks accumulate
+
+---
+
+# Connecting to This Course
+
+This guest lecture directly supports core FIS themes:
+
+- Financial intermediation and market structure
+
+- Information asymmetry and risk pricing
+
+- Regulation and financial stability
+
+- Consumer protection in technology-enabled finance
+
+Think of today's session as an applied extension of our theoretical framework.
+
+---
+
+# Discussion Prompts for Q&A
+
+1. Which FinTech innovation has the largest system-level impact today, and why?
+
+2. How should regulators balance innovation and stability?
+
+3. Does data-driven finance reduce or reinforce inequality in access to credit?
+
+4. What capabilities should future professionals build to work in this environment?
+
+---
+
+class: center, middle
+
+# With Respect and Gratitude
+
+Thank you, Professor Cho, for sharing your expertise with our class.
+
+## Lecture begins
+
+"FinTech: Evolution and Current State"
+
+---
+
+class: inverse, center, middle
+
+# Q&A and Reflection
+
+## Thank you for your active participation.
+
+???
+renderthis::to_pdf("W13_FIS.html")
+
+getwd()
+setwd("C:\\Users\\vyshn\\OneDrive - kdis.ac.kr\\Documents\\GitHub\\Sogang\\2026\\Spring\\Financial Institutions and System\\Week 13")
