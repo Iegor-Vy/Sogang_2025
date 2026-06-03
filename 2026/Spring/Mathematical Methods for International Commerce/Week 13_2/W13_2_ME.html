@@ -564,11 +564,11 @@ The inverse of the 3 × 3 matrix
 `$$A = \begin{bmatrix} a_{11} &amp; a_{12} &amp; a_{13} \\ a_{21} &amp; a_{22} &amp; a_{23} \\ a_{31} &amp; a_{32} &amp; a_{33} \end{bmatrix}$$`
 is computed using cofactors and determinant.
 
-1. Form the matrix of cofactors (the adjugate matrix): 
-`$$\text{cof}(A) = \begin{bmatrix} A_{11} &amp; A_{12} &amp; A_{13} \\ A_{21} &amp; A_{22} &amp; A_{23} \\ A_{31} &amp; A_{32} &amp; A_{33} \end{bmatrix}$$`
+1. Form the **cofactor matrix**:
+`$$C = \begin{bmatrix} A_{11} &amp; A_{12} &amp; A_{13} \\ A_{21} &amp; A_{22} &amp; A_{23} \\ A_{31} &amp; A_{32} &amp; A_{33} \end{bmatrix}$$`
 
-2. Take (1) transpose to get the adjoint matrix:
-`$$\text{adj}(A) = \begin{bmatrix} A_{11} &amp; A_{21} &amp; A_{31} \\ A_{12} &amp; A_{22} &amp; A_{32} \\ A_{13} &amp; A_{23} &amp; A_{33} \end{bmatrix}$$`
+2. Transpose `\(C\)` to get the **adjugate** (also called adjoint):
+`$$\text{adj}(A) = C^T = \begin{bmatrix} A_{11} &amp; A_{21} &amp; A_{31} \\ A_{12} &amp; A_{22} &amp; A_{32} \\ A_{13} &amp; A_{23} &amp; A_{33} \end{bmatrix}$$`
 
 ---
 
@@ -612,8 +612,18 @@ class: my-one-page-font
 
 ## Example: Cofactor Computation (cont)
 
-`$$\text{adjugate}(A) = \begin{bmatrix} 2 &amp; 2 &amp; -2 \\ -11 &amp; 4 &amp; 6 \\ 25 &amp; -10 &amp; -10 \end{bmatrix}, \quad
-\text{adjoint}(A) = \text{adjugate}(A)^T = \begin{bmatrix} 2 &amp; -11 &amp; 25 \\ 2 &amp; 4 &amp; -10 \\ -2 &amp; 6 &amp; -10 \end{bmatrix}$$`
+`$$C = \begin{bmatrix} 2 &amp; 2 &amp; -2 \\ -11 &amp; 4 &amp; 6 \\ 25 &amp; -10 &amp; -10 \end{bmatrix}, \quad \operatorname{adj}(A) = C^T = \begin{bmatrix} 2 &amp; -11 &amp; 25 \\ 2 &amp; 4 &amp; -10 \\ -2 &amp; 6 &amp; -10 \end{bmatrix}$$`
+
+---
+# 3x3 Matrices, Determinants, and Cofactors (cont)
+## Example: Determinant Computation
+
+`$$\det(A) = a_{11}A_{11} + a_{12}A_{12} + a_{13}A_{13}$$`
+Using the first row entries and their cofactors:
+`$$\det(A) = 2\cdot A_{11} + 4\cdot A_{12} + 1\cdot A_{13}$$`
+`$$= 2(2) + 4(2) + 1(-2) = 4 + 8 - 2 = 10$$`
+
+
 
 ---
 # 3x3 Matrices, Determinants, and Cofactors (cont)
