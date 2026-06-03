@@ -675,6 +675,17 @@ Key assumptions of multiple regression:
 If these assumptions are badly violated, interpretation and prediction become less reliable.
 
 ---
+# Evaluating the Assumptions (cont.)
+
+<div>
+.center[
+<img src="p11.png" width="85%">
+]
+
+</div>
+
+
+---
 # Evaluating the Assumptions: Multicollinearity
 
 Multicollinearity occurs when independent variables are strongly correlated with each other.
