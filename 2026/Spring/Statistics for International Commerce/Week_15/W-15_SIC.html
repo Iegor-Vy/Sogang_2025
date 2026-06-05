@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Statistics for International Commerce</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Iegor Vyshnevskyi, Ph.D." />
+    <meta name="date" content="2026-06-09" />
+    <script src="libs/header-attrs-2.29/header-attrs.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Statistics for International Commerce
+]
+.subtitle[
+## Week 15: Time Series and Forecasting
+]
+.author[
+### Iegor Vyshnevskyi, Ph.D.
+]
+.institute[
+### Sogang University, Geppert School of International Studies
+]
+.date[
+### June 9, 2026
+]
+
+---
+
+
+&lt;style&gt;
+@media print{
+  body, html, .remark-slides-area, .remark-notes-area {
+    height: 100% !important;
+    width: 100% !important;
+    overflow: visible;
+    display: inline-block;
+    }
+}
+&lt;/style&gt;
+
+&lt;style type="text/css"&gt;
+.remark-slide-content {
+    font-size: 34px;
+    padding: 1em 4em 1em 4em;
+}
+&lt;/style&gt;
+
+&lt;style type="text/css"&gt;
+.my-one-page-font {
+  font-size: 28px;
+}
+&lt;/style&gt;
+
+&lt;style type="text/css"&gt;
+.my-one-page-font-table {
+  font-size: 24px;
+}
+&lt;/style&gt;
+
+&lt;style&gt;
+.tiny { font-size: 60%; }      /* class you can reuse anywhere */
+&lt;/style&gt;
+
+&lt;style&gt;
+.remark-slide-content {
+  position: relative;
+  z-index: 1;
+}
+
+.remark-slide-content::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 600px;          /* adjust size */
+  height: 600px;
+  background-image: url("1. 교장(Seal_Positive).png");  /* place logo file in same folder */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: 0.05;         /* watermark transparency */
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 0;
+}
+&lt;/style&gt;
+
+
+
+
+
+
+# Agenda
+
+* Part 1. Introduction to Time Series
+
+* Part 2. Components of Time Series
+
+* Part 3. Forecasting Methods
+
+* Part 4. Forecast Accuracy
+
+* Part 5. Python Example
+
+* Part 6. Business Case
+
+---
+
+# Learning Objectives
+
+After this lecture, you should be able to:
+
+* explain what a time series is and distinguish it from cross-sectional data
+
+* identify and interpret trend, seasonal, cyclical, and random components
+
+* compute forecasts using naive, moving average, weighted moving average, and exponential smoothing methods
+
+* evaluate and compare forecast performance using MAD and MSE
+
+* implement and visualize a simple moving-average forecast in Python
+
+* use forecasting results to support basic inventory planning decisions
+
+
+---
+class: inverse, center, middle
+# Part 1. Introduction to Time Series
+
+---
+
+# What Is a Time Series?
+
+A time series is a sequence of observations collected over time.
+.pull-left[
+Examples:
+
+* monthly exports of Korea
+* daily exchange rates
+* quarterly GDP
+* monthly company sales
+* weekly website visitors
+
+Question:
+
+Why is time important here?
+]
+
+.pull-right[
+&lt;div&gt;
+.center[
+&lt;img src="p3.jpg" width="85%"&gt;
+]
+
+&lt;/div&gt;
+]
+
+---
+
+# Cross-Sectional vs Time Series Data
+
+| Cross-sectional   | Time series           |
+| ----------------- | --------------------- |
+| Many units        | One unit              |
+| One point in time | Multiple time periods |
+| Countries in 2025 | Korea from 2010–2025  |
+
+Examples:
+
+Cross-sectional:
+
+* GDP of 50 countries in 2025
+
+Time series:
+
+* Korea's GDP from 2000–2025
+
+---
+
+# Illustrative Example: Why Order Matters
+
+Suppose weekly online sales are:
+
+120, 90, 140, 100
+
+If we ignore time order, we only see an average level.
+
+If we keep time order, we can detect:
+
+* ups and downs
+* possible trend
+* possible seasonal pattern
+
+Key point: in time series, sequence carries information.
+
+---
+
+# Why Forecast?
+.pull-left[
+Businesses use forecasts for:
+
+* inventory planning
+
+* staffing
+
+* budgeting
+
+* logistics
+
+* production planning
+
+* investment decisions
+
+]
+
+.pull-right[
+&lt;div&gt;
+.center[
+&lt;img src="p1.jpg" width="65%"&gt;
+]
+
+&lt;/div&gt;
+]
+
+&gt; To reduce uncertainty and improve decision-making.
+
+---
+
+# Forecast Examples
+.pull-left[
+Forecast:
+
+* exports
+
+* imports
+
+* shipping demand
+
+* exchange rates
+
+* tourism arrivals
+
+* online sales
+]
+
+.pull-right[
+&lt;div&gt;
+.center[
+&lt;img src="p2.png" width="105%"&gt;
+]
+
+&lt;/div&gt;
+]
+
+---
+class: inverse, center, middle
+# Part 2. Components of Time Series
+
+---
+
+
+
+# Four Components of Time Series
+.pull-left[
+A time series may contain:
+
+1. Trend
+
+2. Seasonal variation
+
+3. Cyclical variation
+
+4. Random variation
+]
+
+.pull-right[
+&lt;div&gt;
+.center[
+&lt;img src="p2.jpg" width="105%"&gt;
+]
+
+&lt;/div&gt;
+]
+
+---
+
+# Trend
+.pull-left[
+Long-run movement.
+
+Examples:
+
+* growth in exports
+
+* growth in e-commerce sales
+]
+.pull-right[
+&lt;img src="W-15_SIC_files/figure-html/trend-illustration-1.png" width="720" /&gt;
+]
+
+&gt; Key point: trend shows the overall direction of the series over time.
+
+---
+
+# Seasonality
+.pull-left[
+Pattern repeating regularly.
+
+Examples:
+
+* tourism demand
+
+* holiday sales
+
+* airline passengers
+
+Example:
+
+December sales often exceed February sales.
+]
+.pull-right[
+&lt;img src="W-15_SIC_files/figure-html/seasonality-illustration-3.png" width="720" /&gt;
+]
+&gt; Key point: seasonality reflects regular fluctuations tied to calendar periods.
+---
+
+# Cyclical Variation
+.pull-left[
+Long-term business cycle effects.
+
+Examples:
+
+* recessions
+
+* booms
+
+* financial crises
+]
+.pull-right[
+&lt;img src="W-15_SIC_files/figure-html/cyclical-illustration-5.png" width="720" /&gt;
+]
+&gt; Key point: cyclical variation reflects economic expansions and contractions over several years.
+---
+
+# Random Variation
+.pull-left[
+Unexpected events.
+
+Examples:
+
+* natural disasters
+
+* strikes
+
+* pandemics
+
+Cannot be predicted perfectly.
+]
+.pull-right[
+&lt;img src="W-15_SIC_files/figure-html/random-illustration-7.png" width="720" /&gt;
+]
+&gt; Key point: random variation represents unpredictable fluctuations that cannot be systematically explained.
+---
+class: my-one-page-font
+
+# Quick Component Identification Example
+.pull-left[
+Monthly ice cream sales show:
+
+* upward movement over 5 years
+* peaks every July-August
+* decline during recession years
+* unusual drop during a pandemic month
+]
+.pull-right[
+Interpretation:
+
+1. upward movement -&gt; trend (because of growing demand)
+2. July-August peaks -&gt; seasonality (because of summer)
+3. recession decline -&gt; cyclical variation (because of economic cycle)
+4. pandemic drop -&gt; random variation (because of unexpected shock)
+]
+
+&lt;div&gt;
+.center[
+
+&lt;img src="W-15_SIC_files/figure-html/component-identification-visual-9.png" width="883" /&gt;
+]
+&lt;/div&gt;
+
+---
+class: inverse, center, middle
+# Part 3. Forecasting Methods
+
+---
+
+# Naïve Forecast
+
+Forecast next period using current period.
+
+$$
+F_{t+1} = Y_t
+$$
+
+Example:
+
+Current month's sales:
+
+[
+120
+]
+
+Forecast next month:
+
+[
+120
+]
+
+&gt; Key point: naïve forecast is simple but ignores trends and seasonality.
+---
+
+# Moving Average
+
+Forecast uses several previous observations, where 'moving' refers to the window of past observations considered.
+
+Example:
+
+Sales:
+
+110, 120, 130, 140, 170, ...
+
+3-period moving average:
+
+$$
+\frac{110+120+130}{3} = 120 \text{(for month 4);} \\
+\frac{120+130+140}{3} = 130 \text{(for month 5)}
+$$
+
+&gt; Key point: moving average smooths out short-term fluctuations but may lag behind trends.
+---
+.pull-left[
+# Practice
+
+Monthly exports:
+
+80, 90, 60, 110, 75, ...
+
+Compute 3-month moving average forecasts for months 4, 5, and 6.
+
+Answer:
+
+
+`$$(80+90+60)/3 = 76.67$$`
+`$$(90+60+110)/3 = 86.67$$`
+`$$(60+110+75)/3 = 81.67$$`
+
+]
+.pull-right[
+
+# Why Moving Average?
+
+Advantages:
+
+* simple
+
+* smooths fluctuations
+
+Disadvantages:
+
+* reacts slowly to sudden changes
+]
+
+---
+
+# Weighted Moving Average
+
+Recent observations receive higher weights.
+
+Example:
+
+Weights:
+
+0.5, 0.3, 0.2
+
+Observations:
+
+130, 120, 110
+
+Forecast:
+
+$$
+0.5(130) + 0.3(120) + 0.2(110) = 123
+$$
+&gt; Key point: weighted moving average allows more flexibility by emphasizing recent data.
+---
+
+# Exponential Smoothing
+
+Most popular business forecasting method.
+
+Formula:
+
+$$
+F_{t+1} = \alpha Y_t + (1-\alpha)F_t
+$$
+
+where:
+
+$$
+0 &lt; \alpha &lt; 1 \text{ (smoothing constant, indicates weight on current observation)}
+$$
+&gt; Key point: exponential smoothing gives more weight to recent observations while still considering past forecasts.
+
+### Interpretation of Alpha
+
+Large α responds quickly; small α gives smoother forecasts.
+
+---
+
+# Example
+
+$$
+\alpha = 0.30 \text{ (moderate weight on current observation)}
+$$
+
+Current sales:
+
+[
+100
+]
+
+Previous forecast:
+
+[
+90
+]
+
+Forecast:
+
+$$
+0.30(100) + 0.70(90) = 93
+$$
+
+---
+
+# Illustrative Example: Choosing Alpha
+
+Assume:
+
+* current actual demand `\(Y_t = 120\)`
+* previous forecast `\(F_t = 100\)`
+
+If `\(\alpha = 0.8\)`:
+
+$$
+F_{t+1} = 0.8(120) + 0.2(100) = 116
+$$
+
+If `\(\alpha = 0.2\)`:
+
+$$
+F_{t+1} = 0.2(120) + 0.8(100) = 104
+$$
+
+Higher `\(\alpha\)` reacts faster to new information.
+
+---
+class: inverse, center, middle
+# Part 4. Forecast Accuracy
+
+---
+
+# Forecast Errors
+
+Forecast error:
+
+$$
+e_t = Y_t - F_t
+$$
+
+.pull-left[
+
+Example:
+
+* Actual: 100
+* Forecast: 90
+* Error: 10
+
+
+]
+
+.pull-right[
+
+```
+## (80.0, 110.0)
+```
+
+```
+## (-20.0, 20.0)
+```
+
+&lt;img src="W-15_SIC_files/figure-html/forecast-error-visual-11.png" width="825" /&gt;
+
+]
+&gt; Positive error means under-forecasting; negative error means over-forecasting.
+
+---
+
+# Mean Absolute Deviation (MAD)
+
+$$
+\mathrm{MAD} = \frac{\sum |e_t|}{n}
+$$
+
+Measures average forecasting error.
+
+Smaller is better.
+&gt; Key point: MAD treats all errors equally regardless of direction.
+
+# Mean Squared Error (MSE)
+
+$$
+\mathrm{MSE} = \frac{\sum e_t^2}{n}
+$$
+
+Large errors receive heavier penalties.
+&gt; Key point: MSE emphasizes larger errors more than MAD.
+
+
+## Choose the method with smaller MAD and smaller MSE.
+
+---
+
+# Worked Accuracy Example
+
+Actual demand for 4 months: 100, 110, 120, 130
+
+.pull-left[
+
+Method A
+
+* Forecast: 98, 112, 118, 128
+* Errors: 2, 2, 2, 2
+* MAD = 2.0
+* MSE = 4.0
+
+]
+
+.pull-right[
+
+Method B
+
+* Forecast: 90, 105, 130, 125
+* Errors: 10, 5, 10, 5
+* MAD = 7.5
+* MSE = 62.5
+
+]
+
+Conclusion: Method A is more accurate because it has the smaller MAD and MSE.
+
+---
+class: inverse, center, middle
+# Part 5. Python Example
+
+---
+
+# Why Python Here?
+
+Python helps us turn the lecture ideas into a small forecasting workflow:
+
+* build a dataset
+
+* visualize the series
+
+* create forecasts
+
+* compare forecast accuracy
+
+
+---
+class: my-one-page-font
+# Example Dataset and Trend
+.pull-left[
+
+Monthly export demand shows a steady upward pattern.
+
+| Month | Exports |
+| ----- | ------: |
+| 1 | 120 |
+| 2 | 124 |
+| 3 | 128 |
+| 4 | 131 |
+| 5 | 135 |
+| 6 | 140 |
+| 7 | 144 |
+| 8 | 149 |
+| 9 | 153 |
+| 10 | 158 |
+| 11 | 162 |
+| 12 | 167 |
+
+
+
+]
+
+.pull-right[
+
+
+```
+## ([&lt;matplotlib.axis.XTick object at 0x000002116AA9AE90&gt;, &lt;matplotlib.axis.XTick object at 0x000002116AA99E50&gt;, &lt;matplotlib.axis.XTick object at 0x000002116AB15590&gt;, &lt;matplotlib.axis.XTick object at 0x000002116AB15D10&gt;, &lt;matplotlib.axis.XTick object at 0x000002116AB16490&gt;, &lt;matplotlib.axis.XTick object at 0x000002116AB16C10&gt;, &lt;matplotlib.axis.XTick object at 0x000002116AB17390&gt;, &lt;matplotlib.axis.XTick object at 0x000002116AB17B10&gt;, &lt;matplotlib.axis.XTick object at 0x000002116AB582D0&gt;, &lt;matplotlib.axis.XTick object at 0x000002116AB58A50&gt;, &lt;matplotlib.axis.XTick object at 0x000002116AB591D0&gt;, &lt;matplotlib.axis.XTick object at 0x000002116AB59950&gt;], [Text(1, 0, '1'), Text(2, 0, '2'), Text(3, 0, '3'), Text(4, 0, '4'), Text(5, 0, '5'), Text(6, 0, '6'), Text(7, 0, '7'), Text(8, 0, '8'), Text(9, 0, '9'), Text(10, 0, '10'), Text(11, 0, '11'), Text(12, 0, '12')])
+```
+
+&lt;img src="W-15_SIC_files/figure-html/part5-trend-plot-13.png" width="816" /&gt;
+Interpretation:
+
+* the level is rising over time
+* month-to-month changes are small
+* this is a good setting for comparing simple forecasting methods
+]
+
+&gt; The line slopes upward, which is why simple forecasting methods are useful here.
+
+---
+
+# Forecast Output
+.pull-left[
+
+The Python workflow produces two forecasts:
+
+| Month | Actual | Naive | MA(3) |
+| ----- | -----: | ----: | ----: |
+| 4 | 131 | 128.0 | 124.0 |
+| 5 | 135 | 131.0 | 127.7 |
+| 6 | 140 | 135.0 | 131.3 |
+| 7 | 144 | 140.0 | 135.3 |
+| 8 | 149 | 144.0 | 139.7 |
+| 9 | 153 | 149.0 | 144.3 |
+| 10 | 158 | 153.0 | 148.7 |
+| 11 | 162 | 158.0 | 153.3 |
+| 12 | 167 | 162.0 | 157.7 |
+
+
+
+]
+
+.pull-right[
+
+
+```
+## ([&lt;matplotlib.axis.XTick object at 0x000002116AB7DD10&gt;, &lt;matplotlib.axis.XTick object at 0x000002116ABAC550&gt;, &lt;matplotlib.axis.XTick object at 0x000002116ABACCD0&gt;, &lt;matplotlib.axis.XTick object at 0x000002116ABAD450&gt;, &lt;matplotlib.axis.XTick object at 0x000002116ABADBD0&gt;, &lt;matplotlib.axis.XTick object at 0x000002116ABAE350&gt;, &lt;matplotlib.axis.XTick object at 0x000002116ABAEAD0&gt;, &lt;matplotlib.axis.XTick object at 0x000002116ABAF250&gt;, &lt;matplotlib.axis.XTick object at 0x000002116ABAF9D0&gt;, &lt;matplotlib.axis.XTick object at 0x000002116AC00190&gt;, &lt;matplotlib.axis.XTick object at 0x000002116AC00910&gt;, &lt;matplotlib.axis.XTick object at 0x000002116AC01090&gt;], [Text(1, 0, '1'), Text(2, 0, '2'), Text(3, 0, '3'), Text(4, 0, '4'), Text(5, 0, '5'), Text(6, 0, '6'), Text(7, 0, '7'), Text(8, 0, '8'), Text(9, 0, '9'), Text(10, 0, '10'), Text(11, 0, '11'), Text(12, 0, '12')])
+```
+
+&lt;img src="W-15_SIC_files/figure-html/part5-forecast-plot-15.png" width="816" /&gt;
+Interpretation:
+
+* the naive forecast follows the most recent value
+* MA(3) is smoother, but it lags behind the rising trend
+]
+
+&gt; The chart makes the lag visible at a glance.
+
+---
+
+# Accuracy Summary
+.pull-left[
+
+| Method | MAD | MSE |
+| ------ | ---: | ---: |
+| Naive | 4.27 | 18.64 |
+| MA(3) | 8.56 | 73.82 |
+
+Conclusion:
+
+* for this steadily rising series, the naive forecast is more accurate numerically
+
+* MA(3) is still useful because it smooths short-term fluctuations
+
+* MAD and MSE make the comparison objective and easy to explain
+
+]
+
+.pull-right[
+
+
+```
+## (array([0, 1]), [Text(0, 0, 'Naive'), Text(1, 0, 'MA3')])
+```
+
+&lt;img src="W-15_SIC_files/figure-html/part5-accuracy-plot-17.png" width="816" /&gt;
+
+]
+
+&gt; Lower bars are better, and both MAD and MSE favor the naive forecast here.
+
+---
+
+# What to Remember
+
+The key lesson is not only how to code the forecast, but how to read the output:
+
+* tables show the forecast values directly
+
+* figures would show the trend and the lag visually
+
+* accuracy measures tell us which method fits the data better
+
+---
+class: inverse, center, middle
+# Part 6. Business Case
+
+---
+
+# Case Study
+
+A Korean exporter observes monthly export demand:
+
+| Month | Orders |
+| ----- | ------ |
+| Jan   | 120    |
+| Feb   | 130    |
+| Mar   | 140    |
+| Apr   | 145    |
+| May   | 160    |
+
+Tasks:
+
+1. Calculate 3-month moving average.
+2. Forecast June demand.
+3. Recommend inventory planning.
+
+---
+
+# What We Learned
+
+Time series components:
+
+* trend
+* seasonality
+* cycles
+* randomness
+
+Forecasting methods:
+
+* naïve
+* moving average
+* weighted moving average
+* exponential smoothing
+
+Forecast evaluation:
+
+* MAD
+* MSE
+
+---
+
+# Final Message
+
+Forecasts are never perfect.
+
+Good forecasting reduces uncertainty and improves business decision-making.
+
+
+
+---
+
+# Remaining Schedule
+
+*(June 9)* Multiple Time Series and Forecasting (LMW Chapter 16)
+  - Final review and Q&amp;A session
+
+*(June 11)* Project presentations
+
+*(June 16)* No class (final exam week)
+
+*(June 18)* Final Exam
+
+
+---
+
+class: inverse, center, middle
+
+# Any questions?
+
+# Thank you for your attention and active participation!
+
+
+
+???
+1. To print pdf slides
+https://stackoverflow.com/questions/54968311/xaringan-export-slides-to-pdf-while-preserving-formatting
+
+pagedown::chrome_print("W-11_SIC.html") # but not all pictures are visible
+
+2. Option: https://stackoverflow.com/questions/54968311/xaringan-export-slides-to-pdf-while-preserving-formatting
+
+install.packages("remotes")
+remotes::install_github("jhelvy/xaringanBuilder")
+remotes::install_github("jhelvy/renderthis@v0.0.9")
+
+library(xaringanBuilder)
+build_pdf("W-11_SIC.html")
+
+3. Option
+writeBin(as.raw(c()), "favicon.ico") # create an empty favicon.ico file
+install.packages("renderthis")
+remotes::install_github('rstudio/chromote')
+library(renderthis)
+
+renderthis::to_pdf("W-15_SIC.html")
+
+getwd()
+setwd("C:\\Users\\vyshn\\OneDrive - kdis.ac.kr\\Documents\\GitHub\\Sogang\\2026\\Spring\\Statistics for International Commerce\\Week_15")
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+  "highlightStyle": "github",
+  "highlightLines": true,
+  "countIncrementalSlides": false,
+  "ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
