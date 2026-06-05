@@ -569,6 +569,16 @@ $$
 Higher `\(\alpha\)` reacts faster to new information.
 
 ---
+# Some other forecasting methods:
+* Holt's linear trend method (for series with trend)
+
+* Holt-Winters method (for series with trend and seasonality)
+
+* ARIMA/SARIMA models (for complex patterns and autocorrelation)
+
+* Machine learning methods (for large datasets and nonlinear relationships)
+
+---
 class: inverse, center, middle
 # Part 4. Forecast Accuracy
 
@@ -664,6 +674,20 @@ Method B
 Conclusion: Method A is more accurate because it has the smaller MAD and MSE.
 
 ---
+# Some other forecast accuracy measures:
+* Mean Absolute Percentage Error (MAPE)
+
+$$
+\mathrm{MAPE} = \frac{100\%}{n} \sum \left| \frac{e_t}{Y_t} \right|
+$$
+
+* Root Mean Squared Error (RMSE)
+$$
+\mathrm{RMSE} = \sqrt{\mathrm{MSE}} = \sqrt{\
+frac{\sum e_t^2}{n}}
+$$
+
+---
 class: inverse, center, middle
 # Part 5. Python Example
 
@@ -712,7 +736,7 @@ Monthly export demand shows a steady upward pattern.
 
 
 ```
-## ([&lt;matplotlib.axis.XTick object at 0x000002116AA9AE90&gt;, &lt;matplotlib.axis.XTick object at 0x000002116AA99E50&gt;, &lt;matplotlib.axis.XTick object at 0x000002116AB15590&gt;, &lt;matplotlib.axis.XTick object at 0x000002116AB15D10&gt;, &lt;matplotlib.axis.XTick object at 0x000002116AB16490&gt;, &lt;matplotlib.axis.XTick object at 0x000002116AB16C10&gt;, &lt;matplotlib.axis.XTick object at 0x000002116AB17390&gt;, &lt;matplotlib.axis.XTick object at 0x000002116AB17B10&gt;, &lt;matplotlib.axis.XTick object at 0x000002116AB582D0&gt;, &lt;matplotlib.axis.XTick object at 0x000002116AB58A50&gt;, &lt;matplotlib.axis.XTick object at 0x000002116AB591D0&gt;, &lt;matplotlib.axis.XTick object at 0x000002116AB59950&gt;], [Text(1, 0, '1'), Text(2, 0, '2'), Text(3, 0, '3'), Text(4, 0, '4'), Text(5, 0, '5'), Text(6, 0, '6'), Text(7, 0, '7'), Text(8, 0, '8'), Text(9, 0, '9'), Text(10, 0, '10'), Text(11, 0, '11'), Text(12, 0, '12')])
+## ([&lt;matplotlib.axis.XTick object at 0x0000024D2C39AE90&gt;, &lt;matplotlib.axis.XTick object at 0x0000024D2C399E50&gt;, &lt;matplotlib.axis.XTick object at 0x0000024D2C415590&gt;, &lt;matplotlib.axis.XTick object at 0x0000024D2C415D10&gt;, &lt;matplotlib.axis.XTick object at 0x0000024D2C416490&gt;, &lt;matplotlib.axis.XTick object at 0x0000024D2C416C10&gt;, &lt;matplotlib.axis.XTick object at 0x0000024D2C417390&gt;, &lt;matplotlib.axis.XTick object at 0x0000024D2C417B10&gt;, &lt;matplotlib.axis.XTick object at 0x0000024D2C4582D0&gt;, &lt;matplotlib.axis.XTick object at 0x0000024D2C458A50&gt;, &lt;matplotlib.axis.XTick object at 0x0000024D2C4591D0&gt;, &lt;matplotlib.axis.XTick object at 0x0000024D2C459950&gt;], [Text(1, 0, '1'), Text(2, 0, '2'), Text(3, 0, '3'), Text(4, 0, '4'), Text(5, 0, '5'), Text(6, 0, '6'), Text(7, 0, '7'), Text(8, 0, '8'), Text(9, 0, '9'), Text(10, 0, '10'), Text(11, 0, '11'), Text(12, 0, '12')])
 ```
 
 &lt;img src="W-15_SIC_files/figure-html/part5-trend-plot-13.png" width="816" /&gt;
@@ -752,7 +776,7 @@ The Python workflow produces two forecasts:
 
 
 ```
-## ([&lt;matplotlib.axis.XTick object at 0x000002116AB7DD10&gt;, &lt;matplotlib.axis.XTick object at 0x000002116ABAC550&gt;, &lt;matplotlib.axis.XTick object at 0x000002116ABACCD0&gt;, &lt;matplotlib.axis.XTick object at 0x000002116ABAD450&gt;, &lt;matplotlib.axis.XTick object at 0x000002116ABADBD0&gt;, &lt;matplotlib.axis.XTick object at 0x000002116ABAE350&gt;, &lt;matplotlib.axis.XTick object at 0x000002116ABAEAD0&gt;, &lt;matplotlib.axis.XTick object at 0x000002116ABAF250&gt;, &lt;matplotlib.axis.XTick object at 0x000002116ABAF9D0&gt;, &lt;matplotlib.axis.XTick object at 0x000002116AC00190&gt;, &lt;matplotlib.axis.XTick object at 0x000002116AC00910&gt;, &lt;matplotlib.axis.XTick object at 0x000002116AC01090&gt;], [Text(1, 0, '1'), Text(2, 0, '2'), Text(3, 0, '3'), Text(4, 0, '4'), Text(5, 0, '5'), Text(6, 0, '6'), Text(7, 0, '7'), Text(8, 0, '8'), Text(9, 0, '9'), Text(10, 0, '10'), Text(11, 0, '11'), Text(12, 0, '12')])
+## ([&lt;matplotlib.axis.XTick object at 0x0000024D2C479D10&gt;, &lt;matplotlib.axis.XTick object at 0x0000024D2C4AC550&gt;, &lt;matplotlib.axis.XTick object at 0x0000024D2C4ACCD0&gt;, &lt;matplotlib.axis.XTick object at 0x0000024D2C4AD450&gt;, &lt;matplotlib.axis.XTick object at 0x0000024D2C4ADBD0&gt;, &lt;matplotlib.axis.XTick object at 0x0000024D2C4AE350&gt;, &lt;matplotlib.axis.XTick object at 0x0000024D2C4AEAD0&gt;, &lt;matplotlib.axis.XTick object at 0x0000024D2C4AF250&gt;, &lt;matplotlib.axis.XTick object at 0x0000024D2C4AF9D0&gt;, &lt;matplotlib.axis.XTick object at 0x0000024D2C500190&gt;, &lt;matplotlib.axis.XTick object at 0x0000024D2C500910&gt;, &lt;matplotlib.axis.XTick object at 0x0000024D2C501090&gt;], [Text(1, 0, '1'), Text(2, 0, '2'), Text(3, 0, '3'), Text(4, 0, '4'), Text(5, 0, '5'), Text(6, 0, '6'), Text(7, 0, '7'), Text(8, 0, '8'), Text(9, 0, '9'), Text(10, 0, '10'), Text(11, 0, '11'), Text(12, 0, '12')])
 ```
 
 &lt;img src="W-15_SIC_files/figure-html/part5-forecast-plot-15.png" width="816" /&gt;

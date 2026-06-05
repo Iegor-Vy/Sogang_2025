@@ -690,6 +690,16 @@ $$
 Higher `\(\alpha\)` reacts faster to new information.
 
 ---
+# Some other forecasting methods:
+* Holt's linear trend method (for series with trend)
+
+* Holt-Winters method (for series with trend and seasonality)
+
+* ARIMA/SARIMA models (for complex patterns and autocorrelation)
+
+* Machine learning methods (for large datasets and nonlinear relationships)
+
+---
 class: inverse, center, middle
 # Part 4. Forecast Accuracy
 
@@ -796,6 +806,20 @@ Method B
 ]
 
 Conclusion: Method A is more accurate because it has the smaller MAD and MSE.
+
+---
+# Some other forecast accuracy measures:
+* Mean Absolute Percentage Error (MAPE)
+
+$$
+\mathrm{MAPE} = \frac{100\%}{n} \sum \left| \frac{e_t}{Y_t} \right|
+$$
+
+* Root Mean Squared Error (RMSE)
+$$
+\mathrm{RMSE} = \sqrt{\mathrm{MSE}} = \sqrt{\
+frac{\sum e_t^2}{n}}
+$$
 
 ---
 class: inverse, center, middle
