@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Mathematical Methods for International Commerce</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Iegor Vyshnevskyi, Ph.D." />
+    <meta name="date" content="2026-06-09" />
+    <script src="libs/header-attrs-2.29/header-attrs.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Mathematical Methods for International Commerce
+]
+.subtitle[
+## <br/>Week 15/1-15/2: Applications of Linear Programming (8.2)
+]
+.author[
+### Iegor Vyshnevskyi, Ph.D.
+]
+.institute[
+### Sogang University, Geppert School of International Studies
+]
+.date[
+### June 9, 2026
+]
+
+---
+
+
+&lt;style&gt;
+@media print{
+  body, html, .remark-slides-area, .remark-notes-area {
+    height: 100% !important;
+    width: 100% !important;
+    overflow: visible;
+    display: inline-block;
+    }
+}
+&lt;/style&gt;
+
+&lt;style type="text/css"&gt;
+.remark-slide-content {
+    font-size: 34px;
+    padding: 1em 4em 1em 4em;
+}
+&lt;/style&gt;
+
+&lt;style type="text/css"&gt;
+.my-one-page-font {
+  font-size: 28px;
+}
+&lt;/style&gt;
+
+&lt;style type="text/css"&gt;
+.my-one-page-font-table {
+  font-size: 24px;
+}
+&lt;/style&gt;
+
+&lt;style&gt;
+.tiny { font-size: 60%; }      /* class you can reuse anywhere */
+&lt;/style&gt;
+
+&lt;style&gt;
+.visual-break {
+  width: 45%;
+  margin: 0.5em auto 0.7em auto;
+  border-top: 2px solid rgba(133, 26, 16, 0.35);
+}
+
+.spacious li {
+  margin-bottom: 0.3em;
+}
+&lt;/style&gt;
+
+&lt;style&gt;
+.remark-slide-content {
+  position: relative;
+  z-index: 1;
+}
+
+.remark-slide-content::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 600px;          /* adjust size */
+  height: 600px;
+  background-image: url("1. 교장(Seal_Positive).png");  /* place logo file in same folder */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: 0.05;         /* watermark transparency */
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 0;
+}
+&lt;/style&gt;
+
+
+
+
+
+
+# Agenda
+
+1. Applications of Linear Programming (8.2)
+
+2. Group activity
+
+3. Final Exam Arrangements 
+
+---
+
+class: inverse, center, middle
+
+# 1. Applications of Linear Programming (8.2)
+
+---
+
+# Why It Matters in Economics &amp; Business
+
+Linear programming (LP) is a powerful optimization technique used in:
+
+  - **Production planning**
+  - **Cost minimization**
+  - **Profit maximization**
+  - **Resource allocation**
+
+Used by:
+- Manufacturers
+- Service providers
+- Financial institutions
+
+&gt; Linear programming helps make **data-driven** decisions in complex environments.
+
+---
+
+# Learning Objectives
+
+By the end of this class, you should be able to:
+
+- Identify decision variables in a word-based LP problem
+
+- Formulate the objective function (maximize or minimize)
+
+- Write down all constraints from the problem context
+
+- Solve LP problems using graphical methods
+
+- Interpret and calculate **shadow prices**
+
+---
+
+# Graphical Method (Recap)
+
+1. Convert inequalities to equalities to find constraint lines
+
+2. Graph the feasible region
+
+3. Identify the corner points (vertices)
+
+4. Evaluate the objective function at each corner
+
+5. Choose the optimal value (max/min)
+
+---
+
+# Example: Glass Studio (Ian Jacques)
+
+A pottery studio makes **bowls** and **plates**:
+
+Let:
+- `\(x\)`: number of bowls
+- `\(y\)`: number of plates
+
+**Objective**: Maximize profit
+
+$$
+\text{Profit} = 150x + 100y
+$$
+
+---
+
+## Constraints (from studio resources)
+
+1. **Glassblowing time** (70 hrs max):
+$$
+2x + y \leq 70
+$$
+
+2. **Annealing time** (130 hrs max):
+$$
+4x + y \leq 130
+$$
+
+3. **Sand available** (45 kg max):
+$$
+x + y \leq 45
+$$
+
+4. **Non-negativity**:
+$$
+x \geq 0, \quad y \geq 0
+$$
+
+These form the **feasible region** in the solution space.
+
+---
+
+## The complete example setup
+
+**Context**: A studio produces bowls (x) and plates (y)
+
+- **Profit**: $150 per bowl, $100 per plate
+
+**Objective**: Maximize profit
+$$
+Z = 150x + 100y
+$$
+
+**Subject to:**
+`\begin{align*}
+2x + y &amp;\leq 70 &amp;\text{(glassblowing)} \\
+4x + y &amp;\leq 130 &amp;\text{(annealing)} \\
+x + y &amp;\leq 45 &amp;\text{(silica sand)} \\
+x, y &amp;\geq 0
+\end{align*}`
+
+---
+
+## Step 1: Plot Feasible Region
+
+.center[&lt;img src="p1.png" height="65%" width="65%"&gt;]
+&lt;span style="font-size:50%;"&gt;Source: the course book&lt;/span&gt;
+
+---
+
+## Step 2: Identify Corner Points
+
+- (0, 0)
+
+- (0, 45)
+
+- (25, 20) — Intersection of `\(2x + y = 70\)` and `\(x + y = 45\)`
+
+- (30, 10) — Intersection of `\(2x + y = 70\)` and `\(4x + y = 130\)`
+
+- (32.5, 0)
+
+---
+
+## Step 3: Evaluate Objective Function
+
+| Point | Profit = `\(150x + 100y\)` |
+|-------|-------------------------|
+| (0, 0) | 0 |
+| (0, 45) | 4500 |
+| (25, 20) | **5750** (Optimal) |
+| (30, 10) | 5500 |
+| (32.5, 0) | 4875 |
+
+- Optimal solution: **(25, 20)** with profit **$5750**.
+
+- Substituting `\(x=25\)` and `\(y=20\)` into `\(4x+y\)` gives *120*.
+
+- As such, there were 130 hours available, so 10 of these hours are unused.
+
+
+---
+# Resource Adjustment Example
+
+One important task when planning business projects is to decide whether it is worthwhile 
+buying in extra resources.
+
+For the glassmaking problem the studio might consider:
+- Increasing hours for **glassblowing** or **annealing**
+- Buying an extra **kilogram of sand**
+
+To explore this:
+- Rework the LP problem by **changing one constraint at a time**
+- Software tools provide this info to assess **sensitivity** of the solution
+
+We'll consider next:
+&gt; A case when **one of the glassblowers works one extra hour** (glassblowing constraint increases)
+
+---
+
+# Shadow Prices
+
+- If **glassblowing hours increase by 1**:
+  - Constraint changes: `\(2x + y \leq 71\)`
+  - New solution: `\(x = 26\)`, `\(y = 19\)`
+  - New profit: `\(150(26) + 100(19) = 5800\)`
+  - **Shadow price** of glassblowing = `\(5800 - 5750 = 50\)`
+
+Shadow price tells us **how much profit changes** with a marginal increase in a resource.
+
+---
+class: my-one-page-font
+# Example: Labour Cost Minimization
+
+Company needs **900 hours** work:
+- Full-time: 40 hrs/week, $800/wk
+- Part-time: 20 hrs/week, $320/wk
+- Max: part-time `\(\leq \frac{1}{3}\)` full-time
+
+`\(x = \text{number of full-time workers}\)`
+`\(y = \text{number of part-time workers}\)`
+
+
+**Objective**: Minimize
+$$
+Z = 800x + 320y
+$$
+
+**Subject to:**
+`\begin{align*}
+40x + 20y \geq 900 \\
+y &amp;\leq \frac{x}{3} \\
+x, y &amp;\geq 0
+\end{align*}`
+
+---
+
+## Step 1: Plot Constraints to see Feasible Region
+.center[&lt;img src="p2.png" height="65%" width="65%"&gt;]
+&lt;span style="font-size:50%;"&gt;Source: the course book&lt;/span&gt;
+
+---
+class: my-one-page-font
+
+## Step 2: Identify Corner Points
+
+### Solving Algebraically (from Textbook)
+
+The feasible region has two corners. One is clearly `\((22.5, 0)\)`. The other is the intersection of:
+
+1. `\(y = \frac{x}{3}\)`
+2. `\(40x + 20y = 900\)`
+
+### Substitution:
+$$
+`\begin{align*}
+40x + 20\left(\frac{x}{3}\right) &amp;= 900 \\
+40x + \frac{20x}{3} &amp;= 900 \\
+\frac{140x}{3} &amp;= 900 \\
+x &amp;= \frac{2700}{140} = \frac{135}{7}
+\end{align*}`
+$$
+
+Now solve for `\(y\)`:
+$$
+y = \frac{135}{7} \cdot \frac{1}{3} = \frac{45}{7}
+$$
+
+
+The **feasible region corner points**: `\(\left(\frac{135}{7}, \frac{45}{7}\right), \left(22.5, 0\right)\)`
+
+---
+
+## Integer Programming Note
+
+Solution: `\(\left(\frac{135}{7}, \frac{45}{7}\right)\)`, but we can't hire fractional workers. In practice, we round to the nearest feasible integers.
+
+.center[&lt;img src="p3.png" height="55%" width="55%"&gt;]
+&lt;span style="font-size:50%;"&gt;Source: the course book&lt;/span&gt;
+
+
+Nearest feasible point with integers:
+- (20, 5) with cost = $17,600 (optimal)
+
+---
+
+# Key Takeaways
+
+- **Formulate LP problems** from real-world scenarios  
+
+- Use graphical solution for 2-variable cases  
+
+- Evaluate at **corner points**  
+
+- Understand **shadow prices** and what they tell us  
+
+- For integer-only decisions, adjust your answer accordingly  
+
+---
+
+class: inverse, center, middle
+
+# 2. Group activity
+---
+## Practice Problem (Group)
+
+**Electronics firm:**
+- Two models: TAB1 and TAB2
+- Costs: $120 (TAB1), $160 (TAB2), total budget $4000
+- Max total: 30 tablets
+- Profits: $600 (TAB1), $700 (TAB2)
+
+$$
+`\begin{aligned}
+&amp;\text{Let:} \\
+&amp;\quad x = \text{number of TAB1 tablets} \\
+&amp;\quad y = \text{number of TAB2 tablets} \\[1em]
+&amp;\text{Maximize:} \\
+&amp;\quad Z = 600x + 700y \\[1em]
+&amp;\text{Subject to:} \\
+&amp;\quad 120x + 160y \leq 4000 \\
+&amp;\quad x + y \leq 30 \\
+&amp;\quad x \geq 0,\quad y \geq 0
+\end{aligned}`
+$$
+
+---
+
+## Task
+
+Solve the electronics firm LP problem:
+1. Plot constraints
+
+2. Find feasible region
+
+3. Identify corner points
+
+4. Evaluate profit function at each
+
+5. Determine optimal mix of TAB1 and TAB2
+
+---
+class: inverse, center, middle
+
+# 3. Final Exam Arrangements 
+
+---
+
+# Final Exam Arrangements 
+
+- Coverage: **all** topics after the Midterm
+
+## Practice &amp; Prep
+
+Review your:
+  - Lecture slides and solved examples
+  - Homework #2
+  - Quiz #2
+
+## Follow exam instructions!
+- June 16, 12:00 pm.
+- Closed book / Individual work.
+- You may use a calculator (no phones or financial calculators). 
+- Only one A4 double-sided **handwritten** cheat sheet (formulas only) is permitted. 
+- The time limit (75 minutes) will be strictly enforced.
+
+Time to shine – you've got this!
+
+Good luck!
+---
+
+## Next Classes
+
+- (June 16) Final Exam  
+
+**Good luck with your preparation!**
+
+---
+
+class: inverse, center, middle
+
+# Any QUESTIONS?
+
+## Thank you for your attention and participation!
+
+
+
+
+???
+1. To print pdf slides
+https://stackoverflow.com/questions/54968311/xaringan-export-slides-to-pdf-while-preserving-formatting
+
+pagedown::chrome_print("W1_ME.html") # but not all pictures are visible
+
+2. Option: https://stackoverflow.com/questions/54968311/xaringan-export-slides-to-pdf-while-preserving-formatting
+
+install.packages("remotes")
+remotes::install_github("jhelvy/xaringanBuilder")
+remotes::install_github("jhelvy/renderthis@v0.0.9")
+
+library(xaringanBuilder)
+build_pdf("DVC.html")
+
+3. Option
+writeBin(as.raw(c()), "favicon.ico") # create an empty favicon.ico file
+install.packages("renderthis")
+remotes::install_github('rstudio/chromote')
+library(renderthis)
+
+renderthis::to_pdf("W15_1_ME.html")
+
+getwd()
+setwd("C:\\Users\\vyshn\\OneDrive - kdis.ac.kr\\Documents\\GitHub\\Sogang\\2026\\Spring\\Mathematical Methods for International Commerce\\Week 15_1")
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+  "highlightStyle": "github",
+  "highlightLines": true,
+  "countIncrementalSlides": false,
+  "ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
