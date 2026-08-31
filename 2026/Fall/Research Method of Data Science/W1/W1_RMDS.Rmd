@@ -104,6 +104,7 @@ style_mono_accent(
 
 # Welcome!
 
+
 ## Research Method of Data Science
 
 I’m **Iegor Vyshnevskyi**, and I’ll be your instructor this semester.
@@ -226,7 +227,7 @@ class: inverse, center, middle
 
 - **Meetings**: Two 75-minute classes per week
 
-- **Location**: TBD
+- **Location**: J112
 
 - **Instructor**: Iegor Vyshnevskyi, Ph.D.
 
@@ -234,7 +235,7 @@ class: inverse, center, middle
 
 - **Office**: J721
 
-- **TA**: TBD
+- **TA**: Dieu Vi CAO, dieuvicao170701@gmail.com (attendance)
 
 ---
 
@@ -294,7 +295,7 @@ Timing: 8–10 minutes for 12 students. Emphasize that “no Python/GitHub exper
 
 # Our class as a research community
 
-With **12 students**, we can do things a large lecture cannot:
+With **11 students**, we can do things a large lecture cannot:
 
 - discuss each student’s question;
 
@@ -439,26 +440,30 @@ Your final examination assignment is an **individual research project**.
 
 It includes:
 .pull-left[
-1. Introduction and research question
+<ol>
+  <li>Introduction and research question</li>
 
-2. Motivation and contribution
+  <li>Motivation and contribution</li>
 
-3. Literature review and research gap
+  <li>Literature review and research gap</li>
 
-4. Conceptual or theoretical framework
+  <li>Conceptual or theoretical framework</li>
 
-5. Data/evidence and methods
+  <li>Data/evidence and methods</li>
+</ol>
 ]
 .pull-right[
-6. Results
+<ol start="6">
+  <li>Results</li>
 
-7. Discussion
+  <li>Discussion</li>
 
-8. Conclusion and limitations
+  <li>Conclusion and limitations</li>
 
-9. References and AI-use disclosure
+  <li>References and AI-use disclosure</li>
 
-10. Reproducible supporting materials
+  <li>Reproducible supporting materials</li>
+</ol>
 ]
 ---
 
@@ -525,7 +530,7 @@ The goal is not to defend every choice as perfect. It is to show that you unders
 
 - **Python:** prepare, analyze, and visualize data
 
-- **GitHub:** access course materials and maintain transparent versions
+- **GitHub:** access course materials and maintain transparent versions [*link:*](https://github.com/GSIS-DS/research-method-data-science)
 
 - **Cyber Campus:** official announcements, deadlines, grades, and required submissions
 
@@ -533,7 +538,7 @@ The goal is not to defend every choice as perfect. It is to show that you unders
 
 - **AI tools:** only where permitted, disclosed, and verified
 
-- **DataCamp:** optional for additional practice
+- **DataCamp:** optional for additional practice [*link:*](https://www.datacamp.com/groups/shared_links/7424fba45adf1380ccef56d89a6a7806e71362d15904f770298c9b8f411df47a)
 
 Prior Git or GitHub experience is **not required**.
 
@@ -556,6 +561,9 @@ We begin with a browser-only workflow. Command-line Git is optional at first.
 .box[
 Saving a notebook in Google Drive does **not** automatically update GitHub.
 ]
+
+- **Course repository**: [GitHub](https://github.com/GSIS-DS/research-method-data-science)
+
 
 ---
 
@@ -815,10 +823,11 @@ In groups of three, diagnose the claim using:
 
 ### Question → Evidence → Method → Claim
 
+You have **8 minutes**.
+
+At the end, every group gives a **60-second research pitch**.
 ???
 Form four groups of three. Give each group a worksheet or shared document.
-
----
 
 # Group roles
 
@@ -830,9 +839,7 @@ Choose:
 
 - **Designer:** proposes feasible evidence and a method
 
-You have **8 minutes**.
 
-At the end, every group gives a **60-second research pitch**.
 
 ---
 
