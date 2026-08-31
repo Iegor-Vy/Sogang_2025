@@ -230,7 +230,7 @@ class: inverse, center, middle
 
 - **Instructor**: Iegor Vyshnevskyi, Ph.D.
 
-- **Office Hours**: Tue/Thu 15:00–16:30 and Wed 10:00–12:00 (or by appointment) 
+- **Office Hours**: Tue/Thu 10-10:30 and 15-16:30 and Wed 10–12 (or by appointment) 
 
 - **Office**: J721
 
