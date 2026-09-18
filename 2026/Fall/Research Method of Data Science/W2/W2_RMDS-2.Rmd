@@ -132,10 +132,13 @@ Which is the strongest **research question**?
 
 **D.** How can we solve social-media addiction?
 
-Vote first. Then explain **why**.
+1. Think silently for **20 seconds**.
+2. Vote with one finger: **A, B, C, or D**.
+3. Explain your choice to a partner.
+4. Vote again: did anyone change their mind?
 
 ???
-Timing: 4 minutes. C is the most research-ready, but it still requires definitions, evidence access, an ethical plan, and a design that does not overclaim causality.
+Timing: 4 minutes. C is the most research-ready, but it still requires definitions, evidence access, an ethical plan, and a design that does not overclaim causality. Ask one student who changed their vote to explain why.
 
 ---
 
@@ -242,10 +245,17 @@ What should the researcher reconsider?
 
 4. The analysis shows association, but the draft says “causes.”
 
-For each case, name the earlier research decision that must be revisited.
+Work with a partner. Your pair begins with the case matching your assigned number.
+
+Name:
+
+- the earlier decision that must be revisited;
+- one concrete revision the researcher should make.
+
+Be ready to report in **one sentence**.
 
 ???
-Timing: 4 minutes. Suggested answers: 1 contribution/question; 2 population/evidence/question; 3 concept/measure/question; 4 claim/design/question.
+Timing: 5 minutes: 2 minutes in pairs, then three brief reports. Suggested answers: 1 contribution/question; 2 population/evidence/question; 3 concept/measure/question; 4 claim/design/question. With six pairs, assign two cases twice and compare the proposed revisions.
 
 ---
 
@@ -394,7 +404,7 @@ They connect the topic to the problem.
 
 ---
 
-# Element 3: Research question—state the answer searched for
+# Element 3: Research question—state the answer sought
 
 A research question converts the problem into a bounded inquiry.
 
@@ -545,23 +555,23 @@ Avoid **affects, impacts, leads to, improves, reduces, or causes** unless the de
 
 ---
 
-# Warning signs
+# Question surgery — 5 minutes
 
-- It is only a topic.
+Each group diagnoses and repairs **one** draft:
 
-- It asks several major questions at once.
+1. “Is social media bad for society?”
+2. “How does AI improve grades, learning, employment, and well-being?”
+3. “Why does Korea’s successful education system cause economic growth?”
+4. “What is the effect of secret company data on employee performance?”
 
-- It contains undefined judgments: “good,” “bad,” “effective,” “successful.”
+Report:
 
-- It presumes the answer.
+> The main problem is **…**. We would rewrite the question as **…**.
 
-- It uses causal language without a defensible comparison.
+.tiny[Use FINER and the claim language from the previous slides. A complete warning-sign checklist is in Appendix A.]
 
-- It requires inaccessible, confidential, or nonexistent evidence.
-
-- It is too broad for one semester.
-
-- Its answer would add nothing beyond what is already known.
+???
+Create four groups of three. Give each group one draft. Allow 3 minutes to diagnose and rewrite, then take two or three 30-second reports. Possible diagnoses: undefined judgment/too broad; multiple outcomes; presumes the answer and causal overclaim; inaccessible evidence and unclear concepts.
 
 ---
 

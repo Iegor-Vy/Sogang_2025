@@ -1,0 +1,910 @@
+---
+title: "Research Method of Data Science"
+subtitle: "Week 4: Literature Synthesis and the Research Proposal"
+author: "Iegor Vyshnevskyi, Ph.D."
+institute: "Sogang University"
+date: "September 22/24, 2026"
+output:
+  xaringan::moon_reader:
+    css: xaringan-themer.css
+    chakra: libs/remark-latest.min.js
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: '16:9'
+---
+
+
+<style>
+@media print{
+  body, html, .remark-slides-area, .remark-notes-area {
+    height: 100% !important;
+    width: 100% !important;
+    overflow: visible;
+    display: inline-block;
+    }
+</style>
+
+<style type="text/css">
+.remark-slide-content {
+    font-size: 34px;
+    padding: 1em 4em 1em 4em;
+}
+</style>
+
+<style type="text/css">
+.my-one-page-font {
+  font-size: 28px;
+}
+</style>
+
+<style type="text/css">
+.my-one-page-font-table {
+  font-size: 24px;
+}
+</style>
+
+<style>
+.tiny { font-size: 60%; }      /* class you can reuse anywhere */
+</style>
+
+<style>
+.remark-slide-content {
+  position: relative;
+  z-index: 1;
+}
+
+.remark-slide-content::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 600px;          /* adjust size */
+  height: 600px;
+  background-image: url("1. 교장(Seal_Positive).png");  /* place logo file in same folder */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: 0.05;         /* watermark transparency */
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 0;
+}
+</style>
+
+
+```{r setup, include = FALSE}
+library(tidyverse)
+library(knitr)
+
+opts_chunk$set(fig.width = 10, 
+               message = FALSE, 
+               warning = FALSE,
+               echo = FALSE)
+```
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+#install.packages("xaringanthemer")
+library(xaringanthemer)
+style_mono_accent(
+  base_color = "#851a10",
+  header_font_google = google_font("Josefin Sans"),
+  text_font_google   = google_font("Montserrat", "500", "550i"),
+  code_font_google   = google_font("Fira Mono"),
+  colors = c(
+  red = "#f34213",
+  purple = "#3e2f5b",
+  orange = "#ff8811",
+  green = "#136f63",
+  white = "#FFFFFF"
+)
+)
+```
+
+# Welcome to Week 4!
+
+## Literature Synthesis and the Research Proposal
+
+.box[
+**This week’s output:** A draft literature review with a supported gap statement and a short self-review.
+]
+
+---
+
+# Agenda
+
+**Week 4 · Tuesday meeting**
+
+1. Organizing the literature review
+
+2. Writing synthesis and building an argument
+
+3. Research gaps and conceptual frameworks
+
+4. Writing workflow: Word and Zotero
+
+5. Apply the lesson and prepare for Thursday
+
+Appendix: writing checklist and software instructions
+
+???
+Agenda: 1 minute. Opening and continuity: 4 minutes. Organization: 14 minutes. Synthesis: 18 minutes. Gaps and frameworks: 18 minutes. Proposal bridge: 6 minutes. Word–Zotero workflow: 7 minutes. Application and closing: 7 minutes. Total: 75 minutes. Appendix slides are reference material.
+
+---
+
+# Learning objectives
+
+By the end of this week, you should be able to:
+
+1. organize literature around meaningful themes or debates;
+
+2. synthesize evidence across sources rather than list summaries;
+
+3. distinguish a defensible research gap from a simple omission;
+
+4. sketch a provisional conceptual framework;
+
+5. connect the literature review to the proposed study;
+
+6. revise writing using structured self and peer feedback.
+
+---
+
+# The literature review in your final project
+
+Your final individual paper includes:
+
+**Introduction · Literature review · Data and methods · Results · Discussion · Conclusion · Limitations**
+
+Week 3 helped you find and evaluate sources.
+
+This week, you will organize those sources into a **written argument that explains why your study is needed**.
+
+**Opening question:** What did your reading change about your research question?
+
+???
+4 minutes: individual reflection 1, discussion in six pairs 2, one brief response 1. Students draw on Week 3 work. Explain that this week's draft will be revised as the study develops. No findings from the student's future analysis are required or should be invented.
+
+---
+
+class: inverse, center, middle
+
+# 1. Organizing the literature review
+
+???
+14 minutes, elapsed time 5–19 minutes.
+
+---
+
+# Non-organized literature reviews
+
+A non-organized literature review simply lists sources without connecting them to a central argument or theme.
+
+.pull-left[
+<img src="p1.jpg" style="width:85%; display:block; margin:auto;" />
+]  
+
+.pull-right[
+<img src="p2.jpg" style="width:80%; display:block; margin:auto;" />
+] 
+
+.tiny[Images: open access internet memes]
+---
+
+# An evidence matrix and a literature map
+
+An **evidence matrix** records what each source contributes, for example:
+
+| Source | Contribution |
+|---|---|
+| A | Shows the frequency of AI use |
+| B | Reports on the impact of AI on learning outcomes |
+| C | Provides insights into student attitudes towards AI |
+
+A **literature map** shows how sources connect through themes, debates, or explanations.
+
+| Theme | Sources | Connection to the research question |
+|---|---|---|
+| What counts as learning? | A and B | Assisted scores and independent ability are different outcomes |
+| How do students use AI? | A and C | Frequency of use may conceal differences in purpose |
+
+**Fictional teaching example.** A source may appear in more than one theme.
+
+???
+3 minutes. A literature map can be a table, not necessarily a network diagram. These labels introduce the fictional sources examined in section 2. Ask why an author-by-author outline would hide these connections. Students need meaningful themes, not broad headings that merely replace author names.
+
+---
+
+class: small
+
+# Pair challenge: organize six source notes — 5 minutes
+
+**Fictional notes:** A—use frequency; B—assisted task scores; C—student interviews; D—later unaided performance; E—differences by prior preparation; F—checking ideas versus replacing effort.
+
+In pairs:
+
+1. Create **two meaningful themes**.
+
+2. Place each source under a theme; one source may support both.
+
+3. Decide which theme the reader should encounter first.
+
+4. Prepare one sentence explaining your ordering.
+
+Two pairs will present. Different maps are acceptable when the logic is explicit.
+
+???
+Six pairs work simultaneously for three minutes; take two one-minute reports. Ask which note was hardest to place and why. The point is not a single correct map but a defensible organization serving a research question.
+
+---
+
+# Themes and debates give sections a purpose
+
+**A theme** groups studies around a shared issue.  
+
+Example: how studies define and measure learning.
+
+**A debate** concerns competing interpretations or explanations.  
+
+Example: whether assistance supports practice or replaces it.
+
+A useful heading tells the reader what the section examines:
+
+> “Assisted performance and independent learning”
+
+Each section should help answer a question relevant to your study.
+
+???
+4 minutes. Students propose one possible heading from their own reading. Take two examples. Explain that a debate needs evidence of differing positions; do not manufacture disagreement. Chronological or methodological organization is also useful when change over time or design differences drive the argument.
+
+---
+
+# The review needs an overall argument
+
+A possible outline for the teaching example:
+
+1. **Opening:** define the question and scope of the review.
+
+2. **Theme 1:** compare what studies count as learning.
+
+3. **Theme 2:** examine different purposes of AI use.
+
+4. **Closing:** identify what remains unresolved and explain the study's focus.
+
+**Why this order?** The reader first needs to understand the outcome before interpreting evidence about AI use.
+
+???
+4 minutes. This is an adaptable example, not a universal template. A standalone review may have a separate introduction and conclusion; a section inside a research paper may use brief opening and closing paragraphs. Ask students to explain the order of two themes in their own project. Merely listing themes does not establish an argument.
+
+---
+
+class: inverse, center, middle
+
+# 2. Writing synthesis and building an argument
+
+???
+18 minutes, elapsed time 19–37 minutes.
+
+---
+
+# Three sources, three kinds of evidence
+
+**Invented examples for practice, not published findings**
+
+| Source | Evidence | Finding in the example |
+|---|---|---|
+| A | Survey of use frequency and self-rated thinking | More use accompanies lower self-ratings |
+| B | Experiment measuring an assisted task | AI access improves immediate scores |
+| C | Interviews about learning practices | Students describe both checking ideas and replacing effort |
+
+**Can these sources establish whether AI improves later independent learning?**
+
+???
+4 minutes. No. They address different outcomes or experiences, and none directly tests later unaided performance. A is an association, B addresses immediate assisted performance, and C interprets accounts of practice. The findings need not contradict one another. Do not treat this invented matrix as an account of the actual AI literature.
+
+---
+
+# The job of a synthesis paragraph
+
+A paragraph can make four moves:
+
+1. **Claim:** state the idea the paragraph develops.
+
+2. **Evidence:** bring relevant sources into the discussion.
+
+3. **Interpretation:** explain agreement, differences, or limits.
+
+4. **Link:** show what follows for the next paragraph or your study.
+
+These are writing moves, not a compulsory four-sentence formula.
+
+???
+4 minutes. A claim must be supported by the material cited. Interpretation is the student's reasoned explanation, not an additional finding attributed to the source. A link can be integrated into the final sentence. Literature reviews also use paragraphs for definitions, context, and theoretical explanations.
+
+---
+
+# A worked synthesis paragraph
+
+> Evidence about AI and learning depends on the outcome measured. In these fictional examples, A associates frequent use with lower self-rated thinking, while B reports higher scores during an assisted task. The findings need not conflict: self-perceived ability and assisted performance capture different outcomes. Neither establishes how students perform later without assistance. This distinction motivates closer attention to independent learning and to the ways students use AI.
+
+**Pair annotation — 4 minutes**
+
+Label each sentence: **C**laim, **E**vidence, **I**nterpretation, or **L**ink.
+
+Then decide: **Which sentence would be most damaging to delete, and why?**
+
+???
+Two minutes to annotate, one minute to compare, one minute to debrief. The final sentence prepares the theme on use purpose. The deletion question should reveal the importance of interpretation. In actual writing, replace A/B with verified citations. Authors' conclusions and the writer's interpretation must remain distinguishable.
+
+---
+
+# Pair exercise: a second connected paragraph
+
+Use fictional source C alongside A or B.
+
+In **three minutes**, draft two or three sentences that:
+
+- begin with differences in the **purpose of AI use**;
+
+- compare evidence from at least two sources;
+
+- connect to the preceding paragraph about outcomes.
+
+Two pairs will read their versions. Explain the connection you made.
+
+???
+5 minutes: writing 3, two reports 2. Six pairs work simultaneously. Possible response: “The purpose of use also matters when interpreting these outcomes. C describes both checking ideas and replacing effort, whereas A records overall frequency. A frequency measure may therefore group together different practices, leaving their relationship with independent learning unresolved.” This is an interpretation of the fictional matrix, not a verified research gap. Do not add claims about effect sizes or causality.
+
+---
+
+# Transitions explain a relationship
+
+**Weak connection**
+
+> “Another study examined students' AI use.”
+
+**More informative connection**
+
+> “While the preceding studies distinguish learning outcomes, the next group examines how students use AI during a task.”
+
+Useful relationships include **contrast, extension, explanation, and qualification**.
+
+“Furthermore” alone does not explain why the next study belongs.
+
+???
+3 minutes. Ask one pair to improve the transition in its paragraph. Transitions should reflect the evidence. Do not insert “however” if the studies do not actually disagree. Repeated concepts and a deliberate paragraph order often provide stronger connections than additional linking words.
+
+---
+
+# Critical writing matches claims to evidence
+
+| Overstatement | More defensible wording |
+|---|---|
+| “A proves that AI reduces thinking.” | “A reports an association with self-rated thinking.” |
+| “B contradicts A.” | “B examines a different outcome under a different design.” |
+| “These studies are weak.” | “These measures cannot directly answer the question about later unaided performance.” |
+
+Cite the sentence's actual support. Use quotation marks and a locator for direct quotations.
+
+???
+3 minutes. Explain that criticism concerns what evidence can establish for a specific question. Paraphrasing requires attribution too. A citation at a paragraph's end may leave unclear which claims it supports. Students should check meaning against the original rather than merely replace words with synonyms.
+
+---
+
+class: inverse, center, middle
+
+# 3. Research gaps and conceptual frameworks
+
+???
+18 minutes, elapsed time 37–55 minutes. The proposal bridge then takes 6 minutes, to minute 61.
+
+---
+
+# It's not a trivial task to identify a gap
+
+<img src="p3.jpg" style="width:35%; display:block; margin:auto;" />
+
+---
+
+# A gap grows out of the synthesis
+
+A gap statement explains:
+
+- **What the reviewed evidence establishes**
+
+- **What remains unresolved**
+
+- **Why resolving it matters**
+
+Example: “The selected studies distinguish outcomes and uses of AI but leave their connection to independent performance unresolved. Clarifying that connection would help distinguish immediate assistance from learning.”
+
+This is a claim about **these selected sources**, pending a broader check.
+
+???
+4 minutes. The example is fictional. Five sources cannot prove absence across an entire field. Explain that a useful gap might concern conflicting evidence, a measure, an explanation, or a meaningful contextual difference. The reader needs to understand why the uncertainty matters, not simply that a country or keyword is missing.
+
+---
+
+# Gap triage — 6 minutes
+
+Classify each claim as **simple omission**, **promising but unverified**, or **provisionally defensible**.
+
+**A.** “None of my five papers studies Korea.”
+
+**B.** “The selected papers measure frequency but do not distinguish purposes of use, which could change how their results are interpreted.”
+
+**C.** “Across the databases and terms documented in our search, studies distinguish assisted scores from self-reports, but none directly evaluates later unaided performance. This leaves retention unresolved.”
+
+For each: What further evidence could strengthen—or overturn—the claim?
+
+???
+Groups of three: one minute individual classification, three minutes discussion, two minutes report. A is an omission unless the context creates a meaningful boundary. B is promising but requires broader searching. C is provisionally defensible because its scope and search basis are stated, but it remains revisable. Ask “What would change your mind?” to frame a gap as an evidence-based claim.
+
+---
+
+# The framework expresses what the review suggests
+
+A **conceptual framework** identifies the concepts and connections guiding your study.
+
+| Concept | Meaning in this example | Possible connection |
+|---|---|---|
+| Purpose of AI use | Checking ideas or replacing effort | Different practices may relate differently to learning |
+| Independent learning | Performance without AI assistance | Distinct from success while help is available |
+| Prior preparation | Knowledge before the task | May relate to both use and performance |
+
+These are **proposed connections**, not established causal effects.
+
+???
+3 minutes. A framework should follow from reviewed evidence and explanations. Cite literature that informs each important choice in actual work. A theoretical framework explicitly draws on an established theory; a conceptual framework specifies the concepts and connections relevant to this study. For qualitative work, use guiding concepts while remaining open to unexpected interpretations.
+
+---
+
+# Framework sketch — 5 minutes
+
+On paper, draw three boxes:
+
+1. your focal concept or outcome;
+
+2. one possible explanatory concept;
+
+3. one contextual, moderating, or confounding concept.
+
+Add arrows. Under each arrow, write:
+
+> “I think these may be connected because …”
+
+Mark every connection **provisional** and identify which source or additional evidence could support it.
+
+???
+Three minutes to sketch, one minute to explain to a partner, one minute to hear one example. Do not grade artistic quality. Ask whether each arrow is supported, assumed, or still unknown. A framework organizes inquiry; it does not turn a proposed relationship into an established causal effect.
+
+---
+
+# The closing paragraph positions your study
+
+A review's ending should connect:
+
+**The evidence reviewed**, **the remaining question**, and **your study's focus**.
+
+> “Taken together, the reviewed evidence suggests [supported conclusion]. However, [specific uncertainty] remains. The present study therefore examines [focused question] in [defined context].”
+
+Your final project will answer the question through evidence and analysis. The literature review explains why the question deserves attention.
+
+???
+2 minutes. This is a sentence scaffold, not text to submit unchanged. Students must supply real evidence and avoid formulaic gap claims. The final assignment remains a complete individual study with results, discussion, conclusion, and limitations.
+
+---
+
+# How the review enters the research proposal
+
+.center[
+### Problem → Question → Literature synthesis → Gap → Framework → Proposed evidence → Contribution
+]
+
+The literature review supports the middle of this chain:
+
+- it establishes what is already known;
+
+- it justifies the unresolved question;
+
+- it informs the concepts and expected connections;
+
+- it helps explain why the proposed evidence and study could add value.
+
+.box[
+A proposal explains what you plan to investigate and why. The final paper later adds analysis, results, and conclusions.
+]
+
+???
+4 minutes. Ask students to identify which links they can already draft and which remain uncertain. No separate proposal submission is added today; this slide explains how the current work becomes part of the eventual project.
+
+---
+
+class: inverse, center, middle
+
+# 4. Writing workflow: MS Word and Zotero
+
+???
+7 minutes. Demonstrate one complete Word–Zotero workflow. Overleaf remains an optional alternative documented in the Appendix; do not demonstrate both workflows today.
+
+---
+
+# The writing argument stays the same
+
+| Tool | Role |
+|---|---|
+| Zotero | Organize sources and maintain citation metadata |
+| MS Word | Write and format your document directly |
+
+Use **Word + Zotero** in the live demonstration. Students who prefer LaTeX may use the documented Overleaf route in the Appendix.
+
+The software manages formatting—not the accuracy of your interpretation.
+
+???
+1 minute. Ask students to open the editable document and Zotero library they will use Thursday. Overleaf is optional and does not require a paid subscription for the manual workflow in the Appendix.
+
+---
+
+# MS Word and Zotero demonstration
+
+1. Write a paragraph under a meaningful heading.
+
+2. Use **Add/Edit Citation** in Word's Zotero tab.
+
+3. Insert the bibliography and check the details.
+
+4. Correct metadata in Zotero and **Refresh** in Word.
+
+Save the editable `.docx` and export a PDF.
+
+The bibliography helps readers locate the evidence. It cannot check whether your interpretation is accurate.
+
+???
+6 minutes. Insert a citation, insert the bibliography, correct one metadata field in Zotero, and refresh Word. Keep citations linked in the working document. If the plugin is unavailable, show the prepared example. Source: https://www.zotero.org/support/word_processor_plugin_usage
+
+---
+
+# 5. Apply the lesson and prepare for Thursday
+
+For your own project, write:
+
+1. one meaningful theme heading;
+
+2. one relationship you need to explain across sources;
+
+3. one possible gap, labelled **omission**, **unverified**, or **provisionally defensible**;
+
+4. one concept that belongs in your framework.
+
+Have your Week 3 matrix, verified sources, editable draft, and Zotero library available for the Thursday assignment.
+
+???
+Seven minutes: five minutes individual application and two minutes for questions and Thursday preparation. Collect the four lines as an exit ticket if useful.
+
+---
+
+class: inverse, center, middle
+
+# Thursday Holiday Assignment
+
+## Individual literature-review writing workshop at home
+
+---
+
+# Assignment output
+
+Complete independently during the Thursday holiday:
+
+1. a literature map with two themes and at least three verified sources;
+
+2. two connected synthesis paragraphs—about 200–300 words;
+
+3. a supported provisional gap statement—about 60–100 words;
+
+4. one substantive revision and a short self-review;
+
+5. checked citations, references, and an AI-use statement.
+
+This remains an individual component of your final research project.
+
+---
+# A manageable 75-minute sequence
+
+| Minutes | Individual task |
+|---|---|
+| 10 | Map at least three verified sources into two themes |
+| 30 | Write or revise two connected paragraphs—200–300 words total |
+| 10 | Write a 60–100-word provisional gap statement |
+| 10 | Use the self-review checklist and revise one weak passage |
+| 10 | Check citations and references; format the document |
+| 5 | Export the PDF, add the AI-use statement, and submit |
+
+Reuse your Week 3 paragraph where useful. This is structured individual work, not an additional 75 minutes beyond the assignment.
+
+???
+The estimate assumes Week 3 reading is complete. Unfinished reading is separate catch-up work. If software troubleshooting exceeds five minutes, continue in an available editor and briefly document the problem.
+
+---
+
+# Individual self-review
+
+Label the sentences in your paragraphs:
+
+- **C** — claim;
+- **E** — evidence;
+- **I** — interpretation;
+- **L** — link.
+
+Then ask:
+
+1. Does each theme have a purpose in the argument?
+2. Does at least one paragraph directly compare two sources?
+3. Does the transition explain a real relationship?
+4. Does the gap follow from the evidence, and why does it matter?
+5. What evidence could weaken or overturn the gap claim?
+
+Identify one weakness and make one substantive revision.
+
+---
+
+# Final verification
+
+- Every citation supports the claim attached to it.
+
+- Authors’ findings are distinguishable from your interpretation.
+
+- Every in-text citation appears in the references.
+
+- The transition explains a real relationship.
+
+- The gap is labelled appropriately: **omission**, **unverified**, or **provisionally defensible**.
+
+- The document contains no invented findings or citations.
+
+- The document includes an AI-use statement, even if no AI was used.
+
+Use real citations for your selected sources. Do not cite the fictional classroom examples.
+
+---
+
+# Submission and next class
+
+Upload to **Cyber Campus**, by the announced deadline:
+
+- one PDF containing your question, literature map, synthesis paragraphs, gap, references, and short self-review;
+- the editable `.docx` or Overleaf source ZIP.
+
+At the next live class, bring the draft and current question. We will begin with a brief peer exchange before qualitative research.
+
+Prepare to ask a peer for one strength in the synthesis and one specific improvement to the reasoning or gap.
+
+Also consider:
+
+> What could interviews, observations, or documents help you understand about your question?
+
+Next topic: **qualitative research**.
+
+???
+The self-review can briefly name the weakness, revision made, and one unresolved issue. This is individual work because Thursday is a holiday. Peer feedback occurs at the next live meeting. Apply existing syllabus and Cyber Campus deadlines; this slide introduces no new grading percentage.
+
+---
+
+class: inverse, center, middle
+
+# Appendix
+
+## Writing checks and software reference
+
+???
+Independent reference material, not additional Tuesday teaching time.
+
+---
+
+# A literature map you can use
+
+| Theme or debate | Supporting sources | Connection | Role in your argument |
+|---|---|---|---|
+| Theme 1 | Actual author/date citations | Agreement, contrast, or complementary evidence | What does the reader learn? |
+| Theme 2 | Actual author/date citations | How do methods or contexts differ? | How does this prepare the gap? |
+
+A source can support both themes.
+
+The table records the relationships you will explain in prose.
+
+---
+
+# Self-review and later peer feedback
+
+1. What is the main claim of each paragraph?
+
+2. Where does the writer compare sources?
+
+3. Does each citation support the claim attached to it?
+
+4. Does the paragraph order make sense?
+
+5. Does the gap follow from the evidence, and why does it matter?
+
+**At home:** identify one weakness and revise it.  
+
+**Next live class:** ask a peer to identify one strength and one specific improvement.
+
+---
+
+# Responsible AI assistance
+
+You may use AI to suggest organization or critique clarity from **your verified notes**, subject to course rules.
+
+Check every source and interpretation yourself.
+
+Include either “I did not use generative AI” or a brief record of the tool, task, output used, and verification.
+
+Do not upload sensitive material or restricted full texts. AI suggestions are not evidence of a research gap.
+
+---
+
+# Optional route: Overleaf
+
+.pull-left[
+<img src="p4.png" style="width:90%; display:block; margin:auto;" />
+]
+
+.pull-right[
+[Overleaf](https://www.overleaf.com/) is a browser-based LaTeX editor that generates a formatted PDF from source files.
+
+Use it only if you prefer this workflow. Word + Zotero is fully acceptable for the course.
+]
+
+.tiny[LaTeX uses commands to describe document structure. The manual workflow below does not require paid Zotero integration.]
+
+---
+
+# Overleaf workflow
+
+1. Open a blank project and locate `main.tex`.
+
+2. Add a title, heading, and paragraph using the following appendix example.
+
+3. Create or upload `references.bib`.
+
+4. Use the exact BibTeX citation key in `\citep{key}`.
+
+5. Select **Recompile** and inspect the citation and bibliography.
+
+6. Download the PDF and source ZIP for submission.
+
+`main.tex` contains your writing.  
+`references.bib` contains bibliographic records.
+
+---
+
+# Zotero to Overleaf without paid integration
+
+1. Correct and verify the source metadata in Zotero.
+
+2. Export selected references as **BibTeX**.
+
+3. Save the export as `references.bib`, without attached PDFs.
+
+4. Upload the file to Overleaf.
+
+5. Use each entry’s exact citation key in the text.
+
+This route does **not** update automatically. After correcting Zotero metadata, export and upload the file again.
+
+.tiny[See [Zotero exporting](https://www.zotero.org/support/kb/exporting) and [Overleaf reference-manager integration](https://docs.overleaf.com/integrations-and-add-ons/reference-manager-integrations/zotero).]
+
+---
+
+class: small
+
+# Overleaf: a minimal working document
+
+Create a blank project. Replace `main.tex` with:
+
+```latex
+\documentclass{article}
+\usepackage[authoryear,round]{natbib}
+\title{My Literature Review}
+\author{Your Name}
+\date{}
+\begin{document}
+\maketitle
+\section{Literature review}
+A guide to literature reviews is available
+\citep{randolph2009}.
+\bibliographystyle{plainnat}
+\bibliography{references}
+\end{document}
+```
+
+???
+Formatting demonstration only. The real citation is the Week 3 reading, not substantive evidence for a student's topic. Add the references.bib file shown next before recompiling. Then replace the sample text and citation with the student's work.
+
+---
+
+class: small
+
+# Overleaf: the bibliography file
+
+Create a new file named `references.bib`. Paste:
+
+```bibtex
+@article{randolph2009,
+  author = {Randolph, Justus J.},
+  title = {A Guide to Writing the Dissertation
+           Literature Review},
+  journal = {Practical Assessment, Research,
+             and Evaluation},
+  year = {2009},
+  volume = {14},
+  note = {Article 13},
+  doi = {10.7275/b0az-8t74}
+}
+```
+
+Recompile. The PDF should show an author-date citation and reference.
+
+---
+
+# Your own references in Overleaf
+
+1. Select your sources in Zotero and export as **BibTeX**.
+
+2. Save the export as `references.bib`, without attached PDFs.
+
+3. Upload it, replacing the demonstration bibliography.
+
+4. Replace the sample citation with your actual citation keys.
+
+5. Recompile, inspect citations, and download the PDF and source ZIP.
+
+A key is the label immediately after `{` in a bibliography entry. Keys must match exactly.
+
+???
+Check citation keys again after re-exporting. Do not leave randolph2009 in the text if that entry is absent from the replacement bibliography. Source: https://www.zotero.org/support/kb/exporting and https://docs.overleaf.com/integrations-and-add-ons/reference-manager-integrations/zotero
+
+---
+
+# Quick troubleshooting
+
+| Problem | First check |
+|---|---|
+| Zotero tab missing | Use desktop Word and check plugin installation |
+| Citation appears as `?` | Match the key to an entry in `references.bib` |
+| Overleaf compilation fails | Read the first error and check paired braces |
+| Bibliographic detail is wrong | Correct Zotero metadata, then refresh or re-export |
+
+Save your work. After five minutes of difficulty, continue in an available editor and record the issue.
+
+---
+
+class: small
+
+# References and software help
+
+- [Randolph (2009), A Guide to Writing the Dissertation Literature Review](https://doi.org/10.7275/b0az-8t74)
+
+- [Zotero: Word plugin](https://www.zotero.org/support/word_processor_plugin_usage)
+
+- [Zotero: exporting references](https://www.zotero.org/support/kb/exporting)
+
+- [Overleaf: Learn LaTeX in 30 minutes](https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes)
+
+- [Overleaf: citations with natbib](https://www.overleaf.com/learn/latex/Bibliography_management_with_natbib)
+
+- [Overleaf: Zotero integration and manual export](https://docs.overleaf.com/integrations-and-add-ons/reference-manager-integrations/zotero)
+
+Sources A, B, and C are fictional teaching examples. The writing exercises make no factual claims about AI's effects on learning.
+
+???
+1. To print pdf slides
+library(renderthis)
+
+renderthis::to_pdf("W4_RMDS.html")
+
+getwd()
+setwd("C:\\Users\\vyshn\\OneDrive - kdis.ac.kr\\Documents\\GitHub\\Sogang\\2026\\Fall\\Research Method of Data Science\\W4")
+
