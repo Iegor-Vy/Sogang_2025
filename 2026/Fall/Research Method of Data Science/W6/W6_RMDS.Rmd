@@ -1,0 +1,1162 @@
+---
+title: "Research Method of Data Science"
+subtitle: "Week 6: Qualitative Evidence and Analysis"
+author: "Iegor Vyshnevskyi, Ph.D."
+institute: "Sogang University"
+date: "October 6/8, 2026"
+output:
+  xaringan::moon_reader:
+    css: xaringan-themer.css
+    chakra: libs/remark-latest.min.js
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: '16:9'
+---
+
+<style>
+@media print{
+  body, html, .remark-slides-area, .remark-notes-area {
+    height: 100% !important;
+    width: 100% !important;
+    overflow: visible;
+    display: inline-block;
+    }
+}
+</style>
+
+<style type="text/css">
+.remark-slide-content {
+    font-size: 34px;
+    padding: 1em 4em 1em 4em;
+}
+</style>
+
+<style type="text/css">
+.my-one-page-font {
+  font-size: 28px;
+}
+</style>
+
+<style type="text/css">
+.my-one-page-font-table {
+  font-size: 24px;
+}
+</style>
+
+<style>
+.tiny { font-size: 60%; }      /* class you can reuse anywhere */
+</style>
+
+<style>
+.remark-slide-content {
+  position: relative;
+  z-index: 1;
+}
+
+.remark-slide-content::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 600px;          /* adjust size */
+  height: 600px;
+  background-image: url("1. 교장(Seal_Positive).png");  /* place logo file in same folder */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: 0.05;         /* watermark transparency */
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 0;
+}
+</style>
+
+
+```{r setup, include = FALSE}
+library(knitr)
+
+opts_chunk$set(fig.width = 10, 
+               message = FALSE, 
+               warning = FALSE,
+               echo = FALSE)
+```
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+#install.packages("xaringanthemer")
+library(xaringanthemer)
+style_mono_accent(
+  base_color = "#851a10",
+  header_font_google = google_font("Josefin Sans"),
+  text_font_google   = google_font("Montserrat", "500", "550i"),
+  code_font_google   = google_font("Fira Mono"),
+  colors = c(
+  red = "#f34213",
+  purple = "#3e2f5b",
+  orange = "#ff8811",
+  green = "#136f63",
+  white = "#FFFFFF"
+)
+)
+```
+
+<style>
+.small { font-size: 26px; }
+.remark-slide-content { padding: 1em 2.4em; }
+.remark-slide-content table { font-size: 25px; border-collapse: collapse; width: 100%; }
+.remark-slide-content th, .remark-slide-content td { padding: 7px 10px; border-bottom: 1px solid #ddd; }
+.remark-slide-content img { max-height: 430px; object-fit: contain; }
+.remark-slide-content::before { z-index: -1; }
+</style>
+
+# Week 6: Qualitative evidence and analysis
+
+**Tuesday:** understanding how interpretation is built
+
+**Thursday:** practicing and documenting an analysis
+
+This week's output: an **individual qualitative research exercise**.
+
+???
+Instructor planning, not additional student assessment. Two 75-minute meetings for 12 students. All data in this deck are invented teaching materials, not actual student testimony. Dates omitted because holidays/make-up arrangements may change. The complete individual final research paper remains the course destination; qualitative or mixed methods are not mandatory for every final project.
+Tuesday blocks: opening5 + evidence12 + coding18 + themes15 + quality13 + integration/tools9 + preparation3 =75.
+Thursday blocks: orientation5 + familiarisation8 + coding15 + pair comparison12 + themes14 + interpretation10 + peer revision8 + submission3 =75.
+Appendix slides are reference/lab materials; do not lecture through all of them. Tuesday ends before the Thursday divider. Thursday students need the corpus in the appendix, a blank Word/Excel table, and these slides. No paid license, new installation, interviews, recording, or additional dataset is required.
+
+---
+
+# Agenda
+
+**Tuesday — Week 6, Meeting 1**
+
+1. Preparing qualitative evidence
+
+2. Coding and documenting decisions
+
+3. Categories, themes, and interpretation
+
+4. Trustworthiness and triangulation
+
+5. Mixed-methods integration and software
+
+6. Preparation for Thursday
+
+Appendix: lab corpus, templates, and readings
+
+???
+Opening block5: agenda1; retrieval/learning goals2; running question2. Subsequent section dividers are transitions within their blocks, not extra time.
+
+---
+
+# Week 5 connection
+
+Last week: **Who or what will you study, and how?**
+
+This week: **How will you turn that evidence into an answer?**
+
+With a partner, recall one design decision from your memo.
+
+How might it affect the evidence you obtain?
+
+**By Thursday:** connect an interpretation to identifiable extracts, explain your decisions, and state the limits of your claim.
+
+???
+2 minutes. Ask one pair about question wording or sample access. A leading interview question may shape answers; document selection can exclude important perspectives. Do not reteach all Week5.
+
+---
+
+# Our running example
+
+**Research question**
+
+How do university students decide when to use generative AI while studying?
+
+**Evidence:** fictional interview extracts about study practices, plus a fictional course-policy document.
+
+**Possible contribution:** understanding the conditions under which students describe AI as support or as a substitute for effort.
+
+We are examining **accounts and meanings**, not measuring an effect on learning.
+
+???
+2 minutes. Ask what evidence would be needed to establish an actual learning effect. Test performance with a suitable design, not these interview accounts. Thursday adds other participants, so Tuesday's example is not an answer key.
+
+---
+class: inverse, center, middle
+
+# 1. Preparing qualitative evidence
+
+---
+
+# What counts as qualitative evidence?
+
+| Material | What it may reveal | What needs checking |
+|---|---|---|
+| Interviews / focus groups | experiences and expressed meanings | prompts, audience, interaction |
+| Observation notes | actions in a particular setting | observer role and omissions |
+| Documents | official positions or institutional language | author, purpose, date, audience |
+
+**A document is evidence of what was written.** It does not automatically show what people actually do.
+
+???
+Evidence block12: evidence sources2; transcription3; error challenge3; management2; analytical approach2. Focus group interaction itself can be evidence; don't treat each utterance as an independent survey response.
+
+---
+
+# Transcription is an analytical decision
+
+.pull-left[
+**Transcription:** representing recorded speech in written form.
+
+- For an interview about study practices, readable verbatim text may be suitable.
+
+- For interaction or discourse analysis, pauses, overlap, and delivery may matter.
+
+- Preserve speaker labels, question context, and stable extract IDs.
+
+- Mark uncertainty: `[inaudible 02:14]`; do not invent missing words.
+
+**Translation:** retain the original, identify translated quotations, and document difficult terms.
+]
+
+.pull-right[
+<img src="p1.png" style="width:120%; display: block; margin-left: auto; margin-right: auto;" />
+
+]
+
+???
+3 minutes. No recording is supplied or needed in this lab. Readable verbatim does not justify rewriting someone else's meaning. Explain that transcription detail must match the research purpose; pauses are not universally required or irrelevant. Translation is interpretation as well as language conversion. Source: UK Data Service managing-data tools and templates, https://ukdataservice.ac.uk/learning-hub/teach-with-real-data/teaching-resources-data-management/managing-data-tools-and-templates/
+
+---
+
+# Transcript challenge — 3 minutes
+
+**Fictional original speech:**
+
+> I don't trust it for facts. I do use it to suggest an outline.
+
+**Automatic transcript:**
+
+> I trust it for facts. I don't use it to suggest an outline.
+
+1. Which interpretations would change?
+
+2. What would you check before coding?
+
+3. If you cannot verify the recording, how would you report this?
+
+???
+1 minute alone;1 minute pairs;1 minute debrief. Negation reverses both meanings. Recheck audio and speaker attribution; do not silently repair a transcript on intuition. Retain uncertainty if verification unavailable. Automatic speech recognition creates a draft; it cannot certify accuracy.
+
+---
+
+# A traceable evidence file
+
+Keep separate copies of **original**, **checked**, and **analysis** materials.
+
+| Field | Example |
+|---|---|
+| Source and extract ID | P01, E01 |
+| Context | first-year student; fictional interview |
+| Preparation record | transcript checked; names replaced |
+| Version | checked_v1; coded_v2 |
+| Decision note | removed location, retained relevant context |
+
+Replacing names may leave indirect identifiers. Keep any re-identification key separately and securely.
+
+.tiny[P01 = fictional speaker 1; E01 = extract 1; checked_v1 = first verified transcript; coded_v2 = first coding version]
+???
+2 minutes. Never upload identifiable research material to the public course GitHub repository. A rare role + institution + event can identify someone without a name. De-identification source: https://ukdataservice.ac.uk/data-skills-module/de-identification-and-anonymisation-of-transcript-data/
+
+---
+
+# Choosing an analysis approach
+
+**Thematic analysis:** develops patterns of meaning across evidence.
+
+**Qualitative content analysis:** systematically categorises content; may also examine counts with suitable definitions.
+
+**Narrative or discourse analysis:** may focus on story structure, language, or interaction rather than cross-source themes.
+
+Our lab uses a **structured introductory thematic exercise**, with a revisable coding guide and peer discussion.
+
+???
+2 minutes. This is not a full demonstration of all qualitative traditions. Different approaches have different assumptions and standards. Do not call the classroom workflow a complete Braun/Clarke reflexive thematic analysis: a shared coding guide and consensus exercises are not requirements of that approach. Peer comparison here supports learning, not a reliability score. Source: https://www.thematicanalysis.net/editor-checklist/
+
+---
+class: inverse, center, middle
+
+# 2. Coding and documenting decisions
+
+---
+# Coding means labelling a relevant meaning
+
+**Code:** a short label attached to an evidence segment.
+
+> E01: “I ask AI to explain the lecture differently, then close it and try the problem myself.”
+
+Possible codes:
+
+- seeking an alternative explanation;
+
+- testing independent understanding.
+
+Code enough context to preserve meaning. A segment can receive more than one code.
+
+???
+Coding block18: definition3; orientation3; meaning levels3; individual challenge5; coding guide2; memo2. First read full extract; highlight the clause about closing AI separately if useful. Coding is not computer programming; text code here is a research label.
+
+---
+# Coding approaches can be **semantic** (surface meaning) or **latent** (underlying meaning).
+
+<img src="p4.png" style="width:120%; display: block; margin-left: auto; margin-right: auto;" />
+
+
+> This illustrates one organization of codes, categories, and theory. Coding procedures vary by analytical approach.
+
+
+---
+
+# Inductive and deductive coding
+
+| Orientation | Starting point | Example |
+|---|---|---|
+| Inductive | ideas noticed while reading | “testing independent understanding” |
+| Deductive | a question or conceptual framework | “self-monitoring” from a learning framework |
+| Combined | initial concepts, revised through evidence | separate checking facts from checking understanding |
+
+Even inductive coding is shaped by the research question and the researcher's perspective.
+
+???
+3 minutes. No claim that induction is theory-free. Starting concepts must not become a container into which all evidence is forced. In an actual paper cite the conceptual framework when using one; labels here are illustrative, not a claim to have applied a named validated model.
+
+---
+
+# Description and interpretation
+
+> E02: “When the deadline is close, I paste the question and use the first answer. I tell myself I'll understand it later.”
+
+**Semantic code:** using the first answer under time pressure.
+
+**Possible interpretive code:** postponing learning to complete the task.
+
+**Too far:** “This student is lazy and cannot think critically.”
+
+An interpretive reading needs contextual support and consideration of alternatives.
+
+???
+3 minutes. Ask for an alternative: workload, unclear task, strategic allocation, or lack of confidence. Semantic/latent are analytical orientations, not a quality hierarchy. We cannot infer personality or measured critical-thinking capacity from this extract.
+
+---
+
+# Try coding one extract — 5 minutes
+
+> E03: “I check its citations because once a paper didn't exist. But if the explanation sounds clear, I usually don't check that.”
+
+**Alone — 2 minutes**
+
+1. Mark one or two meaningful segments.
+
+2. Give each a specific code.
+
+**Pairs — 2 minutes:** explain your labels and one alternative.
+
+**Class — 1 minute:** what distinction would “AI trust” hide?
+
+???
+Possible codes: checking citations after an error; accepting fluent explanations without verification. Broad AI trust hides selective verification and the difference between credibility cues and actual checking. Different labels are acceptable if evidence/meaning match.
+
+---
+
+# A useful coding guide
+
+| Code | Meaning / include | Exclude |
+|---|---|---|
+| Checking factual accuracy | compares an AI claim or source with another source | accepting fluent wording |
+| Testing own understanding | attempts or explains a task independently | only comparing two AI answers |
+
+Add an **example ID** and a **revision note**.
+
+If you change a definition, revisit earlier extracts affected by that change.
+
+???
+2 minutes. A coding guide is sometimes called a codebook. For this introductory exercise,3–6 working codes are manageable; this is not a universal number. Explain overlap rules. Real qualitative methods differ in whether they use fixed codebooks, revisable guides, or no shared codebook.
+
+---
+
+# Memos record your reasoning
+
+**An analytical memo** is a short note about an interpretation or decision.
+
+> “E01 checks understanding through an independent attempt, while E03 checks citations but trusts clear explanations. I will separate these practices rather than code both simply as ‘verification’.”
+
+Record:
+
+- what changed and why;
+
+- supporting and challenging extract IDs;
+
+- a question you still need to investigate.
+
+???
+2 minutes. Keep reflections distinguishable from participant quotations. A reflexive memo could note that your own preference for independent work led you to initially overlook legitimate scaffolding. A memo is part of an audit trail, not evidence that eliminates subjectivity.
+
+---
+class: inverse, center, middle
+
+# 3. Categories, themes, and interpretation
+
+---
+
+# Codes, categories, and themes
+
+| Level | Job | Running example |
+|---|---|---|
+| Code | labels a segment | testing own understanding |
+| Category | groups related codes | checking practices |
+| Theme | develops a pattern of meaning answering the question | students apply different standards of checking to sources and explanations |
+
+A theme explains a pattern; it is more than a folder called **“AI use.”**
+
+???
+Themes block15: distinctions3; synthesis path3; theme challenge5; finding paragraph2; boundaries2. Categories can be useful scaffolding in this lab, but are not a mandatory intermediate stage in all thematic analysis. This theme remains provisional until checked against the full corpus. Source: https://www.thematicanalysis.net/understanding-ta/
+
+---
+
+# Developing a theme
+
+**Read across extracts**, not only within one speaker's account.
+
+1. Bring related coded segments together.
+
+2. Ask what connects them—and what differs.
+
+3. Write a provisional pattern as a sentence.
+
+4. Recheck it against full extracts and exceptions.
+
+5. Refine its scope and name.
+
+Return to earlier steps when the evidence challenges your idea.
+
+???
+3 minutes. These are simplified teaching steps, not a verbatim reproduction of Braun/Clarke's six phases. Mention their process as an optional reference in appendix. A theme can be important without being the most frequent; don't require every theme to appear in every case.
+
+---
+
+# Theme challenge — 5 minutes
+
+Using E01–E03, compare these candidates:
+
+**A. “Students use AI.”**
+
+**B. “Students manage the boundary between completing a task and understanding it.”**
+
+**C. “AI destroys independent thinking.”**
+
+In pairs, choose the most promising candidate and:
+
+- name supporting extracts;
+
+- identify what it fails to capture;
+
+- revise one word or phrase to limit the claim.
+
+???
+2 minutes pairs;2 minutes two reports;1 minute synthesis. B is promising, not proven. E01/E02 contrast protected vs postponed understanding; E03 adds selective checking. Candidate revision might be 'These accounts describe different ways of managing...' No observed learning outcomes. A is a topic; C overclaims causal harm.
+
+---
+
+# Writing a qualitative finding
+
+**Pattern → evidence → interpretation → qualification**
+
+> These fictional accounts suggest that students distinguish task completion from independent understanding. E01 describes closing AI before attempting the problem; E02 postpones understanding to meet a deadline. This contrast suggests that time pressure may shape the boundary students describe. The extracts do not establish actual learning outcomes or how common these practices are.
+
+A quotation supports an argument. It does not replace your explanation.
+
+???
+2 minutes. This is a worked teaching interpretation using only three extracts, not a publishable finding. Thursday students must develop their own argument across the expanded corpus. 'May shape' remains interpretation, not identified causal effect.
+
+---
+
+# Claim boundaries
+
+These extracts can support claims about **reported practices**.
+
+They cannot establish:
+
+- how many students in the university behave this way;
+
+- whether AI caused a change in critical thinking;
+
+- whether described checking actually occurred;
+
+- whether one student's experience represents a country.
+
+**Counts of excerpts are not counts of independent people.**
+
+???
+2 minutes. Explain E01/E03 could hypothetically come from the same person; actual appendix contains two extracts each from six fictional speakers. In purposively selected interviews, even participant counts are not population prevalence estimates. No saturation claim is warranted by a tiny invented corpus.
+
+---
+class: inverse, center, middle
+
+# 4. Trustworthiness and triangulation
+
+---
+
+# What makes an interpretation trustworthy?
+
+| Question | Practice |
+|---|---|
+| Is it credible? | check context, rival readings, and exceptions |
+| Is the process traceable? | retain coding revisions and memos |
+| Is it grounded in evidence? | link claims to extracts and decisions |
+| Can readers judge relevance elsewhere? | explain setting, selection, and limits |
+
+These practices support quality. They are not a mechanical guarantee of truth.
+
+???
+Quality block13: overview3; challenge/negative case4; triangulation3; reflexivity3. Common terms are credibility, dependability, confirmability, transferability. Standards depend on analytical tradition. Member reflection may help some studies but participant agreement is not a universal truth test. No universally mandatory reliability calculation or saturation threshold.
+
+---
+
+# An exception can improve your analysis — 4 minutes
+
+Provisional claim: **“Deadlines make students accept AI answers without checking.”**
+
+> E04: “When I have very little time, I avoid AI because checking a plausible wrong answer takes longer than doing the task myself.”
+
+**Pairs:** What happens to the claim?
+
+- Discard E04 as inconvenient?
+
+- Explain an important difference?
+
+- Narrow or replace the theme?
+
+Write one revised sentence.
+
+???
+2 minutes pairs;2 minutes debrief. Appropriate revision: 'Deadline pressure is described as a reason both to shortcut checking and to avoid AI when checking is costly.' It is not proof deadlines cause either choice. An exception can reveal a condition, a contrasting strategy, or a theme's poor fit.
+
+---
+
+# Triangulation: comparing perspectives
+
+**Triangulation** examines evidence from different sources, methods, investigators, or theoretical perspectives.
+
+| Interview account | Course document | Interpretation |
+|---|---|---|
+| “I was unsure whether editing was allowed.” | “AI editing is permitted if disclosed.” | a written rule may not be understood or communicated clearly |
+
+Agreement can strengthen an interpretation. Disagreement may reveal something important.
+
+???
+3 minutes. The table is invented. Do not treat official documents as adjudicating the participant's experience. Triangulation does not automatically establish causal truth; compare the purpose, time and scope of each source. Qualitative interviews plus qualitative documents can be triangulation without being mixed methods.
+
+---
+
+# Reflexivity during analysis — 3 minutes
+
+Imagine you strongly believe that **AI reduces student effort**.
+
+What might you notice first? What might you overlook?
+
+Privately write:
+
+> “My initial expectation was ____. It could lead me to ____. I will check this by ____.”
+
+**A useful response:** deliberately examine accounts of independent practice and alternative explanations.
+
+???
+1 minute writing;1 minute optional pair exchange;1 minute debrief. No personal disclosure required. Reflexivity means examining the researcher's influence, not claiming complete neutrality. Changes should appear in actual coding/interpretation decisions.
+
+---
+class: inverse, center, middle
+
+# 5. Mixed-methods integration and software
+
+---
+
+# Mixed methods require integration
+
+Qualitative and quantitative evidence must inform a **shared research question**.
+
+- **Exploratory sequential:** interviews help develop a survey.
+
+- **Explanatory sequential:** interviews explore an unexpected statistical pattern.
+
+- **Convergent:** analyse both strands, then compare their findings.
+
+Counting words or codes alone does not automatically make a study mixed methods.
+
+???
+Integration/tools block9: mixed designs2; joint display2; software2; practical workflow2; AI1. Source: Fetters, Curry & Creswell (2013), Achieving Integration in Mixed Methods Designs—Principles and Practices, https://doi.org/10.1111/1475-6773.12117. No mandate to use mixed methods in final project. Interviewing after a survey is not integration unless linked to an explanatory purpose.
+
+---
+
+# A joint display connects findings
+
+**Hypothetical example—not observed results**
+
+| Quantitative strand | Qualitative strand | Integrated interpretation |
+|---|---|---|
+| AI-use frequency has a weak association with test scores | students describe both explanation-seeking and answer-copying | frequency alone may combine different practices |
+| association varies by preparation | some describe checking as easier with subject knowledge | preparation may help explain variation; a mechanism needs further testing |
+
+What new question follows? **Measure purposes and checking practices, not only frequency.**
+
+???
+2 minutes. A joint display is a table aligning findings, not a way to convert an interview into causal proof. Different samples, timing, measures or contexts may explain divergence. Findings shown are fully fictional. Fetters et al source as above.
+
+---
+class: small
+
+# Software options
+
+| Tool | Useful role | For this course |
+|---|---|---|
+| Word + Excel / Sheets | annotate text; record extracts, codes, memos | required workflow can use these |
+| [Taguette](https://www.taguette.org/) | highlight/tag documents and retrieve extracts | optional free/open-source route |
+| [QualCoder](https://qualcoder.org/) | code text/media and write memos | optional free/open-source desktop route |
+| [NVivo](https://lumivero.com/products/nvivo/), [MAXQDA](https://www.maxqda.com/), [ATLAS.ti](https://atlasti.com/) | manage coding, queries, retrieval and projects | specialist alternatives; check access |
+
+Software organises evidence. The researcher must justify the interpretation.
+
+???
+2 minutes. No buying or installing required. Verify current institutional licensing if students ask; do not imply Sogang provides any package. Sources: official linked product sites; Taguette getting started; QualCoder overview. Avoid promises about cloud privacy or prices. Word/Excel are familiar course tools, not proprietary features essential to method.
+
+---
+
+# The same workflow in different tools
+
+**Word/Excel:** read text → copy exact extract + ID → add code and memo → filter related codes → inspect full context.
+
+**Taguette:** import a document → define tags → highlight a passage → apply tags → retrieve tagged passages → export work.
+
+**QualCoder or specialist software:** follow the same analytical logic; menus and exports differ.
+
+Always keep a readable export with **source IDs, quotations, codes, and decisions**.
+
+???
+2 minutes. Taguette steps grounded in https://www.taguette.org/getting-started.html. Demonstrate with the fictional corpus only if already set up. Do not spend lab time troubleshooting installations. A software project without readable exports can be difficult for reviewers to inspect.
+
+---
+
+# AI assistance: suggestions need checking
+
+AI can suggest transcript corrections, codes, or alternative readings.
+
+For any suggestion you use:
+
+1. Check it against the **exact extract and context**.
+
+2. Record what you accepted, changed, or rejected.
+
+3. Keep responsibility for your analysis and disclosure.
+
+For Thursday, **complete your own coding first**. External AI uploads of real participant material require appropriate permission and safeguards.
+
+???
+1 minute. This is the exercise rule, not a new course-wide AI policy. Students can finish without AI. Optional audit after class using fictional data only. No promise that any vendor or local model is secure; evaluate actual settings and agreements. AI can fabricate quotations or flatten conflicting accounts.
+
+---
+
+# Preparation for Thursday
+
+Bring a laptop with **Word and Excel**, or an equivalent text editor and spreadsheet.
+
+Read the **fictional lab corpus in the appendix** once.
+
+Create a blank table:
+
+**Extract ID | exact segment | initial code | reason / memo | revised code**
+
+No new interviews, recording, paid software, or personal data are needed.
+
+???
+Preparation block3. Give students the Rmd/HTML or PDF in advance so appendix is accessible. Preparation ~15 minutes; no extra exit ticket. If laptops fail use paper; typed final records can be completed later. LMS deadline is set by instructor, not invented here. Next slide starts Thursday.
+
+---
+class: inverse, center, middle
+
+# Thursday: Coding lab
+
+## Week 6, Meeting 2
+
+---
+
+# Agenda
+
+**Thursday — Week 6, Meeting 2**
+
+1. Read the evidence and establish context
+
+2. Code individually; compare decisions in pairs
+
+3. Develop and challenge themes
+
+4. Write and revise a qualitative finding
+
+5. Submit the individual exercise
+
+**10 students → five pairs.** Your final work is individual.
+
+???
+Orientation5: agenda/outcome2; workflow3. Rest: familiarisation8; coding15; comparison12; themes14; interpretation10; peer revision8; submission3. Transitions included. Appendix corpus visible throughout rather than projected slide by slide.
+
+---
+
+# Today's individual output
+
+**One analysis pack** containing:
+
+- coded evidence table for E01–E12;
+
+- a working guide with 3–6 codes;
+
+- two provisional themes with supporting/challenging IDs;
+
+- a 150–200-word finding;
+
+- a short decision/reflexivity note and AI-use statement.
+
+The fictional policy D01 helps you examine a source discrepancy.
+
+???
+2 minutes including agenda. 3–6 codes/two themes/word count are exercise scaffolds, not universal qualitative requirements. LMS submission one Word/PDF document with tables, or spreadsheet + document. Assess individual judgment; the pair work is feedback. Students may finish formatting at home; no extra real-world data collection.
+
+---
+
+# Starting your evidence table — 3 minutes
+
+1. Open a blank spreadsheet or Word table.
+
+2. Add the five column headings from Tuesday.
+
+3. Preserve E01–E12 and P01–P06 identifiers.
+
+4. Save as `week6_yourname_analysis`.
+
+**What you should see:** one row per segment, with space for a code and memo.
+
+If one extract has two distinct meanings, use two rows with the same ID.
+
+???
+3 minutes. Paste corpus from appendix or pre-posted deck. If software fails, work on paper. Instructor should have a simple blank table available; students can create it without special template. Keep exact extract IDs rather than sequential row numbers mistaken for source IDs.
+
+---
+
+# 1. Familiarisation — 8 minutes
+
+Read **all six speakers' accounts and D01** before coding.
+
+**Alone — 5 minutes:** jot down:
+
+- what seems important for the question;
+
+- a tension or contradiction;
+
+- one missing detail you would want to know.
+
+**Class — 3 minutes:** students share one observation each.
+
+Do not choose your final themes yet.
+
+???
+8 minutes. Note that6 speakers have2 extracts each:12 extracts do not mean12 participants. Some statements refer to the same person in different circumstances. Ask students to read those together. Dataset is invented, purposively constructed for contrasts and has no real recruitment.
+
+---
+
+# 2. Initial coding — 15 minutes
+
+**Alone — 10 minutes**
+
+Code E01–E12 with specific labels. Preserve exact words and relevant context.
+
+**Then — 5 minutes**
+
+Draft a guide with **3–6 working codes**:
+
+**name | meaning | include / exclude | example ID**
+
+Mark uncertain decisions with `?` and a reason.
+
+???
+15 minutes. Circulate around6 pairs but students work independently. Encourage3–6 codes reused where justified; not12 unique labels for12 extracts. No need to code every word. Keep initial table for comparison. If pace slow, reduce polished formatting, not attention to contradictory evidence.
+
+---
+
+# 3. Pair comparison — 12 minutes
+
+**Compare — 5 minutes:** select two extracts where your interpretations differ.
+
+**Discuss — 4 minutes:** is the difference about:
+
+- the segment selected;
+
+- the code's definition;
+
+- a competing interpretation?
+
+**Revise — 3 minutes:** update your own guide and earlier rows; record one changed or retained decision and why.
+
+???
+12 minutes. All6 pairs simultaneously. Students need not reach identical codes. This is a discussion of evidence and reflexivity, not an inter-rater reliability experiment. No kappa calculation. Shared definitions are a classroom scaffold and not a criterion for all reflexive analysis.
+
+---
+
+# 4. Developing themes — 14 minutes
+
+**Alone — 8 minutes:** build two provisional themes.
+
+For each, record:
+
+- a sentence stating its pattern of meaning;
+
+- at least two supporting extracts;
+
+- an exception, tension, or limit;
+
+- how it answers the research question.
+
+**Pairs — 4 minutes:** challenge one theme.
+
+**Class — 2 minutes:** one pair explains a revision.
+
+???
+14 minutes. Consider two different speakers when possible to avoid interpreting one person's repeated account as a cross-case pattern. If no direct counterexample exists, identify the scope/unsupported part, not invent one. No requirement all cases fit; don't pad weak themes just to fill slots.
+
+---
+
+# A theme needs a boundary
+
+**Too broad:** “AI has advantages and disadvantages.”
+
+**More analytical:** “Students describe verification as a cost that changes when AI is worth using.”
+
+Ask:
+
+- Which extracts support this?
+
+- Which practice does it fail to explain?
+
+- Does the wording claim more than our evidence shows?
+
+**Theme names may change while you write.**
+
+???
+Reference within14-minute themes block, not extra time. Candidate linked to E04/E07/E11 but students must verify exact context. Do not give a complete two-theme answer key. Alternative defensible maps welcome.
+
+---
+
+# 5. Interpretation — 10 minutes
+
+Write **150–200 words** answering the running question.
+
+Include:
+
+1. One clear thematic claim.
+
+2. Two exact short quotations with IDs.
+
+3. Your explanation of their relationship.
+
+4. One contrasting extract or rival interpretation.
+
+5. One comparison with D01 and a claim limitation.
+
+State explicitly: **this is analysis of fictional teaching data**.
+
+???
+10 minutes. D01 does not have to support the claim: a meaningful difference is valuable. It cannot tell us compliance rates. A short paragraph is appropriate because only75 minutes. This finding is one component of analysis pack, not the entire final research paper.
+
+---
+
+# 6. Peer feedback and revision — 8 minutes
+
+Exchange findings with your partner.
+
+**Read — 2 minutes:** underline the claim and the evidence.
+
+**Discuss — 3 minutes:**
+
+- Can the claim be traced to the extracts?
+
+- Does the text interpret or only list quotations?
+
+- Is an exception or limitation handled honestly?
+
+**Revise — 3 minutes:** change your own paragraph and record why.
+
+???
+8 minutes. No extra exit ticket. Each student receives one strength and one specific revision suggestion. Check source IDs. Peer review can improve clarity without enforcing a single interpretation.
+
+---
+
+# 7. Submission — 3 minutes
+
+Submit through **Cyber Campus** at the deadline announced there.
+
+Check: coded table; guide; themes; finding; decision note; AI statement.
+
+**Decision note — 3–4 sentences:** describe a coding revision, a possible personal assumption, and a limitation.
+
+**AI statement:** “No AI used,” or identify the tool, task, output used, and verification.
+
+???
+3 minutes. Students can polish formatting after class; instructor sets deadline. Suggested completion time after lab20–30 minutes, not a second study. No invented grading weights. Qualitative exercise belongs to syllabus assessment; do not silently change its weight. An optional AI suggestion audit only follows initial independent analysis and uses fictional corpus.
+
+---
+
+# Connection to your complete research paper
+
+**Methods:** explain evidence selection, preparation, analysis, ethics, and researcher role.
+
+**Results:** present patterns with traceable evidence.
+
+**Discussion:** interpret their significance in relation to literature.
+
+**Limitations:** explain what your evidence cannot establish.
+
+A quantitative final project can still benefit from this exercise in interpretation and research judgment.
+
+???
+Reference during submission block, no additional minutes. Week7 will consider quantitative design and validity. Do not imply qualitative method must appear in every final project. Final assignment remains full individual paper, not a research proposal.
+
+---
+class: inverse, center, middle
+
+# Appendix
+
+## Lab corpus, templates, and reference materials
+
+???
+Everything below is for reference and student access. Not an additional sequence to lecture in75 minutes. No fictional quote should be presented as real interview data in any final project.
+
+---
+class: small
+
+# Lab corpus: context
+
+**All participants, quotations, and policy text are fictional.**
+
+Question: **How do university students decide when to use generative AI while studying?**
+
+P01–P06 are six invented student speakers. Each has two extracts. They represent contrasting accounts for practice, not a sample of actual Sogang students.
+
+The imagined interview asked about recent AI use, checking, time pressure, and course expectations. D01 is an imagined written course policy in the same setting.
+
+We have selected extracts, not full interviews; this limits contextual interpretation.
+
+---
+class: small
+
+# Lab corpus: P01 and P02
+
+**P01 — E01**
+> I ask AI to explain the lecture differently, then close it and try the problem myself.
+
+**P01 — E05**
+> If I can explain the answer to my roommate without opening the chat, I feel I've understood it. Sometimes I discover I can't.
+
+**P02 — E02**
+> When the deadline is close, I paste the question and use the first answer. I tell myself I'll understand it later.
+
+**P02 — E06**
+> For exam revision I do the questions without AI. For a weekly task, finishing can matter more to me than practicing.
+
+---
+class: small
+
+# Lab corpus: P03 and P04
+
+**P03 — E03**
+> I check its citations because once a paper didn't exist. But if the explanation sounds clear, I usually don't check that.
+
+**P03 — E07**
+> In a subject I know, I notice mistakes. In a new subject, I don't really know what I should check.
+
+**P04 — E04**
+> When I have very little time, I avoid AI because checking a plausible wrong answer takes longer than doing the task myself.
+
+**P04 — E08**
+> I use it after I have a draft, to suggest a different structure. I reject suggestions that change what I meant.
+
+---
+class: small
+
+# Lab corpus: P05 and P06
+
+**P05 — E09**
+> One teacher said AI was fine for editing. Another just said don't rely on it. I wasn't sure where editing ended and doing the work began.
+
+**P05 — E10**
+> I started writing down what I used it for. That helped me notice when I had accepted more than grammar changes.
+
+**P06 — E11**
+> I ask two AI tools the same question. When they agree, I usually assume it's right; I don't always open another source.
+
+**P06 — E12**
+> Once both gave the same wrong answer. Now I compare factual claims with the textbook, but I still use them for brainstorming.
+
+---
+
+# Lab corpus: fictional document D01
+
+**Imagined course policy**
+
+> Students may use AI to suggest explanations, brainstorm ideas, or edit language. They must verify factual claims and disclose use. Submitting an AI answer as one's own work without substantive independent engagement is not permitted.
+
+**Source type:** written policy, not participant testimony.
+
+Compare D01 with E09–E10. What differs between a formal rule and a student's account of its meaning?
+
+???
+Not a replacement for the actual course policy. Label fictional on any student submission. No inference that actual Sogang teachers gave inconsistent instructions.
+
+---
+class: small
+
+# Evidence table template
+
+| ID / speaker | Exact segment | Initial code | Reason / memo | Revised code |
+|---|---|---|---|---|
+| E01 / P01 | [copy exact words] | [your label] | [why this label?] | [retain or revise] |
+| … | … | … | … | … |
+
+**Coding guide**
+
+| Code | Meaning | Include / exclude | Example ID | Revision |
+|---|---|---|---|---|
+| [name] | [definition] | [boundary] | [ID] | [change + reason] |
+
+Keep participant quotation and your interpretation in separate columns.
+
+---
+class: small
+
+# Theme worksheet
+
+| Field | Theme 1 | Theme 2 |
+|---|---|---|
+| Provisional name | | |
+| Pattern in one sentence | | |
+| Supporting IDs / speakers | | |
+| Tension, exception, or boundary | | |
+| Connection to question | | |
+
+One extract can inform two themes when you explain the different meanings.
+
+Do not count it as two independent people.
+
+---
+
+# Optional AI audit after independent analysis
+
+Use **fictional text only** and record the tool/date.
+
+Suggested prompt:
+
+> Suggest two possible codes for E07. Quote the exact segment supporting each. Offer an alternative reading and say what cannot be inferred. Do not invent context.
+
+Compare its suggestions with your own. Log one acceptance, revision, or rejection and the evidence behind it.
+
+**No AI is required to complete the exercise.**
+
+---
+class: small
+
+# Another example: central-bank documents
+
+**Invented statement:**
+
+> Inflation remains above target, but tighter financing conditions are slowing demand. Future decisions will depend on incoming data.
+
+Possible codes: persistent inflation concern; demand moderation; conditional policy stance.
+
+**Interpretation question:** how does the statement justify flexibility?
+
+Qualitative reading examines meaning and context. A later dictionary score or statistical analysis answers a different question and needs validation.
+
+???
+Invented text, not a quotation from a central bank. It illustrates document analysis relevant to economics/data science. Do not assume word counts measure stance accurately, or that this text proves policy impact on markets.
+
+---
+class: small
+
+# Another example: public policy documents
+
+**Invented municipal report:** “New housing units will improve affordability.”
+
+**Invented resident account:** “More units opened, but I still cannot afford the rent.”
+
+Codes might distinguish **supply expansion** from **experienced affordability**.
+
+A theme could explore how an official definition differs from residents' experiences.
+
+Further evidence is needed to judge prices, access, or causal policy effects.
+
+???
+All text invented. Compare documents' institutional purpose and residents' situated accounts. No claim the speaker represents all residents. This could inform survey questions or analysis of actual rental data in an approved project.
+
+---
+class: small
+
+# Reference: thematic analysis
+
+Braun and Clarke's reflexive thematic analysis describes a recursive process:
+
+familiarisation; coding; initial themes; developing/reviewing themes; refining/naming themes; writing.
+
+Their approach treats researcher interpretation as central. Themes are developed through analysis rather than found automatically.
+
+Our short lab is an introductory structured exercise; it cannot replace sustained engagement with a real dataset.
+
+[Understanding TA](https://www.thematicanalysis.net/understanding-ta/) · [Doing reflexive TA](https://www.thematicanalysis.net/doing-reflexive-ta/) · [Methodological consistency checklist](https://www.thematicanalysis.net/editor-checklist/)
+
+---
+class: small
+
+# Reading and practical resources
+
+- Braun & Clarke, **Thematic Analysis**: official explanations and teaching resources at [thematicanalysis.net](https://www.thematicanalysis.net/).
+
+- Fetters, Curry & Creswell (2013), **Achieving Integration in Mixed Methods Designs—Principles and Practices**, *Health Services Research*, 48(6 Pt 2), 2134–2156. [Article](https://doi.org/10.1111/1475-6773.12117).
+
+- UK Data Service: [transcription/data-management templates](https://ukdataservice.ac.uk/learning-hub/teach-with-real-data/teaching-resources-data-management/managing-data-tools-and-templates/) and [transcript de-identification](https://ukdataservice.ac.uk/data-skills-module/de-identification-and-anonymisation-of-transcript-data/).
+
+Choose reading relevant to your method; a software tutorial is not a research-method justification.
+
+---
+class: small
+
+# Software guides
+
+[Taguette getting started](https://www.taguette.org/getting-started.html): importing, tagging, retrieval, exports.
+
+[QualCoder overview](https://qualcoder.org/doc/en/1.-Overview/): text/media coding and memos.
+
+[NVivo](https://lumivero.com/products/nvivo/) · [MAXQDA](https://www.maxqda.com/) · [ATLAS.ti](https://atlasti.com/): official product information and help.
+
+Check current access, operating-system support, export options, and data-handling arrangements before choosing a tool.
+
+**Required lab route remains Word/Excel or equivalent.**
+
+???
+Software details checked against official sources October2,2026. No claimed institutional license or prices. No additional compulsory reading assignment beyond posted course instructions. Fonts have local Arial fallback; deck needs xaringan/knitr installed to render, but no separate images, seal, CSS file or dataset. All original teaching examples composed for this deck and explicitly fictional.
+
+
+Original source pictures have not been edited. Students should consult the original publications where possible. The retained screenshots are not substitute evidence for claims beyond the displayed excerpts.
+
+1. To print pdf slides
+library(renderthis)
+
+renderthis::to_pdf("W6_RMDS.html")
+
+getwd()
+setwd("C:\\Users\\vyshn\\OneDrive - kdis.ac.kr\\Documents\\GitHub\\Sogang\\2026\\Fall\\Research Method of Data Science\\W6")
+
