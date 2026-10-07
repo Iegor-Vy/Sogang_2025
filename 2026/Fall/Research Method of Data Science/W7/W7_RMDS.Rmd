@@ -1,0 +1,1163 @@
+---
+title: "Research Method of Data Science"
+subtitle: "Week 7: Quantitative Research Design"
+author: "Iegor Vyshnevskyi, Ph.D."
+institute: "Sogang University"
+date: "October 13/15, 2026"
+output:
+  xaringan::moon_reader:
+    css: xaringan-themer.css
+    chakra: libs/remark-latest.min.js
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: '16:9'
+---
+
+<style>
+@media print{
+  body, html, .remark-slides-area, .remark-notes-area {
+    height: 100% !important;
+    width: 100% !important;
+    overflow: visible;
+    display: inline-block;
+    }
+}
+</style>
+
+<style type="text/css">
+.remark-slide-content {
+    font-size: 34px;
+    padding: 1em 4em 1em 4em;
+}
+</style>
+
+<style type="text/css">
+.my-one-page-font {
+  font-size: 28px;
+}
+</style>
+
+<style type="text/css">
+.my-one-page-font-table {
+  font-size: 24px;
+}
+</style>
+
+<style>
+.tiny { font-size: 60%; }      /* class you can reuse anywhere */
+</style>
+
+<style>
+.remark-slide-content {
+  position: relative;
+  z-index: 1;
+}
+
+.remark-slide-content::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 600px;          /* adjust size */
+  height: 600px;
+  background-image: url("1. 교장(Seal_Positive).png");  /* place logo file in same folder */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: 0.05;         /* watermark transparency */
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 0;
+}
+</style>
+
+
+```{r setup, include = FALSE}
+library(knitr)
+
+opts_chunk$set(fig.width = 10, 
+               message = FALSE, 
+               warning = FALSE,
+               echo = FALSE)
+```
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+#install.packages("xaringanthemer")
+library(xaringanthemer)
+style_mono_accent(
+  base_color = "#851a10",
+  header_font_google = google_font("Josefin Sans"),
+  text_font_google   = google_font("Montserrat", "500", "550i"),
+  code_font_google   = google_font("Fira Mono"),
+  colors = c(
+  red = "#f34213",
+  purple = "#3e2f5b",
+  orange = "#ff8811",
+  green = "#136f63",
+  white = "#FFFFFF"
+)
+)
+```
+
+<style>
+.small { font-size: 26px; }
+.remark-slide-content { padding: 1em 2.4em; }
+.remark-slide-content table { font-size: 25px; border-collapse: collapse; width: 100%; }
+.remark-slide-content th, .remark-slide-content td { padding: 7px 10px; border-bottom: 1px solid #ddd; }
+.remark-slide-content img { max-height: 430px; object-fit: contain; }
+.remark-slide-content::before { z-index: -1; }
+</style>
+
+# Week 7: Quantitative research design
+
+**Tuesday:** making a question measurable and a design credible
+
+**Thursday:** testing and improving your own research design
+
+From a research question to evidence you can defend.
+
+???
+Instructor plan: two 75-minute meetings, 12 undergraduates. Tuesday: opening5 + measurement15 + surveys/sampling16 + data collection18 + validity17 + Thursday preparation4 =75. Thursday: opening5 + alignment draft12 + source audit12 + pair clinic12 + revision12 + midterm review15 + submission7 =75. Section dividers are included in these blocks. Appendix is reference material, not additional lecture content. All numerical cases and source cards are fictional teaching examples. No new grading weights, deadlines, or actual midterm questions are introduced. Adapted from the instructor's W2_rmss.pdf and W3_rmss.pdf: data types, primary/secondary evidence, access methods, sampling, and source evaluation. This week concerns design feasibility; Week9 develops sourcing and Week10 develops cleaning. No actual human-subject collection or live scraping required. Final destination remains the complete individual research paper; qualitative-only projects need not change methods.
+
+---
+
+# Agenda
+
+**Tuesday — Week 7, Meeting 1**
+
+1. From concepts to measurable variables
+
+2. Surveys, sampling, and selection
+
+3. Data collection: sources, downloads, APIs, and scraping
+
+4. Missingness and threats to validity
+
+5. Preparation for the design clinic
+
+Appendix: templates, examples, software, and references
+
+???
+1 minute. Keep the numbered agenda visible in section headings.
+
+---
+
+# From Week 6 to Week 7
+
+Week 6: **How do students describe and interpret their AI use?**
+
+Week 7: **How is a defined measure of AI use associated with a defined measure of learning?**
+
+**Pair discussion — 2 minutes:** What can an interview reveal that a test score cannot? What can a test score reveal that an interview cannot?
+
+???
+Opening total5: agenda1 + pair discussion2 + two responses/transition2. Interviews can reveal reported reasoning and context; scores can summarize performance on specified tasks. Neither automatically measures all learning or establishes causality. Different methods answer different questions.
+
+---
+
+class: inverse, center, middle
+
+# 1. From concepts to measurable variables
+
+
+
+???
+Transition within the block, not an additional timed activity.
+
+---
+
+class: small
+
+# Start with the claim you want to make
+
+| Purpose | Example question | Design implication |
+|---|---|---|
+| Describe | How often do students use AI? | Define population, period, and use |
+| Explain an association | Is AI reliance related to unaided performance? | Measure both; consider alternative explanations |
+| Estimate a causal effect | Does access to an AI tutor change later performance? | Establish a credible comparison |
+
+**Your method must support the claim, not just produce a number.**
+
+???
+2 minutes. Prediction is another purpose: predict a later score from available information. It requires evaluation on data not used to fit the model; predictive success does not establish why. Do not teach modelling now. Random assignment, when feasible, addresses treatment selection; random sampling addresses population coverage.
+
+---
+
+# Concept → operational definition → variable
+
+**Concept:** a theoretical idea, such as AI reliance.
+
+**Operational definition:** the rule used to observe it.
+
+**Variable:** the recorded value for each unit.
+
+Example: number of study tasks in the past seven days completed using AI-generated answers without checking them.
+
+That variable captures **one dimension** of reliance—not the entire concept.
+
+???
+2 minutes. Conceptualization specifies meaning; operationalization translates it into an observable rule. Discuss whether reliance is frequency, dependence, substitution, or checking practices. Operational definitions should follow theory/literature rather than convenient available columns.
+
+---
+
+class: small
+
+# Make the measurement decisions explicit
+
+| Decision | Illustrative choice |
+|---|---|
+| Unit of analysis | Individual university student |
+| Population/context | Students in a specified institution and semester |
+| AI measure | Share of study tasks using unverified AI answers |
+| Learning measure | Score on a later test completed without AI |
+| Time order | Use recorded before the later test |
+| Other relevant variables | Prior achievement, study time, course difficulty |
+
+**Availability is still to be checked.**
+
+???
+2 minutes. The example is a design, not a ready dataset. Unit of observation may differ from unit of analysis: multiple tasks per student require attention to nesting; avoid treating all tasks as independent students.
+
+---
+
+# Reliability and validity are different
+
+**Reliability:** consistency of measurement under relevant conditions.
+
+**Construct validity:** whether evidence supports interpreting the measure as the intended concept.
+
+A consistently recorded **number of AI logins** may be reliable but a weak measure of **dependence on AI**.
+
+A test score can reflect task knowledge, test format, language, or motivation—not only critical thinking.
+
+???
+2 minutes. Repeated observations need not match if the underlying trait changes. Internal consistency alone is not proof of construct validity. Use established measures when appropriate, verify their population/context and permissions, and explain any adaptations.
+
+---
+
+# Measurement repair — pairs, 5 minutes
+
+A student proposes:
+
+> “I will measure critical thinking by asking: How good are you at critical thinking? (1–5)”
+
+1. Identify **two weaknesses**.
+
+2. Suggest a more defensible measurement strategy.
+
+3. Name one limitation that would remain.
+
+Prepare a revised operational definition.
+
+> Hint: consider what the measure actually captures, how it is scored, and what it can and cannot support.
+
+???
+3 minutes pairs +2 minutes two reports. Possible issues: self-perception rather than demonstrated skill; undefined construct; response/social-desirability differences. Repair with specified reasoning tasks and transparent scoring or a suitable validated instrument; use self-report as a distinct construct. Remaining limitations: task specificity, language, scoring, time/cost. Five minutes plus remaining measurement slides6? Block measurement15: claim2 + definition2 + table2 + reliability2 + activity5 + scale2 =15.
+
+---
+
+class: small
+
+# The scale affects what you can do
+
+| Example | Measurement level / caution |
+|---|---|
+| Main study tool | Categories; numeric labels are not quantities |
+| One agreement item: strongly disagree → strongly agree | Ordered categories; spacing is not guaranteed |
+| Number of study sessions | Count; define what counts as a session |
+| Income / housing price | Specify currency, period, inflation adjustment |
+
+Do not treat **missing**, **not applicable**, and **zero** as the same value.
+
+???
+2 minutes. A composite scale can be used with justified construction/scoring and assumptions; a lone Likert-type item is ordinal. No need to survey every measurement taxonomy.
+
+---
+
+class: inverse, center, middle
+
+# 2. Surveys, sampling, and selection
+
+
+
+???
+Transition within the block, not an additional timed activity.
+
+---
+
+# A survey is a measurement instrument
+
+Before opening **Google Forms or Qualtrics**, decide:
+
+- What concept does each item measure?
+
+- Can respondents know and recall the answer?
+
+- Are the period and response options clear?
+
+- Are consent, access, and privacy arrangements appropriate?
+
+**Pilot:** ask a few suitable people how they interpreted the items.
+
+> This helps identify any ambiguities or misinterpretations before the full survey is distributed.
+
+???
+2 minutes. Tools collect responses; they do not validate the instrument. A pilot diagnoses wording and procedures, not population representativeness. No field survey is required this week; instructor approval precedes real collection. Refer to Pew questionnaire guidance in appendix.
+
+---
+
+# Repair the survey item — pairs, 4 minutes
+
+> “Don’t you agree that excessive AI use harms learning and makes students lazy?”
+
+1. Identify the wording problems.
+
+2. Replace it with **one neutral item** measuring a specific behaviour.
+
+3. Add a time period and suitable response options.
+
+> Hint: avoid leading, emotionally loaded, double-barrelled, undefined excessive, and implied causality.
+???
+2 minutes rewrite +2 minutes share. Leading, emotionally loaded, double-barrelled, undefined excessive, implied causality. Example: In the past 7 days, on how many days did you use generative AI for course-related study? 0–7 plus prefer not to answer. This measures frequency, not laziness, learning, or reliance.
+
+---
+
+# Who is included at each stage?
+
+**Target population:** everyone your claim concerns.
+
+**Sampling frame:** the list or mechanism through which they can be reached.
+
+**Selected sample:** those invited or selected.
+
+**Respondents / analytic sample:** those who participate / remain in the analysis.
+
+Example: university students → course email list → invited students → completed responses.
+
+???
+2 minutes. A course list undercovers the university. Respondents can differ from invitees; complete cases can differ from respondents. The four distinctions recur in missingness and scraping.
+
+---
+
+class: small
+
+# Sampling: choose for your purpose
+
+| Strategy | What it involves | Main concern |
+|---|---|---|
+| Simple random | Chance selection from a defined frame | Frame coverage and nonresponse |
+| Stratified random | Random selection within defined groups | Group sizes and weighting |
+| Cluster | Select groups, then all/some members | Dependence within groups |
+| Convenience / volunteer | Accessible people or self-selected participants | Selection and generalization |
+
+A large convenience sample is still a convenience sample.
+
+???
+2 minutes. Probability sampling requires known nonzero inclusion probabilities within the target frame; costs and incomplete frames matter. Purposive sampling useful in qualitative inquiry is not automatically an error; its inferential purpose differs. Systematic, quota, snowball detail in appendix.
+
+---
+
+# Random selection ≠ random assignment
+
+**Random selection:** who enters the sample?
+
+→ supports population inference, subject to coverage and response.
+
+**Random assignment:** who receives an intervention?
+
+→ supports a causal comparison under relevant assumptions.
+
+You can have either, both, or neither.
+
+> Example: A study might randomly select participants from a population (random selection) and then randomly assign them to different treatment groups (random assignment).
+
+???
+2 minutes. Volunteer students randomly assigned to AI access may support an effect within that recruited sample without representing all universities. Assignment does not eliminate attrition, interference, noncompliance, or measurement concerns.
+
+---
+
+# Selection challenge — 4 minutes
+
+A link is posted in an AI enthusiasts’ group. **800 students** respond.
+
+The researcher concludes: “University students frequently rely on AI.”
+
+In pairs:
+
+1. Who is the target population? Who can enter the sample?
+
+2. Does 800 solve the selection problem?
+
+3. Rewrite the claim and suggest one design improvement.
+
+> Hint: consider the frame, recruitment, and nonresponse.
+
+???
+2 minutes pair work +2 minutes debrief. Bound claim to responding group members if measurement supports it. Obtain broader frame/recruitment, report coverage, consider stratified random invitations; nonresponse remains. Large sample reduces random variability under a model, not systematic selection bias. Surveys/sampling16:2+4+2+2+2+4.
+
+---
+
+class: inverse, center, middle
+
+# 3. Data collection: sources and access methods
+
+
+
+???
+Transition within the block, not an additional timed activity.
+
+---
+
+# Primary and secondary: origin and purpose
+
+**Primary data:** collected specifically for your study.
+
+Examples: your approved survey, experiment, or observation protocol.
+
+**Secondary data:** existing records reused for your question.
+
+Examples: official statistics, an existing survey, administrative records.
+
+**API and scraping describe how you access data—not automatically whether the study uses primary or secondary evidence.**
+
+.tiny[API = application programming interface, a documented way for software to request information. Scraping = automated extraction of permitted page content. Both can be used for primary or secondary data collection.]
+
+???
+2 minutes. A survey delivered online is primary if designed for this study. Existing survey data downloaded online are secondary. Scraping existing listings creates a new assembled dataset from pre-existing records; state origin and collection process rather than relying on labels.
+
+---
+
+class: small
+
+# Data structure changes the possible question
+
+| Structure | Example unit / time | Can support… |
+|---|---|---|
+| Cross-section | Many students measured once | Differences at a given period |
+| Time series | Vietnam measured annually | Changes over time in one unit |
+| Panel | Provinces measured repeatedly | Within-unit and between-unit patterns |
+
+**2015–2025 inclusive gives only 11 annual observations for one country.**
+
+???
+2 minutes. Small time series cannot sustain a heavily parameterized model; serial dependence matters. Panel is not automatically causal. Mixed geography/time/definitions cannot be joined merely because column names look compatible.
+
+---
+
+class: small
+
+# Choose the simplest adequate access route
+
+| Route | When useful | Tools |
+|---|---|---|
+| Download CSV / Excel | Provider supplies a documented table | Browser, Excel, pandas |
+| API | Structured, repeatable requests are supported | Colab, Python requests |
+| HTML extraction | Needed information is in permitted page content | pandas.read_html, Beautiful Soup |
+| Manual coding | Small set needs interpretation | Excel, Word, coding log |
+
+A downloaded table can be more suitable than a complex scraper.
+
+???
+2 minutes. API = application programming interface, a documented way for software to request information. CSV = plain-text table. APIs may limit requests, paginate, require credentials, or return revised data. No paid software/install mandatory.
+
+---
+
+# An API request has a research specification
+
+World Bank example: **Vietnam population, 2015–2025**
+
+```text
+https://api.worldbank.org/v2/country/VNM/indicator/SP.POP.TOTL?date=2015:2025&format=json
+```
+
+Specify **country + indicator + period + format**.
+
+Then check units, definitions, coverage, missing values, and revisions.
+
+Population is a possible **denominator**—not a measure of MNC activity.
+
+???
+2 minutes. URL split for display only; use the complete link in appendix. JSON is a structured data format. Read API metadata/pagination rather than assuming all responses are a complete table. No live request needed; instructor can show browser response optionally. Source official World Bank docs.
+
+---
+
+# Web scraping: extraction is only the beginning
+
+**Web scraping:** using software to extract information from web pages.
+
+Example: collect advertised rent, area, and listing date.
+
+But ask:
+
+- Are these unique properties or duplicate advertisements?
+
+- Are prices asking prices or completed transactions?
+
+- Which neighbourhoods, platforms, and dates are covered?
+
+- What information is absent or changes over time?
+
+???
+2 minutes. A marketplace is a selected observation system, not a census of housing. Repeated snapshots require dates and stable IDs. Coverage and measurement arise before modelling. Avoid claims about real platform permission or terms.
+
+---
+
+class: tiny
+
+# Scraping demonstration: read a small table
+
+```python
+from io import StringIO
+import pandas as pd
+
+html = """<table>
+<tr><th>id</th><th>rent_krw</th></tr>
+<tr><td>A01</td><td>800000</td></tr>
+<tr><td>A02</td><td>-</td></tr>
+<tr><td>A01</td><td>800000</td></tr>
+</table>"""
+df = pd.read_html(StringIO(html), na_values=["-"])[0]
+```
+
+**Predict:** How many rows? How many unique IDs? What needs checking?
+
+???
+3 minutes including student predictions. Output3rows,2unique IDs, one missing rent. Duplicate ID may be duplicate record or repeated observation; identify which before deleting. Runs offline in Colab with pandas and an HTML parser such as lxml. Literal HTML example, no website access. read_html extracts HTML tables; it does not automatically render JavaScript or retrieve an entire site. Display code not an R execution chunk.
+
+---
+
+# Choose tools—and document access
+
+**Beautiful Soup:** inspect and extract elements from HTML.
+
+**pandas:** import tables and inspect records.
+
+For any automated collection:
+
+- Check provider terms, permissions, and published access guidance.
+
+- Prefer documented downloads/APIs; respect request limits.
+
+- Do not bypass logins or access restrictions.
+
+- Avoid collecting identifiable personal data for this lab.
+
+Save the source, retrieval date, query, and collection code.
+
+???
+2 minutes. Optional advanced frameworks belong in appendix; robots.txt is guidance, not a blanket permission statement. No legal guarantees. Public visibility alone is not permission to republish every record. Store credentials outside notebooks and public repositories. General practice, not legal advice.
+
+---
+
+# Data-source audit — pairs, 3 minutes
+
+For the rent table, decide:
+
+1. What is one row supposed to represent?
+
+2. What metadata are missing?
+
+3. Can it answer “What rent do all city residents pay?”
+
+**One sentence:** “This source can tell us ___, but cannot yet tell us ___.”
+
+> Hint: consider unit, time, geography, definition, and uniqueness.
+
+???
+2 minutes pairs +1 minute one report. Missing context/time/platform/geography/definition and uniqueness. Cannot infer rents actually paid or all households. Data collection18:2+2+2+2+2+3+2+3.
+
+---
+
+class: inverse, center, middle
+
+# 4. Missingness and threats to validity
+
+
+
+???
+Transition within the block, not an additional timed activity.
+
+---
+
+# Missingness is information about the process
+
+Distinguish:
+
+- **Unit nonresponse:** an invited person provides no response.
+
+- **Item nonresponse:** a participant skips a question.
+
+- **Coverage / collection gaps:** some groups, years, or pages are absent.
+
+A blank may mean unknown, withheld, not applicable, or extraction failure.
+
+**First investigate why; then choose and justify a treatment.**
+
+???
+2 minutes. Store missing reasons when possible. Missing values are not zeros. Complete-case deletion or imputation can alter the target sample and require assumptions. Full implementation later in Week10.
+
+---
+
+class: small
+
+# Three missing-data ideas
+
+| Mechanism | Illustrative situation |
+|---|---|
+| MCAR: missing completely at random | Random technical loss unrelated to measured/unmeasured values |
+| MAR: missing at random, conditional on observed data | Missing scores depend on recorded attendance, not on scores after conditioning |
+| MNAR: missing not at random | Low scorers are less likely to provide scores even after accounting for observed variables |
+
+**These are assumptions about the process, not labels proved by a blank cell.**
+
+???
+2 minutes. Examples hypothetical. MCAR strongest; MAR does not mean absence is literally random in ordinary language. Cannot generally establish MAR vs MNAR from observed data alone. Focus on design/prevention and sensitivity, not an imputation recipe.
+
+---
+
+class: small
+
+# What could make your conclusion misleading?
+
+| Threat | Design question |
+|---|---|
+| Measurement / construct validity | Does the variable represent the concept? |
+| Selection | Who is excluded or more likely to enter? |
+| Confounding | What influences both exposure and outcome? |
+| Reverse causality | Could the proposed outcome influence exposure? |
+| Time/history | What else changed during the period? |
+| External validity | To whom and where does the finding apply? |
+
+> Consider the context and generalizability of your findings.
+
+???
+2 minutes. Statistical conclusion validity also includes precision, dependence, model assumptions, multiplicity; appendix. Threats can coexist. Naming them is insufficient: connect each to a concrete mechanism and response.
+
+---
+
+# Before–after ≠ the effect of a policy
+
+**Illustrative design:** Seoul housing prices before and after a tax change.
+
+Prices may also change with interest rates, credit conditions, supply, and expectations.
+
+A stronger design needs a defensible comparison and clear timing.
+
+**Safe question for a limited design:** “How did observed prices change during this period?”
+
+> This question focuses on the observed change without making causal claims.
+
+???
+2 minutes. No claim a specific tax policy existed or achieved a goal. This is a hypothetical policy evaluation design. More credible causal strategies come later; avoid implying adding controls fixes all confounding.
+
+---
+
+# Group-level relationships need group-level claims
+
+Example: provincial immigrant share and reported crime rate.
+
+Check crime definitions, population denominators, reporting, tourism, and time coverage.
+
+An association between provinces does **not** establish that immigrants commit more crime—or that inflows caused a change.
+
+**Ecological inference problem:** group patterns do not identify individual behaviour.
+
+> Do not infer individual-level conclusions from group-level data.
+
+???
+2 minutes. This mirrors a student topic without asserting any factual crime trend. Do not use absolute reported counts when the question concerns rates without explaining exposure/population; visitors complicate denominators. Evidence should not begin with a conclusion about a group.
+
+---
+
+# Validity repair — pairs, 5 minutes
+
+**Fictional study:** 40 volunteers report weekly AI use and their own grades. The researcher writes: “AI improves achievement.”
+
+1. Identify **three specific threats**.
+
+2. Propose **two feasible design improvements**.
+
+3. Rewrite the conclusion within the evidence boundary.
+
+> Hint: consider selection, measurement, confounding, and time order.
+
+???
+3 minutes pairs +2 minutes reports. Threats: volunteer selection, inaccurate self-report, prior attainment confounding, reverse causality, small/one-setting sample, missingness. Improve measurement/time order/broader recruitment/prior achievement and transparent limits; a causal design requires more. Revised claim: in this volunteer sample self-reported AI use was associated with self-reported grades, if analysis shows it. Association direction not supplied so do not invent a positive result.
+
+---
+
+# Repair the design before adding complexity
+
+For each threat, write:
+
+**Threat → mechanism → response → remaining limitation**
+
+Example:
+
+Volunteer bias → enthusiasts respond more often → recruit through a broader frame and report response → nonresponse may still differ.
+
+**No software can recover information that the design never observes.**
+
+???
+2 minutes. Validity17:2+2+2+2+2+5+2. Statistical adjustments can help under assumptions, not remove all design limitations. AI may help suggest threats, but must not invent sources, data, or ethical approval.
+
+---
+
+class: inverse, center, middle
+
+# 5. Preparation for the design clinic
+
+
+
+???
+Transition within the block, not an additional timed activity.
+
+---
+
+# Bring evidence for your individual project
+
+For Thursday, bring:
+
+1. Your current research question.
+
+2. Your literature matrix and **two verified relevant sources**.
+
+3. One candidate dataset/source and its documentation, if found.
+
+4. A draft list of concepts and possible measures.
+
+If a source is unavailable, record **what is missing**.
+
+For qualitative projects: examine a quantitative alternative without being required to adopt it.
+
+???
+4 minutes: recap2 + preparation2. Students can use source cards on Thursday if no usable dataset yet. No need to collect participants, scrape a site, or install software. Questions can evolve. Literature should connect definitions, measures, plausible mechanisms, or design—not serve as decoration.
+
+---
+
+class: inverse, center, middle
+
+# Thursday — Individual research design clinic
+
+
+
+???
+Transition within the block, not an additional timed activity.
+
+---
+
+# Agenda
+
+**Thursday — Week 7, Meeting 2**
+
+1. Build your question–evidence alignment
+
+2. Audit sources and collection feasibility
+
+3. Peer critique and individual revision
+
+4. Midterm review
+
+5. Submit your design-clinic note
+
+Today you improve the design for your **complete individual research project**.
+
+???
+Opening5: agenda1 + outcome/worksheet2 + open documents2. Six pairs for critique; writing and submission remain individual. Preparation documents in Word, Google Docs, Excel, or equivalent. No installation required.
+
+---
+
+# What you will produce today
+
+A short **design-clinic note** containing:
+
+- Question and literature link
+
+- Unit, population/context, and period
+
+- Concepts, variables, and operational definitions
+
+- Source, collection route, and sample/coverage
+
+- Method, main threats, and defensible claim boundary
+
+- Changes made after feedback and next action
+
+Use the appendix template. **This is a working design note, not a new full proposal.**
+
+???
+Included in opening5. No invented page limit/deadline/grade. Students may use one table with short explanatory paragraphs. A qualitative-only project may supply its actual design plus a brief alternative quantitative design for practice.
+
+---
+
+# Individual alignment draft — 12 minutes
+
+Use your own question and two verified sources.
+
+1. State the claim purpose, unit, context, and period.
+
+2. Define your main concepts and proposed measures.
+
+3. Explain what each source contributes to your design.
+
+4. Identify the evidence and comparison your answer needs.
+
+**Underline one decision you cannot yet justify.**
+
+???
+8 minutes drafting +4 instructor circulation/checkpoint. Do not silently assert source findings not checked. Method can be descriptive comparison, association analysis, survey, experiment, or another justified approach. No regression required this week. Ask whether outcomes/units/data actually match the question.
+
+---
+
+# Source audit — 12 minutes
+
+Audit your source or use the fictional cards in the appendix.
+
+Check **origin, variables, unit, coverage, time, access, missingness, and documentation**.
+
+Choose an access route: download, API, permitted extraction, or planned primary collection.
+
+Write:
+
+> “This source fits ___; it does not provide ___. I would need ___ before analysis.”
+
+???
+7 minutes audit +3 collection plan +2 checkpoint. Do not spend all12minutes on internet searching. If unavailable, use the supplied cards and record project-specific unanswered needs. Feasibility includes time, permissions, instrument/access burden. No real collection necessary.
+
+---
+
+# Peer design clinic — 12 minutes
+
+**Six pairs; six minutes per student.**
+
+- **2 minutes:** explain your alignment and one uncertainty.
+
+- **3 minutes:** partner checks the design using the checklist.
+
+- **1 minute:** agree on the highest-priority revision.
+
+Partner feedback:
+
+**One coherent link · one mismatch · one feasible repair**
+
+???
+12 minutes exactly. Rotate at6. Feedback concerns evidence and claims, not personal interest. Give priority to fatal unit/measure/access mismatches rather than style. Use appendix checklist; instructor circulates.
+
+---
+
+# Individual revision — 12 minutes
+
+Revise your own note using the feedback.
+
+1. Repair the most important mismatch.
+
+2. Add **two threats** and a response to each.
+
+3. State what your study can and cannot conclude.
+
+4. Write your next feasible action.
+
+**Keep a short revision log:** changed ___ because ___.
+
+???
+9 minutes individual +3 two brief voluntary examples. A legitimate revision is narrowing a question or changing a measure/source rather than promising an inaccessible causal design. Unresolved constraints should be explicit.
+
+---
+
+# Midterm review — what to practise
+
+Practise explaining and evaluating:
+
+- Research questions, problems, and contribution
+
+- Literature synthesis and verified sources
+
+- Qualitative coding, interpretation, and evidence boundaries
+
+- Measurement, sampling, data-source fit, and validity
+
+- Transparent workflows and verification
+
+**Official scope, format, permitted tools, and AI rules follow the instructor’s assessment instructions.**
+
+???
+Part of15minute review. This is a skills recap across material taught, not announcement of exam questions or a new policy. Spend2minutes orientation, then8minutes individual work on next slide and5minutes discussion. Do not promise software formats not confirmed.
+
+---
+
+class: small
+
+# Midterm practice — 8 minutes individually
+
+**1. Literature:** Fictional Source A finds better assisted task scores; Source B finds no difference on a later unaided test. Write a synthesis without treating the results as identical outcomes.
+
+**2. Qualitative:** “AI helps me begin, but I attempt the problem myself before asking.” Suggest a code and a bounded interpretation.
+
+**3. Design:** A survey of one class measures AI use and self-rated learning once. Identify one measurement issue, one selection issue, and a defensible claim.
+
+???
+8 minutes individual;5minutes debrief after. Model1: distinguish immediate assistance from retained performance; different outcomes/designs may explain apparent disagreement, not prove it. Model2: attempt-before-assistance/AI as starting support; one speaker describes a sequence, not prevalence or effect. Model3: self-rated learning not demonstrated learning; one class does not represent all students; associations in respondents only, if measured/analyzed appropriately. Fictional source findings do not cite as real literature.
+
+---
+
+# Submit your design-clinic note — 7 minutes
+
+Check that your note includes:
+
+✓ Question–literature–data–variable–method alignment
+
+✓ Source and access plan; sampling/coverage boundaries
+
+✓ Two threats and responses; limits of the claim
+
+✓ Peer-feedback revision and next action
+
+Submit individually through **Cyber Campus**, following the posted instructions.
+
+???
+7 minutes final check/save/submission. If no submission link is posted, save and follow instructor direction rather than inventing channel/deadline. Thursday5+12+12+12+12+15+7=75. No separate exit ticket.
+
+---
+
+class: inverse, center, middle
+
+# Appendix — clinic materials and references
+
+
+
+???
+Transition within the block, not an additional timed activity.
+
+---
+
+class: small
+
+# Design-clinic template
+
+| Field | Your decision and justification |
+|---|---|
+| Question / claim purpose | What exactly will you answer? |
+| Literature link | Which verified sources support definitions/design? |
+| Unit / population / period | Who or what; where; when? |
+| Concepts / measures | Operational definition and limits |
+| Source / access / sample | Where evidence comes from; who is included |
+| Method / comparison | How evidence will answer the question |
+| Threats / responses | Two mechanisms; repairs; residual limitations |
+| Claim boundary / next step | What you cannot infer; immediate action |
+
+???
+Reference only. Students can copy into Word/Docs and add rows for separate measures. For qualitative-only projects include actual evidence/analysis and briefly compare a hypothetical quantitative option.
+
+---
+
+class: tiny
+
+# Operationalization worksheet
+
+| Concept | Definition from literature | Observable rule | Unit / period | Limitation |
+|---|---|---|---|---|
+| AI use frequency | How often AI is used for studying | Days used in past 7 days (0–7) | Student/week | Recall; not reliance |
+| Reliance | Using AI in place of own effort | Requires a justified instrument or observable protocol | Specify | Not established by login count |
+| Learning | Performance on specified learning objectives | Scored unaided tasks | Student/test | Task and scoring dependence |
+
+Examples are illustrative; adopt measures only after justification.
+
+???
+Reference. Do not claim invented reliance instrument validated. Add definitions/units/missing codes and scoring rule to a data dictionary.
+
+---
+
+class: small
+
+# Fictional source cards: AI and learning
+
+| Card | Evidence available | Limitations |
+|---|---|---|
+| A: volunteer survey | 80 students, one course; weekly use; self-rated learning | No objective test; self-selection; one time point |
+| B: study records | 120 consenting students; baseline and later unaided scores; AI-use log | Participation/access uncertain; log not reliance; no random assignment |
+| C: public aggregate | Annual national internet-use share | Wrong unit, population and construct for student learning |
+
+Which fits an **association** question best? Which cannot answer it?
+
+???
+Fictional, no downloads or factual results. B potentially more aligned but access/measurement/confounding remain. A supports only narrower self-report question. C cannot be merged into individual scores to infer individual relationship. Students choose based on their exact question, not a universal best source.
+
+---
+
+class: small
+
+# Fictional source cards: MNCs and Vietnam
+
+| Card | Evidence available | Fit issue |
+|---|---|---|
+| D | Annual total FDI inflows, exports, GDP growth: 2015–2025 | 11 years; FDI not identical to MNC manufacturing |
+| E | Provincial manufacturing investment and output: five years | Potential panel; definitions, overlap and access need checking |
+| F | News articles about selected factory openings | Selected events; not a complete investment series |
+
+Narrow the claim before increasing model complexity.
+
+???
+All cards fictional. Actual coverage must be verified. E does not automatically provide MNC status or causal identification. F can provide context/document evidence, not an unbiased numerical total. Changing from national to provincial question is a substantive redesign.
+
+---
+
+class: small
+
+# Peer clinic checklist
+
+Ask your partner:
+
+1. Does the question specify the intended claim?
+
+2. Do the literature, concepts, and measures connect?
+
+3. Do source units, population, and period match?
+
+4. Is collection feasible and appropriately authorized?
+
+5. Who/what could be systematically missing?
+
+6. Does the method support the claim?
+
+7. Is the main limitation explicit?
+
+**Recommend one priority repair, not a completely different project.**
+
+???
+Reference during pair clinic.
+
+---
+
+class: small
+
+# A minimum data-source log
+
+Record:
+
+- Provider, original dataset title, source URL, retrieval date
+
+- Definition of one row; geography; period; coverage
+
+- Variable definitions, units, missing codes, revisions
+
+- Access route, query/filter, file version, usage conditions
+
+- Transformations and checks; storage location
+
+Keep raw files unchanged; document derived files separately.
+
+???
+Reference. Data provenance = documented origin and transformations. Public GitHub course/project repositories must not contain credentials, identifiable survey/interview records, or restricted data. If data cannot be shared, document access/reconstruction appropriately.
+
+---
+
+class: small
+
+# Software: what each tool contributes
+
+| Task | Accessible option | Research responsibility |
+|---|---|---|
+| Instrument draft | Word / Google Docs | Wording and measurement |
+| Survey delivery | Forms / Qualtrics, subject to access | Sampling, consent, storage |
+| Metadata / dictionary | Excel / Sheets | Definitions and missing codes |
+| Data access / inspection | Colab + pandas / requests | Source fit and reproducibility |
+| HTML parsing | Beautiful Soup / pandas | Coverage and extraction checks |
+| Literature links | Zotero + your matrix | Verify original sources |
+
+Advanced scraping frameworks are optional, not required.
+
+???
+Software names are examples, not claims of university license availability. Colab permits browser-based Python. Scrapy can support larger crawls; Playwright can automate browser interaction where appropriate, but neither solves selection or permissions. Omit live demos of them unless instructor has checked current official docs.
+
+---
+
+class: small
+
+# Other sampling approaches
+
+| Approach | Example | Caution |
+|---|---|---|
+| Systematic | Every kth record after a random start | Periodicity; frame order |
+| Quota | Recruit until subgroup targets are met | Usually nonprobability within groups |
+| Snowball | Participants refer others | Network dependence and exclusions |
+| Purposive | Select information-rich cases | Explain selection and inferential purpose |
+
+Choose according to the question; explain the consequences for inference.
+
+???
+Reference adapted from older sampling material, not all taught in Tuesday block. Stratified random differs from quota because within-stratum selection is probabilistic.
+
+---
+
+# Validity: a final reference map
+
+**Construct validity:** meaning of the measures.
+
+**Internal validity:** credibility of a causal interpretation.
+
+**External validity:** applicability across populations/settings.
+
+**Statistical conclusion validity:** whether analysis supports the numerical conclusion, given precision and assumptions.
+
+A good project makes a modest, supported claim rather than a broad, fragile one.
+
+???
+Reference. Internal validity language particularly applies to causal studies. Descriptive/associational projects still require sound measurement, coverage, data, analysis, and evidence boundaries.
+
+---
+
+class: small
+
+# Verified methods and software references
+
+- [Pew Research Center: writing survey questions](https://www.pewresearch.org/writing-survey-questions/)
+
+- [AAPOR: best practices for survey research](https://aapor.org/standards-and-ethics/best-practices/)
+
+- [World Bank: Indicators API documentation](https://datahelpdesk.worldbank.org/knowledgebase/articles/889392)
+
+- [pandas: read_html documentation](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_html.html)
+
+- [Beautiful Soup: documentation](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
+
+Consult original source documentation before adopting data or code.
+
+???
+Reference links checked October2026. Instructor source material: W2_rmss.pdf and W3_rmss.pdf. The older classification of electronic surveys as a secondary-data access method is corrected: classification depends on the collection purpose. Examples updated to the current individual-project course.
+
+---
+
+class: tiny
+
+# Example API URL and Python follow-up
+
+[Vietnam population, 2015–2025: World Bank API](https://api.worldbank.org/v2/country/VNM/indicator/SP.POP.TOTL?date=2015:2025&format=json)
+
+Optional later exploration:
+
+```python
+import requests
+url = "https://api.worldbank.org/v2/country/VNM/indicator/SP.POP.TOTL"
+r = requests.get(url, params={"date": "2015:2025",
+                             "format": "json"}, timeout=30)
+r.raise_for_status()
+payload = r.json()
+# Inspect metadata, records, missing values and pagination.
+```
+
+**Network-dependent illustration; not required for the clinic.**
+
+???
+Code syntax checked, live API results not used as a course dataset. Response schemas/errors must be inspected. Do not assert an exact number of nonmissing values. WorldBank URL has supported date and format arguments.
+
+1. To print pdf slides
+library(renderthis)
+
+renderthis::to_pdf("W7_RMDS.html")
+
+getwd()
+setwd("C:\\Users\\vyshn\\OneDrive - kdis.ac.kr\\Documents\\GitHub\\Sogang\\2026\\Fall\\Research Method of Data Science\\W7")
+
