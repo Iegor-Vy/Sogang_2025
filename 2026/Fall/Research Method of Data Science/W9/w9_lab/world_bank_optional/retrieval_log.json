@@ -1,0 +1,26 @@
+{
+  "provider": "World Bank",
+  "dataset": "World Development Indicators",
+  "indicator": "NY.GDP.PCAP.KD",
+  "indicator_label": "GDP per capita (constant 2015 US$)",
+  "retrieved_utc": "2026-10-25T06:30:34.790388+00:00",
+  "queries": [
+    "https://api.worldbank.org/v2/country/KOR;VNM/indicator/NY.GDP.PCAP.KD?date=2019%3A2023&format=json&per_page=50&source=2&page=1"
+  ],
+  "provider_response_metadata": [
+    {
+      "page": 1,
+      "pages": 1,
+      "per_page": 50,
+      "total": 10,
+      "sourceid": "2",
+      "lastupdated": "2026-10-08"
+    }
+  ],
+  "raw_response_hashes": [
+    "99fb92b0292a26304681451b280e0a1e0bb68769e55a1b3caef0f657bf68f54f"
+  ],
+  "indicator_page": "https://data.worldbank.org/indicator/NY.GDP.PCAP.KD",
+  "terms_page": "https://www.worldbank.org/ext/en/legal/terms-conditions/datasets",
+  "license_note": "Indicator page displays CC BY 4.0; check current source-specific terms before sharing"
+}

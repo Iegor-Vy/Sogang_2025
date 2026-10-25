@@ -1,0 +1,992 @@
+---
+title: "Research Method of Data Science"
+subtitle: "Week 9: Finding and Validating Quantitative Data"
+author: "Iegor Vyshnevskyi, Ph.D."
+institute: "Sogang University"
+date: "October 27/29, 2026"
+output:
+  xaringan::moon_reader:
+    css: xaringan-themer.css
+    chakra: libs/remark-latest.min.js
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: '16:9'
+---
+
+<style>
+@media print{
+  body, html, .remark-slides-area, .remark-notes-area {
+    height: 100% !important;
+    width: 100% !important;
+    overflow: visible;
+    display: inline-block;
+    }
+}
+</style>
+
+<style type="text/css">
+.remark-slide-content {
+    font-size: 34px;
+    padding: 1em 4em 1em 4em;
+}
+</style>
+
+<style type="text/css">
+.my-one-page-font {
+  font-size: 28px;
+}
+</style>
+
+<style type="text/css">
+.my-one-page-font-table {
+  font-size: 24px;
+}
+</style>
+
+<style>
+.tiny { font-size: 60%; }      /* class you can reuse anywhere */
+</style>
+
+<style>
+.remark-slide-content {
+  position: relative;
+  z-index: 1;
+}
+
+.remark-slide-content::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 600px;          /* adjust size */
+  height: 600px;
+  background-image: url("1. 교장(Seal_Positive).png");  /* place logo file in same folder */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: 0.05;         /* watermark transparency */
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 0;
+}
+</style>
+
+
+```{r setup, include = FALSE}
+library(knitr)
+
+opts_chunk$set(fig.width = 10, 
+               message = FALSE, 
+               warning = FALSE,
+               echo = FALSE)
+```
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+#install.packages("xaringanthemer")
+library(xaringanthemer)
+style_mono_accent(
+  base_color = "#851a10",
+  header_font_google = google_font("Josefin Sans"),
+  text_font_google   = google_font("Montserrat", "500", "550i"),
+  code_font_google   = google_font("Fira Mono"),
+  colors = c(
+  red = "#f34213",
+  purple = "#3e2f5b",
+  orange = "#ff8811",
+  green = "#136f63",
+  white = "#FFFFFF"
+)
+)
+```
+
+<style>
+.small { font-size: 26px; }
+.remark-slide-content { padding: 1em 2.4em; }
+.remark-slide-content table { font-size: 25px; border-collapse: collapse; width: 100%; }
+.remark-slide-content th, .remark-slide-content td { padding: 7px 10px; border-bottom: 1px solid #ddd; }
+.remark-slide-content img { max-height: 430px; object-fit: contain; }
+.remark-slide-content::before { z-index: -1; }
+</style>
+
+# Week 9: Finding and validating quantitative data
+
+**Tuesday:** how to judge and document a data source
+
+**Thursday:** import, inspect, document, and validate
+
+Companion notebook: **W9_RMDS_Data_Source_Lab.ipynb**
+
+This week’s output: a documented source decision for your individual research project.
+
+???
+Two 75-minute meetings, 12 undergraduates. Tuesday blocks: opening5 + source fit14 + provenance/metadata15 + licensing/access15 + validation20 + preparation6 =75. Thursday: setup5 + import10 + documentation8 + validation15 + decision7 + project application20 + peer check7 + submission3 =75. Section dividers are included in blocks. Appendix is optional reference, not lecture time. Student practice table and source cards are fictional. Core notebook requires Python/pandas only, no network or separate files. Live World Bank API is optional and disabled by default. Qualitative final projects may audit a quantitative contextual source without changing method. This is a data-source milestone for a full individual paper, not a new proposal. Week10 handles cleaning and visualization in depth. No invented dates, grade weights, or license claims for unverified datasets.
+
+---
+
+# Agenda
+
+**Tuesday — Week 9, Meeting 1**
+
+1. Finding a source that fits your question
+
+2. Provenance, metadata, and revisions
+
+3. Licensing and access through downloads and APIs
+
+4. Validation and source decisions
+
+5. Preparation for Thursday
+
+Appendix: source log, checklist, software, and references
+
+???
+Use the numbered agenda to distinguish the two meetings. Tuesday opening uses 1 minute for the agenda. Thursday opening uses 1 minute for agenda, 3 minutes to open and save a personal notebook, and 1 minute to run setup.
+
+---
+
+# After the midterm: the next research decision
+
+Week 7: **What evidence would answer your question?**
+
+Week 9: **Does the available dataset actually supply it?**
+
+**Think, pair, share — 3 minutes**
+
+Name one variable your project needs. What would you check before trusting a column with that name?
+
+???
+Opening remaining4: one-minute framing,1minute individual,1minute pair,1minute two reports. No assumption students have received exam grades. Expect definitions, unit, coverage, year, missing codes. Use two examples to connect to source fit.
+
+---
+
+class: inverse, center, middle
+
+# 1. Finding a source that fits your question
+
+
+
+???
+Transition included in the block timing.
+
+---
+
+# A search specification narrows the task
+
+Before searching, write:
+
+- Question and intended claim
+
+- Unit, population or geography, and observation period
+
+- Concept and acceptable measure or proxy
+
+- Required frequency and comparisons
+
+Example: **district-level household waste and recycling, annually, 2021–2024**.
+
+A proxy needs a reason and a stated limitation.
+
+???
+3 minutes. The district example is fictional. Distinguish study unit from a row: one district repeated across years. Example student topics: FDI not equivalent to MNC manufacturing, current-dollar exports not real export volume. No fresh findings about countries implied.
+
+---
+
+class: small
+
+# Discovery and evidence have different roles
+
+| Starting point | What to do next |
+|---|---|
+| Literature article | Trace its dataset, sample, definitions, and access |
+| Data portal | Find the original table and producer |
+| Dataset search / repository | Check provenance, version, documentation and rights |
+| AI search suggestion | Locate and verify the actual source |
+
+A search result or AI answer cannot establish a dataset’s coverage.
+
+> provenance is the documented origin and history of the evidence, not a guarantee of accuracy.
+
+???
+2 minutes. Do not dismiss repositories as inherently weak; a curated repository can offer a strong archived dataset. The requirement is traceability. Never accept generated data values or invented tableIDs as a downloaded dataset.
+
+---
+
+class: small
+
+# Useful places to begin
+
+| Research need | Examples of starting points |
+|---|---|
+| Korea population, labour, regions | [KOSIS](https://kosis.kr/eng/) |
+| Cross-country development indicators | [World Bank data](https://data.worldbank.org/) |
+| Economic and financial series | [FRED](https://fred.stlouisfed.org/) |
+| Historical economic data | [OECD Data](https://data.oecd.org/) |
+| International trade data | [UN Comtrade](https://comtrade.un.org/) |
+| A published study’s data | Journal archive or linked repository |
+
+Check the specific table’s definitions and rights. Access conditions vary.
+
+???
+2 minutes. Verified portal links, not guarantees a student variable exists. FRED often redistributes series from other producers; cite relevant series source. Do not require paid terminals or API credentials. Students can begin with portal search and a native download.
+
+---
+
+class: small
+
+# Fit means more than a familiar column name
+
+| Check | A possible mismatch |
+|---|---|
+| Concept / measure | Foreign direct investment inflows versus Multinational Corporation manufacturing activity |
+| Unit / geography | National totals versus provincial comparisons |
+| Population / coverage | Platform listings versus all housing transactions |
+| Time / frequency | Annual averages versus a policy change within a month |
+| Definitions / units | Income versus consumption; current versus constant prices |
+
+Record the mismatch before choosing an analysis.
+
+???
+3 minutes. No full cleaning or causal strategy today. Public platforms often have selection limits. Constant prices remove price changes relative to a reference basis; not automatically PPP comparable across countries.
+
+---
+
+# Source choice challenge — pairs, 4 minutes
+
+**Question:** How did household waste per registered household vary across districts, 2021–2024?
+
+**A:** annual district waste totals and registered households, with documentation.
+
+**B:** national recycling percentage, 2010–2025.
+
+**C:** a survey of volunteers’ environmental attitudes this month.
+
+Choose a candidate. Identify one further check before accepting it.
+
+> Hint: the question asks for a district-level measure, not a national average or a survey of attitudes.
+
+???
+2minutes pair +2minutes report. A best initial fit, but coverage of household waste, households reference date, administrative boundaries, missing years, rights remain. B wrong unit/measure; C attitudes not actual district waste. Fictional cards. Sourcefit14=3+2+2+3+4.
+
+---
+
+class: inverse, center, middle
+
+# 2. Provenance, metadata, and revisions
+
+
+
+???
+Transition included in the block timing.
+
+---
+
+# Provenance records where the data came from
+
+**Provenance:** the documented origin and history of the evidence.
+
+For a downloaded series, distinguish:
+
+- **Producer:** who collected or estimated it
+
+- **Distributor:** where you obtained it
+
+- **Your actions:** filters, downloads, conversions and later changes
+
+Example: original statistical agency, portal distribution, your country-year selection.
+
+???
+3 minutes. A paper citing a portal homepage is not sufficient when table/series details exist. A source log should let another researcher recover or understand the starting point. API response source metadata may list provider/estimation notes.
+
+---
+
+class: small
+
+# Metadata make the numbers interpretable
+
+**Metadata:** information describing the dataset and its fields.
+
+| Field | Why it matters |
+|---|---|
+| Unit and definition | What exactly does the number represent? |
+| Geography and population | Who or what is covered? |
+| Frequency and period | Are observations comparable in time? |
+| Missing and suppression codes | Does a symbol mean unknown, withheld, or zero? |
+| Method and revision notes | Has construction or coverage changed? |
+
+???
+3 minutes. Metadata include datasetlevel and variablelevel information. Different providers may harmonize underlying definitions in different ways; compare documentation rather than guessing which is wrong.
+
+---
+
+# Four dates that can differ
+
+**Observation period:** when the measured activity occurred.
+
+**Release date:** when the producer published the estimate.
+
+**Update/version date:** when the distributed dataset changed.
+
+**Retrieval date:** when you obtained your copy.
+
+A download today can contain revised estimates for earlier years.
+
+???
+2 minutes. Do not describe a file collected today as a genuine historical vintage. A latest series cannot by itself tell what researchers knew years ago. A local archive/hash supports reproducibility from the retrieval date forward, not prior availability.
+
+---
+
+# A source log and a dictionary do different jobs
+
+**Source log**
+
+Provider, title, series/table ID, URL, version, retrieval date, filters, access terms, file location.
+
+**Data dictionary**
+
+Variable, definition, unit, type, allowed values, missing codes, coverage notes.
+
+Keep both beside the notebook.
+
+???
+3 minutes. Show notebook Sections2/4 briefly or explain. CSV dictionary readable inExcel; JSON source log readable machine format. Students may use Markdown/Word alternatives if they contain the same information. Do not imply Zotero replaces dataset documentation.
+
+---
+
+# Metadata puzzle — pairs, 4 minutes
+
+A source contains:
+
+```text
+district_code = NA
+year = 2024
+recycling_pct = 0.42
+```
+
+1. Could `NA` be an identifier?
+
+2. Does 0.42 mean 0.42% or 42%?
+
+3. Which documentation would resolve these questions?
+
+> Hint: the codebook specifies fraction vs percentage. The core dataset uses valid NA code and 0–100 scale. A plausible range is not sufficient to identify correct scale.
+
+???
+2minutes pair +2minutes debrief. Cannot decide share units from number alone; codebook specifiesfractionvspercentage. Core dataset usesvalidNAcode and0–100scale. A plausible range is not sufficient to identify correct scale. Metadata15=3+3+2+3+4.
+
+---
+
+class: inverse, center, middle
+
+# 3. Licensing and access through downloads and APIs
+
+
+
+???
+Transition included in the block timing.
+
+---
+
+# Access and sharing are separate decisions
+
+For each source, record:
+
+- License or usage terms and the original link
+
+- Attribution required by the provider
+
+- Restrictions on reuse or redistribution
+
+- Access conditions for confidential or licensed records
+
+**Unknown terms:** record the uncertainty and clarify before redistribution.
+
+???
+3 minutes. Practical source documentation, not legal lecture. Publicly visible does not establish unlimited reuse. University permission to access may not include publicGitHub distribution. Students must check exact dataset terms instead of inheriting blanket portal assumptions.
+
+---
+
+# An example of source specific terms
+
+The World Bank’s [GDP per capita indicator page](https://data.worldbank.org/indicator/NY.GDP.PCAP.KD) displays:
+
+**GDP per capita (constant 2015 US$)**
+
+**Indicator:** `NY.GDP.PCAP.KD`
+
+**License shown:** CC BY 4.0
+      It means you are free to share and adapt the data, as long as you give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the World Bank endorses you or your use.
+
+The [dataset terms](https://www.worldbank.org/ext/en/legal/terms-conditions/datasets) describe attribution and exceptions for some third-party data.
+
+Save the terms relevant to the actual series you use.
+
+???
+2 minutes. Source checked October2026. Keep derived contentwithin200words per relevantpage. Do not state allWorldBank/FRED/KOSIS data unrestricted. Official indicatorpage is authoritative forlabel/license asdisplayed.
+
+---
+
+class: small
+
+# The access route should preserve a clear record
+
+| Route | What you retain |
+|---|---|
+| CSV / Excel download | Original file, filters, table/series ID, date |
+| API request | Exact query, all response pages, metadata, date |
+| Permitted HTML extraction | Page URL/date, extraction rule, coverage checks |
+| Approved restricted access | Permission and reconstruction/access explanation |
+
+Week 7 introduced the routes. This week checks their outputs.
+
+???
+2 minutes. Electronic accessmethoddoesnotestablishprimaryvssecondary. Native download usually sufficient. No needto reteachHTMLparser. Students whoscrape needchecking pagination duplicatedrecordsanddynamiccoverage,not justsuccessfulcode.
+
+---
+
+# An API response needs inspection
+
+**API:** a documented interface for requesting structured data.
+
+A request specifies countries, an indicator, dates, and a format.
+
+A response may include:
+
+- metadata and records
+
+- **pagination**: records split across several response pages
+
+- null values or an error message
+
+HTTP success does not guarantee a complete research dataset.
+
+???
+3 minutes. Explain JSON as structured text with named fields. A null is a missing value, not zero. The optional notebook checks response structure, pagination and record totals. Authentication and request limits vary by provider.
+
+---
+
+# API audit — pairs, 5 minutes
+
+A request covers **2 countries × 5 years** for one indicator.
+
+The response says:
+
+```text
+page: 1    pages: 2    total: 10
+records in this response: 5
+```
+
+What must happen before you claim complete coverage?
+
+What if the final 10 records contain two missing values?
+
+> Hint: check the unique country-year-indicator keys against the expected grid, rather than trusting row count alone.
+
+???
+3 minutes in pairs and 2 minutes for discussion. Retrieve both pages. Check the unique country-year-indicator keys against the expected grid, rather than trusting row count alone. Ten records with two null values can have complete key coverage but incomplete measurements. Access block total: 3 + 2 + 2 + 3 + 5 = 15 minutes.
+
+---
+
+class: inverse, center, middle
+
+# 4. Validation and source decisions
+
+
+
+???
+Transition included in the block timing.
+
+---
+
+# Validation compares data with explicit expectations
+
+A **validation rule** states what should hold and why.
+
+Examples:
+
+- Expected columns and types follow the dictionary.
+
+- A district-year key should identify one record.
+
+- Recycling percentage uses a 0–100 scale.
+
+- Every expected district-year appears.
+
+Some failures require source clarification rather than an immediate correction.
+
+???
+3 minutes. A unique key depends on the claimed observation unit. Multiple transactions in one district-year are not duplicates if the row represents a transaction. Derive ranges from definitions and explain when missing values are allowed.
+
+---
+
+class: small
+
+# A validation checklist
+
+| Layer | Example check |
+|---|---|
+| Structure | Required columns and numeric parsing |
+| Identity | Missing or repeated observation keys |
+| Values | Units, valid categories, permissible ranges |
+| Coverage | Missing groups, years, or observations |
+| Consistency | Compatible definitions, totals, and frequencies |
+| External comparison | Match a documented value from the same source/version |
+
+> The checklist is a guide, not a guarantee of correctness.
+
+
+???
+3 minutes. Where possible, compare one imported value with the provider’s documented value from the same series and version. Differences can reflect revisions, rounding or definitions. Two websites may reuse the same original source.
+
+---
+class: small
+
+# The notebook dataset has deliberate problems
+
+**Fictional district environment records, 2021–2024**
+
+One row should represent one district-year.
+
+- Three districts, four expected years
+
+- Household counts, waste tonnes, and recycling percentage
+
+- `NA` is a valid district code
+
+- `..` means suppressed; `-999` means unavailable waste
+
+The notebook includes the table and full source note.
+
+???
+2 minutes. Do not reveal every issue before the lab. The complete file contains 12 rows but 11 unique district-year keys. EA-2022 repeats, WA-2023 is absent, NA-2023 recycling is suppressed, EA-2023 waste is unavailable, and WA-2024 recycling is 140. These are invented teaching records.
+
+## Small table challenge — pairs, 5 minutes
+
+| District | Year | Recycling % |
+|---|---|---|
+| EA | 2022 | 41 |
+| EA | 2022 | 41 |
+| WA | 2024 | 140 |
+| NA | 2023 | .. |
+
+Name three issues. For each, suggest a check or next action.
+
+**No automatic deletion or guessed correction.**
+
+???
+3 minutes in pairs and 2 minutes for reports. Investigate the repeated key before deleting. Confirm the provider’s meaning before changing 140. A suppressed value is not zero. NA is a valid district identifier. The excerpt alone cannot reveal every gap in the full table.
+
+---
+
+# Validation can pass while the source still fails
+
+A table can have valid types and ranges but still:
+
+- measure an unsuitable proxy
+
+- exclude important groups
+
+- change definitions across years
+
+- reflect revised rather than historically available values
+
+**Technical checks support source evaluation. They do not replace it.**
+
+???
+3 minutes. Use a student project example to distinguish source fit from technical validity. Regional averages cannot establish individual behaviour. An unusual but correctly recorded value may be real. Successful validation does not establish a causal effect.
+
+---
+
+# A source decision follows the evidence
+
+**Accept:** fit and checks support the planned use.
+
+**Accept with conditions:** specify remaining issues, restrictions, and required action.
+
+**Reject for this question:** explain the mismatch and identify an alternative.
+
+An issue log records **evidence, research consequence, next action, and status**.
+
+???
+4 minutes, including one quick student decision. A condition should specify an issue, action and residual limitation. A source may fit one question and fail another. Validation block total: 3 + 3 + 2 + 5 + 3 + 4 = 20 minutes.
+
+---
+
+class: inverse, center, middle
+
+# 5. Preparation for Thursday
+
+
+
+???
+Transition included in the block timing.
+
+---
+
+# What to bring
+
+1. Your individual research question and Week 7 design note
+
+2. One candidate source with documentation and usage terms
+
+3. A small, non-sensitive CSV export, if available
+
+4. A personal copy of **W9_RMDS_Data_Source_Lab.ipynb**
+
+If access is blocked, bring the metadata and a clear explanation.
+
+Everyone can complete the practice workflow without a separate data download.
+
+???
+3 minutes. Students may retain a qualitative final project and audit a quantitative contextual source. Do not require restricted-data uploads. Prefer a small CSV for this lab. If converting an Excel workbook, preserve the original and log the conversion.
+
+---
+
+# Thursday’s deliverable
+
+Your completed notebook and a **project source audit**:
+
+- Source log and data dictionary
+
+- At least three applicable validation checks with interpretation
+
+- Issue log and a reasoned readiness decision
+
+- One revision after peer feedback
+
+If data are unavailable, document the access obstacle and next action using the practice table for code.
+
+???
+3 minutes. Follow posted Cyber Campus arrangements. Do not introduce a new deadline or grade weight. An honest access obstacle and specific next action are acceptable when evidence is unavailable. Preparation block total: 6 minutes.
+
+---
+
+class: inverse, center, middle
+
+# Thursday — Data source lab
+
+
+
+???
+Transition included in the block timing.
+
+---
+
+# Agenda
+
+**Thursday — Week 9, Meeting 2**
+
+1. Import and inspect the practice data
+
+2. Document and validate the records
+
+3. Apply the workflow to your project
+
+4. Peer check and revision
+
+5. Save and submit
+
+The optional API section is for later exploration.
+
+???
+Use the numbered agenda to distinguish the two meetings. Tuesday opening uses 1 minute for the agenda. Thursday opening uses 1 minute for agenda, 3 minutes to open and save a personal notebook, and 1 minute to run setup.
+
+---
+
+# Setup — 5 minutes
+
+Open **W9_RMDS_Data_Source_Lab.ipynb** in Colab or Jupyter.
+
+In Colab: **File → Upload notebook**, then save a personal copy.
+
+Run Section 1. You should see Python/pandas versions and the working folder.
+
+The core lab uses embedded fictional data and does not require internet requests.
+
+???
+This slide belongs inside the opening five-minute block. The notebook uses pandas and standard Python libraries. Colab normally supplies pandas. Students using a local environment without pandas can use Colab. Point out the w9_lab working folder.
+
+---
+
+# Import and inspect — 10 minutes
+
+**Notebook Sections 2–3**
+
+1. Read the source note before running the import.
+
+2. Compare default parsing with the preserved import.
+
+3. Inspect shape, identifiers, sample records, and types.
+
+4. Answer Checkpoint 1 in your own words.
+
+**Checkpoint:** 12 rows, 5 columns, and a preserved `NA` identifier.
+
+???
+3 minutes reading, 4 minutes running and inspecting, and 3 minutes writing. Default parsing treats the four NA identifiers as missing. Importing strings alone does not disable missing-code recognition; the preserved import also sets keep_default_na=False.
+
+---
+
+# Document the fields — 8 minutes
+
+**Notebook Section 4**
+
+Inspect the data dictionary.
+
+Explain to your neighbour:
+
+- What does one row represent?
+
+- What are the units and valid ranges?
+
+- What do the missing markers mean?
+
+- What can this table tell us about individual households?
+
+???
+5 minutes reading and checking the dictionary, followed by 3 minutes of neighbour discussion. District aggregates do not identify individual household behaviour. This discussion is part of the scheduled eight-minute block.
+
+---
+
+# Validation lab — 15 minutes
+
+**Notebook Sections 5–7**
+
+1. Run the typed working-copy and validation cells.
+
+2. Inspect records behind the failed checks.
+
+3. Compare row count with unique-key coverage.
+
+4. Complete Checkpoint 2.
+
+A failed data rule should appear in the report without stopping the notebook.
+
+???
+8 minutes running cells and inspecting records, 5 minutes writing answers, and 2 minutes for a checkpoint. Expect 11 unique keys, one absent expected key, two rows involved in one repeated key, two documented missing measurements, and one out-of-range percentage. The code reports these without guessing repairs.
+
+---
+
+# An issue log and source decision — 7 minutes
+
+**Notebook Sections 8–9**
+
+Add the remaining issues to the example log.
+
+For each, explain the possible research consequence and next action.
+
+Write a short source decision. Then export the documentation bundle.
+
+**Raw-file hash:** unchanged bytes should retain the same fingerprint.
+
+???
+5 minutes writing and 2 minutes exporting. The source decision can accept with explicit conditions or reject the current version for a comparison. A hash detects changed bytes; it does not certify truth. The ZIP created here contains only the invented practice records and documentation.
+
+---
+
+# Your project dataset — 20 minutes
+
+**Notebook Section 10**
+
+1. State your question and the intended use of the source.
+
+2. Record provenance, definitions, coverage, version and terms.
+
+3. Import an approved CSV or audit restricted-source metadata.
+
+4. Define and interpret at least three relevant checks.
+
+5. State your readiness decision and next action.
+
+???
+7 minutes on source documentation, 8 minutes on checks, and 5 minutes on the decision. Students must choose their own key, ranges and missing codes from metadata. Restricted-source audits can use approved documentation. Record access obstacles explicitly. Do not run a regression in this lesson.
+
+---
+
+# Peer check and individual revision — 7 minutes
+
+Work in **five pairs**.
+
+- **3 minutes each:** trace one claim to metadata, examine one check, and identify one unresolved issue.
+
+- **1 minute individually:** record a revision or justified decision to retain the design.
+
+Peer feedback should identify a specific improvement.
+
+???
+Allow three minutes per student, then one minute of individual revision. Partners trace a claim to its source and inspect one rule and unresolved issue. Feedback should address evidence, rather than only writing style.
+
+---
+
+# Save and submit — 3 minutes
+
+Save your notebook and source documentation.
+
+Confirm that you have:
+
+- written interpretations and an issue log
+
+- a source decision and next action
+
+- a peer-feedback revision
+
+- an AI-use statement and verification note
+
+Follow the posted **Cyber Campus** submission instructions.
+
+???
+Thursday total: 5 + 10 + 8 + 15 + 7 + 20 + 7 + 3 = 75 minutes. Save the notebook and download any session files needed. Leave the live API disabled for the core reproducibility test. A project file must be available after restart, or the optional project path should remain None. No separate exit ticket.
+
+---
+
+class: inverse, center, middle
+
+# Appendix — tools, templates, and follow up
+
+
+
+???
+Transition included in the block timing.
+
+---
+
+class: small
+
+# Notebook map
+
+| Section | Purpose | Status |
+|---|---|---|
+| 1–3 | Setup, source note, import | Core practice |
+| 4 | Data dictionary | Core practice |
+| 5–7 | Types, validation, record inspection | Core practice |
+| 8–9 | Issue log, decision, export | Core practice |
+| 10 | Individual project audit | Required project application |
+| 11 | Live World Bank API | Optional, off by default |
+| 12 | Reproducibility and submission | Final check |
+
+???
+Reference only. Notebook sections and slide references match. Student answer prompts are intentionally unfilled; code cells run without requiring invented answers. The optional live API section is disabled by default.
+
+---
+
+class: small
+
+# Software and responsibilities
+
+| Task | Tools | What you must still decide |
+|---|---|---|
+| Source discovery | Portal search, literature, AI assistance | Whether the actual dataset fits |
+| Inspection | Excel / Sheets, pandas | Unit, type, missing-code meaning |
+| Reproducible access | Colab / Jupyter, Python urllib | Query, coverage and metadata |
+| Documentation | Notebook, CSV dictionary, source log | Evidence and limitations |
+| Version tracking | Dated files, hashes, GitHub | What can be shared publicly |
+
+???
+Jupyter and Colab both support the notebook format. No API key is required for the selected optional example. Excel can alter identifiers or date-like strings during import, so retain the original export. Zotero can record a dataset citation but does not replace a dictionary or source log.
+
+---
+
+class: small
+
+# A minimum source log
+
+- Dataset title, original producer, distributor, table/series ID and URL
+
+- Unit, population/geography, frequency and observation period
+
+- Release/update/version if supplied, plus retrieval date
+
+- Access route, exact query/filters, raw file and hash
+
+- License/permissions link, attribution and sharing conditions
+
+- Known limitations and source decision
+
+???
+Reference only. Use a table or series identifier where available. If no version is supplied, say so and preserve the retrieved copy with its date and hash. Do not invent historical release information.
+
+---
+
+class: small
+
+# Three checks for a student project
+
+| Project | Possible checks |
+|---|---|
+| Vietnam investment and exports | Sector definition, price basis, country-year coverage |
+| Regional inequality and happiness | Matching geography/year, scale definitions, survey coverage |
+| Housing and policy | Transaction versus asking price, repeated listings, exact dates |
+| AI and learning | Student-task IDs, item nonresponse, measurement validity |
+
+Choose rules based on your actual dataset and intended claim.
+
+???
+Illustrative checks, not claims that every proposed dataset exists or is accessible. Students select rules relevant to their question. A qualitative study can audit a quantitative source for context without adopting a quantitative main design.
+
+---
+
+# Optional API example
+
+The notebook requests:
+
+**Countries:** Korea and Vietnam
+
+**Period:** 2019–2023
+
+**Measure:** GDP per capita, constant 2015 US dollars
+
+It saves raw response pages, a retrieval log, and an inspection table.
+
+Set `RUN_LIVE_API=True` only when you want a network request.
+
+???
+Optional reference. The request uses Python urllib and needs internet access. The core lesson works offline. The code reports request failures and does not substitute teaching data. Provider revisions may change values.
+
+---
+
+# Reproducibility and troubleshooting
+
+**Undefined variable:** run earlier setup cells.
+
+**File not found:** inspect the working folder and uploaded filename.
+
+**Unexpected missing identifier:** check the importer’s missing-code rules.
+
+**API unavailable:** complete the core lab; retain the error information.
+
+**Run All succeeds with failed data checks:** inspect the validation report. The file may still need source review.
+
+???
+Reference only. A validation failure is different from an execution error. The raw-file integrity assertion should pass. An optional project path is not portable unless its file is supplied. Do not conceal malformed rows by silently skipping them.
+
+---
+
+# Methods and software references
+
+- [World Bank Indicators API](https://datahelpdesk.worldbank.org/knowledgebase/articles/889392-about-the-indicators-api)
+
+- [World Bank API call structures](https://datahelpdesk.worldbank.org/knowledgebase/articles/898581-api-basic-call-structures)
+
+- [GDP per capita indicator and source metadata](https://data.worldbank.org/indicator/NY.GDP.PCAP.KD)
+
+- [World Bank dataset terms](https://www.worldbank.org/ext/en/legal/terms-conditions/datasets)
+
+- [pandas CSV import documentation](https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html)
+
+- [Google Colab FAQ](https://research.google.com/colaboratory/faq.html)
+
+Practice table and source cards: fictional materials created for this course.
+
+???
+Original documentation checked in October 2026. External datasets retain their own conditions. Permission for the invented practice table does not relicense external content.
+
+1. To print pdf slides
+library(renderthis)
+
+renderthis::to_pdf("W9_RMDS.html")
+
+getwd()
+setwd("C:\\Users\\vyshn\\OneDrive - kdis.ac.kr\\Documents\\GitHub\\Sogang\\2026\\Fall\\Research Method of Data Science\\W9")
+

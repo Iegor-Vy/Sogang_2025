@@ -1,0 +1,32 @@
+{
+  "title": "Fictional district environment records",
+  "provider": "Fictional District Environment Office",
+  "source_type": "Invented teaching data embedded in this notebook",
+  "original_url": null,
+  "version": "teaching_v1",
+  "file_created_utc": "2026-10-25T06:27:28.274907+00:00",
+  "observation_period": "2021-2024",
+  "unit_of_observation": "district-year",
+  "expected_districts": [
+    "NA",
+    "EA",
+    "WA"
+  ],
+  "expected_years": [
+    2021,
+    2022,
+    2023,
+    2024
+  ],
+  "access_route": "Embedded text written unchanged to a CSV file",
+  "usage_permission": "Reuse/adaptation with attribution to TIC3002 course",
+  "raw_file": "raw\\district_environment_teaching_v1.csv",
+  "sha256": "9e4a0686de598891029612b19581849329de955278c6f44d616e95d8b5f7bca6",
+  "readiness": "Not ready for unrestricted comparison; source issues remain",
+  "known_limits": [
+    "Fictional teaching data, no real-world inference",
+    "Duplicate key, absent district-year, documented missing values and out-of-range value",
+    "Registered households and collected waste may differ in coverage",
+    "Aggregate district records do not identify household behaviour or causal effects"
+  ]
+}

@@ -1,0 +1,6 @@
+variable,definition,unit_or_type,valid_values,missing_codes
+district_code,District identifier,category,"NA, EA, WA",none expected
+year,Observation year,integer,2021-2024,none expected
+households,Registered households at year-end,households,positive integer,none expected
+waste_tonnes,Household waste collected during year,metric tonnes,>=0,-999 unavailable
+recycling_pct,Share of collected waste recorded as recycled,percent,0-100,.. suppressed

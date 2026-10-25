@@ -1,0 +1,13 @@
+rule,passes
+Expected columns present,True
+Keys have no missing values,True
+District codes match source note,True
+Years are valid integers,True
+Numeric tokens parse as documented,True
+District-year key is unique,False
+All expected district-years present,False
+No unexpected district-years,True
+Households are positive integers,True
+Observed waste is nonnegative,True
+Observed recycling share is 0-100,False
+Waste and recycling are complete,False
