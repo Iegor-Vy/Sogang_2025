@@ -1,0 +1,7 @@
+,dtype,missing,unique_observed
+country_code,object,0,27
+year,int64,0,1
+country,object,0,27
+gdp_pc_ppp,float64,2,25
+life_expectancy,float64,0,27
+internet_pct,float64,2,25

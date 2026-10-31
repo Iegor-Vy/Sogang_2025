@@ -1,0 +1,1310 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Research Method of Data Science</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Iegor Vyshnevskyi, Ph.D." />
+    <script src="libs/header-attrs-2.29/header-attrs.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Research Method of Data Science
+]
+.subtitle[
+## Week 10: Reproducible Preparation and Descriptive Research
+]
+.author[
+### Iegor Vyshnevskyi, Ph.D.
+]
+.institute[
+### Sogang University
+]
+.date[
+### November 3/5, 2026
+]
+
+---
+
+
+&lt;style&gt;
+@media print{
+  body, html, .remark-slides-area, .remark-notes-area {
+    height: 100% !important;
+    width: 100% !important;
+    overflow: visible;
+    display: inline-block;
+    }
+}
+&lt;/style&gt;
+
+&lt;style type="text/css"&gt;
+.remark-slide-content {
+    font-size: 34px;
+    padding: 1em 4em 1em 4em;
+}
+&lt;/style&gt;
+
+&lt;style type="text/css"&gt;
+.my-one-page-font {
+  font-size: 28px;
+}
+&lt;/style&gt;
+
+&lt;style type="text/css"&gt;
+.my-one-page-font-table {
+  font-size: 24px;
+}
+&lt;/style&gt;
+
+&lt;style&gt;
+.tiny { font-size: 60%; }      /* class you can reuse anywhere */
+&lt;/style&gt;
+
+&lt;style&gt;
+.remark-slide-content {
+  position: relative;
+  z-index: 1;
+}
+
+.remark-slide-content::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 600px;          /* adjust size */
+  height: 600px;
+  background-image: url("1. 교장(Seal_Positive).png");  /* place logo file in same folder */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: 0.05;         /* watermark transparency */
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 0;
+}
+&lt;/style&gt;
+
+
+
+
+
+
+&lt;style&gt;
+.small { font-size: 26px; }
+.remark-slide-content { padding: 1em 2.4em; }
+.remark-slide-content table { font-size: 25px; border-collapse: collapse; width: 100%; }
+.remark-slide-content th, .remark-slide-content td { padding: 7px 10px; border-bottom: 1px solid #ddd; }
+.remark-slide-content img { max-height: 430px; object-fit: contain; }
+.remark-slide-content::before { z-index: -1; }
+.metric-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin:24px 0; }
+.metric-card { background:#f8f2ef; border-top:6px solid #851a10; padding:18px 12px; text-align:center; min-height:105px; }
+.metric-card .number { display:block; color:#851a10; font-size:38px; font-weight:700; line-height:1; margin-bottom:10px; }
+.metric-card .label { font-size:19px; line-height:1.2; }
+.flow { display:flex; align-items:stretch; gap:8px; margin:30px 0 22px; }
+.flow-step { flex:1; background:#f8f2ef; border-top:6px solid #851a10; padding:17px 12px; text-align:center; font-size:20px; }
+.flow-step strong { display:block; color:#851a10; font-size:25px; margin-bottom:8px; }
+.flow-arrow { align-self:center; color:#851a10; font-size:34px; font-weight:700; }
+.activity-head { display:flex; gap:10px; margin:-8px 0 18px; }
+.activity-time, .activity-mode { color:white; font-weight:700; font-size:20px; padding:7px 14px; border-radius:4px; letter-spacing:.04em; }
+.activity-time { background:#851a10; }
+.activity-mode { background:#3a7188; }
+.activity-output { background:#f8f2ef; border-left:6px solid #136f63; padding:11px 16px; margin-top:18px; font-size:21px; }
+.compare-grid { display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-top:20px; }
+.compare-card { background:#f7f7f7; border-top:6px solid #3a7188; padding:16px 18px; }
+.compare-card h3 { color:#851a10; margin:0 0 12px; }
+.key-chip { display:inline-block; background:#f8f2ef; border:2px solid #851a10; border-radius:20px; padding:8px 15px; margin:5px; font-weight:600; font-size:21px; }
+.caution { background:#fff4e5; border-left:6px solid #ff8811; padding:12px 18px; margin-top:18px; font-size:21px; }
+.plot img { width:100%; max-height:480px; object-fit:contain; }
+.plot-prompt { background:#f8f2ef; border-left:6px solid #851a10; padding:9px 15px; margin-top:5px; font-size:20px; text-align:center; }
+.studio-head { display:flex; align-items:center; gap:14px; margin:-8px 0 16px; }
+.step-badge { background:#851a10; color:white; font-weight:700; padding:8px 14px; border-radius:4px; font-size:19px; }
+.time-badge { background:#3a7188; color:white; font-weight:700; padding:8px 14px; border-radius:4px; font-size:19px; }
+.progress { height:8px; background:#e6e6e6; margin:12px 0 20px; border-radius:5px; overflow:hidden; }
+.progress span { display:block; height:100%; background:#851a10; }
+.artifact { background:#eef5f2; border-left:6px solid #136f63; padding:10px 15px; margin-top:16px; font-size:20px; }
+.function-grid { display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-top:25px; }
+.function-card, .quote-card { background:#f8f2ef; border-top:6px solid #851a10; padding:18px; }
+.quote-card { font-size:22px; line-height:1.4; }
+.reference-grid { display:grid; grid-template-columns:1.08fr .92fr; gap:22px; margin-top:20px; }
+.reference-card { background:#f7f8f8; border:1px solid #d8dddd; border-top:6px solid #3a7188; border-radius:5px; padding:15px 19px 13px; }
+.reference-card.software { border-top-color:#851a10; }
+.reference-card h3 { margin:0 0 9px; color:#243238; font-size:24px; }
+.reference-card ul { margin:0; padding-left:21px; }
+.reference-card li { margin:8px 0; font-size:19px; line-height:1.25; }
+.reference-card a { color:#245d73; text-decoration:none; border-bottom:1px solid #9bb8c3; }
+.reference-card.software a { color:#761d16; border-bottom-color:#c9a39f; }
+.source-note { margin-top:18px; background:#eef5f2; border-left:6px solid #136f63; padding:11px 16px; font-size:19px; line-height:1.3; }
+.source-note strong { color:#136f63; }
+.paper-citation { background:#f8f2ef; border-left:6px solid #851a10; padding:10px 15px; margin:8px 0 12px; font-size:18px; line-height:1.25; }
+.paper-links { float:right; font-size:17px; }
+.paper-viewer { width:100%; height:430px; border:1px solid #bfc7c9; border-radius:4px; background:#eef1f2; }
+&lt;/style&gt;
+
+# Week 10: Reproducible preparation and descriptive research
+
+**Tuesday:** how preparation choices shape descriptive evidence
+
+**Thursday:** a transparent raw-to-analysis pipeline
+
+Real World Bank API data, followed from raw responses to tables and figures.
+
+Companion: **W10_RMDS_Preparation_and_EDA.ipynb**
+
+???
+Two 75-minute meetings for 12 undergraduates. Tuesday: opening5 + pipeline10 + tidy/joins15 + missingness10 + summaries12 + visual evidence20 + preparation3 =75. Thursday: setup5 + pipeline/joins15 + missingness10 + simple plots12 + descriptive report10 + project studio15 + peer review5 + save3 =75. Section dividers are included, not extra time. Appendix and notebook Section7 are stretch material. All numerical examples and charts use real WDI API responses retrieved 31 October2026. Country selection is purposeful, not representative. No synthetic records, no invented missing values. Embedded snapshots allow offline Run All; live refresh is optional and saved separately. Week11 handles inference. Final course work remains an individual complete research paper.
+
+---
+
+# Agenda
+
+**Tuesday — Week 10, Meeting 1**
+
+1. A reproducible preparation pipeline
+
+2. Tidy data and safe joins
+
+3. Missing values and analysis samples
+
+4. Descriptive summaries
+
+5. Visual evidence, from simple to richer plots
+
+6. Preparation for Thursday
+
+Appendix: software, function guide, and references
+
+???
+1 minute for the agenda.
+
+---
+
+# From source validation to an analysis table
+
+Week 9: **Where did the data come from, and can we use them?**
+
+Week 10: **How do our preparation choices affect the findings?**
+
+**Pair discussion — 3 minutes**
+
+Two researchers download the same source. One fills blanks with zero; the other omits those observations. Could they report different averages? Why?
+
+???
+Opening remaining4: framing1 + pair discussion2 + one response1. Yes, changing missing values to zero changes both quantities and the denominator. Omitting observations can change the population represented. Neither operation is justified without examining the source and intended statistic.
+
+---
+# Pair discussion: numeric example
+
+The same 10 observations can produce different summaries.
+
+.pull-left[
+&lt;table style="font-size:18px; line-height:1.05;"&gt;
+&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Country&lt;/th&gt;&lt;th&gt;GDP&lt;/th&gt;&lt;th&gt;Life&lt;/th&gt;&lt;th&gt;Internet&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;A&lt;/td&gt;&lt;td&gt;1,000&lt;/td&gt;&lt;td&gt;75&lt;/td&gt;&lt;td&gt;25&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;B&lt;/td&gt;&lt;td&gt;2,000&lt;/td&gt;&lt;td&gt;85&lt;/td&gt;&lt;td&gt;35&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;C&lt;/td&gt;&lt;td&gt;&lt;strong&gt;NA&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;95&lt;/td&gt;&lt;td&gt;45&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;D&lt;/td&gt;&lt;td&gt;4,000&lt;/td&gt;&lt;td&gt;&lt;strong&gt;NA&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;55&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;E&lt;/td&gt;&lt;td&gt;5,000&lt;/td&gt;&lt;td&gt;115&lt;/td&gt;&lt;td&gt;&lt;strong&gt;NA&lt;/strong&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;F&lt;/td&gt;&lt;td&gt;6,000&lt;/td&gt;&lt;td&gt;125&lt;/td&gt;&lt;td&gt;75&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;G&lt;/td&gt;&lt;td&gt;7,000&lt;/td&gt;&lt;td&gt;135&lt;/td&gt;&lt;td&gt;85&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;H&lt;/td&gt;&lt;td&gt;8,000&lt;/td&gt;&lt;td&gt;145&lt;/td&gt;&lt;td&gt;95&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;I&lt;/td&gt;&lt;td&gt;9,000&lt;/td&gt;&lt;td&gt;155&lt;/td&gt;&lt;td&gt;105&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;J&lt;/td&gt;&lt;td&gt;10,000&lt;/td&gt;&lt;td&gt;165&lt;/td&gt;&lt;td&gt;115&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+]
+
+.pull-right[
+&lt;div style="background:#f8f2ef; border-left:6px solid #851a10; padding:12px 16px; margin-bottom:16px; font-size:21px;"&gt;
+&lt;strong&gt;Option 1 · Complete cases&lt;/strong&gt;&lt;br&gt;
+&lt;code&gt;df.dropna().mean(numeric_only=True)&lt;/code&gt;&lt;br&gt;&lt;br&gt;
+&lt;strong&gt;n = 7&lt;/strong&gt;&lt;br&gt;
+GDP: &lt;strong&gt;6,142.9&lt;/strong&gt;&lt;br&gt;
+Life: &lt;strong&gt;126.4&lt;/strong&gt;&lt;br&gt;
+Internet: &lt;strong&gt;76.4&lt;/strong&gt;
+&lt;/div&gt;
+
+&lt;div style="background:#f3f6f7; border-left:6px solid #136f63; padding:12px 16px; font-size:21px;"&gt;
+&lt;strong&gt;Option 2 · Replace NA with 0&lt;/strong&gt;&lt;br&gt;
+&lt;code&gt;df.fillna(0).mean(numeric_only=True)&lt;/code&gt;&lt;br&gt;&lt;br&gt;
+&lt;strong&gt;n = 10&lt;/strong&gt;&lt;br&gt;
+GDP: &lt;strong&gt;5,200.0&lt;/strong&gt;&lt;br&gt;
+Life: &lt;strong&gt;109.5&lt;/strong&gt;&lt;br&gt;
+Internet: &lt;strong&gt;63.5&lt;/strong&gt;
+&lt;/div&gt;
+]
+
+&lt;div style="clear:both; padding-top:10px; text-align:center; font-size:23px;"&gt;
+&lt;strong&gt;Discuss:&lt;/strong&gt; Which choice is defensible—and what assumption does each make?
+&lt;/div&gt;
+
+
+???
+3 minutes: pairs2 + response1. Replacing missing values with zero asserts that the missing quantity is genuinely zero. Complete-case deletion uses only seven countries and changes the represented sample. Neither choice is automatic; justification depends on why values are missing and what the statistic is intended to describe. The full data-construction code is unnecessary on this conceptual slide and remains available in the companion notebook.
+
+---
+
+class: inverse, center, middle
+
+# 1. A reproducible preparation pipeline
+
+
+
+???
+Transition included within the stated block time.
+
+---
+
+# The example question and data
+
+**Question:** How do income-related output, life expectancy, and internet use differ across selected countries and over time?
+
+
+&lt;div class="metric-grid"&gt;
+  &lt;div class="metric-card"&gt;&lt;span class="number"&gt;27&lt;/span&gt;&lt;span class="label"&gt;selected countries&lt;/span&gt;&lt;/div&gt;
+  &lt;div class="metric-card"&gt;&lt;span class="number"&gt;24&lt;/span&gt;&lt;span class="label"&gt;years, 2000–2023&lt;/span&gt;&lt;/div&gt;
+  &lt;div class="metric-card"&gt;&lt;span class="number"&gt;3&lt;/span&gt;&lt;span class="label"&gt;World Bank indicators&lt;/span&gt;&lt;/div&gt;
+  &lt;div class="metric-card"&gt;&lt;span class="number"&gt;648&lt;/span&gt;&lt;span class="label"&gt;country-years&lt;/span&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+The notebook embeds the retrieved responses, metadata, queries and hashes.
+
+???
+3 minutes. The notebook contains 648 country-years and 1,944 country-year-indicator records from genuine WDI API responses retrieved on 31 October 2026. The country selection is purposeful. Its unweighted summaries do not represent world population averages.
+
+---
+
+class: small
+
+# The measures need their units
+
+&lt;div class="compare-grid" style="grid-template-columns:repeat(3,1fr); gap:14px;"&gt;
+  &lt;div class="compare-card"&gt;&lt;h3&gt;GDP per capita PPP&lt;/h3&gt;&lt;strong&gt;Constant 2021 international dollars&lt;/strong&gt;&lt;br&gt;&lt;span style="font-size:19px;"&gt;Adjusts purchasing-power differences&lt;/span&gt;&lt;/div&gt;
+  &lt;div class="compare-card"&gt;&lt;h3&gt;Life expectancy&lt;/h3&gt;&lt;strong&gt;Years&lt;/strong&gt;&lt;br&gt;&lt;span style="font-size:19px;"&gt;Period’s prevailing mortality patterns&lt;/span&gt;&lt;/div&gt;
+  &lt;div class="compare-card"&gt;&lt;h3&gt;Internet use&lt;/h3&gt;&lt;strong&gt;Percentage of people&lt;/strong&gt;&lt;br&gt;&lt;span style="font-size:19px;"&gt;Under the provider definition&lt;/span&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="caution"&gt;GDP per capita does not directly measure household income. Country indicators do not identify individual outcomes.&lt;/div&gt;
+
+???
+2 minutes. PPP means purchasing power parity. Constant prices account for price changes relative to the reference basis; PPP also addresses cross-country price-level differences. Life expectancy is a period population measure, not a certain lifespan. Cite indicator metadata, not just a portal homepage.
+
+---
+
+# A reproducible pipeline records decisions
+
+&lt;div class="flow"&gt;
+  &lt;div class="flow-step"&gt;&lt;strong&gt;Raw&lt;/strong&gt;Preserve API responses and metadata&lt;/div&gt;
+  &lt;div class="flow-arrow"&gt;→&lt;/div&gt;
+  &lt;div class="flow-step"&gt;&lt;strong&gt;Prepared&lt;/strong&gt;Parse, reshape, join, derive&lt;/div&gt;
+  &lt;div class="flow-arrow"&gt;→&lt;/div&gt;
+  &lt;div class="flow-step"&gt;&lt;strong&gt;Analysis&lt;/strong&gt;Define each usable sample&lt;/div&gt;
+  &lt;div class="flow-arrow"&gt;→&lt;/div&gt;
+  &lt;div class="flow-step"&gt;&lt;strong&gt;Outputs&lt;/strong&gt;Tables, figures, decision log&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="artifact"&gt;&lt;strong&gt;Reproducibility test:&lt;/strong&gt; the same source snapshot and code should reproduce the same prepared table.&lt;/div&gt;
+
+???
+2 minutes. The notebook checks original response hashes and reruns preparation. A hash verifies unchanged bytes, not substantive truth. Live refresh stays separate because revisions can change values. Preserve code, environment and source date as well as output files.
+
+---
+
+class: small
+
+# Pipeline challenge — pairs, 3 minutes
+
+&lt;div class="activity-head"&gt;&lt;span class="activity-time"&gt;3 MIN&lt;/span&gt;&lt;span class="activity-mode"&gt;PAIRS&lt;/span&gt;&lt;/div&gt;
+
+A student manually edits a downloaded spreadsheet, deletes unusual values, and saves over the original.
+
+Identify two decisions that another researcher could not reconstruct.
+
+Suggest one change that would make the workflow reproducible.
+
+&lt;div class="activity-output"&gt;&lt;strong&gt;OUTPUT:&lt;/strong&gt; two unrecoverable decisions and one reproducible alternative&lt;/div&gt;
+
+???
+2 minutes in pairs and 1 minute for a report. Preserve the original export, express changes in code, and record their rationale. An unusual value is not automatically an error. Pipeline block: 3 + 2 + 2 + 3 = 10 minutes.
+
+---
+
+class: inverse, center, middle
+
+# 2. Tidy data and safe joins
+
+
+
+???
+Transition included within the stated block time.
+
+---
+
+# The observation unit determines the key
+
+A **key** identifies a record at the intended level.
+
+&lt;div style="text-align:center; margin:22px 0;"&gt;
+  &lt;div&gt;&lt;strong&gt;Raw long table&lt;/strong&gt;&lt;br&gt;&lt;span class="key-chip"&gt;country&lt;/span&gt;&lt;span class="key-chip"&gt;year&lt;/span&gt;&lt;span class="key-chip"&gt;indicator&lt;/span&gt;&lt;/div&gt;
+  &lt;div style="margin-top:18px;"&gt;&lt;strong&gt;Country-year analysis table&lt;/strong&gt;&lt;br&gt;&lt;span class="key-chip"&gt;country&lt;/span&gt;&lt;span class="key-chip"&gt;year&lt;/span&gt;&lt;/div&gt;
+  &lt;div style="margin-top:18px;"&gt;&lt;strong&gt;Country-name lookup&lt;/strong&gt;&lt;br&gt;&lt;span class="key-chip"&gt;country&lt;/span&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+A country repeated in different years is expected. Repeated full keys need investigation.
+
+???
+3 minutes. Define the unit before drop_duplicates. The notebook parses provider nulls and checks long-table keys before pivoting. Repeated countries across years are not accidental duplication.
+
+---
+
+class: small
+
+# Two useful table shapes
+
+&lt;div class="compare-grid"&gt;
+&lt;div class="compare-card" style="font-size:18px;"&gt;
+&lt;h3&gt;Long&lt;/h3&gt;
+&lt;table&gt;&lt;tr&gt;&lt;th&gt;country&lt;/th&gt;&lt;th&gt;year&lt;/th&gt;&lt;th&gt;indicator&lt;/th&gt;&lt;th&gt;value&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;KOR&lt;/td&gt;&lt;td&gt;2000&lt;/td&gt;&lt;td&gt;Internet&lt;/td&gt;&lt;td&gt;44.7&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;KOR&lt;/td&gt;&lt;td&gt;2023&lt;/td&gt;&lt;td&gt;Internet&lt;/td&gt;&lt;td&gt;97.416&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;p&gt;One country–year–indicator measurement per row&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="compare-card" style="font-size:18px;"&gt;
+&lt;h3&gt;Country-year wide&lt;/h3&gt;
+&lt;table&gt;&lt;tr&gt;&lt;th&gt;country&lt;/th&gt;&lt;th&gt;year&lt;/th&gt;&lt;th&gt;GDP&lt;/th&gt;&lt;th&gt;life&lt;/th&gt;&lt;th&gt;internet&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;KOR&lt;/td&gt;&lt;td&gt;2000&lt;/td&gt;&lt;td&gt;…&lt;/td&gt;&lt;td&gt;…&lt;/td&gt;&lt;td&gt;44.7&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;KOR&lt;/td&gt;&lt;td&gt;2023&lt;/td&gt;&lt;td&gt;…&lt;/td&gt;&lt;td&gt;…&lt;/td&gt;&lt;td&gt;97.416&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;p&gt;Separate measurement columns for each country-year&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+Both structures can be tidy for their intended task.
+
+???
+3 minutes. The two displayed observations are rounded from the actual snapshot. The long table has 1,944 rows and the country-year wide table has 648. Explain that a pivot checks key uniqueness, while a pivot table can silently aggregate repeated records.
+
+---
+
+class: small
+
+# A join must match its expected cardinality
+
+&lt;div class="compare-grid"&gt;
+  &lt;div class="compare-card" style="text-align:center;"&gt;&lt;h3&gt;One ↔ One&lt;/h3&gt;&lt;div style="font-size:32px; margin:15px;"&gt;● ─── ●&lt;/div&gt;GDP country-years + life-expectancy country-years&lt;br&gt;&lt;br&gt;&lt;code&gt;one_to_one&lt;/code&gt;&lt;/div&gt;
+  &lt;div class="compare-card" style="text-align:center;"&gt;&lt;h3&gt;Many → One&lt;/h3&gt;&lt;div style="font-size:32px; margin:15px;"&gt;● ● ● ───▶ ●&lt;/div&gt;Many country-years + one country name per code&lt;br&gt;&lt;br&gt;&lt;code&gt;many_to_one&lt;/code&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="caution"&gt;Use the full key and inspect row counts and unmatched records. A matched key can still contain a missing measurement.&lt;/div&gt;
+
+???
+3 minutes. Inner joins keep keys shared by both tables; left joins retain left-table keys; outer joins retain either. These control key coverage. They do not establish that measurement values are available. Show the validated outer join in the notebook.
+
+---
+
+class: small
+
+# A real join mistake — pairs, 4 minutes
+
+&lt;div class="activity-head"&gt;&lt;span class="activity-time"&gt;4 MIN&lt;/span&gt;&lt;span class="activity-mode"&gt;PAIRS&lt;/span&gt;&lt;/div&gt;
+
+&lt;div class="compare-grid"&gt;
+  &lt;div class="compare-card" style="text-align:center;"&gt;&lt;h3&gt;Wrong key&lt;/h3&gt;&lt;strong style="font-size:31px; color:#851a10;"&gt;24 × 24 = ?&lt;/strong&gt;&lt;br&gt;&lt;code&gt;country_code&lt;/code&gt; only&lt;/div&gt;
+  &lt;div class="compare-card" style="text-align:center;"&gt;&lt;h3&gt;Expected key&lt;/h3&gt;&lt;strong style="font-size:31px; color:#136f63;"&gt;24 rows&lt;/strong&gt;&lt;br&gt;&lt;code&gt;country_code + year&lt;/code&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+Korea has 24 GDP records and 24 life-expectancy records, one per year.
+
+The join uses `country_code` alone.
+
+1. How many rows result?
+
+2. What comparison does each row now represent?
+
+3. What key and validation should replace it?
+
+&lt;div class="activity-output"&gt;&lt;strong&gt;OUTPUT:&lt;/strong&gt; row count, interpretation, and corrected join key&lt;/div&gt;
+
+???
+2 minutes in pairs and 2 minutes for demonstration. The country-only join gives 24 × 24 = 576 rows, pairing every GDP year with every life-expectancy year. Country and year together give 24 rows for Korea. Validate the expected one-to-one relationship.
+
+---
+
+# A short join that documents expectations
+
+```python
+joined = gdp.merge(
+    life,
+    on=["country_code", "year"],
+    how="outer",
+    validate="one_to_one",
+    indicator=True
+)
+```
+
+Check `_merge`, unique keys, row count, and missing values after the join.
+
+???
+2 minutes. The correct all-country join has 648 country-years. All supplied keys match, but GDP still has 48 missing measurements. Tidy and joins block: 3 + 3 + 3 + 4 + 2 = 15 minutes.
+
+---
+
+class: inverse, center, middle
+
+# 3. Missing values and analysis samples
+
+
+
+???
+Transition included within the stated block time.
+
+---
+
+class: small
+
+# The snapshot contains genuine missing values
+
+Across **648 country-years**:
+
+&lt;div class="metric-grid" style="grid-template-columns:repeat(3,1fr);"&gt;
+  &lt;div class="metric-card"&gt;&lt;span class="number"&gt;48&lt;/span&gt;&lt;span class="label"&gt;GDP per capita PPP&lt;br&gt;missing measurements&lt;/span&gt;&lt;/div&gt;
+  &lt;div class="metric-card" style="border-top-color:#136f63;"&gt;&lt;span class="number" style="color:#136f63;"&gt;0&lt;/span&gt;&lt;span class="label"&gt;Life expectancy&lt;br&gt;missing measurements&lt;/span&gt;&lt;/div&gt;
+  &lt;div class="metric-card"&gt;&lt;span class="number"&gt;26&lt;/span&gt;&lt;span class="label"&gt;Internet use&lt;br&gt;missing measurements&lt;/span&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+The expected country-year keys are present. Some measurements are unavailable.
+
+???
+2 minutes. These counts come from this snapshot. GDP is absent for South Sudan and Yemen in the requested indicator and period; internet gaps differ across countries and years. The missingness table does not establish why those observations are unavailable.
+
+---
+
+class: small
+
+# Missing-data decisions — pairs, 4 minutes
+
+&lt;div class="activity-head"&gt;&lt;span class="activity-time"&gt;4 MIN&lt;/span&gt;&lt;span class="activity-mode"&gt;PAIRS&lt;/span&gt;&lt;/div&gt;
+
+Your figure compares GDP and life expectancy in 2023. Internet-use data are also in the table.
+
+1. Which variables must be observed for this figure?
+
+2. Should a missing internet value exclude a country?
+
+3. What could go wrong with replacing every missing measurement with a global mean?
+
+&lt;div class="activity-output"&gt;&lt;strong&gt;OUTPUT:&lt;/strong&gt; required variables, usable sample rule, and one risk of mean filling&lt;/div&gt;
+
+???
+2 minutes in pairs and 2 minutes for discussion. Use only the variables needed for the figure. Mean filling creates artificial values and can distort variability and relationships. In this snapshot, GDP and internet have the same two missing countries in 2023; do not claim their exclusions differ. The general sample-selection principle still matters.
+
+---
+
+# The class preparation policy
+
+&lt;div class="compare-grid" style="grid-template-columns:repeat(5,1fr); gap:10px;"&gt;
+  &lt;div class="compare-card" style="padding:12px; font-size:18px;"&gt;&lt;strong&gt;1&lt;/strong&gt;&lt;br&gt;Keep expected country-years&lt;/div&gt;
+  &lt;div class="compare-card" style="padding:12px; font-size:18px;"&gt;&lt;strong&gt;2&lt;/strong&gt;&lt;br&gt;Preserve missing values&lt;/div&gt;
+  &lt;div class="compare-card" style="padding:12px; font-size:18px;"&gt;&lt;strong&gt;3&lt;/strong&gt;&lt;br&gt;Report usable N&lt;/div&gt;
+  &lt;div class="compare-card" style="padding:12px; font-size:18px;"&gt;&lt;strong&gt;4&lt;/strong&gt;&lt;br&gt;Document changes&lt;/div&gt;
+  &lt;div class="compare-card" style="padding:12px; font-size:18px;"&gt;&lt;strong&gt;5&lt;/strong&gt;&lt;br&gt;Investigate unusual values&lt;/div&gt;
+&lt;/div&gt;
+
+A different policy requires a reason and a visible code change.
+
+???
+2 minutes. No automatic imputation, interpolation or winsorization. Those operations require a justification and assumptions when appropriate. Here, retaining missing values with explicit plot-specific exclusions is a transparent policy.
+
+---
+
+# The sample changes with the question
+
+&lt;div style="margin:20px auto; max-width:720px;"&gt;
+  &lt;div style="background:#851a10; color:white; width:100%; padding:10px; text-align:center;"&gt;&lt;strong&gt;27&lt;/strong&gt; selected countries in 2023&lt;/div&gt;
+  &lt;div style="background:#a94a41; color:white; width:88%; margin:auto; padding:10px; text-align:center;"&gt;&lt;strong&gt;27&lt;/strong&gt; observed life expectancy&lt;/div&gt;
+  &lt;div style="background:#3a7188; color:white; width:76%; margin:auto; padding:10px; text-align:center;"&gt;&lt;strong&gt;25&lt;/strong&gt; observed GDP&lt;/div&gt;
+  &lt;div style="background:#136f63; color:white; width:64%; margin:auto; padding:10px; text-align:center;"&gt;&lt;strong&gt;25&lt;/strong&gt; all three measures available&lt;/div&gt;
+&lt;/div&gt;
+
+A report should name its denominator rather than simply saying “the dataset has 27 observations.”
+
+???
+2 minutes. South Sudan and Yemen lack GDP and internet measurements in the 2023 snapshot. The complete-case matrix has 25 countries. The correlation table uses 27 observations for life expectancy alone and 25 for its pairs. Missingness block: 2 + 4 + 2 + 2 = 10 minutes.
+
+---
+
+class: inverse, center, middle
+
+# 4. Descriptive summaries
+
+
+
+???
+Transition included within the stated block time.
+
+---
+
+# A summary needs a stated sample
+
+Choose the unit and period before calculating:
+
+&lt;div class="compare-grid" style="grid-template-columns:repeat(3,1fr); gap:14px;"&gt;
+  &lt;div class="compare-card" style="text-align:center;"&gt;&lt;h3&gt;One country&lt;/h3&gt;over time&lt;/div&gt;
+  &lt;div class="compare-card" style="text-align:center;"&gt;&lt;h3&gt;Cross-section&lt;/h3&gt;countries in one year&lt;/div&gt;
+  &lt;div class="compare-card" style="text-align:center;"&gt;&lt;h3&gt;Pooled panel&lt;/h3&gt;repeated country-years&lt;/div&gt;
+&lt;/div&gt;
+
+These answer different descriptive questions.
+
+An unweighted country mean gives each observed country equal weight.
+
+???
+3 minutes. Comparative summaries use the 2023 cross-section. Pooling 648 rows mixes periods and repeatedly counts countries. Missingness can alter countries’ contributions. A resident-weighted measure needs appropriate weights and a clearly defined target.
+
+---
+
+# Location and spread tell different things
+
+&lt;div class="compare-grid"&gt;
+  &lt;div class="compare-card"&gt;&lt;h3&gt;Mean&lt;/h3&gt;Arithmetic average of observed values&lt;/div&gt;
+  &lt;div class="compare-card"&gt;&lt;h3&gt;Median&lt;/h3&gt;Middle of the ordered distribution&lt;/div&gt;
+  &lt;div class="compare-card"&gt;&lt;h3&gt;Standard deviation&lt;/h3&gt;Spread around the mean&lt;/div&gt;
+  &lt;div class="compare-card"&gt;&lt;h3&gt;IQR&lt;/h3&gt;75th percentile minus 25th percentile&lt;/div&gt;
+&lt;/div&gt;
+
+Read them alongside **N, missing count, minimum, and maximum**.
+
+???
+3 minutes. Standard deviation is not a standard error. An IQR flag is not proof of an error. Inspect the actual distributions rather than assuming that every selected GDP sample has strong right skew. The internet distribution has a low observation that affects its mean.
+
+---
+
+class: small
+
+# A real 2023 summary
+
+| Measure | Usable N | Mean | Median |
+|---|---:|---:|---:|
+| GDP per capita PPP | 25 | 34,261 | 32,858 |
+| Life expectancy, years | 27 | 76.00 | 76.66 |
+| Internet use, % | 25 | 82.97 | 86.42 |
+
+GDP units: constant 2021 international dollars.
+
+Source: World Bank WDI API snapshot, retrieved 31 October 2026.
+
+???
+2 minutes. The notebook computes these rounded summaries from the API snapshot. They are unweighted means of observed values for selected countries. Do not describe them as global averages. Keep full precision in the underlying data.
+
+---
+
+class: small
+
+# Summary interpretation — pairs, 4 minutes
+
+&lt;div class="activity-head"&gt;&lt;span class="activity-time"&gt;4 MIN&lt;/span&gt;&lt;span class="activity-mode"&gt;PAIRS&lt;/span&gt;&lt;/div&gt;
+
+Using the summary:
+
+1. Write one sentence comparing mean and median.
+
+2. Suggest what to inspect in the distribution.
+, Definition \@ref(def:label)
+3. Explain why this is not the percentage of all people worldwide who use the internet.
+
+&lt;div class="activity-output"&gt;&lt;strong&gt;OUTPUT:&lt;/strong&gt; one comparison, one inspection target, and one limitation&lt;/div&gt;
+
+???
+2 minutes in pairs and 2 minutes for reports. The mean of 82.97 is below the median of 86.42. Inspect the lower observations and source coverage without automatically deleting values. The statistic averages selected countries equally. Summaries block: 3 + 3 + 2 + 4 = 12 minutes.
+
+---
+
+class: inverse, center, middle
+
+# 5. Visual evidence from simple to richer plots
+
+
+
+???
+Transition included within the stated block time.
+
+---
+
+class: small
+
+# A line shows change over time
+
+&lt;div class="plot"&gt;&lt;img src="slide_figures/01_korea_internet.png" alt="A line shows change over time" /&gt;&lt;/div&gt;
+
+.plot-prompt[**READ THE CHART:** What changed, over which period, and in which units?]
+
+???
+3 minutes. Korea’s internet measure increases from 44.7 in 2000 to about 97.4 in 2023, roughly 52.7 percentage points. This is not a 52.7 percent relative increase. A time pattern alone cannot identify the effect of a policy.
+
+---
+
+class: small
+
+# A small comparison can use simple bars
+
+&lt;div class="plot"&gt;&lt;img src="slide_figures/02_life_bars.png" alt="A small comparison can use simple bars" /&gt;&lt;/div&gt;
+
+.plot-prompt[**READ THE CHART:** Why does the bar axis start at zero? What does the selection omit?]
+
+???
+2 minutes. Bar lengths encode levels, so use a zero baseline. A clearly labelled dot plot can support a narrower scale when justified. These are six named countries with values from 2023, not an arbitrary mixture of latest available years.
+
+---
+
+class: small
+
+# A distribution depends on the scale
+
+&lt;div class="plot"&gt;&lt;img src="slide_figures/03_gdp_histograms.png" alt="A distribution depends on the scale" /&gt;&lt;/div&gt;
+
+.plot-prompt[**READ THE CHART:** Same countries and values. How does the natural-log transformation change the view?]
+
+???
+3 minutes. Both panels use the same 25 observed GDP values. Skewness on the original scale is modest in this particular selected sample. Try different bin counts. The transformed panel uses natural-log units, not dollars.
+
+---
+
+class: small
+
+# A relationship needs a bounded claim
+
+&lt;div class="plot"&gt;&lt;img src="slide_figures/04_gdp_life_scatter.png" alt="A relationship needs a bounded claim" /&gt;&lt;/div&gt;
+
+.plot-prompt[**READ THE CHART:** Each point is one country in 2023. A log x-axis changes spacing.]
+
+???
+3 minutes. The selected country-level sample shows a positive pattern. It does not establish that GDP causes longer life. Discuss selection, alternative explanations and the difference between country and individual outcomes. Plot N is 25.
+
+---
+
+class: small
+
+# Small multiples reduce line clutter
+
+&lt;div class="plot"&gt;&lt;img src="slide_figures/07_small_multiples.png" alt="Small multiples reduce line clutter" /&gt;&lt;/div&gt;
+
+.plot-prompt[**READ THE CHART:** Which comparisons are easier with common axes and separate country panels?]
+
+???
+3 minutes. Six countries share common year and percentage scales. Discuss how separate panels reduce clutter. Students can run this stretch code later rather than writing it from scratch during the core studio.
+
+---
+
+class: small
+
+# Descriptive reports with reusable functions
+
+| Function / tool | Output |
+|---|---|
+| `df[columns].describe()` | Counts, mean, spread, quartiles, extremes |
+| `numeric_summary()` | Also missingness, IQR, skewness, inspection flags |
+| `descriptive_report()` | Numerical tables, histograms, boxplots, local HTML report |
+| `sns.pairplot()` | Scatterplot matrix and distributions |
+| Optional `ydata-profiling` | Broad automatic local report |
+
+Choose measurement columns and the sample explicitly.
+
+???
+3 minutes. The custom functions are fully supplied and tested. Students choose measurement columns and a named sample. The optional YData package requires a compatible installation and is not required. Automatic warnings are prompts for investigation.
+
+---
+
+class: small
+
+# A correlation also needs its usable N
+
+&lt;div class="plot"&gt;&lt;img src="slide_figures/05_correlation_heatmap.png" alt="A correlation also needs its usable N" /&gt;&lt;/div&gt;
+
+.plot-prompt[**READ THE CHART:** Does each coefficient use the same variables and observations as the previous plot?]
+
+???
+1 minute. This matrix uses raw GDP, while the scatterplot uses logarithmic x spacing. Pairwise N is 25 except for life expectancy’s diagonal count of 27. Correlation depends on sample, transformation and unusual values. Formal inference comes later.
+
+---
+
+class: small
+
+# Caption challenge — pairs, 2 minutes
+
+&lt;div class="activity-head"&gt;&lt;span class="activity-time"&gt;2 MIN&lt;/span&gt;&lt;span class="activity-mode"&gt;PAIRS&lt;/span&gt;&lt;/div&gt;
+
+Choose one chart from this section.
+
+Prepare a two-sentence caption containing:
+
+- measure, unit, period and sample
+- one descriptive pattern and one limitation
+
+Avoid attributing a causal mechanism that the figure cannot establish.
+
+&lt;div class="activity-output"&gt;&lt;strong&gt;OUTPUT:&lt;/strong&gt; a two-sentence caption with context, pattern, and limitation&lt;/div&gt;
+
+???
+1 minute in pairs and 1 minute for a report. A good caption states the unit, year, sample and limitation. Visual block: 3 + 2 + 3 + 3 + 3 + 3 + 1 + 2 = 20 minutes.
+
+---
+
+class: inverse, center, middle
+
+# 6. Preparation for Thursday
+
+
+
+???
+Transition included within the stated block time.
+
+---
+
+# The studio output
+
+Bring your source audit and approved project data, if ready.
+
+The notebook supplies real API records for everyone.
+
+&lt;div class="compare-grid" style="grid-template-columns:repeat(3,1fr); gap:14px;"&gt;
+  &lt;div class="compare-card" style="text-align:center;"&gt;&lt;h3&gt;Prepare&lt;/h3&gt;Transparent decision log and validated table&lt;/div&gt;
+  &lt;div class="compare-card" style="text-align:center;"&gt;&lt;h3&gt;Describe&lt;/h3&gt;Numeric summary and two suitable plots&lt;/div&gt;
+  &lt;div class="compare-card" style="text-align:center;"&gt;&lt;h3&gt;Interpret&lt;/h3&gt;Short finding with sample and limitations&lt;/div&gt;
+&lt;/div&gt;
+
+Use your approved project or a justified subset of the class data.
+
+???
+3 minutes. Students can use approved project data or a justified subset of the real class data. A qualitative final project can use quantitative evidence for context. This is a stage of the full individual paper, not a new proposal or assessment weight.
+
+---
+
+class: inverse, center, middle
+
+# Thursday — Cleaning and visualization studio
+
+
+
+???
+Transition included within the stated block time.
+
+---
+
+# Agenda
+
+**Thursday — Week 10, Meeting 2**
+
+&lt;div class="flow" style="margin-top:22px;"&gt;
+  &lt;div class="flow-step"&gt;&lt;strong&gt;1&lt;/strong&gt;Setup&lt;/div&gt;&lt;div class="flow-arrow"&gt;→&lt;/div&gt;
+  &lt;div class="flow-step"&gt;&lt;strong&gt;2&lt;/strong&gt;Prepare&lt;/div&gt;&lt;div class="flow-arrow"&gt;→&lt;/div&gt;
+  &lt;div class="flow-step"&gt;&lt;strong&gt;3&lt;/strong&gt;Describe&lt;/div&gt;&lt;div class="flow-arrow"&gt;→&lt;/div&gt;
+  &lt;div class="flow-step"&gt;&lt;strong&gt;4&lt;/strong&gt;Apply&lt;/div&gt;&lt;div class="flow-arrow"&gt;→&lt;/div&gt;
+  &lt;div class="flow-step"&gt;&lt;strong&gt;5&lt;/strong&gt;Review&lt;/div&gt;
+&lt;/div&gt;
+
+Work individually. Use pairs for checking decisions.
+
+???
+The opening five minutes include 1 minute for the agenda, 3 minutes to open and save a personal copy, and 1 minute for setup. Core route: Sections 0–6 and 8. Section 7 is stretch material. Section 9 supports the project studio.
+
+---
+
+class: small
+
+# Setup — 5 minutes
+
+&lt;div class="studio-head"&gt;&lt;span class="step-badge"&gt;STEP 1 OF 7&lt;/span&gt;&lt;span class="time-badge"&gt;5 MIN&lt;/span&gt;&lt;/div&gt;
+&lt;div class="progress"&gt;&lt;span style="width:14%;"&gt;&lt;/span&gt;&lt;/div&gt;
+
+Open **W10_RMDS_Preparation_and_EDA.ipynb**.
+
+Save a personal copy and run Section 0.
+
+Keep `REFRESH_API=False` for the embedded, verified source snapshot.
+
+Expected scope: 27 countries, 24 years, three indicators.
+
+The standard run requires no separate data files or live API call.
+
+&lt;div class="artifact"&gt;&lt;strong&gt;EXPECTED ARTIFACT:&lt;/strong&gt; personal notebook copy with Section 0 completed&lt;/div&gt;
+
+???
+This slide belongs inside the opening five-minute block. Leave the compressed snapshot cell collapsed if useful. The default run uses the embedded genuine API responses and normally available Colab packages. No live API refresh is needed.
+
+---
+
+class: small
+
+# Preparation and joins — 15 minutes
+
+&lt;div class="studio-head"&gt;&lt;span class="step-badge"&gt;STEP 2 OF 7&lt;/span&gt;&lt;span class="time-badge"&gt;15 MIN&lt;/span&gt;&lt;/div&gt;
+&lt;div class="progress"&gt;&lt;span style="width:29%;"&gt;&lt;/span&gt;&lt;/div&gt;
+
+**Notebook Sections 1–2**
+
+1. Read the indicator definitions and source note.
+
+2. Run the parser and tidy reshape.
+
+3. Compare the wrong and validated joins.
+
+4. Complete Checkpoint A.
+
+Explain why **576 rows** is a warning in the Korea example.
+
+&lt;div class="artifact"&gt;&lt;strong&gt;EXPECTED ARTIFACT:&lt;/strong&gt; validated country-year analysis table and Checkpoint A&lt;/div&gt;
+
+???
+3 minutes for definitions, 6 for running and inspection, 4 for the written checkpoint, and 2 for an instructor check. Expect 1,944 long rows and 648 country-years. The wrong Korea join gives 576 rows; the correct join gives 24.
+
+---
+
+class: small
+
+# Missingness and transformations — 10 minutes
+
+&lt;div class="studio-head"&gt;&lt;span class="step-badge"&gt;STEP 3 OF 7&lt;/span&gt;&lt;span class="time-badge"&gt;10 MIN&lt;/span&gt;&lt;/div&gt;
+&lt;div class="progress"&gt;&lt;span style="width:43%;"&gt;&lt;/span&gt;&lt;/div&gt;
+
+**Notebook Section 3**
+
+1. Inspect missing values by country and variable.
+
+2. Compare total rows with usable observations.
+
+3. Read the class missing-data policy.
+
+4. Inspect log GDP and endpoint percentage-point change.
+
+5. Complete Checkpoint B.
+
+&lt;div class="artifact"&gt;&lt;strong&gt;EXPECTED ARTIFACT:&lt;/strong&gt; documented missingness decision and derived measures&lt;/div&gt;
+
+???
+6 minutes for code and inspection and 4 for the written answer. The log measure retains the original GDP column. Endpoint changes require both observed endpoints. Afghanistan, South Sudan and Yemen lack at least one internet endpoint in this snapshot; their absence does not itself establish a reason.
+
+---
+
+class: small
+
+# First summaries and plots — 12 minutes
+
+&lt;div class="studio-head"&gt;&lt;span class="step-badge"&gt;STEP 4 OF 7&lt;/span&gt;&lt;span class="time-badge"&gt;12 MIN&lt;/span&gt;&lt;/div&gt;
+&lt;div class="progress"&gt;&lt;span style="width:57%;"&gt;&lt;/span&gt;&lt;/div&gt;
+
+**Notebook Sections 4–5**
+
+1. Run the numeric summary.
+
+2. Make the Korea line and small country comparison.
+
+3. Run the histograms and scatterplot.
+
+4. Change one visual choice and complete Checkpoint C.
+
+Use the supplied code. Explain the consequence of your change.
+
+&lt;div class="artifact"&gt;&lt;strong&gt;EXPECTED ARTIFACT:&lt;/strong&gt; numeric summary, first plots, and Checkpoint C&lt;/div&gt;
+
+???
+3 minutes for the summary, 5 for plots and 4 for interpretation. Students may change bins, the country subset or axis scale while keeping the measurements intact. They should explain how the choice affects the visual impression.
+
+---
+
+class: small
+
+# A broad descriptive report — 10 minutes
+
+&lt;div class="studio-head"&gt;&lt;span class="step-badge"&gt;STEP 5 OF 7&lt;/span&gt;&lt;span class="time-badge"&gt;10 MIN&lt;/span&gt;&lt;/div&gt;
+&lt;div class="progress"&gt;&lt;span style="width:71%;"&gt;&lt;/span&gt;&lt;/div&gt;
+
+**Notebook Section 6**
+
+Run `descriptive_report()` on the 2023 data.
+
+Inspect:
+
+- usable N and missingness
+
+- median, IQR and inspection flags
+
+- histograms and boxplots
+
+- correlations alongside pairwise sample sizes
+
+Open or download the local HTML report.
+
+&lt;div class="artifact"&gt;&lt;strong&gt;EXPECTED ARTIFACT:&lt;/strong&gt; local descriptive report with tables, plots, correlations, and N&lt;/div&gt;
+
+???
+6 minutes to run and inspect, then 4 minutes of discussion. The HTML report goes into w10_lab/documentation. An IQR flag is not an error label. Keep optional Section 7 explorations from consuming the project studio time.
+
+---
+
+class: small
+
+# Individual project studio — 15 minutes
+
+&lt;div class="studio-head"&gt;&lt;span class="step-badge"&gt;STEP 6 OF 7&lt;/span&gt;&lt;span class="time-badge"&gt;15 MIN&lt;/span&gt;&lt;/div&gt;
+&lt;div class="progress"&gt;&lt;span style="width:86%;"&gt;&lt;/span&gt;&lt;/div&gt;
+
+**Notebook Sections 8–9**
+
+1. Run the reproducibility check and inspect the decision log.
+
+2. Define your project unit, key and preparation decision.
+
+3. Produce a summary and two suitable plots.
+
+4. Draft a 100–150 word descriptive finding.
+
+If your own data are unavailable, choose an explained subset of the class API data.
+
+&lt;div class="artifact"&gt;&lt;strong&gt;EXPECTED ARTIFACT:&lt;/strong&gt; project summary, two plots, and a 100–150 word finding&lt;/div&gt;
+
+???
+3 minutes for the pipeline check, 8 for adapting existing code and 4 for writing. Students reuse the supplied functions and plots; they are not expected to build everything from scratch. An optional starter selects six actual countries. Students with inaccessible project data can use a justified class-data subset.
+
+---
+
+class: small
+
+# Peer review — 5 minutes
+
+&lt;div class="studio-head"&gt;&lt;span class="step-badge"&gt;STEP 7 OF 7&lt;/span&gt;&lt;span class="time-badge"&gt;5 MIN&lt;/span&gt;&lt;/div&gt;
+&lt;div class="progress"&gt;&lt;span style="width:100%;"&gt;&lt;/span&gt;&lt;/div&gt;
+
+**Two minutes per student, then one minute to revise.**
+
+Partner checks:
+
+- row unit and join keys
+
+- missing-data policy and reported sample
+
+- plot labels, scales and units
+
+- whether the finding stays within the evidence
+
+Record one revision or a justified decision to retain your approach.
+
+&lt;div class="artifact"&gt;&lt;strong&gt;EXPECTED ARTIFACT:&lt;/strong&gt; one recorded revision or justified decision&lt;/div&gt;
+
+???
+Six pairs. Give each student two minutes, then one minute for individual revision. Check a specific source, sample or plotting decision. Prefer a defensible simple plot over complexity for its own sake.
+
+---
+
+class: small
+
+# Save and submit — 3 minutes
+
+&lt;div class="studio-head"&gt;&lt;span class="step-badge" style="background:#136f63;"&gt;SUBMIT&lt;/span&gt;&lt;span class="time-badge"&gt;3 MIN&lt;/span&gt;&lt;/div&gt;
+
+Save your completed notebook.
+
+Download the generated output bundle with raw provenance, prepared data, logs, tables and figures.
+
+Include your descriptive finding, peer revision, and AI-use/verification statement.
+
+Follow the posted **Cyber Campus** instructions.
+
+&lt;div class="artifact"&gt;&lt;strong&gt;FINAL CHECK:&lt;/strong&gt; notebook, output bundle, finding, peer revision, and AI-use statement&lt;/div&gt;
+
+???
+Thursday total: 5 + 15 + 10 + 12 + 10 + 15 + 5 + 3 = 75 minutes. Run the final export cell after adding project outputs. Save the completed notebook separately. Leave optional refresh and profiling off for the core restart-and-run-all check.
+
+---
+
+class: inverse, center, middle
+
+# Appendix — reference and stretch material
+
+
+
+???
+Transition included within the stated block time.
+
+---
+
+class: small
+
+# Notebook map
+
+&lt;div class="flow" style="flex-wrap:wrap;"&gt;
+  &lt;div class="flow-step"&gt;&lt;strong&gt;0–1&lt;/strong&gt;Setup and API snapshot&lt;/div&gt;&lt;div class="flow-arrow"&gt;→&lt;/div&gt;
+  &lt;div class="flow-step"&gt;&lt;strong&gt;2&lt;/strong&gt;Parse, reshape, join&lt;/div&gt;&lt;div class="flow-arrow"&gt;→&lt;/div&gt;
+  &lt;div class="flow-step"&gt;&lt;strong&gt;3&lt;/strong&gt;Missingness and measures&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="flow" style="margin-top:10px;"&gt;
+  &lt;div class="flow-step"&gt;&lt;strong&gt;4–5&lt;/strong&gt;Summaries and plots&lt;/div&gt;&lt;div class="flow-arrow"&gt;→&lt;/div&gt;
+  &lt;div class="flow-step"&gt;&lt;strong&gt;6–7&lt;/strong&gt;Reports and stretch&lt;/div&gt;&lt;div class="flow-arrow"&gt;→&lt;/div&gt;
+  &lt;div class="flow-step"&gt;&lt;strong&gt;8–10&lt;/strong&gt;Rerun, project, submit&lt;/div&gt;
+&lt;/div&gt;
+
+???
+Reference only. Core and stretch code cells were executed on the real API snapshot. The optional profiling package is not required. Original responses and metadata retain their retrieval record and hashes.
+
+---
+
+class: small
+
+# Stretch: missingness over countries and time
+
+&lt;div class="plot"&gt;&lt;img src="slide_figures/06_missingness_map.png" alt="Stretch: missingness over countries and time" /&gt;&lt;/div&gt;
+
+.plot-prompt[**READ THE CHART:** Colour encodes missingness, not internet-use level.]
+
+???
+Reference only. The colour represents whether a value is missing. Rows follow country-code order. This map helps audit coverage but cannot establish the cause of missingness.
+
+---
+
+class: small
+
+# Stretch: a scatterplot matrix
+
+&lt;div class="plot"&gt;&lt;img src="slide_figures/08_pairplot.png" alt="Stretch: a scatterplot matrix" /&gt;&lt;/div&gt;
+
+.plot-prompt[**READ THE CHART:** Same 25 complete-case countries in every panel. GDP uses a natural-log transformation.]
+
+???
+Reference only. All panels use the same 25 complete-case countries. GDP is transformed with the natural logarithm. This differs from the pairwise correlation display, which uses raw GDP and available pairs.
+
+---
+
+class: small
+
+# Stretch: endpoint change and the ECDF
+
+&lt;div class="plot"&gt;&lt;img src="slide_figures/09_changes_ecdf.png" alt="Stretch: endpoint change and the ECDF" /&gt;&lt;/div&gt;
+
+.plot-prompt[**READ THE CHART:** Change requires both endpoints. The ECDF uses observed GDP values in the selected 2023 sample.]
+
+???
+Reference only. The change panel has 24 countries with both endpoints. Afghanistan, South Sudan and Yemen are excluded from that specific comparison. The ECDF gives the fraction of observed countries at or below each GDP value, not a population share.
+
+---
+
+class: small
+
+# What the report functions return
+
+&lt;div class="function-grid"&gt;
+  &lt;div class="function-card"&gt;&lt;h3&gt;&lt;code&gt;numeric_summary()&lt;/code&gt;&lt;/h3&gt;Rows, usable N, missing count/percentage, unique values, mean, SD, quartiles, tail percentiles, IQR, skewness and inspection flags.&lt;/div&gt;
+  &lt;div class="function-card"&gt;&lt;h3&gt;&lt;code&gt;descriptive_report()&lt;/code&gt;&lt;/h3&gt;Summary, schema, missingness, pairwise correlations and N, histograms, boxplots, CSV tables and a local HTML report.&lt;/div&gt;
+&lt;/div&gt;
+
+???
+Reference only. These functions provide numerical and graphical output locally. Explicit columns prevent numeric identifiers from entering summaries by accident. Reports need substantive interpretation.
+
+---
+
+# Examples of defensible descriptive language
+
+&lt;div class="compare-grid"&gt;
+  &lt;div class="quote-card"&gt;“Among the &lt;strong&gt;25 selected countries&lt;/strong&gt; with observed GDP &lt;strong&gt;in 2023&lt;/strong&gt;, the mean GDP per capita PPP was about &lt;strong&gt;34,261 constant 2021 international dollars&lt;/strong&gt;.”&lt;/div&gt;
+  &lt;div class="quote-card"&gt;“The internet-use mean was below its median &lt;strong&gt;in this sample&lt;/strong&gt;, prompting inspection of the lower part of the distribution.”&lt;/div&gt;
+&lt;/div&gt;
+
+State the **sample, period, units and limitation** in the paper.
+
+???
+Both model statements follow the actual snapshot. Do not substitute them for a finding about another sample. State units, date and source in a final-paper caption or accompanying text.
+
+---
+
+class: scrollable, small
+
+# Published research example
+
+&lt;div class="paper-citation"&gt;
+  &lt;span class="paper-links"&gt;&lt;a href="papers/Vyshnevskyi_Sohn_2023_NPLs.pdf" target="_blank"&gt;Open PDF&lt;/a&gt; &amp;nbsp;|&amp;nbsp; &lt;a href="https://doi.org/10.1016/j.ememar.2023.101069" target="_blank"&gt;Publisher page&lt;/a&gt;&lt;/span&gt;
+  &lt;strong&gt;Vyshnevskyi, I., &amp;amp; Sohn, W. (2023).&lt;/strong&gt;&lt;br&gt;
+  “Nonperforming loans and related lending: Evidence from Ukraine.” &lt;em&gt;Emerging Markets Review, 57&lt;/em&gt;, 101069.
+&lt;/div&gt;
+
+Scroll inside the paper below. As you read, look for how the authors connect the research question, data preparation, descriptive evidence, and claims.
+
+&lt;iframe class="paper-viewer" src="papers/Vyshnevskyi_Sohn_2023_NPLs.pdf#page=1&amp;view=FitH" title="Vyshnevskyi and Sohn 2023 paper"&gt;&lt;/iframe&gt;
+
+???
+Use this as a published example, not as a template that must be copied mechanically. Ask students to identify the unit of analysis, sample period, variables, preparation decisions, and the boundary between descriptive and causal claims. The embedded viewer is scrollable; the Open PDF link is a fallback if a browser blocks inline display.
+
+---
+
+class: small
+
+# Software and source references
+
+&lt;div class="reference-grid"&gt;
+  &lt;div class="reference-card"&gt;
+    &lt;h3&gt;Data and indicators&lt;/h3&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href="https://datahelpdesk.worldbank.org/knowledgebase/articles/889392-about-the-indicators-api"&gt;World Bank WDI API&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="https://data.worldbank.org/indicator/NY.GDP.PCAP.PP.KD"&gt;GDP per capita PPP&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="https://data.worldbank.org/indicator/SP.DYN.LE00.IN"&gt;Life expectancy&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="https://data.worldbank.org/indicator/IT.NET.USER.ZS"&gt;Internet use&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="https://www.worldbank.org/ext/en/legal/terms-conditions/datasets"&gt;World Bank dataset terms&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+  &lt;div class="reference-card software"&gt;
+    &lt;h3&gt;Software documentation&lt;/h3&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.describe.html"&gt;pandas: describe&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.merge.html"&gt;pandas: validated merge&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="https://seaborn.pydata.org/generated/seaborn.pairplot.html"&gt;seaborn: pairplot&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="https://docs.profiling.ydata.ai/latest/"&gt;Optional YData Profiling&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="source-note"&gt;&lt;strong&gt;DATA NOTE&lt;/strong&gt; &amp;nbsp; World Bank WDI and underlying providers. API snapshot retrieved 31 October 2026.&lt;/div&gt;
+
+???
+API queries, provider metadata and hashes are retained. Original providers differ across indicators. Review the actual indicator terms and retain the relevant attribution. Do not infer permission for unrelated datasets from this source.
+
+1. To print pdf slides
+library(renderthis)
+
+renderthis::to_pdf("W10_RMDS.html")
+
+getwd()
+setwd("C:\\Users\\vyshn\\OneDrive - kdis.ac.kr\\Documents\\GitHub\\Sogang\\2026\\Fall\\Research Method of Data Science\\W10")
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="libs/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+  "highlightStyle": "github",
+  "highlightLines": true,
+  "countIncrementalSlides": false,
+  "ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

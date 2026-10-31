@@ -1,0 +1,6 @@
+step,decision,rows_after
+Parse,Read original API pages; convert year/value explicitly; check long keys,1944
+Reshape,One country-year row; pivot requires unique keys,648
+Join,Add country names with many-to-one validation,648
+Missing values,Retain provider nulls; no imputation or global row deletion,648
+Derived measure,Natural log for positive GDP; preserve original measurement,648

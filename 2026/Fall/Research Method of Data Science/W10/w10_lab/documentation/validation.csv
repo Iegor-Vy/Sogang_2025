@@ -1,0 +1,8 @@
+rule,passes
+country-year key unique,True
+country-year keys present,True
+expected grid present,True
+no unexpected keys,True
+observed GDP per capita positive,True
+observed life expectancy within a broad plausibility bound,True
+observed internet share within 0 to 100,True

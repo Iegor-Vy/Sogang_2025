@@ -1,0 +1,4 @@
+variable,definition,indicator,source_url,missing_code,source
+gdp_pc_ppp,"GDP per capita, PPP (constant 2021 international $)",NY.GDP.PCAP.PP.KD,https://data.worldbank.org/indicator/NY.GDP.PCAP.PP.KD,API null preserved as missing,World Bank WDI and original providers
+life_expectancy,Life expectancy at birth (years),SP.DYN.LE00.IN,https://data.worldbank.org/indicator/SP.DYN.LE00.IN,API null preserved as missing,World Bank WDI and original providers
+internet_pct,Internet use (% of population),IT.NET.USER.ZS,https://data.worldbank.org/indicator/IT.NET.USER.ZS,API null preserved as missing,World Bank WDI and original providers

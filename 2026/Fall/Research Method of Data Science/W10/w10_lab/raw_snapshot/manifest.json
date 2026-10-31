@@ -1,0 +1,111 @@
+{
+  "provider": "World Bank",
+  "dataset": "World Development Indicators",
+  "source_id": 2,
+  "countries": [
+    "KOR",
+    "VNM",
+    "UKR",
+    "POL",
+    "DEU",
+    "USA",
+    "IND",
+    "BRA",
+    "ZAF",
+    "JPN",
+    "CHN",
+    "IDN",
+    "MEX",
+    "TUR",
+    "GBR",
+    "FRA",
+    "ITA",
+    "ESP",
+    "CAN",
+    "AUS",
+    "THA",
+    "MYS",
+    "PHL",
+    "EGY",
+    "AFG",
+    "SSD",
+    "YEM"
+  ],
+  "period": [
+    2000,
+    2023
+  ],
+  "indicators": {
+    "NY.GDP.PCAP.PP.KD": "gdp_pc_ppp",
+    "SP.DYN.LE00.IN": "life_expectancy",
+    "IT.NET.USER.ZS": "internet_pct"
+  },
+  "selection_note": "Purposefully selected teaching countries, not a random sample of the world",
+  "records": [
+    {
+      "file": "gdp_pc_ppp_page_1.json",
+      "url": "https://api.worldbank.org/v2/country/KOR;VNM;UKR;POL;DEU;USA;IND;BRA;ZAF;JPN;CHN;IDN;MEX;TUR;GBR;FRA;ITA;ESP;CAN;AUS;THA;MYS;PHL;EGY;AFG;SSD;YEM/indicator/NY.GDP.PCAP.PP.KD?source=2&date=2000%3A2023&format=json&per_page=1000&page=1",
+      "sha256": "4db115752f22fd7b73ba7270106160491a26f2498130814533d5728710b68e39",
+      "retrieved_utc": "2026-10-31T01:57:13.814066+00:00",
+      "response_metadata": {
+        "page": 1,
+        "pages": 1,
+        "per_page": 1000,
+        "total": 648,
+        "sourceid": "2",
+        "lastupdated": "2026-10-08"
+      }
+    },
+    {
+      "file": "gdp_pc_ppp_metadata.json",
+      "url": "https://api.worldbank.org/v2/indicator/NY.GDP.PCAP.PP.KD?format=json&source=2",
+      "sha256": "55af4b25be9dc57c2865bc4a208710e7405b00306f8381038d884841d3b1e686",
+      "retrieved_utc": "2026-10-31T01:57:20.794789+00:00",
+      "kind": "indicator_metadata"
+    },
+    {
+      "file": "life_expectancy_page_1.json",
+      "url": "https://api.worldbank.org/v2/country/KOR;VNM;UKR;POL;DEU;USA;IND;BRA;ZAF;JPN;CHN;IDN;MEX;TUR;GBR;FRA;ITA;ESP;CAN;AUS;THA;MYS;PHL;EGY;AFG;SSD;YEM/indicator/SP.DYN.LE00.IN?source=2&date=2000%3A2023&format=json&per_page=1000&page=1",
+      "sha256": "afadef74eb8f60140b8efad02aae27c50fe60b6c8bcdf998d1df07c99ac3a3d4",
+      "retrieved_utc": "2026-10-31T01:57:13.788669+00:00",
+      "response_metadata": {
+        "page": 1,
+        "pages": 1,
+        "per_page": 1000,
+        "total": 648,
+        "sourceid": "2",
+        "lastupdated": "2026-10-08"
+      }
+    },
+    {
+      "file": "life_expectancy_metadata.json",
+      "url": "https://api.worldbank.org/v2/indicator/SP.DYN.LE00.IN?format=json&source=2",
+      "sha256": "a39cb6fddfbbb953053690366243dffe77a266c4deae79c46ce5a06da9f5fc31",
+      "retrieved_utc": "2026-10-31T01:57:20.782353+00:00",
+      "kind": "indicator_metadata"
+    },
+    {
+      "file": "internet_pct_page_1.json",
+      "url": "https://api.worldbank.org/v2/country/KOR;VNM;UKR;POL;DEU;USA;IND;BRA;ZAF;JPN;CHN;IDN;MEX;TUR;GBR;FRA;ITA;ESP;CAN;AUS;THA;MYS;PHL;EGY;AFG;SSD;YEM/indicator/IT.NET.USER.ZS?source=2&date=2000%3A2023&format=json&per_page=1000&page=1",
+      "sha256": "d4980338bd4c29173ea448543415af8dc363e1c6551c6199bb1d63996dcca223",
+      "retrieved_utc": "2026-10-31T01:57:13.722950+00:00",
+      "response_metadata": {
+        "page": 1,
+        "pages": 1,
+        "per_page": 1000,
+        "total": 648,
+        "sourceid": "2",
+        "lastupdated": "2026-10-08"
+      }
+    },
+    {
+      "file": "internet_pct_metadata.json",
+      "url": "https://api.worldbank.org/v2/indicator/IT.NET.USER.ZS?format=json&source=2",
+      "sha256": "6e6fc76f94bda17bd30c3303f1e8965698c93d344c26a556ea6ee18a86c3cc32",
+      "retrieved_utc": "2026-10-31T01:57:20.827741+00:00",
+      "kind": "indicator_metadata"
+    }
+  ],
+  "terms_url": "https://www.worldbank.org/ext/en/legal/terms-conditions/datasets",
+  "license_note": "Indicator pages display CC BY 4.0. Retain provider attribution and check source-specific terms."
+}
