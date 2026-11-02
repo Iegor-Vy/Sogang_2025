@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Research Method of Data Science</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Iegor Vyshnevskyi, Ph.D." />
+    <script src="libs/header-attrs-2.29/header-attrs.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Research Method of Data Science
+]
+.subtitle[
+## Week 10: Your Individual Final Research Project
+]
+.author[
+### Iegor Vyshnevskyi, Ph.D.
+]
+.institute[
+### Sogang University
+]
+.date[
+### November 3/5, 2026
+]
+
+---
+
+
+&lt;style&gt;
+@media print{
+  body, html, .remark-slides-area, .remark-notes-area {
+    height: 100% !important;
+    width: 100% !important;
+    overflow: visible;
+    display: inline-block;
+    }
+}
+&lt;/style&gt;
+
+&lt;style type="text/css"&gt;
+.remark-slide-content {
+    font-size: 34px;
+    padding: 1em 4em 1em 4em;
+}
+&lt;/style&gt;
+
+&lt;style type="text/css"&gt;
+.my-one-page-font {
+  font-size: 28px;
+}
+&lt;/style&gt;
+
+&lt;style type="text/css"&gt;
+.my-one-page-font-table {
+  font-size: 24px;
+}
+&lt;/style&gt;
+
+&lt;style&gt;
+.tiny { font-size: 60%; }      /* class you can reuse anywhere */
+&lt;/style&gt;
+
+&lt;style&gt;
+.remark-slide-content {
+  position: relative;
+  z-index: 1;
+}
+
+.remark-slide-content::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 600px;          /* adjust size */
+  height: 600px;
+  background-image: url("1. 교장(Seal_Positive).png");  /* place logo file in same folder */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: 0.05;         /* watermark transparency */
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 0;
+}
+&lt;/style&gt;
+
+
+
+
+
+
+&lt;style&gt;
+.small { font-size: 26px; }
+.remark-slide-content { padding: 1em 2.4em; }
+.remark-slide-content h1 { margin-bottom:18px; line-height:1.08; }
+.remark-slide-content h2 { color:#851a10; margin:8px 0 12px; }
+.remark-slide-content p, .remark-slide-content li { line-height:1.32; }
+.remark-slide-content li { margin-bottom:9px; }
+.remark-slide-content strong { color:#851a10; }
+.remark-slide-content table { font-size:22px; border-collapse:separate; border-spacing:0; width:100%; box-shadow:0 2px 8px rgba(0,0,0,.08); }
+.remark-slide-content th { background:#851a10; color:white; text-align:left; }
+.remark-slide-content th, .remark-slide-content td { padding:9px 12px; border-bottom:1px solid #ddd; }
+.remark-slide-content tr:nth-child(even) td { background:#f7f5f4; }
+.remark-slide-content img { max-height: 430px; object-fit: contain; }
+.remark-slide-content::before { z-index: -1; }
+.metric-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin:24px 0; }
+.metric-card { background:#f8f2ef; border-top:6px solid #851a10; padding:16px 11px; text-align:center; min-height:112px; }
+.metric-card .number { display:block; color:#851a10; font-size:40px; font-weight:700; line-height:1; margin-bottom:9px; }
+.metric-card .label { font-size:22px; line-height:1.22; }
+.flow { display:flex; align-items:stretch; gap:8px; margin:30px 0 22px; }
+.flow-step { flex:1; background:#f8f2ef; border-top:6px solid #851a10; padding:16px 11px; text-align:center; font-size:23px; line-height:1.22; }
+.flow-step strong { display:block; color:#851a10; font-size:27px; margin-bottom:8px; }
+.flow-arrow { align-self:center; color:#851a10; font-size:34px; font-weight:700; }
+.activity-head { display:flex; gap:10px; margin:-8px 0 18px; }
+.activity-time, .activity-mode { color:white; font-weight:700; font-size:20px; padding:7px 14px; border-radius:4px; letter-spacing:.04em; }
+.activity-time { background:#851a10; }
+.activity-mode { background:#3a7188; }
+.activity-output { background:#f8f2ef; border-left:6px solid #136f63; padding:11px 16px; margin-top:18px; font-size:21px; }
+.compare-grid { display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-top:20px; }
+.compare-card { background:#f7f7f7; border-top:6px solid #3a7188; padding:15px 17px; font-size:23px; line-height:1.26; }
+.compare-card h3 { color:#851a10; margin:0 0 10px; font-size:27px; }
+.key-chip { display:inline-block; background:#f8f2ef; border:2px solid #851a10; border-radius:20px; padding:8px 15px; margin:5px; font-weight:600; font-size:21px; }
+.caution { background:#fff4e5; border-left:6px solid #ff8811; padding:12px 18px; margin-top:18px; font-size:21px; }
+.plot img { width:100%; max-height:480px; object-fit:contain; }
+.plot-prompt { background:#f8f2ef; border-left:6px solid #851a10; padding:9px 15px; margin-top:5px; font-size:20px; text-align:center; }
+.studio-head { display:flex; align-items:center; gap:14px; margin:-8px 0 16px; }
+.step-badge { background:#851a10; color:white; font-weight:700; padding:8px 14px; border-radius:4px; font-size:19px; }
+.time-badge { background:#3a7188; color:white; font-weight:700; padding:8px 14px; border-radius:4px; font-size:19px; }
+.progress { height:8px; background:#e6e6e6; margin:12px 0 20px; border-radius:5px; overflow:hidden; }
+.progress span { display:block; height:100%; background:#851a10; }
+.artifact { background:#eef5f2; border-left:6px solid #136f63; padding:10px 15px; margin-top:16px; font-size:20px; }
+.function-grid { display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-top:25px; }
+.function-card, .quote-card { background:#f8f2ef; border-top:6px solid #851a10; padding:18px; }
+.quote-card { font-size:22px; line-height:1.4; }
+.reference-grid { display:grid; grid-template-columns:1.08fr .92fr; gap:22px; margin-top:20px; }
+.reference-card { background:#f7f8f8; border:1px solid #d8dddd; border-top:6px solid #3a7188; border-radius:5px; padding:15px 19px 13px; }
+.reference-card.software { border-top-color:#851a10; }
+.reference-card h3 { margin:0 0 9px; color:#243238; font-size:24px; }
+.reference-card ul { margin:0; padding-left:21px; }
+.reference-card li { margin:8px 0; font-size:19px; line-height:1.25; }
+.reference-card a { color:#245d73; text-decoration:none; border-bottom:1px solid #9bb8c3; }
+.reference-card.software a { color:#761d16; border-bottom-color:#c9a39f; }
+.source-note { margin-top:18px; background:#eef5f2; border-left:6px solid #136f63; padding:11px 16px; font-size:19px; line-height:1.3; }
+.source-note strong { color:#136f63; }
+.paper-citation { background:#f8f2ef; border-left:6px solid #851a10; padding:10px 15px; margin:8px 0 12px; font-size:18px; line-height:1.25; }
+.paper-links { float:right; font-size:17px; }
+.paper-viewer { width:100%; height:430px; border:1px solid #bfc7c9; border-radius:4px; background:#eef1f2; }
+.section-kicker { display:inline-block; color:white; background:#851a10; border-radius:20px; padding:5px 13px; font-size:17px; font-weight:700; letter-spacing:.04em; margin-bottom:6px; }
+.card-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:18px; margin-top:18px; }
+.card-grid.three { grid-template-columns:repeat(3,1fr); }
+.info-card { background:#f7f8f8; border:1px solid #d8dddd; border-top:6px solid #3a7188; padding:14px 16px; border-radius:5px; font-size:23px; line-height:1.27; }
+.info-card.accent { border-top-color:#851a10; }
+.info-card.green { border-top-color:#136f63; }
+.info-card.orange { border-top-color:#ff8811; }
+.info-card h3 { margin:0 0 8px; color:#851a10; font-size:27px; }
+.info-card p { margin:5px 0; }
+.takeaway { background:#f8f2ef; border-left:7px solid #851a10; padding:14px 18px; margin-top:18px; font-size:25px; line-height:1.3; }
+.check-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px 20px; margin-top:18px; }
+.check-item { display:flex; align-items:flex-start; gap:12px; background:#f7f8f8; padding:12px 14px; border-radius:5px; font-size:23px; line-height:1.25; }
+.check-item::before { content:'✓'; color:white; background:#136f63; border-radius:50%; min-width:29px; height:29px; line-height:29px; text-align:center; font-weight:700; }
+.question-chain { display:flex; align-items:stretch; gap:7px; margin:24px 0 18px; }
+.chain-item { flex:1; background:#f7f8f8; border-top:6px solid #851a10; padding:13px 9px; text-align:center; font-size:21px; line-height:1.22; }
+.chain-item strong { display:block; font-size:24px; margin-bottom:7px; }
+.chain-arrow { align-self:center; color:#851a10; font-size:28px; font-weight:700; }
+.paper-map { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:18px; }
+.paper-node { background:#f7f8f8; border-left:6px solid #3a7188; padding:11px 13px; font-size:22px; line-height:1.22; }
+.paper-node strong { display:block; font-size:25px; margin-bottom:5px; }
+.timeline { display:grid; grid-template-columns:repeat(5,1fr); gap:10px; margin-top:24px; }
+.timeline-item { position:relative; background:#f7f8f8; border-top:7px solid #3a7188; padding:12px 10px; min-height:145px; font-size:20px; line-height:1.25; }
+.timeline-item.current { border-top-color:#851a10; background:#f8f2ef; }
+.timeline-item strong { display:block; font-size:26px; margin-bottom:7px; }
+.timeline-item span { color:#566; font-weight:600; }
+.mini-label { color:#3a7188; font-size:17px; font-weight:700; letter-spacing:.05em; text-transform:uppercase; }
+.remark-slide-content.balanced { display:flex; flex-direction:column; justify-content:center; padding-top:1.3em; padding-bottom:1.3em; }
+.remark-slide-content.balanced h1 { margin-top:0; }
+.dual-section { display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-top:12px; }
+.dual-panel { background:#f7f8f8; border-top:7px solid #851a10; padding:16px 18px; font-size:22px; line-height:1.27; }
+.dual-panel.alt { border-top-color:#3a7188; }
+.dual-panel h2 { margin:0 0 10px; font-size:28px; }
+.dual-panel ul { margin:5px 0 0; padding-left:23px; }
+.dual-panel li { margin-bottom:8px; }
+&lt;/style&gt;
+
+# Your individual final research project
+
+**Week 10 progress conversation**
+
+What you should have now, what we will build next, and how the paper comes together.
+
+Our destination: **a small, coherent study that you can explain and support with evidence.**
+
+???
+Instructor use: a project briefing to insert into Week 10, rather than a replacement for both Week 10 lessons. Allow approximately 30 minutes for slides 1–23, with selective explanation rather than reading every bullet, then 5 minutes for the progress conversation on slide 24. Slides 25–32 are reference material for students. Basis: final TIC3002 syllabus, particularly course objectives, SectionIV final assignment, and Weeks 9–16, together with the instructor’s current clarification about manageable scope. No page/word quota, source-count quota, new grading split or exact deadline is introduced. The final project remains individual, with a complete paper, supporting materials and presentation. Preserve qualitative, quantitative and mixed-method choices when justified.
+
+---
+
+class: balanced
+
+# Agenda
+
+&lt;div class="section-kicker"&gt;OUR PROJECT CONVERSATION&lt;/div&gt;
+
+&lt;div class="paper-map"&gt;
+  &lt;div class="paper-node"&gt;&lt;strong&gt;1 · Destination&lt;/strong&gt;What the final project should accomplish&lt;/div&gt;
+  &lt;div class="paper-node"&gt;&lt;strong&gt;2 · Today&lt;/strong&gt;Where your project should be in Week 10&lt;/div&gt;
+  &lt;div class="paper-node"&gt;&lt;strong&gt;3 · Paper&lt;/strong&gt;What belongs in each section&lt;/div&gt;
+  &lt;div class="paper-node"&gt;&lt;strong&gt;4 · Path&lt;/strong&gt;How Weeks 11–14 build the draft&lt;/div&gt;
+  &lt;div class="paper-node"&gt;&lt;strong&gt;5 · Finish&lt;/strong&gt;Presentation, revision, and submission&lt;/div&gt;
+  &lt;div class="paper-node"&gt;&lt;strong&gt;Appendix&lt;/strong&gt;Checklists, project map, and obstacles&lt;/div&gt;
+&lt;/div&gt;
+
+???
+Briefly explain the sequence. Students already have project work from earlier weeks. Today clarifies how those pieces become one study; it does not assign a new proposal.
+
+---
+
+class: balanced
+
+# 1. What I expect from the final project
+
+&lt;div class="takeaway"&gt;Your project investigates &lt;strong&gt;one focused question&lt;/strong&gt; using evidence you can actually obtain, understand, and explain.&lt;/div&gt;
+
+&lt;div class="check-grid"&gt;
+  &lt;div class="check-item"&gt;A manageable scope and a clear reason for the study&lt;/div&gt;
+  &lt;div class="check-item"&gt;Relevant literature connected to the question&lt;/div&gt;
+  &lt;div class="check-item"&gt;A transparent approach to evidence and analysis&lt;/div&gt;
+  &lt;div class="check-item"&gt;Findings that answer the question within stated limits&lt;/div&gt;
+  &lt;div class="check-item"&gt;A complete, readable paper with meaningful content&lt;/div&gt;
+&lt;/div&gt;
+
+???
+Emphasize a coherent undergraduate study. A limited but well-executed comparison, small qualitative inquiry, or modest association analysis can be suitable. Complexity and quantity alone do not establish quality.
+
+---
+
+class: balanced
+
+# A complete structure with a manageable scope
+
+&lt;div class="compare-grid"&gt;
+  &lt;div class="compare-card"&gt;&lt;h3&gt;Keep the scope realistic&lt;/h3&gt;&lt;p&gt;I do &lt;strong&gt;not&lt;/strong&gt; expect a full-scale, publication-ready journal article.&lt;/p&gt;&lt;p&gt;Limit the setting, period, dataset, cases, or documents.&lt;/p&gt;&lt;/div&gt;
+  &lt;div class="compare-card" style="border-top-color:#136f63;"&gt;&lt;h3&gt;Keep the study complete&lt;/h3&gt;&lt;p&gt;Every required section must still do its job.&lt;/p&gt;&lt;p&gt;A heading plus “I will analyse this later” is not a finished section.&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="takeaway"&gt;&lt;strong&gt;Depth&lt;/strong&gt; comes from explaining your decisions and evidence clearly—not from making the project large.&lt;/div&gt;
+
+???
+This is the central clarification requested by the instructor. Limited scope is different from omitting sections or submitting only a plan. Students do not need a groundbreaking discovery, many datasets or the most advanced model.
+
+---
+
+class: small
+
+# One question connects the whole paper
+
+&lt;div class="question-chain"&gt;
+  &lt;div class="chain-item"&gt;&lt;strong&gt;Literature&lt;/strong&gt;What do we know?&lt;/div&gt;&lt;div class="chain-arrow"&gt;→&lt;/div&gt;
+  &lt;div class="chain-item"&gt;&lt;strong&gt;Evidence&lt;/strong&gt;What can I observe?&lt;/div&gt;&lt;div class="chain-arrow"&gt;→&lt;/div&gt;
+  &lt;div class="chain-item"&gt;&lt;strong&gt;Method&lt;/strong&gt;How will I answer?&lt;/div&gt;&lt;div class="chain-arrow"&gt;→&lt;/div&gt;
+  &lt;div class="chain-item"&gt;&lt;strong&gt;Results&lt;/strong&gt;What did I find?&lt;/div&gt;&lt;div class="chain-arrow"&gt;→&lt;/div&gt;
+  &lt;div class="chain-item"&gt;&lt;strong&gt;Meaning&lt;/strong&gt;How far can it go?&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="caution"&gt;&lt;strong&gt;Alignment check:&lt;/strong&gt; if these parts address different questions, the paper needs revision.&lt;/div&gt;
+
+???
+Use one student example if helpful. A question about actual learning cannot be answered solely by a measure of satisfaction without explaining and narrowing the intended claim.
+
+---
+
+class: balanced
+
+# 2. Where you should be in Week 10
+
+&lt;div class="metric-grid"&gt;
+  &lt;div class="metric-card"&gt;&lt;span class="number"&gt;1&lt;/span&gt;&lt;span class="label"&gt;&lt;strong&gt;Question&lt;/strong&gt;&lt;br&gt;Working and scoped&lt;/span&gt;&lt;/div&gt;
+  &lt;div class="metric-card"&gt;&lt;span class="number"&gt;2&lt;/span&gt;&lt;span class="label"&gt;&lt;strong&gt;Review&lt;/strong&gt;&lt;br&gt;Organised by themes&lt;/span&gt;&lt;/div&gt;
+  &lt;div class="metric-card"&gt;&lt;span class="number"&gt;3&lt;/span&gt;&lt;span class="label"&gt;&lt;strong&gt;Evidence&lt;/strong&gt;&lt;br&gt;Candidate source documented&lt;/span&gt;&lt;/div&gt;
+  &lt;div class="metric-card"&gt;&lt;span class="number"&gt;4&lt;/span&gt;&lt;span class="label"&gt;&lt;strong&gt;Workflow&lt;/strong&gt;&lt;br&gt;Preparation and initial inspection&lt;/span&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+The wording can improve. The direction should already be clear.
+
+???
+These are progress expectations based on work covered by Weeks2–10, not a claim every student has achieved them. If a student is behind, identify the specific missing piece and a feasible next action. A literature matrix is useful supporting work but does not replace synthesis prose.
+
+---
+
+class: balanced
+
+# What a usable question and review look like
+
+&lt;div class="card-grid"&gt;
+  &lt;div class="info-card accent"&gt;&lt;h3&gt;Research question&lt;/h3&gt;&lt;p&gt;The reader can identify:&lt;/p&gt;&lt;p&gt;&lt;strong&gt;what&lt;/strong&gt; you examine · &lt;strong&gt;for whom/what&lt;/strong&gt; · &lt;strong&gt;where&lt;/strong&gt; · &lt;strong&gt;when&lt;/strong&gt;&lt;/p&gt;&lt;/div&gt;
+  &lt;div class="info-card"&gt;&lt;h3&gt;Literature review&lt;/h3&gt;&lt;p&gt;The reader sees:&lt;/p&gt;&lt;p&gt;&lt;strong&gt;themes&lt;/strong&gt; · agreements or disagreements · relevant methods · why your question follows&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+Your review should already contain connected writing and verified citations. Continue updating it as the design develops.
+
+???
+Do not demand an entirely new literature review now. Students should revise existing Week3–4 work in light of the final question. A modest extension, context comparison, or clarification can be a contribution when supported by the literature.
+
+---
+
+class: balanced
+
+# What we are finalising in the data work
+
+&lt;div class="card-grid"&gt;
+  &lt;div class="info-card"&gt;&lt;h3&gt;Quantitative study&lt;/h3&gt;&lt;p&gt;Source, coverage, unit and variables&lt;/p&gt;&lt;p&gt;Meanings, units and missingness&lt;/p&gt;&lt;p&gt;Preparation, joins, exclusions and checks&lt;/p&gt;&lt;p&gt;What the sample can represent&lt;/p&gt;&lt;/div&gt;
+  &lt;div class="info-card green"&gt;&lt;h3&gt;Qualitative study&lt;/h3&gt;&lt;p&gt;Evidence-selection logic&lt;/p&gt;&lt;p&gt;Context and source provenance&lt;/p&gt;&lt;p&gt;Ethical handling&lt;/p&gt;&lt;p&gt;Transparent analysis trail&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+???
+Data readiness does not mean all issues disappear or every value must be filled. It means the chosen evidence is feasible, documented, inspected and sufficiently prepared to begin the justified analysis. Qualitative final projects are not required to become quantitative.
+
+---
+
+class: balanced
+
+# You can already start the Data and Method sections
+
+&lt;div class="card-grid"&gt;
+  &lt;div class="info-card accent"&gt;&lt;h3&gt;Write Data now&lt;/h3&gt;&lt;p&gt;Describe the evidence you selected and the preparation decisions you made.&lt;/p&gt;&lt;/div&gt;
+  &lt;div class="info-card"&gt;&lt;h3&gt;Begin Method now&lt;/h3&gt;&lt;p&gt;Explain the design and the analysis your question requires.&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+As we learn and apply the next methods, revise the explanation to match what you actually do.
+
+Keep unresolved decisions visible in your working draft.
+
+???
+Writing should begin before all computation is complete. Plans are acceptable in a working draft if clearly labelled; the final Method section must report the completed study. Students should not present unperformed analyses as completed results.
+
+---
+
+class: small
+
+# 3. The final paper structure
+
+&lt;div class="paper-map"&gt;
+  &lt;div class="paper-node"&gt;&lt;strong&gt;1 · Introduction&lt;/strong&gt;Problem, question, approach&lt;/div&gt;
+  &lt;div class="paper-node"&gt;&lt;strong&gt;2 · Literature&lt;/strong&gt;Themes and framework&lt;/div&gt;
+  &lt;div class="paper-node"&gt;&lt;strong&gt;3 · Evidence&lt;/strong&gt;Source, scope, preparation&lt;/div&gt;
+  &lt;div class="paper-node"&gt;&lt;strong&gt;4 · Method&lt;/strong&gt;Procedure and justification&lt;/div&gt;
+  &lt;div class="paper-node"&gt;&lt;strong&gt;5 · Results&lt;/strong&gt;Findings that answer the question&lt;/div&gt;
+  &lt;div class="paper-node"&gt;&lt;strong&gt;6 · Discussion&lt;/strong&gt;Meaning and alternatives&lt;/div&gt;
+  &lt;div class="paper-node"&gt;&lt;strong&gt;7 · Conclusion&lt;/strong&gt;Direct answer and contribution&lt;/div&gt;
+  &lt;div class="paper-node"&gt;&lt;strong&gt;8 · Limitations&lt;/strong&gt;Boundary of the answer&lt;/div&gt;
+  &lt;div class="paper-node"&gt;&lt;strong&gt;9 · References&lt;/strong&gt;Verified sources&lt;/div&gt;
+&lt;/div&gt;
+
+Add the required AI-use disclosure and reproducible supporting materials.
+
+???
+The syllabus permits a combined Data and Methods section. Limitations may form a clearly labelled discussion subsection, and conclusion/discussion can be integrated if all functions remain explicit. Do not grade numbering or rigid placement as if it were the research objective. The syllabus requires these substantive components, not nine equally long chapters.
+
+---
+
+# Introduction and literature review: why the study follows
+
+&lt;div class="dual-section"&gt;
+  &lt;div class="dual-panel"&gt;
+    &lt;h2&gt;Introduction · orient&lt;/h2&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Define the problem and why it matters.&lt;/li&gt;
+      &lt;li&gt;State the specific research question.&lt;/li&gt;
+      &lt;li&gt;Preview the approach.&lt;/li&gt;
+      &lt;li&gt;Once known, state the main answer and contribution.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+  &lt;div class="dual-panel alt"&gt;
+    &lt;h2&gt;Literature · position&lt;/h2&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Organise scholarship through themes and connections.&lt;/li&gt;
+      &lt;li&gt;Show what is established or debated.&lt;/li&gt;
+      &lt;li&gt;Explain how concepts and methods inform the design.&lt;/li&gt;
+      &lt;li&gt;Define the limited issue your study examines.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="takeaway"&gt;Start both now. Finalise the introduction after analysis, and use original, verified sources throughout.&lt;/div&gt;
+
+???
+Writing order differs from reading order. Students should begin the motivation now but not invent findings. The final introduction must match the actual sample, method and conclusion. The literature gap is relative to reviewed evidence; a carefully defined remaining question is more defensible than an unsupported claim that no research exists.
+
+---
+
+# Data and method: what you studied and what you did
+
+&lt;div class="dual-section"&gt;
+  &lt;div class="dual-panel"&gt;
+    &lt;h2&gt;Data / evidence · document&lt;/h2&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Source, selection, coverage, and period&lt;/li&gt;
+      &lt;li&gt;Variables or materials and definitions&lt;/li&gt;
+      &lt;li&gt;Preparation, missingness, and exclusions&lt;/li&gt;
+      &lt;li&gt;Access, ethical, and representativeness limits&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+  &lt;div class="dual-panel alt"&gt;
+    &lt;h2&gt;Method · justify&lt;/h2&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Describe the steps connecting evidence to the answer.&lt;/li&gt;
+      &lt;li&gt;Define comparisons, variables, assumptions, or coding.&lt;/li&gt;
+      &lt;li&gt;Explain why the procedure fits the question.&lt;/li&gt;
+      &lt;li&gt;Report what you actually did—not every available method.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="takeaway"&gt;A small evidence overview can help. Choose methods because they fit the question—not because software offers them.&lt;/div&gt;
+
+???
+Quantitative projects should report counts, units, definitions, provenance, and suitable analytical choices. Qualitative projects should document cases or materials, selection, context, ethics, and a defensible analysis trail. Regression, prediction, and mixed methods are not automatic requirements. No compulsory table count is introduced.
+
+---
+
+class: balanced
+
+# Results: show the evidence and explain it
+
+&lt;div class="flow"&gt;
+  &lt;div class="flow-step"&gt;&lt;strong&gt;1 · Orient&lt;/strong&gt;State what the reader is seeing&lt;/div&gt;
+  &lt;div class="flow-arrow"&gt;→&lt;/div&gt;
+  &lt;div class="flow-step"&gt;&lt;strong&gt;2 · Identify&lt;/strong&gt;Name the relevant pattern or result&lt;/div&gt;
+  &lt;div class="flow-arrow"&gt;→&lt;/div&gt;
+  &lt;div class="flow-step"&gt;&lt;strong&gt;3 · Interpret&lt;/strong&gt;Explain its substantive meaning&lt;/div&gt;
+&lt;/div&gt;
+
+Use actual output. A plot or software screenshot without explanation leaves the result unfinished.
+
+???
+A full statistical output dump is not necessary. Select meaningful quantities, comparisons and qualitative extracts. If inferential methods are used, explain uncertainty as taught. No pressure to manufacture significance or a positive finding.
+
+---
+
+class: small
+
+# Discussion and conclusion have different jobs
+
+&lt;div class="compare-grid"&gt;
+  &lt;div class="compare-card"&gt;&lt;h3&gt;Discussion · interpret&lt;/h3&gt;&lt;p&gt;Connect findings to the question and literature.&lt;/p&gt;&lt;p&gt;Examine explanations and alternatives.&lt;/p&gt;&lt;p&gt;Consider implications in proportion to the evidence.&lt;/p&gt;&lt;/div&gt;
+  &lt;div class="compare-card" style="border-top-color:#136f63;"&gt;&lt;h3&gt;Conclusion · answer&lt;/h3&gt;&lt;p&gt;Give the direct, concise answer.&lt;/p&gt;&lt;p&gt;State the contribution and main boundary.&lt;/p&gt;&lt;p&gt;End with the key takeaway or justified next step.&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+Both sections should follow from the results already presented.
+
+???
+They may be separate or explicitly integrated. Avoid merely repeating results in both places. Implications should be proportionate: an exploratory association is not sufficient to prove a policy will work. No new unsupported results should first appear in the conclusion.
+
+---
+
+class: balanced
+
+# Limitations: explain the boundary of the answer
+
+&lt;div class="flow"&gt;
+  &lt;div class="flow-step"&gt;&lt;strong&gt;Name&lt;/strong&gt;What is the limitation?&lt;/div&gt;
+  &lt;div class="flow-arrow"&gt;→&lt;/div&gt;
+  &lt;div class="flow-step"&gt;&lt;strong&gt;Explain&lt;/strong&gt;What consequence does it have?&lt;/div&gt;
+  &lt;div class="flow-arrow"&gt;→&lt;/div&gt;
+  &lt;div class="flow-step"&gt;&lt;strong&gt;Respond&lt;/strong&gt;How did you handle it?&lt;/div&gt;
+&lt;/div&gt;
+
+Example:
+
+&gt; “The records describe regional averages. They cannot establish whether the same relationship holds for individual residents.”
+
+Other limits can involve selection, measurement, missingness, time coverage, interpretation or causal identification.
+
+???
+The example is a statement about a possible design, not an empirical result. Avoid generic lists such as small sample, time, money unless linked to the inference. Honest limitations strengthen the credibility of a modest project.
+
+---
+
+class: small
+
+# A small project can still form a complete study
+
+&lt;div class="mini-label"&gt;Illustrative design&lt;/div&gt;
+
+&lt;div class="question-chain"&gt;
+  &lt;div class="chain-item"&gt;&lt;strong&gt;Question&lt;/strong&gt;How did internet use change in Korea and Vietnam, 2000–2023?&lt;/div&gt;&lt;div class="chain-arrow"&gt;→&lt;/div&gt;
+  &lt;div class="chain-item"&gt;&lt;strong&gt;Literature&lt;/strong&gt;Digital access and its measurement&lt;/div&gt;&lt;div class="chain-arrow"&gt;→&lt;/div&gt;
+  &lt;div class="chain-item"&gt;&lt;strong&gt;Data + method&lt;/strong&gt;Annual indicators, trends, endpoint comparisons&lt;/div&gt;&lt;div class="chain-arrow"&gt;→&lt;/div&gt;
+  &lt;div class="chain-item"&gt;&lt;strong&gt;Meaning&lt;/strong&gt;Contextualise patterns; keep claims descriptive&lt;/div&gt;
+&lt;/div&gt;
+
+???
+This illustrates alignment, not a ready-made final paper or a claim that two trend lines alone deserve a high grade. The student must supply literature, actual checked results, justification and interpretation. If the question requires explanation rather than description, evidence/design must be strengthened or the question narrowed.
+
+---
+
+class: small
+
+# 4. How the next weeks build your paper
+
+&lt;div class="timeline"&gt;
+  &lt;div class="timeline-item current"&gt;&lt;strong&gt;Week 10&lt;/strong&gt;&lt;span&gt;PREPARE&lt;/span&gt;&lt;br&gt;Data section and initial outputs&lt;/div&gt;
+  &lt;div class="timeline-item"&gt;&lt;strong&gt;Week 11&lt;/strong&gt;&lt;span&gt;COMPARE&lt;/span&gt;&lt;br&gt;Method choices and first results&lt;/div&gt;
+  &lt;div class="timeline-item"&gt;&lt;strong&gt;Week 12&lt;/strong&gt;&lt;span&gt;ANALYSE&lt;/span&gt;&lt;br&gt;Appropriate analysis and interpretation&lt;/div&gt;
+  &lt;div class="timeline-item"&gt;&lt;strong&gt;Week 13&lt;/strong&gt;&lt;span&gt;CHECK&lt;/span&gt;&lt;br&gt;Refined method and claim boundaries&lt;/div&gt;
+  &lt;div class="timeline-item"&gt;&lt;strong&gt;Week 14&lt;/strong&gt;&lt;span&gt;CONNECT&lt;/span&gt;&lt;br&gt;One complete, coherent draft&lt;/div&gt;
+&lt;/div&gt;
+
+Use the approaches relevant to your question.
+
+???
+Matches the final syllabus. Week 11 is specifically bivariate analysis and inference, not a promise of all computational methods at once. Week 12 regression is a research tool; it is not mandatory for every final project. Relevant work already begun can proceed earlier.
+
+---
+
+# From working sections to the Week 14 composite draft
+
+&lt;div class="flow"&gt;
+  &lt;div class="flow-step"&gt;&lt;strong&gt;Now&lt;/strong&gt;Question · review · evidence · method&lt;/div&gt;
+  &lt;div class="flow-arrow"&gt;→&lt;/div&gt;
+  &lt;div class="flow-step"&gt;&lt;strong&gt;After analysis&lt;/strong&gt;Results · discussion · limitations&lt;/div&gt;
+  &lt;div class="flow-arrow"&gt;→&lt;/div&gt;
+  &lt;div class="flow-step"&gt;&lt;strong&gt;Week 14&lt;/strong&gt;Connect every section into one paper&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="check-grid"&gt;
+  &lt;div class="check-item"&gt;Question, literature, evidence, and method align&lt;/div&gt;
+  &lt;div class="check-item"&gt;Results answer the question&lt;/div&gt;
+  &lt;div class="check-item"&gt;Discussion and conclusion follow from results&lt;/div&gt;
+  &lt;div class="check-item"&gt;Citations, definitions, and supporting files agree&lt;/div&gt;
+&lt;/div&gt;
+
+???
+The paper begins with an introduction even if its final version is written later. By the end of Week 13, students should have Data, Method, and Results drafts. Week 14 connects substantive content into one paper; it is more than pasting assignments together. Unresolved issues may be labelled, but empty headings do not form a full draft. Exact logistics follow CyberCampus.
+
+---
+
+# 5. Presentation, final submission, and what matters
+
+&lt;div class="takeaway"&gt;The &lt;strong&gt;35% final examination assignment&lt;/strong&gt; combines your individual paper, reproducible supporting materials, and complete-study presentation.&lt;/div&gt;
+
+&lt;div class="card-grid"&gt;
+  &lt;div class="info-card accent"&gt;&lt;h3&gt;Weeks 15–16&lt;/h3&gt;&lt;p&gt;Present the complete research argument and answer immediate questions.&lt;/p&gt;&lt;p&gt;Use feedback to revise before the Week 16 submission.&lt;/p&gt;&lt;/div&gt;
+  &lt;div class="info-card green"&gt;&lt;h3&gt;What matters&lt;/h3&gt;&lt;p&gt;Clear question · feasible scope · relevant literature · fitting evidence and method · accurate interpretation · honest limitations&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="artifact"&gt;&lt;strong&gt;Remember:&lt;/strong&gt; a simple, well-justified study can demonstrate all of these qualities.&lt;/div&gt;
+
+???
+The final-project component is 35%; no new subweights or presentation duration are introduced. Presentations are individual, with immediate Q&amp;A. This is qualitative assessment guidance, not a new weighted rubric or publication standard. Students should be able to explain their reasoning and any code-assisted work. Follow the posted schedule and submission instructions.
+
+---
+
+class: balanced
+
+# Your next steps and our progress conversation
+
+**For your current project:**
+
+1. State the working question and point to your review draft.
+2. Explain what evidence is ready and what remains unresolved.
+3. Identify the next analysis decision and the section you can write now.
+
+Bring specific obstacles to class or office hours: **Tue/Thu 15:00–16:30; Wed 10:00–12:00**, or by appointment.
+
+???
+Allow 5 minutes for students to check their own materials and for two or three brief questions. This is a progress conversation, not an extra graded assignment or exit ticket. With12students, individual follow-up can continue during studio circulation. Published announcements/deadlines remain on Cyber Campus. Officehours follow the instructor’s confirmed schedule.
+
+---
+
+class: balanced
+
+# Appendix: a section-by-section completion check
+
+Use the following slides while drafting and revising.
+
+They explain what a reader should learn from each section and what supporting materials should make visible.
+
+You do not need to make every section equally long. Give each section enough space to do its job.
+
+???
+Reference material; do not read every appendix slide during the briefing. The aim is a complete but manageable study, with substance rather than filler.
+
+---
+
+class: small
+
+# The working paper checklist
+
+&lt;div class="paper-map"&gt;
+  &lt;div class="paper-node"&gt;&lt;strong&gt;Introduction&lt;/strong&gt;Problem · question · motivation · approach&lt;/div&gt;
+  &lt;div class="paper-node"&gt;&lt;strong&gt;Literature&lt;/strong&gt;Themes · verified citations · rationale&lt;/div&gt;
+  &lt;div class="paper-node"&gt;&lt;strong&gt;Data / evidence&lt;/strong&gt;Source · selection · definitions · preparation&lt;/div&gt;
+  &lt;div class="paper-node"&gt;&lt;strong&gt;Method&lt;/strong&gt;Procedure · justification · current status&lt;/div&gt;
+  &lt;div class="paper-node"&gt;&lt;strong&gt;Results&lt;/strong&gt;Checked findings · explained outputs&lt;/div&gt;
+  &lt;div class="paper-node"&gt;&lt;strong&gt;Discussion&lt;/strong&gt;Literature · interpretation · alternatives&lt;/div&gt;
+  &lt;div class="paper-node"&gt;&lt;strong&gt;Conclusion&lt;/strong&gt;Direct answer · contribution&lt;/div&gt;
+  &lt;div class="paper-node"&gt;&lt;strong&gt;Limitations&lt;/strong&gt;Specific, consequential boundaries&lt;/div&gt;
+  &lt;div class="paper-node"&gt;&lt;strong&gt;Supporting work&lt;/strong&gt;References · disclosure · reproducibility&lt;/div&gt;
+&lt;/div&gt;
+
+By the final submission, replace plans with an account of completed work.
+
+???
+This is a drafting aid, not a claim that planned results can substitute for final results. Section headings can be combined if their functions remain visible. References, disclosure and supporting materials remain required.
+
+---
+
+class: balanced
+
+# A project map for checking alignment
+
+&lt;div class="question-chain"&gt;
+  &lt;div class="chain-item"&gt;&lt;strong&gt;Question&lt;/strong&gt;My question is …&lt;/div&gt;&lt;div class="chain-arrow"&gt;→&lt;/div&gt;
+  &lt;div class="chain-item"&gt;&lt;strong&gt;Literature&lt;/strong&gt;helps me understand …&lt;/div&gt;&lt;div class="chain-arrow"&gt;→&lt;/div&gt;
+  &lt;div class="chain-item"&gt;&lt;strong&gt;Evidence&lt;/strong&gt;covers …&lt;/div&gt;&lt;div class="chain-arrow"&gt;→&lt;/div&gt;
+  &lt;div class="chain-item"&gt;&lt;strong&gt;Method&lt;/strong&gt;can show …&lt;/div&gt;&lt;div class="chain-arrow"&gt;→&lt;/div&gt;
+  &lt;div class="chain-item"&gt;&lt;strong&gt;Answer&lt;/strong&gt;is limited by …&lt;/div&gt;
+&lt;/div&gt;
+
+Before analysis, leave the result unresolved rather than inventing an answer.
+
+???
+Optional self-check template rather than a new submission. If students cannot connect the statements, identify where a source, method or question needs changing.
+
+---
+
+class: small
+
+# Common obstacles and feasible responses
+
+&lt;div class="card-grid"&gt;
+  &lt;div class="info-card accent"&gt;&lt;h3&gt;Topic too broad&lt;/h3&gt;&lt;p&gt;Narrow the population, period, setting, or relationship.&lt;/p&gt;&lt;/div&gt;
+  &lt;div class="info-card"&gt;&lt;h3&gt;Data do not fit&lt;/h3&gt;&lt;p&gt;Find a justified measure—or revise the question.&lt;/p&gt;&lt;/div&gt;
+  &lt;div class="info-card orange"&gt;&lt;h3&gt;Method too advanced&lt;/h3&gt;&lt;p&gt;Use a simpler approach that still answers a useful question.&lt;/p&gt;&lt;/div&gt;
+  &lt;div class="info-card green"&gt;&lt;h3&gt;Results unexpected&lt;/h3&gt;&lt;p&gt;Verify the workflow and report the evidence honestly.&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="takeaway"&gt;&lt;strong&gt;Review reads like a list?&lt;/strong&gt; Reorganise it around themes that inform your design.&lt;/div&gt;
+
+Discuss major changes early enough to keep the project feasible.
+
+???
+A lack of statistical significance is not failure. Differentiate weak evidence from invalid code. Data access obstacles should lead to a revised feasible plan rather than waiting until Week 14. Do not promise an unavailable source or invent data.
+
+---
+
+class: balanced
+
+# Supporting materials and reproducibility
+
+Provide a clear starting point and a way to follow your work.
+
+Include, as relevant:
+
+- source log, variable or coding definitions, and permissions notes
+- preparation and analysis notebooks/scripts or a qualitative audit trail
+- the figures, tables or deidentified extracts used in the paper
+- a short README explaining files and how to reproduce outputs
+
+Preserve raw evidence where sharing and licensing permit.
+
+???
+Follow syllabus reproducibility requirement. Sensitive or restricted data should not be uploaded to a public repository. When sharing is restricted, document approved access/reconstruction and share permissible code/materials. Reproducibility for qualitative work involves traceable interpretation and documentation, not necessarily identical automated outputs.
+
+---
+
+class: balanced
+
+# Writing tools and references
+
+Use **MS Word or Overleaf**, whichever helps you write and revise clearly.
+
+Use **Zotero or another reference manager** to organise citations and references.
+
+Check that:
+
+- every cited source appears in the reference list
+- quotations, paraphrases, data and borrowed figures have attribution
+- tables and figures have clear labels and are discussed in the text
+- the final formatting follows the posted instructions
+
+???
+No requirement to change writing software or learn LaTeX. Overleaf is optional. Reference managers need human checking. Avoid introducing a new citation-style, page or word limit that the instructor has not approved.
+
+---
+
+# Responsibility and the final Week 14 check
+
+&lt;div class="dual-section"&gt;
+  &lt;div class="dual-panel"&gt;
+    &lt;h2&gt;AI responsibility&lt;/h2&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Disclose the help used and how you checked it.&lt;/li&gt;
+      &lt;li&gt;Verify sources, code, measures, and every reported finding.&lt;/li&gt;
+      &lt;li&gt;Be ready to explain the study in presentation and Q&amp;A.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+  &lt;div class="dual-panel alt"&gt;
+    &lt;h2&gt;Draft responsibility&lt;/h2&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Follow one question from beginning to end.&lt;/li&gt;
+      &lt;li&gt;Give every section meaningful content.&lt;/li&gt;
+      &lt;li&gt;Trace findings to evidence and analysis.&lt;/li&gt;
+      &lt;li&gt;Make introduction and conclusion match the completed study.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="takeaway"&gt;&lt;strong&gt;Bring the connected draft and supporting materials.&lt;/strong&gt; Fabricated references, data, or results are unacceptable.&lt;/div&gt;
+
+???
+This is a reminder of existing requirements, not a new AI permission. Keep disclosure brief but specific and retain the verification record. Course basis: TIC3002 final syllabus and Week 14 workshop plan. Exact dates, formats, and submission channels follow CyberCampus. The expected product is a small, complete undergraduate study—not a publication-ready article.
+
+1. To print pdf slides
+library(renderthis)
+
+renderthis::to_pdf("W10_RMDS_Final_Project_Guidance.html")
+
+getwd()
+setwd("C:\\Users\\vyshn\\OneDrive - kdis.ac.kr\\Documents\\GitHub\\Sogang\\2026\\Fall\\Research Method of Data Science\\W10")
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="libs/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+  "highlightStyle": "github",
+  "highlightLines": true,
+  "countIncrementalSlides": false,
+  "ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
