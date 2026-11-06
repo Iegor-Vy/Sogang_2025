@@ -1,0 +1,20 @@
+{
+  "dataset": "National Supported Work experimental sample, Dehejia-Wahba subset",
+  "source_page": "https://users.nber.org/~rdehejia/data/.nswdata2.html",
+  "retrieved_utc": "2026-11-06T01:52:31.082607+00:00",
+  "source_note": "Authors provide 185 treated and 260 experimental controls selected using pre-intervention information. Do not mix these with CPS/PSID nonexperimental controls.",
+  "earnings_units": "Real earnings in the source files, dollar scale. Source page does not specify a price base; do not treat as current dollars.",
+  "usage_note": "Public research files posted by the authors with permission described on source page; retain attribution. No new blanket license is asserted.",
+  "files": [
+    {
+      "file": "nswre74_control.txt",
+      "url": "https://users.nber.org/~rdehejia/data/nswre74_control.txt",
+      "sha256": "a1364cea459d953dc691a667d99194b4ad335d6d550354fe23a5d2dc58d729b5"
+    },
+    {
+      "file": "nswre74_treated.txt",
+      "url": "https://users.nber.org/~rdehejia/data/nswre74_treated.txt",
+      "sha256": "e7b742fe0ff07a0f45e129b4ff108bb9611cd83d53604732c48a8a0a3e20eda3"
+    }
+  ]
+}
