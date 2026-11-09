@@ -96,21 +96,24 @@ class: center, middle, inverse, title-slide
 &lt;style&gt;
 .small { font-size: 27px; }
 .remark-slide-content { padding: 1em 2.4em; }
+.remark-slide-content, .remark-slide-content *, .remark-slide-content *::before, .remark-slide-content *::after { box-sizing:border-box; }
 .remark-slide-content h1 { margin-bottom:18px; line-height:1.08; }
 .remark-slide-content p, .remark-slide-content li { line-height:1.3; }
 .remark-slide-content li { margin-bottom:8px; }
-.remark-slide-content table { font-size:24px; border-collapse:separate; border-spacing:0; width:100%; box-shadow:0 2px 8px rgba(0,0,0,.08); }
+.remark-slide-content table { font-size:24px; border-collapse:separate; border-spacing:0; width:96%; max-width:96%; table-layout:fixed; box-sizing:border-box; margin-left:auto; margin-right:auto; box-shadow:0 2px 8px rgba(0,0,0,.08); }
 .remark-slide-content th { background:#851a10; color:white; text-align:left; }
-.remark-slide-content th, .remark-slide-content td { padding:9px 12px; border-bottom:1px solid #ddd; }
+.remark-slide-content th, .remark-slide-content td { box-sizing:border-box; padding:9px 16px; border-bottom:1px solid #ddd; overflow-wrap:normal; word-break:normal; white-space:normal; }
+.remark-slide-content th:first-child, .remark-slide-content td:first-child { width:36%; }
+.remark-slide-content td code { white-space:normal; overflow-wrap:anywhere; }
 .remark-slide-content tr:nth-child(even) td { background:#f7f5f4; }
 .remark-slide-content img { max-height: 430px; object-fit: contain; }
 .remark-slide-content::before { z-index: -1; }
-.metric-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin:24px 0; }
+.metric-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px; margin:24px 0; }
 .metric-card { background:#f8f2ef; border-top:6px solid #851a10; padding:16px 12px; text-align:center; min-height:110px; }
 .metric-card .number { display:block; color:#851a10; font-size:41px; font-weight:700; line-height:1; margin-bottom:9px; }
 .metric-card .label { font-size:22px; line-height:1.22; }
 .flow { display:flex; align-items:stretch; gap:8px; margin:30px 0 22px; }
-.flow-step { flex:1; background:#f8f2ef; border-top:6px solid #851a10; padding:16px 12px; text-align:center; font-size:23px; line-height:1.22; }
+.flow-step { flex:1; min-width:0; background:#f8f2ef; border-top:6px solid #851a10; padding:16px 12px; text-align:center; font-size:23px; line-height:1.22; }
 .flow-step strong { display:block; color:#851a10; font-size:27px; margin-bottom:8px; }
 .flow-arrow { align-self:center; color:#851a10; font-size:34px; font-weight:700; }
 .activity-head { display:flex; gap:10px; margin:-8px 0 18px; }
@@ -118,7 +121,7 @@ class: center, middle, inverse, title-slide
 .activity-time { background:#851a10; }
 .activity-mode { background:#3a7188; }
 .activity-output { background:#f8f2ef; border-left:6px solid #136f63; padding:12px 16px; margin-top:18px; font-size:23px; }
-.compare-grid { display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-top:20px; }
+.compare-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:22px; margin-top:20px; }
 .compare-card { background:#f7f7f7; border-top:6px solid #3a7188; padding:15px 18px; font-size:23px; line-height:1.27; }
 .compare-card h3 { color:#851a10; margin:0 0 10px; font-size:27px; }
 .key-chip { display:inline-block; background:#f8f2ef; border:2px solid #851a10; border-radius:20px; padding:8px 15px; margin:5px; font-weight:600; font-size:23px; }
@@ -131,10 +134,10 @@ class: center, middle, inverse, title-slide
 .progress { height:8px; background:#e6e6e6; margin:12px 0 20px; border-radius:5px; overflow:hidden; }
 .progress span { display:block; height:100%; background:#851a10; }
 .artifact { background:#eef5f2; border-left:6px solid #136f63; padding:11px 15px; margin-top:16px; font-size:23px; }
-.function-grid { display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-top:25px; }
+.function-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:22px; margin-top:25px; }
 .function-card, .quote-card { background:#f8f2ef; border-top:6px solid #851a10; padding:18px; font-size:23px; }
 .quote-card { font-size:24px; line-height:1.35; }
-.reference-grid { display:grid; grid-template-columns:1.08fr .92fr; gap:22px; margin-top:20px; }
+.reference-grid { display:grid; grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr); gap:22px; margin-top:20px; }
 .reference-card { background:#f7f8f8; border:1px solid #d8dddd; border-top:6px solid #3a7188; border-radius:5px; padding:15px 19px 13px; }
 .reference-card.software { border-top-color:#851a10; }
 .reference-card h3 { margin:0 0 9px; color:#243238; font-size:27px; }
@@ -149,27 +152,30 @@ class: center, middle, inverse, title-slide
 .paper-viewer { width:100%; height:430px; border:1px solid #bfc7c9; border-radius:4px; background:#eef1f2; }
 .remark-slide-content.balanced { display:flex; flex-direction:column; justify-content:center; padding-top:1.25em; padding-bottom:1.25em; }
 .remark-slide-content.balanced h1 { margin-top:0; }
-.split { display:grid; grid-template-columns:1fr 1fr; gap:28px; align-items:start; margin-top:12px; }
-.split.wide-left { grid-template-columns:1.18fr .82fr; }
-.split-panel { border-top:7px solid #851a10; padding:16px 6px 0; font-size:26px; line-height:1.28; }
+.split { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:28px; align-items:start; margin-top:12px; }
+.split.wide-left { grid-template-columns:minmax(0,1.18fr) minmax(0,.82fr); }
+.split-panel { min-width:0; max-width:100%; border-top:7px solid #851a10; padding:16px 16px 0; font-size:26px; line-height:1.28; }
 .split-panel.alt { border-top-color:#3a7188; }
 .split-panel h2 { margin:0 0 11px; font-size:31px; color:#851a10; }
-.stat-strip { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin:18px 0; }
+.stat-strip { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px; margin:18px 0; }
 .stat { text-align:center; border-top:6px solid #851a10; padding:12px 8px; background:#f8f2ef; font-size:21px; line-height:1.2; }
 .stat strong { display:block; color:#851a10; font-size:34px; margin-bottom:6px; }
 .definition { border-left:7px solid #3a7188; padding:12px 18px; margin:12px 0; background:#f4f7f8; font-size:25px; line-height:1.3; }
 .result-band { border-left:7px solid #136f63; padding:13px 18px; margin:16px 0; background:#eef5f2; font-size:25px; line-height:1.28; }
-.lab-pair { display:grid; grid-template-columns:1fr 1fr; gap:28px; margin-top:25px; }
-.lab-step { border-top:7px solid #851a10; padding:18px 7px 0; font-size:27px; line-height:1.27; }
+.lab-pair { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:28px; margin-top:25px; }
+.lab-step { min-width:0; max-width:100%; border-top:7px solid #851a10; padding:18px 16px 0; font-size:27px; line-height:1.27; }
 .lab-step.alt { border-top-color:#3a7188; }
 .lab-step h2 { margin:0 0 10px; font-size:32px; color:#851a10; }
 .lab-step .meta { color:#3a7188; font-size:22px; font-weight:700; margin-bottom:10px; }
 .activity-box { border:3px solid #851a10; padding:18px 22px; margin:18px auto; max-width:86%; font-size:25px; line-height:1.32; }
 .evidence-list { margin-top:14px; border-top:1px solid #ccd3d5; }
-.evidence-row { display:grid; grid-template-columns:.9fr 1.25fr 1.45fr; gap:18px; align-items:center; padding:15px 8px; border-bottom:1px solid #ccd3d5; font-size:24px; line-height:1.24; }
+.evidence-row { display:grid; grid-template-columns:minmax(0,.9fr) minmax(0,1.25fr) minmax(0,1.45fr); gap:18px; align-items:center; padding:15px 8px; border-bottom:1px solid #ccd3d5; font-size:24px; line-height:1.24; }
 .evidence-row strong { color:#851a10; font-size:26px; }
 .agenda-line { display:flex; align-items:center; gap:17px; border-bottom:1px solid #d4d8d9; padding:13px 5px; font-size:27px; }
 .agenda-line .n { color:#851a10; font-weight:700; font-size:31px; min-width:36px; }
+.student-note { margin:12px 0 0; padding:9px 14px; border-left:5px solid #3a7188; background:#f4f7f8; color:#243238; font-size:20px; line-height:1.25; }
+.student-note strong { color:#851a10; }
+.section-subtitle { margin:24px auto 0; max-width:72%; color:#fff; font-size:25px; line-height:1.3; text-align:center; opacity:.94; }
 &lt;/style&gt;
 
 
@@ -187,6 +193,7 @@ class: center, middle, inverse, title-slide
 ???
 Two 75-minute meetings for 12 students. Tuesday: opening5 + comparisons12 + sampling/CI24 + tests12 + effect/importance10 + evidence choice9 + preparation3 =75. Thursday: source10 + estimate10 + sampling10 + bootstrap12 + permutation10 + choice application10 + reporting/project10 + save3 =75. Dividers are included. Real NSW experimental subset:185 training and260 controls. Files do not reconstruct original assignment blocks or the full protocol; independent-participant inference is a teaching approximation. Appendix and paired extensions are optional. No new grading weights or deadlines. Allow 1 minute for the agenda.
 
+
 ---
 
 class: balanced
@@ -200,8 +207,11 @@ class: balanced
 
 &lt;div class="activity-box"&gt;&lt;strong&gt;PAIR DISCUSSION · 3 MIN&lt;/strong&gt;&lt;br&gt;If two groups have different average earnings, what else must you know before claiming that a programme worked?&lt;/div&gt;
 
+&lt;div class="student-note"&gt;&lt;strong&gt;Key distinction:&lt;/strong&gt; description stays with the observed records; inference connects those records to a target beyond the sample.&lt;/div&gt;
+
 ???
 Opening remaining4 minutes: framing1, pairs2, report1. Ask for design, selection, measurement, sample size, variability and dependence. Random assignment supports a comparison; random sampling addresses representation. An observed gap alone does not establish a causal effect.
+
 
 ---
 
@@ -215,8 +225,11 @@ Opening remaining4 minutes: framing1, pairs2, report1. Ask for design, selection
 
 &lt;div class="result-band"&gt;Variable types help choose the comparison. Study design determines the claim.&lt;/div&gt;
 
+&lt;div class="student-note"&gt;&lt;strong&gt;First step:&lt;/strong&gt; name the type of each variable. That decision narrows the sensible summaries, plots, and methods.&lt;/div&gt;
+
 ???
 3 minutes. Bivariate means examining two variables together. A binary outcome is a two-category variable. Do not choose a test before checking units, independence and the intended quantity.
+
 
 ---
 
@@ -245,8 +258,11 @@ class: balanced
   &lt;div class="stat"&gt;&lt;strong&gt;445&lt;/strong&gt;Total observed N&lt;/div&gt;
 &lt;/div&gt;
 
+&lt;div class="student-note"&gt;The 1,794-dollar gap is an estimate from this sample. Its uncertainty and the study design determine how far the claim can extend.&lt;/div&gt;
+
 ???
 6 minutes. Use the experimental files, not the CPS/PSID comparison groups. The authors selected this subset using pre-intervention information. Preserve source-dollar units because the data page does not specify a price base. Public records do not reconstruct the full assignment protocol or attrition history. Group details: control median3139 and SD5484; training median4232 and SD7867. Means exceed medians, indicating skew and variability. No deletion or winsorization. The primary quantity is the difference in means.
+
 
 ---
 
@@ -258,8 +274,11 @@ class: small
 
 .caption[Which features could affect a mean comparison? Discuss for one minute.]
 
+&lt;div class="student-note"&gt;&lt;strong&gt;How to read:&lt;/strong&gt; the ECDF shows the share at or below each earnings value; the boxplot highlights centre, spread, and unusual observations.&lt;/div&gt;
+
 ???
 3 minutes including a one-minute pair observation. ECDF means share at or below a value. Many zeros and high values matter for means. A boxplot flag does not establish an error. Comparisons block:3+3+3+3=12 minutes.
+
 
 ---
 
@@ -269,8 +288,11 @@ class: inverse, center, middle
 
 
 
+&lt;div class="section-subtitle"&gt;The next question is why a reasonable estimate changes from sample to sample and how an interval expresses that uncertainty.&lt;/div&gt;
+
 ???
 Section transition included within its block timing.
+
 
 ---
 
@@ -287,8 +309,11 @@ class: balanced
 
 &lt;div class="result-band"&gt;More observations can reduce SE without making individuals more alike.&lt;/div&gt;
 
+&lt;div class="student-note"&gt;&lt;strong&gt;Memory aid:&lt;/strong&gt; SD describes variation among people; SE describes the precision of an estimate.&lt;/div&gt;
+
 ???
 2 minutes. Welch permits unequal variances but still needs independent units and an adequate mean-approximation. The SDs in previous table are not standard errors. Do not require students to memorize Welch degrees of freedom.
+
 
 ---
 
@@ -300,8 +325,11 @@ class: small
 
 .caption[Simulated draws from the real control earnings used as a known reference distribution.]
 
+&lt;div class="student-note"&gt;The narrower distribution for n = 100 means that larger samples produce more stable means in this reference world.&lt;/div&gt;
+
 ???
 3 minutes. The fixed empirical control distribution is the known teaching reference world. Draw independent samples with replacement. The spread of means is about1096 at n25 and536 at n100. These are resamples, not new observed participants or a reconstruction of the actual population.
+
 
 ---
 
@@ -317,8 +345,11 @@ Sample size increases from **25 to 100**.
 2. Does increasing the sample remove systematic selection bias?
 3. Are 2,000 simulated samples the same as observing 2,000 new participants?
 
+&lt;div class="student-note"&gt;Changing sample size changes random sampling variation. It does not automatically correct biased selection or poor measurement.&lt;/div&gt;
+
 ???
 2 minutes in pairs and1 minute for discussion. Quadrupling n roughly halves SE. Larger samples do not remove selection bias. Increasing replication count does not increase the original sample size.
+
 
 ---
 
@@ -335,8 +366,11 @@ class: balanced
 
 &lt;div class="caution"&gt;The interval does not describe individual earnings and does not assign a probability to the fixed target.&lt;/div&gt;
 
+&lt;div class="student-note"&gt;A 95% confidence level describes the long-run success rate of the method, not the probability that this one fixed interval is correct.&lt;/div&gt;
+
 ???
 3 minutes. Frequentist repeated-procedure interpretation. The target and appropriate repeated-study model must be specified. Unknown true target is fixed; observed interval varies with data before observation. Approximate methods need not attain exact nominal coverage.
+
 
 ---
 
@@ -348,8 +382,11 @@ class: small
 
 .caption[Estimate: 1,794. Approximate 95% Welch interval: 474 to 3,115 source dollars.]
 
+&lt;div class="student-note"&gt;&lt;strong&gt;How to read:&lt;/strong&gt; the dot is the estimated mean gap; the horizontal line shows values reasonably compatible with the data and model.&lt;/div&gt;
+
 ???
 3 minutes. Welch difference1794.34, SE671, df307, t2.674 and p.00789. Interval474.01–3114.67. Keep the study context and model assumptions explicit. A mean contrast does not state individual treatment effects or programme net benefits.
+
 
 ---
 
@@ -361,8 +398,11 @@ class: small
 
 .caption[The dashed line is the known mean of the teaching reference distribution.]
 
+&lt;div class="student-note"&gt;Each horizontal line comes from a new simulated sample. Most cross the known target, while a small number miss it.&lt;/div&gt;
+
 ???
 3 minutes. Display40 of400 simulated intervals from size80 samples of the empirical control distribution. This seed happens to give95% coverage across400, but another realization or method can differ. In a real study the target is unknown; this teaching world makes coverage visible.
+
 
 ---
 
@@ -380,8 +420,11 @@ C. The programme is proven worthwhile in every country.
 
 Explain your choice and repair one incorrect claim.
 
+&lt;div class="student-note"&gt;Keep the target clear: this interval concerns a group mean difference, not the earnings change of every participant.&lt;/div&gt;
+
 ???
 2 minutes in pairs and2 for debrief. B is defensible within the study and assumptions. A confuses a mean-contrast interval with individual gains. C invents external validity and benefit-cost evidence.
+
 
 ---
 
@@ -393,8 +436,11 @@ class: small
 
 .caption[Resample people within each group with replacement. The contrast varies around the observed estimate.]
 
+&lt;div class="student-note"&gt;Bootstrap samples are generated from the observed groups, so the distribution remains centred near the observed contrast rather than zero.&lt;/div&gt;
+
 ???
 3 minutes. The default bootstrap uses5000 replications with seed1103, resampling within arms of size185 and260. Percentile limits are approximately522–3186. This is an independent-within-group approximation. The distribution is not a zero-null reference. Sampling/CI block:2+3+3+3+3+3+4+3=24 minutes.
+
 
 ---
 
@@ -404,8 +450,11 @@ class: inverse, center, middle
 
 
 
+&lt;div class="section-subtitle"&gt;Testing asks how unusual the observed statistic would be if a specified null model generated the data.&lt;/div&gt;
+
 ???
 Section transition included within its block timing.
+
 
 ---
 
@@ -429,8 +478,11 @@ class: balanced
 
 &lt;div class="caution"&gt;The p-value does not give the probability that the null is true, the size or importance of the contrast, or proof that bias is absent.&lt;/div&gt;
 
+&lt;div class="student-note"&gt;A small p-value describes tension between the data and the null model. It does not by itself establish causality or practical value.&lt;/div&gt;
+
 ???
 6 minutes. Specify the outcome, direction, test, and assumptions before seeing a preferred result. The null concerns the target mean contrast, not every individual effect. Explain p=.0079 as a null-model tail probability, not the probability that the null is true or that the result occurred by chance. A threshold is not a scientific truth boundary. Randomized-origin evidence and representative sampling remain different issues.
+
 
 ---
 
@@ -442,8 +494,11 @@ class: small
 
 .caption[Bootstrap: uncertainty around the contrast. Shuffled labels: an exchangeable-label null reference.]
 
+&lt;div class="student-note"&gt;&lt;strong&gt;Compare the centres:&lt;/strong&gt; bootstrap contrasts cluster near the estimate; shuffled-label contrasts cluster near the null value of zero.&lt;/div&gt;
+
 ???
 3 minutes. Exchangeable-label p≈.0062 using5000 shuffles and seed1104. Preserve outcomes and group counts; shuffle labels. Original blocks are absent, so this is an illustrative null model rather than an exact reconstruction of the trial randomization. The plus-one correction prevents p=0. Agreement with Welch is not independent replication.
+
 
 ---
 
@@ -461,8 +516,11 @@ Report the estimate and interval alongside p. A larger p-value would not prove e
 
 Different methods can yield different intervals or p-values.
 
+&lt;div class="student-note"&gt;Report the estimated size and uncertainty even when p is below 0.05; the threshold alone cannot show whether the result matters.&lt;/div&gt;
+
 ???
 3 minutes. The95% CI/test correspondence applies to compatible constructions for the same two-sided model. A bootstrap percentile interval and permutation p-value need not invert each other. Reporting a larger p does not prove equality. Tests block:3+3+3+3=12 minutes.
+
 
 ---
 
@@ -472,8 +530,11 @@ class: inverse, center, middle
 
 
 
+&lt;div class="section-subtitle"&gt;Statistical evidence concerns uncertainty. Substantive importance requires context, units, costs, and a justified benchmark.&lt;/div&gt;
+
 ???
 Section transition included within its block timing.
+
 
 ---
 
@@ -495,8 +556,11 @@ class: balanced
 
 &lt;div class="result-band"&gt;Outcome: 1978 real earnings on the source-dollar scale. Report the estimate and uncertainty, not a software dump.&lt;/div&gt;
 
+&lt;div class="student-note"&gt;The raw mean contrast answers 'how many source dollars?'; Cohen's d expresses the same gap relative to within-group variation.&lt;/div&gt;
+
 ???
 6 minutes. Cohen d=.273 scales the raw contrast by the pooled within-group SD; it does not impose equal variances on the Welch test. No universal d threshold determines policy importance. Historical source dollars cannot be read as current won. State design and assumptions around a compact result. N remains445 regardless of resampling count.
+
 
 ---
 
@@ -512,8 +576,11 @@ Suppose **2,000 source dollars** is an illustrative minimum worthwhile mean gain
 
 The benchmark is for discussion; it is not a measured programme cost.
 
+&lt;div class="student-note"&gt;An estimate can be close to a benchmark while the interval still includes values on both sides of it.&lt;/div&gt;
+
 ???
 2 minutes in pairs and2 for reporting. The point estimate is below2000, and the interval includes values below and above it; it does not establish a mean contrast of at least2000. Real valuation needs justified costs, price basis, horizon, distribution and applicability. Effect block:3+3+4=10 minutes.
+
 
 ---
 
@@ -523,8 +590,11 @@ class: inverse, center, middle
 
 
 
+&lt;div class="section-subtitle"&gt;The method should follow the variables, unit of analysis, dependence structure, and claim, rather than habit or software availability.&lt;/div&gt;
+
 ???
 Section transition included within its block timing.
+
 
 ---
 
@@ -541,8 +611,11 @@ class: small
 
 &lt;div class="caution"&gt;Repeated country-years and clusters need methods that respect dependence.&lt;/div&gt;
 
+&lt;div class="student-note"&gt;Two datasets with similar columns may require different methods when observations are paired, clustered, weighted, or repeated over time.&lt;/div&gt;
+
 ???
 3 minutes. Repeated country-years are not independent new countries. Clustered records and survey weights may require different methods. A qualitative or descriptive final study should justify its evidence without being forced into a test.
+
 
 ---
 
@@ -567,8 +640,11 @@ class: balanced
 
 &lt;div class="caution"&gt;The association is observational. Dichotomizing earnings changes the question and discards information about earnings magnitude.&lt;/div&gt;
 
+&lt;div class="student-note"&gt;Correlation retains earnings magnitude; a binary positive-earnings outcome asks a simpler question but discards how much people earned.&lt;/div&gt;
+
 ???
 4 minutes. Association within controls does not inherit a causal interpretation from training assignment. The scatterplot has tied zeros and high values; conventional Pearson inference assumptions may fit poorly. Binary counts are140/185 and168/260; the large-sample pooled-null z test gives p=.0127. Zero earnings do not establish unemployment. These applications answer different questions.
+
 
 ---
 
@@ -584,8 +660,11 @@ Choose a starting approach and one limitation:
 
 Explain what would be wrong with treating every row as an independent, representative observation.
 
+&lt;div class="student-note"&gt;For each example, identify the observational unit and ask whether rows can reasonably be treated as independent.&lt;/div&gt;
+
 ???
 1 minute in pairs and1 for discussion. Survey scores suggest an association analysis with measurement/selection limits. Repeated student scores require pairing but change is not automatically causal. Repeated provinces require attention to within-unit and time dependence. Evidence block:3+2+2+2=9 minutes.
+
 
 ---
 
@@ -595,14 +674,17 @@ class: balanced
 
 Bring your current question and a description of your evidence.
 
-Open **W10_RMDS_Inference_Lab.ipynb** in Colab or Jupyter.
+Open **W11_RMDS_Inference_Lab.ipynb** in Colab or Jupyter.
 
 The real source data are embedded. No separate download is needed.
 
 You will compare estimates, resampling distributions and interpretations, then select an appropriate form of evidence for your project.
 
+&lt;div class="student-note"&gt;The lab emphasizes interpretation. The code is supplied so that class time can focus on evidence, assumptions, and claims.&lt;/div&gt;
+
 ???
 3 minutes. Colab normally supplies pandas,numpy,scipy,matplotlib and seaborn. No new participant collection is required. The notebook embeds genuine source files and verifies their hashes. Choose methods appropriate to the approved project.
+
 
 ---
 
@@ -612,8 +694,11 @@ class: inverse, center, middle
 
 
 
+&lt;div class="section-subtitle"&gt;The lab turns the lecture concepts into one reproducible analysis using real records and transparent simulations.&lt;/div&gt;
+
 ???
 Section transition included within its block timing.
+
 
 ---
 
@@ -629,8 +714,11 @@ class: balanced
 
 &lt;div class="result-band"&gt;Work individually. Use pairs to check interpretations.&lt;/div&gt;
 
+&lt;div class="student-note"&gt;Move through the notebook in order: later sections reuse the estimate, groups, and interpretation established at the beginning.&lt;/div&gt;
+
 ???
 Openingandsourceinspection10total,asexplainednextslide. Sixpairsforbriefchecks. Codeissupplied;studentsarenotexpectedtowriteallsimulationfunctionsfromscratch.
+
 
 ---
 
@@ -652,8 +740,11 @@ class: balanced
   &lt;/div&gt;
 &lt;/div&gt;
 
+&lt;div class="student-note"&gt;Before interpreting any output, verify the unit, group definitions, outcome units, and direction of the contrast.&lt;/div&gt;
+
 ???
 20 minutes. Step1: agenda1, setup3, source/table/plot inspection4, response2. The observed sample contains445 people; later replications are computations on those records, and zeros are not missing. Step2:6 minutes running and reading,4 writing. Estimate1794.34, SE671, CI474.01–3114.67, p=.00789. The benchmark is illustrative, not an observed programme cost.
+
 
 ---
 
@@ -677,8 +768,11 @@ class: balanced
 
 &lt;div class="caution"&gt;Keep observed participants, sample size, and replication count distinct.&lt;/div&gt;
 
+&lt;div class="student-note"&gt;Keep three quantities separate: observed participants, observations in each resample, and the number of simulation replications.&lt;/div&gt;
+
 ???
 22 minutes. Sampling: prediction2, simulation/inspection4, response4. The control observations define the empirical teaching reference; artificial samples illustrate variation and do not create participants. Bootstrap: running/inspection5, response5, pair check2. More replications reduce Monte Carlo noise, not source bias or uncertainty from the observed sample.
+
 
 ---
 
@@ -701,8 +795,11 @@ class: balanced
   &lt;/div&gt;
 &lt;/div&gt;
 
+&lt;div class="student-note"&gt;The null-reference exercise addresses compatibility with zero; the application exercise changes the research question and evidence type.&lt;/div&gt;
+
 ???
 20 minutes. Null experiment: running/inspection4, writing4, pair check2. Explain exchangeability and the original-design limitation; a small p-value is not a posterior probability or practical judgement. Application:7 minutes individually and3 in pairs. Run either application for the written response; Run All executes both. The numerical and binary analyses answer different questions.
+
 
 ---
 
@@ -725,8 +822,11 @@ class: balanced
   &lt;/div&gt;
 &lt;/div&gt;
 
+&lt;div class="student-note"&gt;A complete result combines a numerical finding with its context, assumptions, and one honest limitation.&lt;/div&gt;
+
 ???
 13 minutes. Result paragraph6, project choice3, partner check1, save3. The paragraph needs estimate, units, interval, test, context, and limitation. A student may explain why no inferential test suits the project. Thursday total remains75 minutes. Save the notebook separately from the output ZIP. Fixed seeds support reproducibility. No extra exit ticket or grade component.
+
 
 ---
 
@@ -736,8 +836,11 @@ class: inverse, center, middle
 
 
 
+&lt;div class="section-subtitle"&gt;Use these slides when students need another example, an assumption reminder, or help connecting the notebook to their projects.&lt;/div&gt;
+
 ???
 Section transition included within its block timing.
+
 
 ---
 
@@ -749,8 +852,11 @@ class: small
 
 .caption[Control participants, two pre-intervention earnings variables, n = 260.]
 
+&lt;div class="student-note"&gt;A positive pattern is visible, but tied zeros and high observations can affect correlation measures and their uncertainty.&lt;/div&gt;
+
 ???
 Reference only. The baseline scatterplot contains many zeros and high values. Pearson describes linear association; Spearman describes rank association. Neither identifies a training effect or causation from one earnings year to another.
+
 
 ---
 
@@ -762,8 +868,11 @@ class: small
 
 .caption[Positive recorded earnings, not a directly verified employment rate.]
 
+&lt;div class="student-note"&gt;A percentage-point difference subtracts two proportions; it is different from a relative percentage increase.&lt;/div&gt;
+
 ???
 Reference only. Large-sample unpooled Wald95% interval2.57–19.55 points; pooled-null z p≈.01274. These approximations need adequate counts. The variable records positive earnings, not verified employment status.
+
 
 ---
 
@@ -788,8 +897,11 @@ class: balanced
 
 &lt;div class="caution"&gt;A software function cannot validate the research design.&lt;/div&gt;
 
+&lt;div class="student-note"&gt;Correct computation starts with the correct resampling or comparison unit: person, pair, cluster, or another design-defined unit.&lt;/div&gt;
+
 ???
 Reference only. Mean within-person change is about3288 for controls and4817 for training. Both paired tests are small-p, but neither change is the training effect by itself. Inspect the actual unit, dependence, selection, and measurement. Do not use independent-row methods for clusters or repeated country panels without justification. Checking assumptions is not a ritual of automatically running a normality test.
+
 
 ---
 
@@ -808,8 +920,11 @@ A reader should find:
 
 Report all relevant planned analyses and label exploratory work.
 
+&lt;div class="student-note"&gt;A reader should be able to reconstruct what was compared, what was estimated, and why the conclusion remains bounded.&lt;/div&gt;
+
 ???
 Reference only. Label exploratory work and report the analyses considered. Weak precision can still be informative. Never fabricate a finding or search seeds/specifications to achieve a preferred p-value.
+
 
 ---
 
@@ -827,8 +942,11 @@ class: small
 | 6 | Numerical association or binary comparison |
 | 7–9 | Reporting, project choice, export and paired extensions |
 
+&lt;div class="student-note"&gt;Use the functions as transparent examples. Adapt the analysis only after checking whether your project has the same unit and design.&lt;/div&gt;
+
 ???
 Reference only. Functions are supplied, tested and commented in English. They are not universal estimators for weighted or clustered project datasets. Students should choose rather than blindly copy.
+
 
 ---
 
@@ -857,6 +975,8 @@ class: small
 &lt;/div&gt;
 
 &lt;div class="source-note"&gt;&lt;strong&gt;PROVENANCE&lt;/strong&gt; Original records, retrieval details, and hashes accompany the notebook.&lt;/div&gt;
+
+&lt;div class="student-note"&gt;Research claims should remain traceable to the original data, scholarly sources, and documented statistical procedures.&lt;/div&gt;
 
 ???
 Retain original data/author attribution. No CC BY or other new blanket license is asserted. The author page supplies column order and distinguishes experimental and nonexperimental files. Documentation checked November2026.
