@@ -1,4 +1,7 @@
 # Ignore CEBRA presentation folder and all contents
 2026/Spring/Other/CEBRA/
 2026/Fall/Research Method of Data Science/W10/papers
-2026/Fall/Research Method of Data Science/W11/tmp
+tmp
+week12_regression_outputs
+assets
+W12_Regression_Outputs.zip
