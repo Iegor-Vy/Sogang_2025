@@ -1,0 +1,7 @@
+doc_id,text,reference,vader_005,tfidf_logistic
+FPB_0052,"Both operating profit and turnover for the three-month period increased , respectively from EUR0 .9 m and EUR8 .3 m , as compared to the corresponding period in 2005 .",positive,positive,positive
+FPB_0294,Pharmaceuticals group Orion Corp reported a fall in its third-quarter earnings that were hit by larger expenditures on R&D and marketing .,negative,neutral,negative
+FPB_0860,"4 February 2011 - Finnish broadband data communication systems provider Teleste Oyj HEL : TLT1V said Wednesday its net profit rocketed to EUR4 .8 m in 2010 from EUR416 ,000 in 2009 and it lifted its dividend proposal .",positive,positive,positive
+FPB_1396,"The company has decided to stop the operations of Ruukki Construction Division in Latvia and Lithuania , and concentrate the production and logistics in Parnu , Estonia in 2009 .",neutral,negative,neutral
+FPB_1765,The divested activities had net sales of EUR 145.1 million in 2009 and an operating profit of EUR 8.9 million .,neutral,positive,positive
+FPB_2013,"20 October 2010 - Finnish environmental management company Lassila & Tikanoja Oyj HEL : LAT1V , or L&T , said Monday it expects its operating profit , excluding non-recurring items , for the whole 2010 to be slightly lower than in 2009 .",negative,positive,negative

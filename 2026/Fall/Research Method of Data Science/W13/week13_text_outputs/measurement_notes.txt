@@ -1,0 +1,6 @@
+Financial PhraseBank AllAgree; original texts, investor-perspective reference labels.
+English historical benchmark; no dates or realized stock returns.
+Exact normalized duplicates removed before stratified 75/25 split, seed 1301.
+TF-IDF fit on training only; fixed logistic C=1, balanced class weights.
+VADER thresholds .05 and .20 are fixed sensitivity rules.
+Live LLM runs accepted: 0; no missing outputs imputed.

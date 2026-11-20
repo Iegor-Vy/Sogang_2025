@@ -1,0 +1,9 @@
+doc_id,text,reference,vader_score,vader_005,tfidf_logistic
+FPB_0039,STOCK EXCHANGE ANNOUNCEMENT 20 July 2006 1 ( 1 ) BASWARE SHARE SUBSCRIPTIONS WITH WARRANTS AND INCREASE IN SHARE CAPITAL A total of 119 850 shares have been subscribed with BasWare Warrant Program .,neutral,0.8779,positive,neutral
+FPB_0057,"In 2009 , Fiskars ' cash flow from operating activities amounted to EUR121m , up from EUR97m in the previous year .",positive,0.0,neutral,positive
+FPB_0060,"International sales rose by 59.8 % to EUR 1,244.4 mn .",positive,0.0,neutral,positive
+FPB_0112,EBIT margin was up from 1.4 % to 5.1 % .,positive,0.0,neutral,positive
+FPB_0114,"Equity ratio was 60.9 % compared to 54.2 % In the third quarter of 2007 , net sales of the Frozen Foods Business totaled EUR 11.0 , up by about 5 % from the third quarter of 2006 .",positive,0.0,neutral,positive
+FPB_0116,"Finland-based Elcoteq SE , a privately held provider of electronics manufacturing services to communications companies , said Thursday it signed a long-term manufacturing supply deal with communications equipment company Andrew Corp. .",positive,0.0,neutral,neutral
+FPB_0177,Orders received grew by 55 % year-on-year to EUR732m .,positive,0.0,neutral,positive
+FPB_0180,Passenger-related revenue rose by 5.1 % to EUR 460.8 mn from EUR 438.5 mn in 2009 .,positive,0.0,neutral,positive

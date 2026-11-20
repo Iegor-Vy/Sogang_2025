@@ -1,0 +1,7 @@
+rule,label,share_percent
+vader_005,negative,8.31858407079646
+vader_005,neutral,44.424778761061944
+vader_005,positive,47.256637168141594
+vader_020,negative,6.902654867256637
+vader_020,neutral,50.796460176991154
+vader_020,positive,42.30088495575221

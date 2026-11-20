@@ -1,0 +1,4 @@
+doc_id,text,reference,cosine_similarity
+FPB_1641,Group net sales in the third quarter of 2007 totaled EUR 142.3 mn and operating profit EUR 4.3 mn .,neutral,0.47855444708771666
+FPB_0059,"In the fourth quarter of 2008 , net sales increased by 2 % to EUR 1,050.7 mn from EUR 1,027.0 mn in the fourth quarter of 2007 .",positive,0.4437862158542116
+FPB_1660,"In the third quarter of 2007 , net sales totaled EUR 25.95 mn , and operating profit EUR 3.88 mn .",neutral,0.43736637616552215
