@@ -1,0 +1,1193 @@
+---
+title: "Research Method of Data Science"
+subtitle: "Week 14: Writing the Complete Research Paper"
+author: "Iegor Vyshnevskyi, Ph.D."
+institute: "Sogang University"
+date: "December 1/3, 2026"
+output:
+  xaringan::moon_reader:
+    seal: true
+    css: xaringan-themer.css
+    chakra: libs/remark-latest.min.js
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: '16:9'
+
+---
+
+<style>
+@media print{
+  body, html, .remark-slides-area, .remark-notes-area {
+    height: 100% !important;
+    width: 100% !important;
+    overflow: visible;
+    display: inline-block;
+    }
+}
+</style>
+
+<style type="text/css">
+.remark-slide-content {
+    font-size: 34px;
+    padding: 1em 4em 1em 4em;
+}
+</style>
+
+<style type="text/css">
+.my-one-page-font {
+  font-size: 28px;
+}
+</style>
+
+<style type="text/css">
+.my-one-page-font-table {
+  font-size: 24px;
+}
+</style>
+
+<style>
+.tiny { font-size: 60%; }      /* class you can reuse anywhere */
+</style>
+
+<style>
+.remark-slide-content {
+  position: relative;
+  z-index: 1;
+}
+
+.remark-slide-content::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 600px;          /* adjust size */
+  height: 600px;
+  background-image: url("1. 교장(Seal_Positive).png");  /* place logo file in same folder */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: 0.05;         /* watermark transparency */
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 0;
+}
+</style>
+
+
+```{r setup, include = FALSE}
+library(knitr)
+
+opts_chunk$set(fig.width = 10, 
+               message = FALSE, 
+               warning = FALSE,
+               echo = FALSE)
+```
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+#install.packages("xaringanthemer")
+library(xaringanthemer)
+style_mono_accent(
+  base_color = "#851a10",
+  header_font_google = google_font("Josefin Sans"),
+  text_font_google   = google_font("Montserrat", "500", "550i"),
+  code_font_google   = google_font("Fira Mono"),
+  colors = c(
+  red = "#f34213",
+  purple = "#3e2f5b",
+  orange = "#ff8811",
+  green = "#136f63",
+  white = "#FFFFFF"
+)
+)
+```
+
+<style>
+.small { font-size: 27px; }
+.remark-slide-content { padding: 1em 2.4em; }
+.remark-slide-content, .remark-slide-content *, .remark-slide-content *::before, .remark-slide-content *::after { box-sizing:border-box; }
+.remark-slide-content h1 { margin-bottom:18px; line-height:1.08; }
+.remark-slide-content p, .remark-slide-content li { line-height:1.3; }
+.remark-slide-content li { margin-bottom:8px; }
+.remark-slide-content table { font-size:24px; border-collapse:separate; border-spacing:0; width:96%; max-width:96%; table-layout:fixed; box-sizing:border-box; margin-left:auto; margin-right:auto; box-shadow:0 2px 8px rgba(0,0,0,.08); }
+.remark-slide-content th { background:#851a10; color:white; text-align:left; }
+.remark-slide-content th, .remark-slide-content td { box-sizing:border-box; padding:9px 16px; border-bottom:1px solid #ddd; overflow-wrap:normal; word-break:normal; white-space:normal; }
+.remark-slide-content th:first-child, .remark-slide-content td:first-child { width:36%; }
+.remark-slide-content td code { white-space:normal; overflow-wrap:anywhere; }
+.remark-slide-content tr:nth-child(even) td { background:#f7f5f4; }
+.remark-slide-content img { max-height: 430px; object-fit: contain; }
+.remark-slide-content::before { z-index: -1; }
+.metric-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px; margin:24px 0; }
+.metric-card { background:#f8f2ef; border-top:6px solid #851a10; padding:16px 12px; text-align:center; min-height:110px; }
+.metric-card .number { display:block; color:#851a10; font-size:41px; font-weight:700; line-height:1; margin-bottom:9px; }
+.metric-card .label { font-size:22px; line-height:1.22; }
+.flow { display:flex; align-items:stretch; gap:8px; margin:30px 0 22px; }
+.flow-step { flex:1; min-width:0; background:#f8f2ef; border-top:6px solid #851a10; padding:16px 12px; text-align:center; font-size:23px; line-height:1.22; }
+.flow-step strong { display:block; color:#851a10; font-size:27px; margin-bottom:8px; }
+.flow-arrow { align-self:center; color:#851a10; font-size:34px; font-weight:700; }
+.activity-head { display:flex; gap:10px; margin:-8px 0 18px; }
+.activity-time, .activity-mode { color:white; font-weight:700; font-size:20px; padding:7px 14px; border-radius:4px; letter-spacing:.04em; }
+.activity-time { background:#851a10; }
+.activity-mode { background:#3a7188; }
+.activity-output { background:#f8f2ef; border-left:6px solid #136f63; padding:12px 16px; margin-top:18px; font-size:23px; }
+.compare-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:22px; margin-top:20px; }
+.compare-card { background:#f7f7f7; border-top:6px solid #3a7188; padding:15px 18px; font-size:23px; line-height:1.27; }
+.compare-card h3 { color:#851a10; margin:0 0 10px; font-size:27px; }
+.key-chip { display:inline-block; background:#f8f2ef; border:2px solid #851a10; border-radius:20px; padding:8px 15px; margin:5px; font-weight:600; font-size:23px; }
+.caution { background:#fff4e5; border-left:6px solid #ff8811; padding:12px 18px; margin-top:18px; font-size:23px; }
+.plot img { width:100%; max-height:480px; object-fit:contain; }
+.plot-prompt, .caption { background:#f8f2ef; border-left:6px solid #851a10; padding:9px 15px; margin-top:5px; font-size:22px; text-align:center; }
+.studio-head { display:flex; align-items:center; gap:14px; margin:-8px 0 16px; }
+.step-badge { background:#851a10; color:white; font-weight:700; padding:8px 14px; border-radius:4px; font-size:21px; }
+.time-badge { background:#3a7188; color:white; font-weight:700; padding:8px 14px; border-radius:4px; font-size:21px; }
+.progress { height:8px; background:#e6e6e6; margin:12px 0 20px; border-radius:5px; overflow:hidden; }
+.progress span { display:block; height:100%; background:#851a10; }
+.artifact { background:#eef5f2; border-left:6px solid #136f63; padding:11px 15px; margin-top:16px; font-size:23px; }
+.function-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:22px; margin-top:25px; }
+.function-card, .quote-card { background:#f8f2ef; border-top:6px solid #851a10; padding:18px; font-size:23px; }
+.quote-card { font-size:24px; line-height:1.35; }
+.reference-grid { display:grid; grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr); gap:22px; margin-top:20px; }
+.reference-card { background:#f7f8f8; border:1px solid #d8dddd; border-top:6px solid #3a7188; border-radius:5px; padding:15px 19px 13px; }
+.reference-card.software { border-top-color:#851a10; }
+.reference-card h3 { margin:0 0 9px; color:#243238; font-size:27px; }
+.reference-card ul { margin:0; padding-left:21px; }
+.reference-card li { margin:8px 0; font-size:22px; line-height:1.25; }
+.reference-card a { color:#245d73; text-decoration:none; border-bottom:1px solid #9bb8c3; }
+.reference-card.software a { color:#761d16; border-bottom-color:#c9a39f; }
+.source-note { margin-top:18px; background:#eef5f2; border-left:6px solid #136f63; padding:11px 16px; font-size:22px; line-height:1.3; }
+.source-note strong { color:#136f63; }
+.paper-citation { background:#f8f2ef; border-left:6px solid #851a10; padding:10px 15px; margin:8px 0 12px; font-size:18px; line-height:1.25; }
+.paper-links { float:right; font-size:17px; }
+.paper-viewer { width:100%; height:430px; border:1px solid #bfc7c9; border-radius:4px; background:#eef1f2; }
+.remark-slide-content.balanced { display:flex; flex-direction:column; justify-content:center; padding-top:1.25em; padding-bottom:1.25em; }
+.remark-slide-content.balanced h1 { margin-top:0; }
+.split { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:28px; align-items:start; margin-top:12px; }
+.split.wide-left { grid-template-columns:minmax(0,1.18fr) minmax(0,.82fr); }
+.split-panel { min-width:0; max-width:100%; border-top:7px solid #851a10; padding:16px 16px 0; font-size:26px; line-height:1.28; }
+.split-panel.alt { border-top-color:#3a7188; }
+.split-panel h2 { margin:0 0 11px; font-size:31px; color:#851a10; }
+.stat-strip { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px; margin:18px 0; }
+.stat { text-align:center; border-top:6px solid #851a10; padding:12px 8px; background:#f8f2ef; font-size:21px; line-height:1.2; }
+.stat strong { display:block; color:#851a10; font-size:34px; margin-bottom:6px; }
+.definition { border-left:7px solid #3a7188; padding:12px 18px; margin:12px 0; background:#f4f7f8; font-size:25px; line-height:1.3; }
+.result-band { border-left:7px solid #136f63; padding:13px 18px; margin:16px 0; background:#eef5f2; font-size:25px; line-height:1.28; }
+.lab-pair { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:28px; margin-top:25px; }
+.lab-step { min-width:0; max-width:100%; border-top:7px solid #851a10; padding:18px 16px 0; font-size:27px; line-height:1.27; }
+.lab-step.alt { border-top-color:#3a7188; }
+.lab-step h2 { margin:0 0 10px; font-size:32px; color:#851a10; }
+.lab-step .meta { color:#3a7188; font-size:22px; font-weight:700; margin-bottom:10px; }
+.activity-box { border:3px solid #851a10; padding:18px 22px; margin:18px auto; max-width:86%; font-size:25px; line-height:1.32; }
+.evidence-list { margin-top:14px; border-top:1px solid #ccd3d5; }
+.evidence-row { display:grid; grid-template-columns:minmax(0,.9fr) minmax(0,1.25fr) minmax(0,1.45fr); gap:18px; align-items:center; padding:15px 8px; border-bottom:1px solid #ccd3d5; font-size:24px; line-height:1.24; }
+.evidence-row strong { color:#851a10; font-size:26px; }
+.agenda-line { display:flex; align-items:center; gap:17px; border-bottom:1px solid #d4d8d9; padding:13px 5px; font-size:27px; }
+.agenda-line .n { color:#851a10; font-weight:700; font-size:31px; min-width:36px; }
+.student-note { margin:12px 0 0; padding:9px 14px; border-left:5px solid #3a7188; background:#f4f7f8; color:#243238; font-size:20px; line-height:1.25; }
+.student-note strong { color:#851a10; }
+.section-subtitle { margin:24px auto 0; max-width:72%; color:#fff; font-size:25px; line-height:1.3; text-align:center; opacity:.94; }
+.sample-total { text-align:center; margin:4px auto 18px; font-size:24px; color:#3f4b50; }
+.sample-total strong { display:block; color:#851a10; font-size:43px; line-height:1; margin-bottom:6px; }
+.sample-split { display:grid; grid-template-columns:minmax(0,1.35fr) minmax(0,.85fr); gap:26px; }
+.sample-group { min-width:0; border-top:7px solid #851a10; background:#f8f5f3; padding:15px 18px; font-size:22px; line-height:1.26; }
+.sample-group.test { border-top-color:#3a7188; background:#f3f7f8; }
+.sample-group h2 { margin:0 0 9px; color:#851a10; font-size:30px; }
+.sample-group.test h2 { color:#2e6579; }
+.sample-group p { margin:7px 0; }
+.sample-group .plain-detail { border-top:1px solid #d9d4d1; margin-top:11px; padding-top:9px; font-size:20px; }
+.interpret-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:15px; margin:12px 0 8px; }
+.interpret-item { min-width:0; border-top:5px solid #851a10; padding:10px 11px 6px; background:#f8f5f3; font-size:18px; line-height:1.23; }
+.interpret-item.alt { border-top-color:#3a7188; background:#f3f7f8; }
+.interpret-item.neutral { border-top-color:#777; background:#f6f6f6; }
+.interpret-item h3 { margin:0 0 6px; color:#851a10; font-size:22px; }
+.interpret-item.alt h3 { color:#2e6579; }
+.interpret-item.neutral h3 { color:#555; }
+.interpret-item p { margin:4px 0; }
+.plot.compact img { max-height:315px; }
+.plot-reading { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; margin:8px 0; }
+.plot-reading .item { min-width:0; border-top:5px solid #851a10; background:#f8f5f3; padding:9px 13px; font-size:19px; line-height:1.25; }
+.plot-reading .item.alt { border-top-color:#3a7188; background:#f3f7f8; }
+.plot-reading h3 { margin:0 0 5px; color:#851a10; font-size:23px; }
+.plot-reading .alt h3 { color:#2e6579; }
+.plain-steps { counter-reset:plainstep; margin:8px 0; }
+.plain-step { counter-increment:plainstep; display:grid; grid-template-columns:40px 1fr; gap:10px; align-items:start; border-bottom:1px solid #d7dcde; padding:9px 4px; font-size:23px; line-height:1.25; }
+.plain-step::before { content:counter(plainstep); display:flex; align-items:center; justify-content:center; width:32px; height:32px; border-radius:50%; background:#851a10; color:white; font-weight:700; }
+</style>
+
+# Agenda
+
+**Tuesday — Meeting 1**
+
+1. The complete paper and its central argument
+
+2. Connecting the introduction and literature review
+
+3. Writing Data, Methods and Results
+
+4. Discussion, limitations and conclusion
+
+5. Integrating the draft and preparing for Thursday
+
+Appendix: writing tools, examples and workshop checklists.
+
+???
+
+1 minute. Follow the section sequence explicitly. Thursday is a workshop on students’ actual projects, with no new dataset or coding exercise. Instructor-paper examples are short teaching adaptations of identified working drafts, not current research updates.
+
+---
+
+# What I expect from your final project
+
+A **modest, coherent research study** with clear structure and real evidence.
+
+Each main section should contain something substantive and relevant to the same research question.
+
+I do not expect a full-scale publishable paper or every method taught in this course.
+
+I do expect you to explain your choices, support your claims, and acknowledge what the evidence cannot establish.
+
+**For example:** a careful comparison of two groups with one well-explained figure can be a stronger project than several analyses with no clear question.
+
+???
+
+3 minutes. Scope is deliberately realistic for a first serious undergraduate research course. A small descriptive, qualitative, or exploratory study can be successful. No invented results, sources, sample sizes, or analysis. Do not introduce a new word limit, minimum citation count, grade weight or deadline.
+
+---
+
+class: inverse, center, middle
+
+# 1. The complete paper and its central argument
+
+
+
+???
+
+Transition only. Time is included in the next content block.
+
+---
+
+# The paper makes a promise and answers it
+
+**Introduction:** What question should the reader expect you to answer?
+
+**Literature and design:** Why this question, evidence and method?
+
+**Results:** What did you actually find?
+
+**Discussion and conclusion:** What does the answer mean, within its limits?
+
+A method, table or paragraph belongs when it helps this argument.
+
+**Quick check:** if your Results answer a different question from the Introduction, revise the question or explain the change.
+
+???
+
+2 minutes. Distinguish the reader’s order from the order of writing. A paper can be assembled from existing work, but it must read as one study. A student should not change the main question silently between Introduction and Results.
+
+---
+
+class: small
+
+# Early sections establish the study
+
+| Section | Reader’s question | Substantive content |
+|---|---|---|
+| Introduction | What are you asking, and why care? | Problem, focused question, approach and contribution |
+| Literature review | What is known or debated? | Synthesis, relevant gap and framework |
+| Data / evidence | What do you observe? | Source, unit, selection and definitions |
+| Methods | How does the evidence answer the question? | Procedure, justification and assumptions |
+
+Data and Methods may share a section if both functions remain clear.
+
+**Example:** “We use 120 survey responses” describes the evidence; “we compare average responses by year of study” describes the method.
+
+???
+
+2 minutes. Explain every row rather than merely display the table. For qualitative work, evidence includes documents, interview excerpts or field material, with access and ethics described. A framework can explain concepts and expected relationships without pretending to identify a causal mechanism.
+
+---
+
+class: small
+
+# Later sections develop the answer
+
+| Section | Reader’s question | Substantive content |
+|---|---|---|
+| Results / findings | What did the analysis show? | Selected evidence and direct interpretation |
+| Discussion | How does this relate to the literature? | Meaning, comparison and plausible explanations |
+| Limitations | How far can the claim travel? | Specific weaknesses and their consequences |
+| Conclusion | What answer should I retain? | Bounded answer, contribution and implication |
+
+Make these functions visible even when some appear as subsections.
+
+**Example:** “Group A reports higher use” is a result. “The difference may reflect access” is an interpretation that needs support.
+
+???
+
+2 minutes. Limitations can sit within Discussion or in a separate section before Conclusion. Students must not omit them because headings differ. A qualitative paper can integrate findings and interpretation when the distinction between evidence and inference remains visible.
+
+---
+
+# Your paper in four lines — 4 minutes
+
+Write individually, then compare with a neighbour:
+
+1. I ask whether/how ...
+
+2. I use ... evidence and ... method.
+
+3. My evidence currently suggests ...
+
+4. I can claim ... but cannot yet establish ...
+
+If line 3 is unfinished, identify the exact analysis or evidence needed. Do not invent an answer.
+
+???
+
+4 minutes: 2 to write, 1 to compare, 1 for a brief debrief. A topic alone is not a question. If evidence is missing, label it pending and plan a feasible next step with the instructor. A temporary draft marker is acceptable; a fabricated finding is not. The final submission must report actual evidence.
+
+---
+
+class: inverse, center, middle
+
+# 2. Connecting the introduction and literature review
+
+
+
+???
+
+Transition only. Time is included in the next content block.
+
+---
+
+# The introduction guides the reader into the study
+
+A useful sequence:
+
+1. Present a concrete problem or puzzle.
+
+2. Explain why the answer matters.
+
+3. Identify what remains unresolved in the literature.
+
+4. State your focused question and approach.
+
+5. Preview the main answer and its boundaries.
+
+Revise the preview after your results are settled.
+
+**Model opening:** “Students often use AI for coursework, but we know less about how use differs by task. This study compares reported use across task types in one class.”
+
+???
+
+3 minutes. The final paper’s introduction should describe what the study actually does, not only what the proposal hoped to do. Avoid long generic openings about how important data, globalization or AI is. Motivate the precise question and give the reader a route into the evidence.
+
+---
+
+# Real example: a puzzle creates the opening
+
+**The Central Bank Information Effect**
+
+Sometimes share prices rise after an unexpected interest-rate tightening.
+
+Why might that happen?
+
+- The announcement may reveal favourable economic information.
+- Markets may misunderstand the central bank’s response to public news.
+
+The draft motivates examining statement language as complementary evidence.
+
+The reader can now see the **puzzle**, two possible explanations, and why new evidence about the announcement text might help distinguish them.
+
+.caption[Teaching paraphrase of the supplied September 2026 working draft.]
+
+???
+
+3 minutes. Source: Baird, Benchimol and Vyshnevskyi, supplied draft Pasted text(20260916-061611).txt, Introduction and Literature and Testable Implications. Explain the puzzle in plain language without teaching the whole monetary-policy model. The point is the move from observation to competing explanations and a question. Do not quote sample sizes or findings as current.
+
+---
+
+# A literature review prepares an argument
+
+**Weak organization:** one paragraph per author, ending with “few studies exist.”
+
+**Stronger organization:** a question or debate, with studies compared by what their evidence can establish.
+
+In the information-effect draft, the key issue is **which explanation fits the observed pattern**.
+
+The literature therefore motivates the evidence needed, rather than serving as a detached list of summaries.
+
+**In your paper:** group studies by what they agree on, where they differ, and which uncertainty your own evidence can address.
+
+???
+
+3 minutes. Use the two explanations on the preceding slide as the organizing contrast. The cited draft positions text alongside evidence from asset prices, forecasts and policy surprises. This is an adaptation of how the draft frames the debate, not independent verification of every paper cited within it.
+
+---
+
+# A second example: a literature map
+
+The CBDC draft connects research on:
+
+- determinants of CBDC development
+- information in central-bank communication
+- direct measures of CBDC discourse
+
+Its question concerns **thematic composition and recorded project progression**.
+
+The gap therefore leads to a defined measure and outcome, rather than a claim that nobody has studied CBDC.
+
+**Plain-language bridge:** prior work studies whether CBDCs develop and what central banks say. The draft asks whether the *topics* in those speeches relate to recorded project progress.
+
+.caption[Teaching adaptation of the October 25, 2026 CBDC draft, Literature Review.]
+
+???
+
+2 minutes. CBDC means central bank digital currency. No detailed monetary background is required. The supplied draft distinguishes thematic attention from sentiment and from communication volume. Students can learn its mapping logic without reproducing the scope of a professional literature review.
+
+---
+
+# Your literature-to-question bridge — 4 minutes
+
+Complete these sentences using your existing literature review:
+
+“Research establishes ...”
+
+“However, the relevant studies differ or leave uncertainty about ...”
+
+“My study therefore asks ... using ...”
+
+Check that your Results can eventually answer that last sentence.
+
+???
+
+4 minutes: 2 individual writing, 1 pair check, 1 debrief. Ask for a specific unresolved issue rather than a claim that a country or topic has never been studied. A modest replication, contextual comparison, measurement exercise or carefully bounded qualitative study can make a useful contribution.
+
+---
+
+class: inverse, center, middle
+
+# 3. Writing Data, Methods and Results
+
+
+
+???
+
+Transition only. Time is included in the next content block.
+
+---
+
+# Data describes the evidence you actually have
+
+State the source, unit of observation, context/period, and selection rules.
+
+Explain key variables or qualitative materials and how you constructed them.
+
+Report missingness, exclusions, access restrictions and ethical safeguards where relevant.
+
+**Keep counts consistent:** people, documents, sentences, countries and repeated observations are different units.
+
+**Example:** 20 countries observed for 5 years can create up to 100 country-year rows. State both numbers and explain missing years.
+
+???
+
+3 minutes. A survey has respondents; a country panel has repeated country-period observations; text can be segmented into sentences within documents. Explain who or what the evidence represents. A citation to a data website is insufficient when the reader cannot reconstruct the extraction or processing choices.
+
+---
+
+# Real example: a definition changes the meaning
+
+In the CBDC draft, **theme prevalence** is the share of observed CBDC-relevant speeches that discuss a theme.
+
+A zero can mean **no speech in that observed set contains the theme**.
+
+A window with **no observed CBDC-relevant speech** has no such denominator and is treated differently.
+
+This distinction belongs in Data and Methods because it changes the interpretation of the result.
+
+**Simple analogy:** zero means “we looked and found none”; missing means “we had no relevant speech to examine.”
+
+.caption[Teaching paraphrase of the supplied CBDC draft’s narrative-measure definition.]
+
+???
+
+3 minutes. Source: main(10).pdf, Data and Narrative Measurement, including the prevalence denominator and sample restrictions. Themes are non-exclusive and direction-neutral. Do not equate theme discussion with support, opposition, adoption, or sentiment. The lesson is operationalization, not a new estimation exercise.
+
+---
+
+class: small
+
+# Methods explains what you did and why
+
+| Approach | What the reader needs |
+|---|---|
+| Quantitative | Outcome, predictors/comparison, specification, sample and uncertainty |
+| Qualitative | Case/sample, collection/access, coding, interpretation and trustworthiness |
+| Text | Corpus unit, preprocessing, codebook/model, validation and aggregation |
+
+Describe the procedure you actually used and justify its fit to the question.
+
+Software names alone do not explain the method.
+
+**Write the comparison:** “I compare average scores between the two groups and report uncertainty” tells the reader more than “I used Python.”
+
+???
+
+3 minutes. “I used Python” is a tool statement. “I compare these groups with a defined outcome, interval and design limitation” is a method statement. Qualitative reproducibility is not identical numerical rerunning; it includes a traceable analytic process and appropriate privacy boundaries.
+
+---
+
+# Results selects evidence and explains it
+
+For each main result:
+
+1. State the finding in a sentence.
+
+2. Point to its table, figure or documented qualitative evidence.
+
+3. Explain the scale, comparison or theme.
+
+4. Include relevant uncertainty or contradictory evidence.
+
+A caption should identify the source, unit, sample and meaning of the display.
+
+**Example interpretation:** “In this sample, the second group has a higher average. The figure shows a difference in these records; it does not show what caused it.”
+
+???
+
+3 minutes. Do not paste all notebook output into the paper. Choose evidence that answers the question. In qualitative findings, connect themes to real excerpts and variation or disconfirming material; do not invent interview quotations. Keep larger output and supporting detail in appropriately documented appendices.
+
+---
+
+# Real example: uncertainty belongs in the finding
+
+The CBDC draft reports that individual theme associations do not survive adjustment across its planned family of tests.
+
+A results paragraph should report this qualification alongside the association it discusses.
+
+It should not turn an initially interesting estimate into a confirmed mechanism, or treat uncertainty as proof that communication contains no information.
+
+**Coherent version:** state the observed direction, then say that the evidence is too uncertain to single out that theme as a reliable association in this set of tests.
+
+.caption[Teaching adaptation of the October 25, 2026 draft, Results and Discussion.]
+
+???
+
+3 minutes. The exercise uses the qualitative inferential conclusion in the inspected draft, without copying version-sensitive point estimates or event counts. The study is observational and does not establish causal effects or out-of-sample prediction. Students need not reproduce this paper’s multiple-testing or econometric machinery.
+
+---
+
+# Evidence-to-claim check — 5 minutes
+
+Use one **real result from your own project**.
+
+Write its location: table, figure, notebook output, coded excerpt or document.
+
+Then write:
+
+- “This evidence shows ...”
+
+- “My method supports that claim because ...”
+
+- “It does not establish ...”
+
+A partner checks the link. If evidence is pending, record the exact missing step.
+
+???
+
+5 minutes: 2 locating/writing, 2 pair checking, 1 debrief. Ask students to show the actual result rather than describe an intended analysis. Check units and denominators, direction, uncertainty and scope. A missing result becomes a concrete workshop priority, not permission to use a plausible AI-generated number.
+
+---
+
+class: inverse, center, middle
+
+# 4. Discussion, limitations and conclusion
+
+
+
+???
+
+Transition only. Time is included in the next content block.
+
+---
+
+class: small
+
+# These sections do different work
+
+| Section | Main task |
+|---|---|
+| Results | Describe the observed finding |
+| Discussion | Interpret it and compare with relevant research |
+| Limitations | Explain what restricts the inference |
+| Conclusion | Give the bounded answer and contribution |
+
+Discussion should add reasoning, rather than repeat the results in different words.
+
+**One finding, four roles:** report the difference in Results, discuss a plausible reason, explain a sampling limit, then close with the answer your evidence supports.
+
+???
+
+2 minutes. Interpretations need evidence and appropriate language. The conclusion can mention the principal limitation but should not become a second limitations section. New analyses or unsupported major claims do not belong only in the conclusion.
+
+---
+
+# Real example: interpretation remains provisional
+
+**CBDC discussion, simplified:**
+
+Public attention to an issue may reflect unresolved institutional questions.
+
+That is one interpretation of the observed communication patterns.
+
+The study cannot distinguish this explanation from every alternative or show that discussing an issue delays implementation.
+
+The discussion therefore connects the finding to institutional reasoning while preserving the claim boundary.
+
+**Useful wording:** “One possible interpretation is ...” followed by the evidence that supports it and an alternative the study cannot rule out.
+
+???
+
+3 minutes. Source: main(10).pdf, Discussion sections 7.1–7.4. This is a teaching paraphrase, not a direct quote or updated empirical conclusion. Point out how a plausible account remains conditional. Students should similarly separate observed patterns from explanations they cannot identify.
+
+---
+
+# A limitation states a consequence
+
+**Specific issue:** the sample includes only observed communicators.
+
+**Consequence:** the association may not generalize to non-communicators, and selection may affect interpretation.
+
+This is more useful than “the sample is limited.”
+
+For your study, connect each important weakness to the claim it restricts.
+
+**Template:** “Because we sampled only ..., our finding may not apply to ... .” Name the missing group, period or setting.
+
+???
+
+2 minutes. The CBDC example comes from its stated sample restrictions and limitations. Other student examples include convenience surveys, few annual observations, inconsistent poverty measures, translation and coding decisions, or restricted access. Do not claim that a larger sample alone removes confounding.
+
+---
+
+# An uncertain result still supports a paper
+
+A null, imprecise or mixed finding can answer a carefully scoped question.
+
+Report what you observed and the range of interpretations the evidence permits.
+
+For qualitative work, show disagreement, exceptions and competing readings where they matter.
+
+Success depends on a defensible study and honest reasoning, not on obtaining significance or your preferred answer.
+
+**Example:** if a confidence interval includes both a small decrease and an increase, report that range instead of declaring “no effect.”
+
+???
+
+2 minutes. Connect the CBDC uncertainty example to course expectations. An interval including zero is not proof of exact equality. A weak design cannot be rescued by a small p-value. A modest transparent analysis is preferable to adding unsupported complexity at the end.
+
+---
+
+# The conclusion closes the question
+
+A concise conclusion can state:
+
+- the question and your main bounded answer
+
+- the contribution relative to the literature
+
+- a proportionate implication
+
+- the most useful next research step, if needed
+
+Check that the answer matches the question in the introduction and the evidence in Results.
+
+**Final sentence test:** a reader should understand your answer even if they see only your research question and conclusion.
+
+???
+
+2 minutes. Avoid broad policy recommendations that the design cannot support. “Further research is needed” is not an answer. Students can combine Conclusion and Discussion in a short paper if their distinct functions remain identifiable and course requirements are covered.
+
+---
+
+class: small
+
+# Paragraph roles — pairs, 4 minutes
+
+**Teaching paraphrases from the CBDC study:**
+
+A. Individual associations do not survive the planned family-wide adjustment.
+
+B. Public discussion may reflect unresolved institutional conditions.
+
+C. Restricting the sample to observed communicators limits generalization.
+
+D. The study offers bounded evidence on narrative composition and recorded progression, without establishing a causal communication effect.
+
+Assign **Results, Discussion, Limitations, Conclusion** and explain your choices.
+
+???
+
+4 minutes: 2 pairs, 2 feedback. Intended mapping A Results, B Discussion, C Limitations, D Conclusion. Some sentences can function in more than one section, but their role depends on context. Explain each role rather than insist on rigid placement. All are adapted for teaching from the inspected draft; none is a direct quotation.
+
+---
+
+class: inverse, center, middle
+
+# 5. Integrating the draft and preparing for Thursday
+
+
+
+???
+
+Transition only. Time is included in the next content block.
+
+---
+
+# Writing order can differ from reading order
+
+A practical route now:
+
+- assemble your current evidence and Results
+
+- write Data and Methods to match what you actually did
+
+- develop Discussion, limitations and conclusion
+
+- revise the introduction and literature bridge to match the study
+
+Then read the whole paper in its intended order and repair inconsistencies.
+
+**Example:** if the Methods use 2020–2024 data, an earlier Introduction that promises 2015–2024 must be corrected.
+
+???
+
+2 minutes. This is a useful workflow, not a mandatory universal writing order. Reuse and revise earlier assignments rather than pasting them unchanged. Preserve the research question, units, key terms and claim strength across sections. A reverse outline with one sentence per paragraph reveals repetition and gaps.
+
+---
+
+# Your existing tools can support the draft
+
+**Word + Zotero:** use heading styles, inspect the heading structure, insert linked citations, and refresh the bibliography.
+
+**Overleaf:** keep section structure and citation keys consistent, then recompile and inspect the PDF.
+
+**Colab/Jupyter or qualitative records:** preserve the evidence behind reported outputs.
+
+Choose the workflow you can use reliably. This week’s task does not require changing software.
+
+???
+
+2 minutes. Official guidance: Microsoft heading styles and Navigation Pane; Zotero Add/Edit Citation, Add/Edit Bibliography and Refresh; Overleaf bibliography documentation. Keep one authoritative draft and versioned backups. Avoid manually retyping numbers from screenshots. No new paid software or account is required.
+
+---
+
+# A final coherence check has concrete questions
+
+- Does the same question run through all sections?
+
+- Do Data and Methods explain every main result?
+
+- Do the text, tables, figures and sample counts agree?
+
+- Does each citation support the attached claim?
+
+- Are uncertainty, limitations and AI use visible?
+
+If AI helped edit a paragraph, verify that it did not strengthen the claim or add unsupported content.
+
+**Trace one claim:** find the sentence in your paper, the supporting table or excerpt, and the underlying source. If a link breaks, revise the sentence.
+
+???
+
+2 minutes. Students remain responsible for every claim and source. AI can help identify unclear wording or repetition where permitted, but it cannot supply missing empirical evidence. Disclose actual use according to the assignment policy. Do not upload sensitive interviews or private material to an unapproved service.
+
+---
+
+# Your integration priority — 2 minutes
+
+Open your current draft or outline.
+
+Name **one connection** that needs work:
+
+question–literature, literature–method, method–result, or result–interpretation.
+
+Write the concrete change you will make first on Thursday.
+
+???
+
+2 minutes. This is an actionable planning note that feeds the workshop, not another exit ticket or separate new assignment. Ask students who lack evidence to prioritize a feasible result and consult the instructor.
+
+---
+
+# Preparation for Thursday
+
+Bring:
+
+- one editable document with all main section headings
+
+- your actual tables, figures, coded evidence and supporting files
+
+- source/reference records and the code or audit trail
+
+- your main revision priority
+
+Missing work should be clearly marked **pending**, with a specific action. Never fill a gap with invented evidence.
+
+???
+
+2 minutes. The workshop develops a complete draft. A heading alone is not substantive final content. Temporary pending markers support honest drafting; remove or resolve them before the final submission. Existing official submission and final-presentation instructions continue to apply.
+
+---
+
+class: inverse, center, middle
+
+# Thursday: Full-draft workshop
+
+
+
+???
+
+Transition only. Time is included in the next content block.
+
+---
+
+# Agenda
+
+**Thursday — Meeting 2: your project, 75 minutes**
+
+1. Open and prioritize
+
+2. Assemble the full draft
+
+3. Check the argument and evidence
+
+4. Structured peer review
+
+5. Revise and check reproducibility
+
+6. Prepare and rehearse the presentation
+
+7. Save a revision plan
+
+???
+
+Orientation is included in the first five minutes. Total 5+15+10+15+15+10+5=75. Use the accompanying workshop pack. There is no new coding lab. Students work on their own projects throughout, with brief instructions shown as each block begins.
+
+---
+
+# 1. Open and prioritize — 5 minutes
+
+Save a new dated version of your draft.
+
+Open the main evidence and supporting files beside it.
+
+Record your research question and one priority.
+
+**Ready:** evidence and sections exist.
+
+**Partly ready:** identify the missing link.
+
+**Blocked:** identify the missing evidence and consult me early.
+
+**Example priority:** “My Results use 42 observations, but Data says 48; I will trace the six exclusions first.”
+
+???
+
+5 minutes. Use the first minute to orient students to the schedule. The status check helps prioritize consultations and is not a grade. A blocked student should assemble existing honest content and choose a feasible next analytical step rather than draft invented findings.
+
+---
+
+# 2. Assemble the complete draft — 15 minutes
+
+Work individually in your main document.
+
+Place existing material under the appropriate headings. Give each section substantive content.
+
+Write short bridges between sections and remove proposal-only wording that no longer fits.
+
+Use a precise pending marker for unresolved items.
+
+I will circulate for short consultations.
+
+**Bridge example:** “The literature suggests a relationship between access and use. The next section explains how this study measures both.”
+
+???
+
+15 minutes. Reuse work from the question memo, literature synthesis, data documentation and analysis. Encourage the simplest coherent scope. Do not polish page design while substantive sections are empty. A quantitative and a qualitative student can use different subsection structures while covering all required functions.
+
+---
+
+# 3. Check the argument and evidence — 10 minutes
+
+Use **one central result** from your project.
+
+Trace it to the question, literature motivation, Data and Methods, and Discussion.
+
+Check the reported value or excerpt against its source output.
+
+Write one clear result sentence and one justified limitation.
+
+Fix the most important mismatch you find.
+
+**Example:** if the figure compares groups but the text says a policy *caused* the difference, rewrite the claim to match the design.
+
+???
+
+10 minutes: about 3 to trace the argument, 3 to verify the evidence, and 4 to revise. Use Workshop Pack page 1. If the evidence is not ready, record the gap and concrete action. A result can be a theme or descriptive comparison rather than a regression coefficient.
+
+---
+
+# 4. Structured peer review — 15 minutes
+
+Work in **six pairs** and exchange drafts privately.
+
+- **1 min:** exchange and state the main question
+
+- **6 min:** focused silent review
+
+- **4 min:** feedback, about 2 minutes per author
+
+- **4 min:** clarify and record priorities
+
+Use the review form. Focus on argument and evidence, rather than line-editing every sentence.
+
+During the six-minute reading period, follow one main finding backward to its data and method, then forward to its interpretation.
+
+???
+
+15 minutes. During silent review, scan section structure and inspect one central result, its method and its interpretation. A complete line-by-line review is not feasible in six minutes. Use specific locations and actionable comments. No public repository upload is required.
+
+---
+
+# Feedback should name a location and an action
+
+**Vague:** “Methods needs more detail.”
+
+**Actionable:** “In the Data section, distinguish the number of countries from the number of country–period observations used in Table 1.”
+
+For your partner, record:
+
+- one strength to preserve
+
+- the most important issue
+
+- a specific revision and its location
+
+???
+
+This guidance is included within the 15-minute peer-review block. The sample comment is an illustrative teaching comment based on a real type of repeated-observation design, not a quotation or a claim that the supplied CBDC draft contains this error. Do not request a new population-wide study as a last-week fix.
+
+---
+
+# 5. Revise and check reproducibility — 15 minutes
+
+**First 8 minutes:** revise your highest-priority issue.
+
+**Next 7 minutes:** check the route to one main piece of evidence.
+
+For instance, locate the source rows behind a table or the original excerpts behind a coded theme.
+
+- Numerical work: rerun or trace one key table/figure.
+
+- Qualitative work: trace one theme to real excerpts and coding decisions.
+
+- Text work: trace one measure to documents, codebook and validation.
+
+Record **pass, discrepancy, or blocked**, with evidence.
+
+???
+
+15 minutes. This is a scoped check, not a certification that the entire project reproduces. Where feasible, restart and rerun the relevant analysis from documented inputs. Otherwise record what was not tested and why. Plan the full end-to-end check before final submission. Privacy restrictions may require a reconstruction explanation instead of sharing raw data.
+
+---
+
+# 6. Presentation preparation — 10 minutes
+
+**3 minutes:** outline a short research story:
+
+question, literature/gap, data/method, main evidence, interpretation and limitations.
+
+**6 minutes:** each partner gives a **2-minute rehearsal** and receives **1 minute of feedback**.
+
+**1 minute:** record one change.
+
+The final presentation should cover the complete study. Its official timing and order follow the instructor’s announcement.
+
+???
+
+10 minutes. The two-minute rehearsal is a classroom exercise, not a new final-presentation time limit. Ask for one legible central figure, table or qualitative evidence display. Students should explain the study rather than read the paper aloud. Both partners rehearse within the six minutes.
+
+---
+
+# 7. Save a revision plan — 5 minutes
+
+Save your revised draft and review record.
+
+List up to three priorities in order:
+
+**Must fix before presenting/submitting**
+
+**Useful improvement**
+
+**Optional polish**
+
+For each priority, name the action and the evidence that will show it is complete.
+
+**Example:** “Correct Table 2 sample count; complete when the table, caption and Data section all agree.”
+
+???
+
+5 minutes. Use the same workshop record rather than add an exit ticket. End with a feasible plan for remaining work. Do not invent a submission deadline. A full study includes the literature, design, findings and limits, even when the empirical scope is modest.
+
+---
+
+class: inverse, center, middle
+
+# Appendix: practical writing and checking tools
+
+
+
+???
+
+Transition only. Time is included in the next content block.
+
+---
+
+# A paragraph should perform a clear task
+
+Useful pattern:
+
+**Point:** the claim this paragraph develops.
+
+**Evidence:** a finding, comparison, source or documented excerpt.
+
+**Reasoning:** why that evidence supports the point, within its limits.
+
+**Connection:** how the paragraph advances the section’s argument.
+
+Use this as a diagnostic, not a rigid sentence formula.
+
+???
+
+Optional writing aid. Avoid paragraphs consisting only of quotations, unexplained numbers, or a list of author names. A transition should state the relationship between ideas rather than simply say “Moreover.”
+
+---
+
+# A caption makes evidence understandable
+
+For a table or figure, check:
+
+- a descriptive title
+
+- unit, sample and relevant period/context
+
+- variables, groups or code/theme definitions
+
+- uncertainty or relevant analytic notes
+
+- source and important processing choices
+
+The paper’s text should tell the reader what to notice.
+
+???
+
+Optional. Exact counts must match the analysis actually used in that output. Separate sample N from the number of simulations, folds or theme assignments. A qualitative evidence display should use appropriate de-identification and traceable source IDs.
+
+---
+
+# Word and Zotero: a reliable finishing pass
+
+1. Apply heading styles and inspect the heading structure.
+
+2. Insert/edit citations with Zotero’s Word controls.
+
+3. Correct reference metadata in Zotero where needed.
+
+4. Use **Refresh** and check the bibliography.
+
+5. Export the PDF and inspect tables, figures and page breaks.
+
+Preserve the editable draft and active citation links.
+
+???
+
+Optional practical checklist. Microsoft’s Navigation Pane instructions apply specifically to Word for Windows; other versions differ. Zotero Add/Edit Citation, Add/Edit Bibliography and Refresh are official plugin controls. Do not unlink citation fields in the only editable master. Verify source support independently of citation formatting.
+
+---
+
+# Overleaf: finish the workflow you already use
+
+Keep one main file and a consistent bibliography workflow.
+
+Check that section headings and citation keys are correct.
+
+Recompile and resolve missing references or broken cross-references.
+
+Inspect the resulting PDF, including figure/table placement.
+
+Save the source and the final PDF. Avoid changing templates or bibliography systems just before submission.
+
+???
+
+Optional. Overleaf supports BibTeX, natbib and biblatex workflows. Keep the one already configured. The accompanying writing guide links the official bibliography documentation rather than requiring a new setup. Do not imply that direct Zotero integration is free or necessary.
+
+---
+
+# AI editing still needs an evidence check
+
+A useful editing request can ask for:
+
+“Identify unclear links between my question, method and result. Do not add facts, citations, data or stronger claims.”
+
+After editing, compare the revision with the evidence.
+
+Verify every citation and number. Disclose actual use according to the assignment policy.
+
+You must be able to explain the submitted paper.
+
+???
+
+Optional. This is a prompt example, not a guarantee of model compliance. Protect sensitive data. AI can suggest structure and wording but cannot provide missing empirical findings. Keep a record of what changed and how it was checked.
+
+---
+
+class: small
+
+# Teaching examples: inspected sources
+
+**Public Narratives and Institutional Progression: Evidence from Central Bank Digital Currencies**
+
+Working draft dated **October 25, 2026**: introduction, literature organization, narrative measurement, results interpretation and limitations.
+
+**The Central Bank Information Effect**
+
+Baird, Benchimol and Vyshnevskyi. **September 2026** draft: opening puzzle and competing interpretations.
+
+Examples are teaching paraphrases of those versions, not quotations or updates to the research findings.
+
+???
+
+Source records: main(10).pdf, Library ID libfile_a39572d3e2688191b2310530b3d0140f; Pasted text(20260916-061611).txt, ID libfile_26c7ad7bc82881918df93dab4bfd119d. The manuscripts were read for the relevant passages. Full unpublished manuscripts are not bundled with student materials. No protected empirical artifact was changed.
+
+---
+
+# Official software guidance
+
+- Microsoft: [Navigation Pane and heading structure](https://support.microsoft.com/en-us/word/use-the-navigation-pane-in-word)
+
+- Zotero: [Using the Word plugin](https://www.zotero.org/support/word_processor_plugin_usage)
+
+- Overleaf: [Bibliography management](https://www.overleaf.com/learn/latex/Bibliography_management_in_LaTeX)
+
+The workshop pack provides the draft map, peer-review form, scoped evidence check and presentation/revision plan.
+
+???
+
+Official software guidance was checked for the described workflow. Keep instructor deadlines and assessment requirements from the syllabus/LMS; the pack does not create new ones.
+
+renderthis::to_pdf("W14_RMDS.html")
+
+getwd()
+setwd("C:\\Users\\vyshn\\OneDrive - kdis.ac.kr\\Documents\\GitHub\\Sogang\\2026\\Fall\\Research Method of Data Science\\W14")
